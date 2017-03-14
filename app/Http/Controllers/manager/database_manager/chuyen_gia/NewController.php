@@ -41,6 +41,7 @@ class NewController extends Controller
        $chuyen_gia->nam_sinh=$request->nam_sinh;
        $chuyen_gia->chuyen_nganh=$request->chuyen_nganh;
        $chuyen_gia->co_quan=$request->co_quan;
+       $chuyen_gia->dia_chi_co_quan=$request->dia_chi_co_quan;
        $chuyen_gia->huong_nghien_cuu=$request->huong_nghien_cuu;
        $chuyen_gia->Sl_congTrinh_baiBao=$request->so_cong_trinh;
        $chuyen_gia->tinh_thanh=$request->tinh_thanh;

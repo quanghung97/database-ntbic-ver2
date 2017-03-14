@@ -64,6 +64,14 @@ sửa dữ liệu chuyên gia
 						</div>
                       </div>
                       <div class="form-group">
+                        <label class="form-label">Địa chỉ cơ quan</label>
+                        
+                        <div class="input-with-icon  right">                                       
+                          <i class=""></i>
+                          <input type="text" name="dia_chi_co_quan" id="form1Url" class="form-control"">                                 
+                        </div>
+                      </div>
+                      <div class="form-group">
                         <label class="form-label">Hướng nghiên cứu</label>
                         
 						<div >                                       

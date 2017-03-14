@@ -37,6 +37,7 @@ danh sách chuyên gia
                     <th>Năm sinh</th>
                     <th>Chuyên ngành</th>
                     <th>Cơ quan</th>
+                    <th>Địa chỉ cơ quan</th>
                     <th>Nghiên cứu</th>
                     <th>Tỉnh thành</th>
                     <th>Chi tiết</th>
@@ -52,6 +53,7 @@ danh sách chuyên gia
                     <td><div class="chuyen_gia_inf">{{$cg->nam_sinh}}</div></td>
                     <td><div class="chuyen_gia_inf"> {{$cg->chuyen_nganh}}</div></td>
                     <td><div class="chuyen_gia_inf">{{$cg->co_quan}}</div></td>
+                    <td><div class="chuyen_gia_inf">{{$cg->dia_chi_co_quan}}</div></td>
                     <td><div class="chuyen_gia_inf">{!!$cg->huong_nghien_cuu!!}</div></td>
                     <td><div class="chuyen_gia_inf">{{$cg->tinh_thanh}}</div></td>
                     <td><a href="{{ URL::asset('chuyen-gia/'.$cg->linkid) }}"><span class="fa fa-road"></span></a></td>

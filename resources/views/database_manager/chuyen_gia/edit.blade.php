@@ -50,20 +50,28 @@ sửa dữ liệu chuyên gia
                       </div>
                       <div class="form-group">
                         <label class="form-label">Chuyên ngành</label>
-            <div class="input-with-icon  right">   <div class="input-with-icon  right">                                       
-              <i class=""></i>
-              <input type="text" name="chuyen_nganh" id="form1Url" class="form-control" value="{{$chuyen_gia->chuyen_nganh}}"> 
-            </div>                                    
-            </div>
+                        <div class="input-with-icon  right">                                       
+                          <i class=""></i>
+                          <input type="text" name="chuyen_nganh" id="form1Url" class="form-control" value="{{$chuyen_gia->chuyen_nganh}}">                                     
+                        </div>
                       </div>
                       <div class="form-group">
                         <label class="form-label">Cơ quan</label>
                         
-            <div class="input-with-icon  right">                                       
-              <i class=""></i>
-              <input type="text" name="co_quan" id="form1Url" class="form-control" value="{{$chuyen_gia->co_quan}}">                                 
-            </div>
+                        <div class="input-with-icon  right">                                       
+                          <i class=""></i>
+                          <input type="text" name="co_quan" id="form1Url" class="form-control" value="{{$chuyen_gia->co_quan}}">                                 
+                        </div>
                       </div>
+                      <div class="form-group">
+                        <label class="form-label">Địa chỉ cơ quan</label>
+                        
+                        <div class="input-with-icon  right">                                       
+                          <i class=""></i>
+                          <input type="text" name="dia_chi_co_quan" id="form1Url" class="form-control" value="{{$chuyen_gia->dia_chi_co_quan}}">                                 
+                        </div>
+                      </div>
+
             <div class="form-group">
                         <label class="form-label">Hướng nghiên cứu</label>
                         
