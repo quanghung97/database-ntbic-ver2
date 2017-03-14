@@ -13,33 +13,110 @@ class NewController extends Controller
 {
      public function index()
     {
-    	return view('database_manager.san_pham.new');
+        $linh_vuc = linh_vuc_san_pham::all();
+    	return view('database_manager.san_pham.new')->with(['linh_vuc'=>$linh_vuc]);;
     }
     public function new_action(Request $request)
     {
-       $ten_san_pham = $request->ten_san_pham;
-        $linh_vuc = $request->linh_vuc;
-        $dac_diem_noi_bat = $request->dac_diem_noi_bat;
-        $mo_ta_chung = $request->mo_ta_chung;
-        $quy_trinh_chuyen_giao = $request->quy_trinh_chuyen_giao;
-        $kha_nang_ung_dung = $request->kha_nang_ung_dung;
-        $link = $request->link;
+        $entry = new san_pham;
         
-    //file ảnh ko rõ 
-        $anh_san_pham = $request->anh_san_pham;
+       $entry->ten_san_pham = $request->ten_san_pham;
+        $entry->linh_vuc = $request->linh_vuc;
+        $entry->dac_diem_noi_bat = $request->dac_diem_noi_bat;
+        $entry->mo_ta_chung = $request->mo_ta_chung;
+        $entry->quy_trinh_chuyen_giao = $request->quy_trinh_chuyen_giao;
+        $entry->kha_nang_ung_dung = $request->kha_nang_ung_dung;
+        $entry->link = '';
+        $entry->anh_san_pham = '';
+        $entry->save();
+
+        $link = $this->text_to_link($entry->id.'-'.$entry->ten_san_pham);
+          $entry->link = substr($link,0,45);
+          $entry->save();
         
         
-        if($ten_san_pham != ""){
-            san_pham::insert(
-                ['link' => $link, 'ten_san_pham' => $ten_san_pham, 'linh_vuc' => $linh_vuc, 'dac_diem_noi_bat' => $dac_diem_noi_bat, 'mo_ta_chung' => $mo_ta_chung, 'quy_trinh_chuyen_giao' => $quy_trinh_chuyen_giao, 'kha_nang_ung_dung' => $kha_nang_ung_dung]
-            );
-            return redirect()->route('san-pham');//có thể truyền thêm biến báo thành công 
-        }
-        else 
-            return redirect()->route('san-pham');//truyenf thêm biến báo lỗi tùy biến
+         if($request->hasFile('logo')) {
+               $logo = $request->file('logo');
+               $logo_name = $entry->link.'.'.$logo->getClientOriginalExtension();
+               $entry->anh_san_pham = '/storage/app/public/media/spkhcn/'.$logo_name;
+               $logo->move('/storage/app/public/media/spkhcn', $logo_name);
+          } else $entry->anh_san_pham = '/storage/app/public/media/spkhcn/default.jpg';
+          $entry->save();
+
+            return redirect()->route('san-pham');
+        
+        
        
          
         
         
     }
+    public function text_to_link($string){
+        $current_char = array(
+        "â","ấ","ầ","ậ","ẩ","ẫ",
+        "é","è","ẽ","ẹ","ẻ",
+        "ê","ế","ề","ể","ệ","ễ",
+        "ă","ắ","ằ","ẳ","ặ","ẵ",
+        "á","à","ả","ạ","ã",
+        "đ",
+        "ý","ỳ","ỵ","ỷ","ỹ",
+        "ú","ù","ụ","ũ","ủ",
+        "ư","ứ","ừ","ử","ữ","ự",
+        "í","ì","ị","ỉ","ĩ",
+        "ó","ò","õ","ọ","ỏ",
+        "ô","ố","ồ","ộ","ổ","ỗ",
+        "ơ","ở","ợ","ờ","ỡ","ớ",
+        " ",
+        "Â","Ấ","Ầ","Ậ","Ẩ","Ẫ",
+        "É","È","Ẽ","Ẹ","Ẻ",
+        "Ê","Ế","Ề","Ẻ","Ệ","Ễ",
+        "Ă","Ă","Ằ","Ẳ","Ặ","Ẵ",
+        "Á","À","Ả","Ạ","Ã",
+        "Đ",
+        "Ý","Ỳ","Ỵ","Ỷ","Ỹ",
+        "Ú","Ù","Ụ","Ũ","Ủ",
+        "Ư","Ứ","Ừ","Ử","Ự","Ữ",
+        "Í","Ì","Ị","Ỉ","Ĩ",
+        "Ó","Ò","Õ","Ọ","Ỏ",
+        "Ô","Ố","Ồ","Ộ","Ổ","Ỗ",
+        "Ơ","Ở","Ợ","Ờ","Ỡ","Ớ");
+    $new_char = array(
+        "a","a","a","a","a","a",
+        "e","e","e","e","e",
+        "e","e","e","e","e","e",
+        "a","a","a","a","a","a",
+        "a","a","a","a","a",
+        "d",
+        "y","y","y","y","y",
+        "u","u","u","u","u",
+        "u","u","u","u","u","u",
+        "i","i","i","i","i",
+        "o","o","o","o","o",
+        "o","o","o","o","o","o",
+        "o","o","o","o","o","o",
+        "-",
+        "a","a","a","a","a","a",
+        "e","e","e","e","e",
+        "e","e","e","e","e","e",
+        "a","a","a","a","a","a",
+        "a","a","a","a","a",
+        "d",
+        "y","y","y","y","y",
+        "u","u","u","u","u",
+        "u","u","u","u","u","u",
+        "i","i","i","i","i",
+        "o","o","o","o","o",
+        "o","o","o","o","o","o",
+        "o","o","o","o","o","o");
+
+    $new = str_replace($current_char,$new_char,$string);
+    $new = strtolower($new);
+    $length = strlen($new);
+    for($i = 0; $i < $length; $i++){
+        $ascii =  ord($new[$i]);
+           if(!($ascii < 123 && $ascii > 96 || $ascii > 47 && $ascii < 58 || $new[$i] == '-')){
+               $new[$i] = '-';
+           }
+    }
+}
 }

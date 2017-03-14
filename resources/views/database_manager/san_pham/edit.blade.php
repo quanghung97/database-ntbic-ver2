@@ -16,9 +16,17 @@
 @section('main')
 <div class="form-group">
   <h4 class="form-title">SỬA DỮ LIỆU SẢN PHẨM </h4>
-  
+  @if (count($errors) > 0)
+	    <div class="alert alert-danger">
+	        <ul>
+	            @foreach ($errors->all() as $error)
+	                <li>{{ $error }}</li>
+	            @endforeach
+	        </ul>
+	    </div>
+	@endif
     <div class="grid simple">
-        <form id="form_iconic_validation" action="{{route('sua-san-pham')}}" method="post">
+        <form id="form_iconic_validation" action="{{route('sua-san-pham')}}" method="post" enctype="multipart/form-data">
                      <input type="hidden" name="_token" value="{{ csrf_token() }}">
                      <input type="hidden" name="id" value="{{ $datas->id }}">
                       <div class="form-group">
@@ -26,7 +34,7 @@
                         
             <div class="input-with-icon  right">                                       
               <i class=""></i>
-              <input type="text" name="ten_san_pham" id="form1Name" class="form-control" placeholder="{{$datas->ten_san_pham}}">                                 
+              <input type="text" name="ten_san_pham" id="form1Name" class="form-control" value="{{$datas->ten_san_pham}}">                                 
             </div>
                       </div>
                       <div class="form-group">
@@ -34,15 +42,14 @@
                         
             <div class="input-with-icon  right">                                       
               <i class=""></i>
-               <select name="linh_vuc" id="gendericonic" class="select2 form-control"  >
-                         <option value="1">Công nghệ thông tin và truyền thông</option>
-                          <option value="2">Công nghệ sinh học</option>
-                          <option value="3">Công nghệ vật liệu mới</option>
-                          <option value="4">Công nghệ chế tạo máy - tự động ...</option>
-                          <option value="5">Công nghệ môi trường</option>
-                          <option value="6">Công nghệ năng lượng mới</option>
-                          <option value="7">Công nghệ vũ trụ</option>
-                          <option value="8">Công nghệ khác</option>
+               <select name="linh_vuc" id="gendericonic" class="select2 form-control">
+                          @foreach($linh_vuc as $item)
+                          	@if($item->id == $datas->linh_vuc)
+                          		<option value="{{$item->id}}" selected="selected">{{$item->linh_vuc}}</option>
+                          	@else
+                          		<option value="{{$item->id}}">{{$item->linh_vuc}}</option>
+                          	@endif
+                          @endforeach
                         </select>
             </div>
                       </div>
@@ -51,22 +58,19 @@
                         
             <div class="input-with-icon  right">                                       
               <i class=""></i>
-              <input type="text" name="dac_diem_noi_bat" id="form1Url" class="form-control" placeholder="{{$datas->dac_diem_noi_bat}}"> 
+              <input type="text" name="dac_diem_noi_bat" id="form1Url" class="form-control" value="{{$datas->dac_diem_noi_bat}}"> 
             </div>
                       </div>
                       <div class="form-group">
                         <label class="form-label">Mô tả chung</label>
-            <div class="input-with-icon  right">                                       
-               <i class=""></i>
-              <input type="text" name="mo_ta_chung" id="form1Url" class="form-control" placeholder="{{$datas->mo_ta_chung}}"> 
-            </div>
+           <textarea name="mo_ta_chung" id="" >{{$datas->mo_ta_chung}}</textarea>
                       </div>
                       <div class="form-group">
                         <label class="form-label">Quy trình chuyển giao</label>
                         
             <div class="input-with-icon  right">                                       
               <i class=""></i>
-              <input type="text" name="quy_trinh_chuyen_giao" id="form1Url" class="form-control" placeholder="{{$datas->quy_trinh_chuyen_giao}}">                                 
+              <input type="text" name="quy_trinh_chuyen_giao" id="form1Url" class="form-control" value="{{$datas->quy_trinh_chuyen_giao}}">                                 
             </div>
                       </div>
                       <div class="form-group">
@@ -74,20 +78,14 @@
                         
             <div class="input-with-icon  right">                                       
               <i class=""></i>
-              <input type="text" name="kha_nang_ung_dung" id="form1Url" class="form-control" placeholder="{{$datas->kha_nang_ung_dung}}">                                 
+              <input type="text" name="kha_nang_ung_dung" id="form1Url" class="form-control" value="{{$datas->kha_nang_ung_dung}}">                                 
             </div>
           </div>
+          
            <div class="form-group">
-                        <label class="form-label">LinkURL</label>
-                        
-            <div class="input-with-icon  right">                                       
-              <i class=""></i>
-              <input type="text" name="link" id="form1Url" class="form-control" placeholder="{{$datas->link}}">                                 
-            </div>
-          </div>
-           <div class=" form-group">
             <span class="form-label">Chọn file ảnh upload</span>
-                <input name="anh_san_pham" type="file" multiple />
+             
+                <input type="file" name="logo">
           </div>  
           <div class="form-actions">  
           <div class="pull-right">
