@@ -45,7 +45,7 @@ class EditController extends Controller
 
         $validator = Validator::make($request->all(), $rules,$messages);
         if ($validator->fails()) {
-            return Redirect::to('quan-tri-vien/quan-ly-du-lieu/de-tai-du-an-cac-cap/tao-moi')->withInput()->withErrors($validator);
+            return Redirect::to('quan-tri-vien/quan-ly-du-lieu/de-tai-du-an-cac-cap/sua/'.$id)->withInput()->withErrors($validator);
         }
         else {
         	de_tai_du_an_cac_cap::where('id',$id)->update([
