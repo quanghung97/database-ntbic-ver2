@@ -15,89 +15,119 @@
 
 @section('main')
 <div class="form-group">
-	<h4 class="form-title">THÊM CHUYÊN GIA</h4>
-	
-		<div class="grid simple">
-				<form id="form_iconic_validation" action="#">
-					<textarea name="">CHỈ CẦN DÙNG THẺ TEXTAREA TRONG HTML LÀ SẼ HIỆN RA CÁI NÀY</textarea>
-                      <div class="form-group">
-                        <label class="form-label">Tên chuyên gia</label>
-                        
-						<div class="input-with-icon  right">                                       
-							<i class=""></i>
-							<input type="text" name="form1Name" id="form1Name" class="form-control">                                 
-						</div>
-                      </div>
-                      <div class="form-group">
-                        <label class="form-label">Học vị</label>
-                        
-						<div class="input-with-icon  right">                                       
-							<i class=""></i>
-							<input type="text" name="form1Email" id="form1Email" class="form-control">                                 
-						</div>
-                      </div>
-                      <div class="form-group">
-                        <label class="form-label">Năm sinh</label>
-                        
-						<div class="input-with-icon  right">                                       
-							<i class=""></i>
-							<input type="text" name="form1Url" id="form1Url" class="form-control"> 
-						</div>
-                      </div>
-                      <div class="form-group">
-                        <label class="form-label">Chuyên ngành</label>
-						<div class="input-with-icon  right">                                       
-							<i class=""></i>
-							 <select name="gendericonic" id="gendericonic" class="select2 form-control"  >
-                          <option value="1">Male</option>
-                          <option value="2">Female</option>
-                        </select>
-						</div>
-                      </div>
-                      <div class="form-group">
-                        <label class="form-label">Cơ quan</label>
-                        
-						<div class="input-with-icon  right">                                       
-							<i class=""></i>
-							<input type="text" name="form1Url" id="form1Url" class="form-control">                                 
-						</div>
-                      </div>
-                      <div class="form-group">
-                        <label class="form-label">Hướng nghiên cứu</label>
-                        
-						<div class="input-with-icon  right">                                       
-							<i class=""></i>
-							<input type="text" name="form1Url" id="form1Url" class="form-control">                                 
-						</div>
-                      </div>
-                      <div class="form-group">
-                        <label class="form-label">Số công trình đã báo cáo</label>
-                        
-						<div class="input-with-icon  right">                                       
-							<i class=""></i>
-							<input type="text" name="form1Url" id="form1Url" class="form-control">                                 
-						</div>
-                      </div>
-                      <div class="form-group">
-                        <label class="form-label">Tỉnh thành</label>
-                        
-						<div class="input-with-icon  right">                                       
-							<i class=""></i>
-							<input type="text" name="form1Url" id="form1Url" class="form-control">                                 
-						</div>
-                      </div> 
+  <h4 class="form-title">THÊM DỮ LIỆU PHÁT MINH</h4>
+  
+    <div class="grid simple">
+        <form id="form_iconic_validation" method="POST" enctype="multipart/form-data">
+        
             <div class="form-group">
-				<span class="form-label">Chọn file ảnh upload</span>
-		        <input name="file" type="file" multiple />
-		    </div>            
-				  <div class="form-actions">  
-					<div class="pull-right">
-					  <button type="submit" class="btn btn-success btn-cons"><i class="icon-ok"></i> Save</button>
-					  <button type="button" class="btn btn-white btn-cons">Cancel</button>
-					</div>
-					</div>
-				</form>
-			</div>
+              <label class="form-label">Tên phát minh</label><span class="error">(*)</span>
+              <p class="error">{{$errors->first('ten')}}</p>
+              <div class="input-with-icon  right">                                       
+                <i class=""></i>
+                <input type="text" name="ten" id="form1Name" class="form-control" value="{{old('ten')}}">                                 
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Số bằng - Ký hiệu</label><span class="error">(*)</span>
+              <p class="error">{{$errors->first('sobang_kyhieu')}}</p>
+              <div class="input-with-icon  right">                                       
+                <i class=""></i>
+                <input type="text" name="sobang_kyhieu" id="form1Name" class="form-control" value="{{old('sobang_kyhieu')}}">                                 
+              </div>
+            </div>      
+            <div class="form-group">
+              <label class="form-label">Ngày công bố</label><span class="error">(*)</span>
+              <p class="error">{{$errors->first('ngay_cong_bo')}}</p>
+              <div class="input-with-icon  right">                                       
+                <i class=""></i>
+                <input type="text" name="ngay_cong_bo" id="form1Name" class="form-control" value="{{old('ngay_cong_bo')}}">                                 
+              </div>
+            </div>    
+            <div class="form-group">
+              <label class="form-label">Ngày cấp</label><span class="error">(*)</span>
+              <p class="error">{{$errors->first('ngay_cap')}}</p>
+              <div class="input-with-icon  right">                                       
+                <i class=""></i>
+                <input type="text" name="ngay_cap" id="form1Name" class="form-control" value="{{old('ngay_cap')}}">                                 
+              </div>
+            </div> 
+            <div class="form-group">
+              <label class="form-label">Chủ sở hữu chính</label><span class="error">(*)</span>
+              <p class="error">{{$errors->first('chu_so_huu_chinh')}}</p>
+              <div class="input-with-icon  right">                                       
+                <i class=""></i>
+                <input type="text" name="chu_so_huu_chinh" id="form1Name" class="form-control" value="{{old('chu_so_huu_chinh')}}">                                 
+              </div>
+            </div> 
+            <div class="form-group">
+              <label class="form-label">Tác giả</label><span class="error">(*)</span>
+              <p class="error">{{$errors->first('tac_gia')}}</p>
+              <div class="input-with-icon  right">                                       
+                <i class=""></i>
+                <input type="text" name="tac_gia" id="form1Name" class="form-control" value="{{old('tac_gia')}}">                                 
+              </div>
+            </div> 
+            <div class="form-group">
+              <label class="form-label">Điểm nổi bật</label>
+              <div class="input-with-icon  right">                                       
+                <i class=""></i>
+                <input type="text" name="diem_noi_bat" id="form1Name" class="form-control" value="{{old('diem_noi_bat')}}">                                 
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Mô tả sáng chế phát minh và giải pháp</label>
+              <div class="input-with-icon  right">                                       
+                <i class=""></i>
+                <input type="text" name="mota_sangche_phatminh_giaiphap" id="form1Name" class="form-control" value="{{old('mota_sangche_phatminh_giaiphap')}}">                                 
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Nội dung có thể chuyển giao</label>
+              <div class="input-with-icon  right">                                       
+                <i class=""></i>
+                <input type="text" name="noidung_cothe_chuyengiao" id="form1Name" class="form-control" value="{{old('noidung_cothe_chuyengiao')}}">                                 
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Thị trường và ứng dụng</label>
+              <div class="input-with-icon  right">                                       
+                <i class=""></i>
+                <input type="text" name="thitruong_ungdung" id="form1Name" class="form-control" value="{{old('thitruong_ungdung')}}">                                 
+              </div>
+            </div>          
+            <div class="form-group">
+              <label class="form-label">Hình ảnh minh họa</label>
+              <div class="input-with-icon  right">                                       
+                <i class=""></i>
+                <input type="text" name="hinh_anh_minh_hoa" id="form1Name" class="form-control" value="{{old('hinh_anh_minh_hoa')}}">                                 
+              </div>
+            </div>
+           <div class="form-group">
+              <label class="form-label">Lĩnh vực khoa học công nghệ</label><span class="error">(*)</span>
+              <p class="error">{{$errors->first('linh_vuc_khcn')}}</p>
+              <div class="input-with-icon  right">                                       
+                <i class=""></i>
+                <input type="text" name="linh_vuc_khcn" id="form1Name" class="form-control" value="{{old('linh_vuc_khcn')}}">                                 
+              </div>
+            </div> 
+            <div class="form-group">
+              <label class="form-label">Loại phát minh sáng chê</label><span class="error">(*)</span>
+              <p class="error">{{$errors->first('loai_phat_minh_sang_che')}}</p>
+              <div class="input-with-icon  right">                                       
+                <i class=""></i>
+                <input type="text" name="loai_phat_minh_sang_che" id="form1Name" class="form-control" value="{{old('loai_phat_minh_sang_che')}}">                                 
+              </div>
+            </div> 
+          <div class="form-actions">  
+          <div class="pull-right">
+            <button type="submit" class="btn btn-success btn-cons"><i class="icon-ok"></i> Save</button>
+            <button type="button" class="btn btn-white btn-cons">Cancel</button>
+          </div>
+          </div>
+          <input type="text" name="_token" value="{{CSRF_TOKEN()}}" hidden>
+        </form>
+      </div>
 </div>
 @endsection
 
