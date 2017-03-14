@@ -8,6 +8,7 @@ use App\san_pham;
 use App\linh_vuc_san_pham;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class EditController extends Controller
 {
@@ -46,7 +47,7 @@ class EditController extends Controller
              
                $logo_name = $entry->link.'.'.$logo->getClientOriginalExtension();
                $entry->anh_san_pham = '/storage/app/public/media/spkhcn/'.$logo_name;
-               $logo->move('/storage/app/public/media/spkhcn', $logo_name);
+               $logo->move('/storage/app/public/media/spkhcn/', $logo_name);
           } else $entry->anh_san_pham = '/storage/app/public/media/spkhcn/default.jpg';
           $entry->save();
         

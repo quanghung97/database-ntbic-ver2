@@ -85,7 +85,7 @@
            <div class="form-group">
             <span class="form-label">Chọn file ảnh upload</span>
              
-                <input type="file" name="logo">
+                <input type="file" name="logo" multiple />
           </div>  
           <div class="form-actions">  
           <div class="pull-right">

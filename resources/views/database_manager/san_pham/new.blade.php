@@ -26,7 +26,7 @@
 	    </div>
 	@endif
 		<div class="grid simple">
-				<form id="form_iconic_validation" action="{{route('tao-san-pham')}}" method="post">
+				<form id="form_iconic_validation" action="{{route('tao-san-pham')}}" method="post" enctype="multipart/form-data">
 				 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 					
                       <div class="form-group">
@@ -34,7 +34,7 @@
                         
 						<div class="input-with-icon  right">                                       
 							<i class=""></i>
-							<input type="text" name="ten_san_pham" id="form1Name" class="form-control">                                 
+							<input type="text" name="ten_san_pham" id="form1Name" class="form-control">                    
 						</div>
                       </div>
                       <div class="form-group">

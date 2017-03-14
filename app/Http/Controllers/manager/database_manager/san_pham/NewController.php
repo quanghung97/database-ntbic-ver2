@@ -8,6 +8,7 @@ use App\san_pham;
 use App\linh_vuc_san_pham;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class NewController extends Controller
 {
@@ -33,26 +34,19 @@ class NewController extends Controller
         $link = $this->text_to_link($entry->id.'-'.$entry->ten_san_pham);
           $entry->link = substr($link,0,45);
           $entry->save();
-        
-        
-         if($request->hasFile('logo')) {
+       
+        if($request->hasFile('logo')) {
                $logo = $request->file('logo');
                $logo_name = $entry->link.'.'.$logo->getClientOriginalExtension();
                $entry->anh_san_pham = '/storage/app/public/media/spkhcn/'.$logo_name;
-               $logo->move('/storage/app/public/media/spkhcn', $logo_name);
+               $logo->move('/storage/app/public/media/spkhcn/', $logo_name);
           } else $entry->anh_san_pham = '/storage/app/public/media/spkhcn/default.jpg';
           $entry->save();
 
-            return redirect()->route('san-pham');
-        
-        
-       
-         
-        
-        
+         return redirect()->route('san-pham');
     }
-    public function text_to_link($string){
-        $current_char = array(
+ public function text_to_link($string){
+    $current_char = array(
         "â","ấ","ầ","ậ","ẩ","ẫ",
         "é","è","ẽ","ẹ","ẻ",
         "ê","ế","ề","ể","ệ","ễ",
@@ -118,5 +112,11 @@ class NewController extends Controller
                $new[$i] = '-';
            }
     }
+    $new= ltrim($new,'-');
+    $new = rtrim($new,'-');
+    while(strpos($new,'--') != false){
+        $new = str_replace("--","-",$new);
+    }
+    return $new;
 }
 }
