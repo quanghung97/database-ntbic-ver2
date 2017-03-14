@@ -39,6 +39,7 @@ danh sách chuyên gia
                     <th>Cơ quan</th>
                     <th>Nghiên cứu</th>
                     <th>Tỉnh thành</th>
+                    <th>Chi tiết</th>
                     <th></th>
                     <th></th>
                   </tr>
@@ -53,6 +54,7 @@ danh sách chuyên gia
                     <td><div class="chuyen_gia_inf">{{$cg->co_quan}}</div></td>
                     <td><div class="chuyen_gia_inf">{!!$cg->huong_nghien_cuu!!}</div></td>
                     <td><div class="chuyen_gia_inf">{{$cg->tinh_thanh}}</div></td>
+                    <td><a href="{{ URL::asset('chuyen-gia/'.$cg->linkid) }}"><span class="fa fa-road"></span></a></td>
                     <td><div class="chuyen_gia_inf"><a href="{{URL::asset('quan-tri-vien/quan-ly-du-lieu/chuyen-gia/sua/'.$cg->id)}} "><span class="fa fa-pencil-square"></span></a></div></td>
                     <td><div class="chuyen_gia_inf" delete-modal" data-toggle="modal" data-target="#delete-modal{{$cg->id}}"><span class="fa fa-trash-o"></span></a></div></td>
                     <div id="delete-modal{{$cg->id}}" class="modal fade" role="dialog">
