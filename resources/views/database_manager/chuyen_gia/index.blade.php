@@ -16,6 +16,11 @@
 danh sách chuyên gia
 @endsection
 @section('main')
+  @if(Session::has('success'))
+ 
+  <div class="alert alert-success">{{session::get('success')}}</div>
+   
+  @endif
   <div class="row-fluid">
     <div class="span12">
       <a href="{{URL::asset('quan-tri-vien/quan-ly-du-lieu/chuyen-gia/tao-moi')}}" class="add-btn btn btn-primary"><span class="fa fa-pencil"></span>&nbsp;&nbsp;Thêm chuyên gia</a>
@@ -110,16 +115,8 @@ danh sách chuyên gia
 <script src="/webarch/webarch/HTML/assets/js/chat.js" type="text/javascript"></script>
 <script src="/webarch/webarch/HTML/assets/js/demo.js" type="text/javascript"></script>
 <script type="text/javascript">
-  $(function () {
-    $("#example").DataTable();
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false
-    });
+  $(window).load(function(){ 
+    $(".alert-success").delay(3000).fadeOut();
   });
 </script>
 @endsection

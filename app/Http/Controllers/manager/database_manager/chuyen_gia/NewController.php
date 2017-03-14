@@ -62,6 +62,7 @@ class NewController extends Controller
        		echo "not";
        }
        $chuyen_gia1->save();
+       $request->session()->put('success', 'Thêm thành công một chuyen gia');
        return redirect()->route('chuyen_gia');
     }
 }

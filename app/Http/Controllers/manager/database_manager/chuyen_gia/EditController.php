@@ -52,6 +52,7 @@ class EditController extends Controller
        		$chuyen_gia->link_anh='/storage/app/public/media/profile_khcn/'.$text.'.jpg';
        }
        $chuyen_gia->save();
+       $request->session()->flash('success', 'Sửa thành công dữ liệu chuyên gia');
        return redirect()->route('chuyen_gia');
     }
 }

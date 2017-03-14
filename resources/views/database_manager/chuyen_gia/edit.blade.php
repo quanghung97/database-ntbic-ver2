@@ -18,17 +18,24 @@ sửa dữ liệu chuyên gia
 @section('main')
 <div class="form-group">
   <h4 class="form-title">SỬA DỮ LIỆU CHUYÊN GIA</h4>
-  
+    @if (count($errors) > 0)
+      <div class="alert alert-danger">
+          <ul>
+              @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+              @endforeach
+          </ul>
+      </div>
+    @endif
     <div class="grid simple">
         <form id="form_iconic_validation" action="{{URL::asset('quan-tri-vien/quan-ly-du-lieu/chuyen-gia/sua/'.$chuyen_gia->id)}}" method="post"  enctype="multipart/form-data">
           {{csrf_field()}}
                       <div class="form-group">
-                        <label class="form-label">Tên chuyên gia</label>
+                        <label class="form-label">Tên chuyên gia*</label>
                         
             <div class="input-with-icon  right">                                       
               <i class=""></i>
-              <input type="text" name="ten" id="form1Name" class="form-control" value="{{$chuyen_gia->ho_va_ten}}">
-              {!!$errors->first('ten')!!}                                 
+              <input type="text" name="ten" id="form1Name" class="form-control" value="{{$chuyen_gia->ho_va_ten}}">                              
             </div>
                       </div>
                       <div class="form-group">
@@ -40,12 +47,11 @@ sửa dữ liệu chuyên gia
             </div>
                       </div>
                       <div class="form-group">
-                        <label class="form-label">Năm sinh</label>
+                        <label class="form-label">Năm sinh *</label>
                         
             <div class="input-with-icon  right">                                       
               <i class=""></i>
               <input type="text" name="nam_sinh" id="form1Url" class="form-control" value="{{$chuyen_gia->nam_sinh}}">
-              {!!$errors->first('nam_sinh')!!} 
             </div>
                       </div>
                       <div class="form-group">
