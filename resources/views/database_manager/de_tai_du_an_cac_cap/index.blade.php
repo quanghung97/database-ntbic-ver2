@@ -19,7 +19,12 @@
       <button class="add-btn btn btn-success"><span class="fa fa-pencil"></span>&nbsp;&nbsp;Thêm đề tài dự án các cấp</button></a>
     </div>
   </div>
-  
+  @if (session('status'))
+    <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+        {{ session('status') }}
+    </div>
+@endif
   <div class="row-fluid">
     <div class="span12">
         <div class="grid simple ">

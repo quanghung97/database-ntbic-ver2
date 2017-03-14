@@ -61,7 +61,8 @@ class EditController extends Controller
         		'mota_quytrinh_chuyengiao' => $mota_quytrinh_chuyengiao,
         		'ket_qua_thuc_hien_ung_dung' => $ket_qua_thuc_hien_ung_dung,
         		]);
-        	return Redirect::to('quan-tri-vien/quan-ly-du-lieu/de-tai-du-an-cac-cap');
+
+        	return Redirect::to('quan-tri-vien/quan-ly-du-lieu/de-tai-du-an-cac-cap')->with('status', 'Sửa thành công một đề tài dự án!');
         }
 	}
 }

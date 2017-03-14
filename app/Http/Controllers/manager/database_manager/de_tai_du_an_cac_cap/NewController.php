@@ -57,14 +57,15 @@ class NewController extends Controller
         		'chuyen_nganh_khcn' => $chuyen_nganh_khcn,
         		'nam_bat_dau' => $nam_bat_dau,
         		'nam_ket_thuc' => $nam_ket_thuc,
-        		'co_quan' => $chu_nhiem_detai,
+        		'co_quan' => $co_quan,
+                'chu_nhiem_detai' => $chu_nhiem_detai,
         		'diem_noi_bat' => $diem_noi_bat,
         		'mota_chung' => $mota_chung,
         		'mota_quytrinh_chuyengiao' => $mota_quytrinh_chuyengiao,
         		'ket_qua_thuc_hien_ung_dung' => $ket_qua_thuc_hien_ung_dung,
         		'link' => $link
         		]);
-        	return Redirect::to('quan-tri-vien/quan-ly-du-lieu/de-tai-du-an-cac-cap');
+        	return Redirect::to('quan-tri-vien/quan-ly-du-lieu/de-tai-du-an-cac-cap')->with('status', 'Thêm thành công một đề tài dự án!');
         }
     }
     

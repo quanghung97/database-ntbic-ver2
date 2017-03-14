@@ -16,6 +16,6 @@ class DeleteController extends Controller
      	$id = $request->id;
     	$rel=de_tai_du_an_cac_cap::find($id);
     	$rel->delete();
-    	return Redirect::to('quan-tri-vien/quan-ly-du-lieu/de-tai-du-an-cac-cap');
+    	return Redirect::to('quan-tri-vien/quan-ly-du-lieu/de-tai-du-an-cac-cap')->with('status', 'Xóa thành công một đề tài dự án!');
     }
 }
