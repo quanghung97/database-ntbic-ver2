@@ -11,12 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+
 include_once 'backend/search_result.php';
 include_once 'backend/detail.php';
 include_once 'backend/admin.php';
+Route::get('/', function () {
+    return view('home');
+});
 Route::post('app/get_captcha',function(){
 	return json_encode(Captcha::src());
 });

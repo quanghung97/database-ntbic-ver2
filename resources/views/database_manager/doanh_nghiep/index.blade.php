@@ -15,7 +15,7 @@
 @section('main')
   <div class="row-fluid">
     <div class="span12">
-      <button class="add-btn btn btn-success"><span class="fa fa-pencil"></span>&nbsp;&nbsp;Thêm chuyên gia</button>
+      <a class="add-btn btn btn-success" href="{!! url('quan-tri-vien/quan-ly-du-lieu/doanh-nghiep/tao-moi') !!}"><span class="fa fa-pencil"></span>&nbsp;&nbsp;Thêm chuyên gia</a>
     </div>
   </div>
   <div class="row-fluid">

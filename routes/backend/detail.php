@@ -1,4 +1,3 @@
-
 <?php
 
 Route::group(['prefix'=>'de-tai-du-an-cac-cap'], function(){

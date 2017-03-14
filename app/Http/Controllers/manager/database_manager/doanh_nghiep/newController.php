@@ -44,6 +44,9 @@ class NewController extends Controller
      	$entry->van_phong_dai_dien = $request->van_phong_dai_dien;
      	$entry->so_quyet_dinh_khcn = $request->so_quyet_dinh;
 
+          $d = str_replace('/', '-', $request->thoi_gian_dang_ky_khcn);
+          $entry->thoi_gian_dang_ky_khcn = date('Y-m-d', strtotime($d));
+
      	$entry->noi_cap_chung_nhan_khcn = $request->noi_cap;
      	$entry->xep_hang_trinh_do_khcn = $request->xep_hang_trinh_do;
      	$entry->huong_nghien_cuu_khcn = $request->huong_nghien_cuu_khcn;
@@ -63,6 +66,8 @@ class NewController extends Controller
                $logo->move('storage/app/public/media/doanh-nghiep', $logo_name);
           } else $entry->logo = 'storage/app/public/media/doanh-nghiep/default.jpg';
           $entry->save();
+
+          return redirect('quan-tri-vien/quan-ly-du-lieu/doanh-nghiep');
      }
 
      public function text_to_link($string){
