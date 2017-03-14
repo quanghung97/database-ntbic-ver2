@@ -8,7 +8,6 @@ use Validator;
 use Illuminate\Support\Facades\Redirect;
 use App\de_tai_du_an_cac_cap;
 use Illuminate\Support\Facades\Input;
-use Laracasts\Flash\FlashServiceProvider;
 
 
 class NewController extends Controller
@@ -65,8 +64,6 @@ class NewController extends Controller
         		'ket_qua_thuc_hien_ung_dung' => $ket_qua_thuc_hien_ung_dung,
         		'link' => $link
         		]);
-        	$request->session()->flash('alert', 'Thêm thành công một đề tài dự án');
-        	flash('Thêm thành công một đề tài dự án', 'success');
         	return Redirect::to('quan-tri-vien/quan-ly-du-lieu/de-tai-du-an-cac-cap');
         }
     }

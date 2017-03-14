@@ -8,7 +8,6 @@ use Validator;
 use Illuminate\Support\Facades\Redirect;
 use App\de_tai_du_an_cac_cap;
 use Illuminate\Support\Facades\Input;
-use Laracasts\Flash\FlashServiceProvider;
 use DB;
 
 
@@ -62,8 +61,6 @@ class EditController extends Controller
         		'mota_quytrinh_chuyengiao' => $mota_quytrinh_chuyengiao,
         		'ket_qua_thuc_hien_ung_dung' => $ket_qua_thuc_hien_ung_dung,
         		]);
-        	$request->session()->flash('alert', 'Sửa thành công một đề tài dự án');
-        	flash('Sửa thành công một đề tài dự án', 'success');
         	return Redirect::to('quan-tri-vien/quan-ly-du-lieu/de-tai-du-an-cac-cap');
         }
 	}

@@ -19,15 +19,6 @@
       <button class="add-btn btn btn-success"><span class="fa fa-pencil"></span>&nbsp;&nbsp;Thêm đề tài dự án các cấp</button></a>
     </div>
   </div>
-  <div class="content-wrapper">
-    @if (session()->has('flash_notification.message'))
-                <div class="alert alert-{{ session('flash_notification.level') }}">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-
-                    {!! session('flash_notification.message') !!}
-                </div>
-              @endif
-  </div>
   
   <div class="row-fluid">
     <div class="span12">
@@ -79,9 +70,7 @@
       </div>
 @endsection
 
-<script>
-$('div.alert').delay(300).fadeOut(350);
-</script>
+
 
 @section('script')
 <script src="/webarch/webarch/HTML/assets/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
