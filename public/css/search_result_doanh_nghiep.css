@@ -1,0 +1,51 @@
+.search_result_doanh_nghiep .head-dataTable{
+	background-color: #f2f2f2;
+}
+#doanh-nghiep{
+	border-bottom: 3px solid green;
+	color:green;
+}
+
+.search_result_doanh_nghiep select{
+	max-width: 165px
+}
+.search_result_doanh_nghiep #myTable td{
+	border: 0.2px solid #f2f2f2;
+	word-wrap: break-word;
+}
+.search_result_doanh_nghiep #myTable th{
+	border: 0.2px solid #f2f2f2;
+}
+.search_result_doanh_nghiep .ten_doanh_nghiep{
+	color: #3b5998;
+	font-weight: bold;
+}
+.search_result_doanh_nghiep .div-content{
+	margin-bottom: 15px;
+	margin-top:30px 
+}
+.search_result_doanh_nghiep .logo_doanh_nghiep{
+	max-height: 65px;
+	max-width: auto;
+}
+.search_result_doanh_nghiep .no{
+	width: 5%;
+}
+.search_result_doanh_nghiep .anh_logo{
+	width: 10%;
+}
+.search_result_doanh_nghiep .name{
+	width: 20%;
+}
+.search_result_doanh_nghiep .tru_so{
+	width: 25%;
+}
+.search_result_doanh_nghiep .linh_vuc{
+	width: 20%;
+}
+.search_result_doanh_nghiep .tinh_thanh{
+	width: 15%;
+}
+.search_result_doanh_nghiep .rank{
+	width: 5%
+}

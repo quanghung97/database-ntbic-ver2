@@ -1,0 +1,49 @@
+.search_result_chuyen_gia .head-dataTable{
+	background-color: #f2f2f2;
+}
+#chuyen-gia{
+	border-bottom: 3px solid green;
+	color:green;
+}
+
+.search_result_chuyen_gia select, option{
+	max-width: 165px
+}
+
+.search_result_chuyen_gia #myTable td{
+	border: 0.1px solid #f2f2f2;
+	word-wrap: break-word;
+}
+.search_result_chuyen_gia #myTable th{
+	border: 0.2px solid #f2f2f2;
+}
+.search_result_chuyen_gia .ten_chuyen_gia{
+	color: #3b5998;
+	font-weight: bold;
+}
+.search_result_chuyen_gia .div-content{
+	margin-bottom: 15px;
+	margin-top:30px 
+}
+.search_result_chuyen_gia .anh_chuyen_gia{
+	max-height: 65px;
+	max-width: auto;
+}
+.search_result_chuyen_gia .no{
+	width: 5%;
+}
+.search_result_chuyen_gia .anh{
+	width: 10%;
+}
+.search_result_chuyen_gia .name{
+	width: 20%;
+}
+.search_result_chuyen_gia .co_quan{
+	width: 25%;
+}
+.search_result_chuyen_gia .linh_vuc{
+	width: 25%;
+}
+.search_result_chuyen_gia .tinh_thanh{
+	width: 15%;
+}

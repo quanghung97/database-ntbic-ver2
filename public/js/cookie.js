@@ -1,0 +1,1 @@
+$.cookie("backurl",$(location).attr("href"));

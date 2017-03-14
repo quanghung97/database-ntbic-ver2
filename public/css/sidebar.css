@@ -1,0 +1,20 @@
+.div-sidebar{
+	border: 0.2px solid #f2f2f2;
+	margin-left: 10px; 
+	margin-top: 20px; 
+}
+.div-sidebar ul{
+	margin: 0;
+	padding: 0
+}
+.sidebar-item{
+	padding-right: 5px;
+	padding-left: 5px
+}
+.div-sidebar h5{
+	background-color: #f2f2f2;
+	margin-top: 0;
+	padding: 5px;
+	font-weight: bold;
+	text-align: center;
+}

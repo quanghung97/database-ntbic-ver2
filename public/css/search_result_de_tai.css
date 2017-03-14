@@ -1,0 +1,44 @@
+.search_result_de_tai_du_an_cac_cap .head-dataTable{
+	background-color: #f2f2f2;
+}
+#de-tai{
+	border-bottom: 3px solid green;
+	color:green;
+}
+
+.search_result_de_tai_du_an_cac_cap select{
+	max-width: 165px
+}
+.search_result_de_tai_du_an_cac_cap #myTable td{
+	border: 0.2px solid #f2f2f2;
+	word-wrap: break-word;
+}
+.search_result_de_tai_du_an_cac_cap #myTable th{
+	border: 0.2px solid #f2f2f2;
+}
+.search_result_de_tai_du_an_cac_cap .ten_de_tai{
+	color: #3b5998;
+	font-weight: bold;
+}
+.search_result_de_tai_du_an_cac_cap .div-content{
+	margin-bottom: 15px;
+	margin-top:30px 
+}
+.search_result_de_tai_du_an_cac_cap .no{
+	width: 5%;
+}
+.search_result_de_tai_du_an_cac_cap .name{
+	width: 25%;
+}
+.search_result_de_tai_du_an_cac_cap .linh_vuc{
+	width: 20%;
+}
+.search_result_de_tai_du_an_cac_cap .ma_so{
+	width: 15%;
+}
+.search_result_de_tai_du_an_cac_cap .tac_gia{
+	width: 20%;
+}
+.search_result_de_tai_du_an_cac_cap .thoi_gian{
+	width: 15%;
+}

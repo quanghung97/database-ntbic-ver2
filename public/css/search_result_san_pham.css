@@ -1,0 +1,55 @@
+.search_result_san_pham .head-dataTable{
+	background-color: #f2f2f2;
+}
+
+#san-pham{
+	border-bottom: 3px solid green;
+	color:green;
+}
+.search_result_san_pham select{
+	max-width: 165px
+}
+
+.search_result_san_pham #myTable td{
+	border: 0.2px solid #f2f2f2;
+}
+.search_result_san_pham .collapse-div{
+	display: inline-block;
+	overflow-y: hidden;
+	word-wrap: auto;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 3; 
+	-webkit-box-orient: vertical;
+}
+
+.search_result_san_pham #myTable th{
+	border: 0.2px solid #f2f2f2;
+}
+.search_result_san_pham .ten_san_pham{
+	color: #3b5998;
+	font-weight: bold;
+}
+.search_result_san_pham .div-content{
+	margin-bottom: 15px;
+	margin-top:30px 
+}
+.search_result_san_pham .anh_san_pham{
+	max-height: 65px;
+	max-width: auto;
+}
+.search_result_san_pham .no{
+	width: 5%;
+}
+.search_result_san_pham .anh{
+	width: 10%;
+}
+.search_result_san_pham .name{
+	width: 25%;
+}
+.search_result_san_pham .ung_dung{
+	width: 35%;
+}
+.search_result_san_pham .linh_vuc{
+	width: 25%;
+}

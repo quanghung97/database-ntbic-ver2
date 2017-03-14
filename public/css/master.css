@@ -1,0 +1,169 @@
+* {
+	font-family: Arial, Helvetica, sans-serif;
+}
+#myNavbar a:visited{
+	background-color: #3b5998
+}
+#myNavbar a{
+	color: white
+}
+#myNavbar a:hover{
+	text-decoration: none;
+	background-color: #3b5998;
+	font-weight: bold
+}
+.page-navbar{
+	background-color: #032875;
+	opacity: 0.8;
+	padding-left:15px;
+	border-bottom: 5px solid white;
+}
+.orange-text{
+	color: orange;
+	font-weight: bold;
+}
+.page-footer{
+	background-color: #bfbfbf;
+	width:100%;
+	padding-left:20px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.menu-hidden-btn{
+	color: white;
+}
+.filter-row{
+	margin: 0;
+	padding: 0;
+}
+.filter-row a{
+	color: black;
+	text-decoration: none;
+}
+.filter-row a:hover{
+	text-decoration: none;
+	color:green;
+}
+.filter{
+	margin-bottom: 10px;
+	padding-top: 5px;
+	border-bottom: 0.2px solid #f2f2f2
+}
+.logo{
+	font-weight: bold;
+	font-size: 25px;
+	color: white
+}
+.sidebar-list{
+	list-style: none
+}
+.sidebar-item{
+	margin-bottom: 10px
+}
+.sidebar-item-info{
+	margin:0;
+	padding:0;
+}
+.list-search-filter{
+	margin: 0;
+	padding:0;
+}
+.list-search-filter li{
+	display: inline;
+	margin-right:10px;
+	font-size: 17px;
+	margin-bottom: 0;
+	padding:0;
+}
+.list-search-filter li a {
+	font-family: 'Roboto Condensed' !important;
+	font-size: 18px;
+}
+hr {
+	margin: 0;
+	margin-bottom: 5px;
+	margin-top: 5px
+}
+.search-form{
+	margin: 0;
+	padding:0;
+}
+
+.search-area{
+	margin-top:20px;
+	margin-bottom: 10px;
+	margin-left: 0;
+	padding: 0  
+}
+.input-group-btn {
+	background-color: #3b5998;
+	padding-left: 1px;
+	padding-right: 1px; 
+}
+.btn-search-home a{
+	background-color: #3b5998;
+	color: white !important;
+	padding-left: 5px;
+	padding-right: 5px; 
+}
+.submit-button{
+	background-color: #3b5998;
+	color: white;
+}
+.submit-button:hover {
+	background-color: #3b5998;
+	color: white;
+}
+.div-footer a{
+	color:white;
+}
+.div-footer a:hover{
+	color: #3b5998
+}
+.div-footer{
+	background-color:#0a1429;
+	line-height: 1.7;
+	padding-top: 40px;
+	padding-bottom: 30px;
+}
+.display-block{
+	color: white
+}
+
+.search-info {
+	background-color: #7D7D7D;
+	color: white;
+	padding: 15px 0 15px 15px;
+	font-size: 1.2em;
+}
+
+.search-info a {
+	color: white;
+	font-weight: bold;
+}
+#myTable {
+	margin-bottom: 20px;
+	border: 1px solid #CFCFCF;
+}
+
+select, option {
+	width: auto;
+	font-family: 'Roboto Condensed';
+}
+
+h2 {
+	font-family: 'Roboto Condensed';
+	text-align: center;
+	font-size: 30px;
+	font-weight: bold;
+	padding: 10px 30px 10px 30px;
+}
+
+h3 {
+	font-family: 'Roboto Condensed';
+}
+
+#search_home a {
+	font-weight: bold;
+	font-size: 16px;
+}

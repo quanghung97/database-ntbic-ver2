@@ -1,0 +1,40 @@
+/* #all{
+	border-bottom: 3px solid green;
+	color: green;
+}
+.item-title{
+	font-weight: bold;
+	color: #3b5998
+}
+.item-link{
+	color: green;
+	text-decoration: none;
+}
+.list-topic{
+	list-style: none;
+	margin: 0;
+	padding: 0
+}
+.directory{
+	margin-left: 10px;
+	margin-right: 10px
+}
+.filter-name{
+	font-weight: bold
+}
+.see-more{
+	color: #3b5998;
+}
+.search-info{
+	margin-top: 15px;
+	margin-bottom: 0
+} */
+#chuyen-gia, #de-tai, #doanh-nghiep, #san-pham, #bang-phat-minh {
+	border: none;
+	color: black;
+}
+
+#tat-ca {
+	border-bottom: 3px solid green;
+	color:green;
+}

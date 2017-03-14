@@ -1,0 +1,28 @@
+.form-group{
+	background-color: white;
+	padding:5px;
+	margin: 20px
+}
+.form-title{
+	color: blue;
+	font-weight: bold;
+	text-align: center;
+}
+.form-action{
+	width: 100%
+}
+.form-label{
+	font-weight: bold;
+}
+.add-btn{
+	margin: 5px
+}
+.chuyen_gia_inf{
+	display: inline-block;
+	overflow-y: hidden;
+	word-wrap: auto;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 4; 
+	-webkit-box-orient: vertical;
+}

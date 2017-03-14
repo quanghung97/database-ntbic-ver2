@@ -1,0 +1,43 @@
+.search_result_phat_minh .head-dataTable{
+	background-color: #f2f2f2;
+}
+#bang-phat-minh{
+	border-bottom: 3px solid green;
+	color:green;
+}
+.search_result_phat_minh select{
+	max-width: 165px
+}
+.search_result_phat_minh #myTable td{
+	border: 0.2px solid #f2f2f2;
+	word-wrap: break-word;
+}
+.search_result_phat_minh #myTable th{
+	border: 0.2px solid #f2f2f2;
+}
+.search_result_phat_minh .ten_bang_phat_minh{
+	color: #3b5998;
+	font-weight: bold;
+}
+.search_result_phat_minh .div-content{
+	margin-bottom: 15px;
+	margin-top:30px 
+}
+.search_result_phat_minh .no{
+	width: 5%;
+}
+.search_result_phat_minh .name{
+	width: 30%;
+}
+.search_result_phat_minh .so_hieu{
+	width: 10%;
+}
+.search_result_phat_minh .linh_vuc{
+	width: 20%;
+}
+.search_result_phat_minh .tac_gia{
+	width: 20%;
+}
+.search_result_phat_minh .date{
+	width: 15%;
+}

@@ -1,0 +1,54 @@
+@media only screen {
+  .congnghe {
+    display: none;
+  }
+  .doitac {
+    display: none;
+  }
+  .tintuc {
+    display: none;
+  }
+}
+
+
+@media only screen and (max-width: 992px){
+  #thongtin1{
+      display: none;
+  }
+   #thongtin2{
+      display: none;
+  }
+   #thongtin3{
+      display: none;
+  }
+   #thongtin4{
+      display: none;
+  }
+
+}
+@media only screen and (max-width: 750px){
+  #timkiem {
+    display: none;
+  }
+}
+@media only screen and (max-width: 644px){
+  #timkiem {
+    display: none;
+  }
+  #nangcao{
+    display: none;
+  }
+  .dropdown-menu{
+    font-size: 12px;
+  }
+}
+@media only screen and (max-width: 420px) {
+  .dropdown-menu{
+    font-size: 10px;
+  }
+}
+@media only screen and (max-width: 376px) {
+  .dropdown-menu{
+    font-size: 8px;
+  }
+}
