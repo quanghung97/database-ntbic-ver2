@@ -54,13 +54,13 @@ class NewController extends Controller
 
        if($request->hasFile('file-anh')){
        		$request->file('file-anh')->move('C:\xampp\htdocs\ntbic_data\storage\app\public\media',$text.'.jpg',$text.'.jpg');
-       		$chuyen_gia1->$link_anh='/storage/app/public/media/profile_khcn/'.$text.'.jpg';
+       		$chuyen_gia1->link_anh='/storage/app/public/media/profile_khcn/'.$text.'.jpg';
        }
        else{
        		$chuyen_gia1->link_anh='/storage/app/public/media/profile_khcn/default.jpg';
        		echo "not";
        }
-       //$chuyen_gia1->save();
-       //return redirect()->route('chuyen_gia');
+       $chuyen_gia1->save();
+       return redirect()->route('chuyen_gia');
     }
 }

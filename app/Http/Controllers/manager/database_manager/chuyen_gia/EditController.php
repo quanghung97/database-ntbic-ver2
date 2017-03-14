@@ -44,11 +44,11 @@ class EditController extends Controller
        $chuyen_gia->tinh_thanh=$request->tinh_thanh;
        $text=$this->stripVN($request->ten).'-'.$id.'-'.str_replace("/", "", $request->nam_sinh);
        $chuyen_gia->linkid=$text;
-       if(Input::hasFile('file_anh')){
+       if($request->hasFile('file_anh')){
        		$request->file('file_anh')->move('/storage/app/public/media/test',$text.'.jpg',
        			$text.'.jpg'
        			);
-       		$chuyen_gia->$link_anh='/storage/app/public/media/profile_khcn/'.$text.'.jpg';
+       		$chuyen_gia->link_anh='/storage/app/public/media/profile_khcn/'.$text.'.jpg';
        }
        $chuyen_gia->save();
        return redirect()->route('chuyen_gia');

@@ -12,13 +12,15 @@
 <!-- END CSS TEMPLATE -->
 <link rel="stylesheet" type="text/css" href="/public/css/admin_chuyen_gia.css">
 @endsection
-
+@section('name_page')
+sửa dữ liệu chuyên gia
+@endsection
 @section('main')
 <div class="form-group">
   <h4 class="form-title">SỬA DỮ LIỆU CHUYÊN GIA</h4>
   
     <div class="grid simple">
-        <form id="form_iconic_validation" action="{{URL::asset('quan-tri-vien/quan-ly-du-lieu/chuyen-gia/sua/'.$chuyen_gia->id)}}" method="post">
+        <form id="form_iconic_validation" action="{{URL::asset('quan-tri-vien/quan-ly-du-lieu/chuyen-gia/sua/'.$chuyen_gia->id)}}" method="post"  enctype="multipart/form-data">
           {{csrf_field()}}
                       <div class="form-group">
                         <label class="form-label">Tên chuyên gia</label>
@@ -88,7 +90,7 @@
                       </div> 
             <div class="form-group">
         <span class="form-label">Chọn file ảnh upload</span>
-            <input name="file-anh" type="file" multiple />
+            <input name="file_anh" type="file" multiple />
         </div>            
           <div class="form-actions">  
           <div class="pull-right">

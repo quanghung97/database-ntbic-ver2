@@ -12,6 +12,9 @@
 <!-- END CSS TEMPLATE -->
 <link rel="stylesheet" type="text/css" href="/public/css/admin_chuyen_gia.css">
 @endsection
+@section('name_page')
+danh sách chuyên gia
+@endsection
 @section('main')
   <div class="row-fluid">
     <div class="span12">
@@ -22,7 +25,7 @@
     <div class="span12">
         <div class="grid simple ">
             <div class="grid-title">
-              <h4>Table <span class="semi-bold">Styles</span></h4>
+              <h4>Bảng <span class="semi-bold">Chuyên gia khoa học công nghệ</span></h4>
               <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="#grid-config" data-toggle="modal" class="config"></a> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
             </div>
             <div class="grid-body ">
@@ -51,7 +54,23 @@
                     <td><div class="chuyen_gia_inf">{!!$cg->huong_nghien_cuu!!}</div></td>
                     <td><div class="chuyen_gia_inf">{{$cg->tinh_thanh}}</div></td>
                     <td><div class="chuyen_gia_inf"><a href="{{URL::asset('quan-tri-vien/quan-ly-du-lieu/chuyen-gia/sua/'.$cg->id)}} "><span class="fa fa-pencil-square"></span></a></div></td>
-                    <td><div class="chuyen_gia_inf"><a href="{{URL::asset('quan-tri-vien/quan-ly-du-lieu/chuyen-gia/xoa/'.$cg->id)}} "><span class="fa fa-trash-o"></span></a></div></td>
+                    <td><div class="chuyen_gia_inf" delete-modal" data-toggle="modal" data-target="#delete-modal{{$cg->id}}"><span class="fa fa-trash-o"></span></a></div></td>
+                    <div id="delete-modal{{$cg->id}}" class="modal fade" role="dialog">
+                      <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Xóa chuyên gia đã chọn?</h4>
+                          </div>
+                          <div class="modal-footer">
+                            <a href="{{URL::asset('quan-tri-vien/quan-ly-du-lieu/chuyen-gia/xoa/'.$cg->id)}} " type="submit" class="btn btn-primary" id="submit-delete">Xóa</a>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </tr>
                   @endforeach
                 </tbody>
@@ -61,6 +80,9 @@
           </div>
         </div>
       </div>
+
+
+
 @endsection
 
 @section('script')

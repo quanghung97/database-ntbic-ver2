@@ -12,13 +12,15 @@
 <!-- END CSS TEMPLATE -->
 <link rel="stylesheet" type="text/css" href="/public/css/admin_chuyen_gia.css">
 @endsection
-
+@section('name_page')
+sửa dữ liệu chuyên gia
+@endsection
 @section('main')
 <div class="form-group">
 	<h4 class="form-title">THÊM CHUYÊN GIA</h4>
 	
 		<div class="grid simple">
-				<form id="form_iconic_validation" action="{{route('them_chuyen_gia')}}" method="post">
+				<form id="form_iconic_validation" action="{{route('them_chuyen_gia')}}" method="post" enctype="multipart/form-data">
 					{{csrf_field()}}
                       <div class="form-group">
                         <label class="form-label">Tên chuyên gia</label>
