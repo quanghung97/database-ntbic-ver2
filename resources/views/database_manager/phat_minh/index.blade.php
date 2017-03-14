@@ -15,7 +15,7 @@
 @section('main')
   <div class="row-fluid">
     <div class="span12">
-      <button class="add-btn btn btn-success"><span class="fa fa-pencil"></span>&nbsp;&nbsp;Thêm chuyên gia</button>
+      <a href="{{URL::asset('quan-tri-vien/quan-ly-du-lieu/phat-minh/tao-moi')}}" class="add-btn btn btn-primary"><span class="fa fa-pencil"></span>&nbsp;&nbsp;Thêm phát minh</a>
     </div>
   </div>
   <div class="row-fluid">
@@ -29,35 +29,35 @@
               <table class="table table-hover" id="example" >
                 <thead>
                   <tr>
-                    <th>Tên chuyên gia</th>
-                    <th>Học vị</th>
-                    <th>Chuyên ngành</th>
-                    <th>Cơ quan</th>
-                    <th>Tỉnh thành</th>
-                    <th>Năm sinh</th>
-                    <th>Nghiên cứu</th>
+                    <th>STT</th>
+                    <th>Tên</th>
+                    <th>Số bằng - Ký hiệu</th>
+                    <th>Ngày công bố</th>
+                    <th>Ngày cấp</th>
+                    <th>Chủ sở hữu</th>
+                    <th>Điểm nổi bật</th>
                     <th></th>
                     <th></th>
                   </tr>
                 </thead>
                 <tbody>
-                  @for($i=0;$i<100;$i++)
+                  @foreach($phat_minh as $pm)
                   <tr class="odd gradeX">
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 4.0</td>
-                    <td>Win 95+</td>
-                    <td class="center"> 4</td>
-                    <td class="center">X</td>
-                    <td>17/10/1986</td>
-                    <td>Công nghệ thông tin</td>
-                    <td class="center"><a href="#"><span class="fa fa-pencil-square"></span></a></td>
-                    <td class="center"><a href="#"><span class="fa fa-trash-o"></span></a></td>
+                    <td>{{ $pm->id}}</td>
+                    <td>{{ $pm->ten}}</td>
+                    <td>{{ $pm->sobang_kyhieu}}</td>
+                    <td> {{ $pm->ngay_cong_bo}}</td>
+                    <td>{{ $pm->ngay_cap}}</td>
+                    <td>{{ $pm->chu_so_huu_chinh}}</td>
+                    <td>{{ $pm->diem_noi_bat}}</td>
+                    <td class="center"><a href="{!! URL::asset('quan-tri-vien/quan-ly-du-lieu/phat-minh/sua/'.$pm->id) !!}"><span class="fa fa-pencil-square"></span></a></td>
+                    <td class="center"><a href="{!! URL::asset('quan-tri-vien/quan-ly-du-lieu/phat-minh/xoa/'.$pm->id) !!}"><span class="fa fa-trash-o"></span></a></td>
                   </tr>
-                  @endfor
+                  @endforeach
                 </tbody>
               </table>
             </div>
+            {!! $phat_minh->appends(request()->input())->links() !!}
           </div>
         </div>
       </div>
