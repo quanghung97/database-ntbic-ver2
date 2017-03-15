@@ -46,8 +46,8 @@ danh sách chuyên gia
                     <th>Nghiên cứu</th>
                     <th>Tỉnh thành</th>
                     <th>Chi tiết</th>
-                    <th></th>
-                    <th></th>
+                    <th>Sửa</th>
+                    <th>Xóa</th>
                   </tr>
                 </thead>
                 <tbody>

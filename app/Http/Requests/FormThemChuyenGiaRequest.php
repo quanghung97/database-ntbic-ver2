@@ -11,6 +11,11 @@ class FormThemChuyenGiaRequest extends FormRequest
      *
      * @return bool
      */
+    public function response(array $errors){
+
+        return \Redirect::back()->withErrors($errors)->withInput();
+    }
+
     public function authorize()
     {
         return true;
@@ -25,7 +30,9 @@ class FormThemChuyenGiaRequest extends FormRequest
     {
         return [
             'ten'=>'required',
-            'nam_sinh'=>'required'
+            'nam_sinh'=>'required',
+            'hoc_vi'=>'required',
+            'tinh_thanh_pho'=>'required'
         ];
     }
     public function messages()

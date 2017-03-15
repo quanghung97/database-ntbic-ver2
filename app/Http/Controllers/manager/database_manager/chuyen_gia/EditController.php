@@ -3,6 +3,8 @@ namespace App\Http\Controllers\manager\database_manager\chuyen_gia;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\chuyen_gia_khcn;
+use App\hoc_vi;
+use App\tinh_thanh_pho;
 use App\Http\Requests\FormThemChuyenGiaRequest;
 class EditController extends Controller
 {
@@ -28,8 +30,10 @@ class EditController extends Controller
 }
     public function index($id)
     {
+      $hv=hoc_vi::all();
+      $tp=tinh_thanh_pho::all();
     	$cg=chuyen_gia_khcn::find($id);
-    	return view('database_manager.chuyen_gia.edit')->with(['chuyen_gia'=>$cg]);
+    	return view('database_manager.chuyen_gia.edit')->with(['chuyen_gia'=>$cg,'hoc_vi'=>$hv,'tinh_thanh'=>$tp]);
     }
     public function edit_action(FormThemChuyenGiaRequest $request,$id)
     {
@@ -42,7 +46,7 @@ class EditController extends Controller
        $chuyen_gia->dia_chi_co_quan=$request->dia_chi_co_quan;
        $chuyen_gia->huong_nghien_cuu=$request->huong_nghien_cuu;
        $chuyen_gia->Sl_congTrinh_baiBao=$request->so_cong_trinh;
-       $chuyen_gia->tinh_thanh=$request->tinh_thanh;
+       $chuyen_gia->tinh_thanh=$request->tinh_thanh_pho;
        $text=$this->stripVN($request->ten).'-'.$id.'-'.str_replace("/", "", $request->nam_sinh);
        $chuyen_gia->linkid=$text;
        if($request->hasFile('file_anh')){

@@ -40,14 +40,17 @@ sửa dữ liệu chuyên gia
                       </div>
                       <div class="form-group">
                         <label class="form-label">Học vị</label>
-                        
-            <div class="input-with-icon  right">                                       
-              <i class=""></i>
-              <input type="text" name="hoc_vi" id="form1Email" class="form-control" value="{{$chuyen_gia->hoc_vi}}">                                 
-            </div>
+                        <div class="input-with-icon  right">                                       
+                          <i class=""></i>
+                          <select name="hoc_vi" id="hoc_vi" class="select2 form-control"  >
+                                       @foreach($hoc_vi as $item)
+                                      <option value="{{$item->hoc_vi}}">{{$item->hoc_vi}}</option>
+                                      @endforeach
+                                    </select>
+                        </div>
                       </div>
                       <div class="form-group">
-                        <label class="form-label">Năm sinh *</label>
+                        <label class="form-label">Ngày sinh *</label>
                         
             <div class="input-with-icon  right">                                       
               <i class=""></i>
@@ -95,13 +98,16 @@ sửa dữ liệu chuyên gia
             </div>
                       </div>
                       <div class="form-group">
-                        <label class="form-label">Tỉnh thành</label>
-                        
+                        <label class="form-label">Tỉnh/thành phố</label>
             <div class="input-with-icon  right">                                       
               <i class=""></i>
-              <input type="text" name="tinh_thanh" id="form1Url" class="form-control" value="{{$chuyen_gia->tinh_thanh}}">                                 
+              <select name="tinh_thanh_pho" id="tinh_thanh_pho" class="select2 form-control"  >
+                           @foreach($tinh_thanh as $item)
+                          <option value="{{$item->tinh_thanh_pho}}">{{$item->tinh_thanh_pho}}</option>
+                          @endforeach
+                        </select>
             </div>
-                      </div> 
+                      </div>
             <div class="form-group">
         <span class="form-label">Chọn file ảnh upload</span>
             <input name="file_anh" type="file" multiple />

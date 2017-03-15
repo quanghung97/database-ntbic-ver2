@@ -1,6 +1,8 @@
 <?php
 namespace App\Http\Controllers\manager\database_manager\chuyen_gia;
 use App\chuyen_gia_khcn;
+use App\tinh_thanh_pho;
+use App\hoc_vi;
 use App\Http\Requests\FormThemChuyenGiaRequest;
 use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\Controller;
@@ -29,7 +31,9 @@ class NewController extends Controller
 
     public function index()
     {
-    	return view('database_manager.chuyen_gia.new');
+      $hv=hoc_vi::all();
+      $tp=tinh_thanh_pho::all();
+    	return view('database_manager.chuyen_gia.new')->with(['hoc_vi'=>$hv, 'tinh_thanh'=>$tp]);
     }
 
 
@@ -44,7 +48,7 @@ class NewController extends Controller
        $chuyen_gia->dia_chi_co_quan=$request->dia_chi_co_quan;
        $chuyen_gia->huong_nghien_cuu=$request->huong_nghien_cuu;
        $chuyen_gia->Sl_congTrinh_baiBao=$request->so_cong_trinh;
-       $chuyen_gia->tinh_thanh=$request->tinh_thanh;
+       $chuyen_gia->tinh_thanh=$request->tinh_thanh_pho;
        $chuyen_gia->save();
        $id=$chuyen_gia->id;
        $nam_sinh=$chuyen_gia->nam_sinh;
@@ -62,6 +66,7 @@ class NewController extends Controller
        		echo "not";
        }
        $chuyen_gia1->save();
+
        $request->session()->put('success', 'Thêm thành công một chuyen gia');
        return redirect()->route('chuyen_gia');
     }
