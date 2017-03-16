@@ -243,9 +243,9 @@
 				      		{{-- @foreach($chuyen_gia_khcn as $chuyen_gia)
 				            <div class="w3-col l3 m6 w3-margin-bottom">
 							    <span class="span_v">
-							    	<a href="{{ URL::asset('chuyen_gia/'.$chuyen_gia->linkid) }}">
+							    	<a href="{{ URL::asset('chuyen-gia/'.$chuyen_gia->linkid) }}">
 
-									<img src="{{ URL::asset($chuyen_gia->link_anh) }}" class="img1"><br>
+									<img src="{{ URL::asset($chuyen-gia->link_anh) }}" class="img1"><br>
 
 									<strong style="font-size: 15px; padding-top: 5%;padding-left: 12%;">{{ $chuyen_gia->ho_va_ten }}</strong>
 
@@ -260,9 +260,9 @@
 							@endforeach --}}
 				            <div class="w3-col l3 m6 w3-margin-bottom">
 							    <span class="span_v">
-							    	<a href="../chuyen-gia/Nguyen-Lan-Dung-17897-">
+							    	<a href="{{ URL::asset('chuyen-gia/Nguyen-Lan-Dung-17897-') }}">
 
-									<img src="../storage/app/public/media/profile_khcn/Nguyen-Lan-Dung-17897-.jpg" class="img1"><br>
+									<img src="{{ URL::asset('storage/app/public/media/profile_khcn/Nguyen-Lan-Dung-17897-.jpg') }}" class="img1"><br>
 
 									<strong style="font-size: 15px; padding-top: 5%;padding-left: 12%;">GS.TS.Nguyễn Lân Dũng</strong>
 
@@ -277,9 +277,9 @@
 							
 							<div class="w3-col l3 m6 w3-margin-bottom">
 							    <span class="span_v">
-							    	<a href="../chuyen-gia/Ngo-Bao-Chau-17899-">
+							    	<a href="{{ URL::asset('chuyen-gia/Ngo-Bao-Chau-17899-') }}">
 
-									<img src="../storage/app/public/media/profile_khcn/Ngo-Bao-Chau-17899-.jpg" class="img1"><br>
+									<img src="{{ URL::asset('storage/app/public/media/profile_khcn/Ngo-Bao-Chau-17899-.jpg') }}" class="img1"><br>
 
 									<strong style="font-size: 15px; padding-top: 5%;padding-left: 12%;">GS Ngô Bảo Châu</strong>
 
@@ -293,9 +293,9 @@
 							</div>
 						    <div class="w3-col l3 m6 w3-margin-bottom" id="thongtin1">
 						      	<span class="span_v">
-							    	<a href="../chuyen-gia/Luu-Le-Hang-17900-">
+							    	<a href="{{ URL::asset('chuyen-gia/Luu-Le-Hang-17900-') }}">
 
-									<img src="../storage/app/public/media/profile_khcn/Luu-Le-Hang-17900-.jpg" class="img1"><br>
+									<img src="{{ URL::asset('storage/app/public/media/profile_khcn/Luu-Le-Hang-17900-.jpg')}}" class="img1"><br>
 
 									<strong style="font-size: 15px; padding-top: 5%;padding-left: 12%;">TS.Lưu Lệ Hằng</strong>
 
@@ -308,9 +308,9 @@
 						    </div>
 						    <div class="w3-col l3 m6 w3-margin-bottom" id="thongtin2">
 						      	<span class="span_v">
-							    	<a href="../chuyen-gia/Ho-Tu-Bao-5734-">
+							    	<a href="{{ URL::asset('chuyen-gia/Ho-Tu-Bao-5734-') }}">
 
-									<img src="../storage/app/public/media/profile_khcn/default.jpg" class="img1"><br>
+									<img src="{{ URL::asset('storage/app/public/media/profile_khcn/default.jpg') }}" class="img1"><br>
 
 									<strong style="font-size: 15px; padding-top: 5%;padding-left: 12%;">GS.TSKH Hồ Tú Bảo</strong>
 
@@ -328,9 +328,9 @@
 						<div class="item">
 				            <div class="w3-col l3 m6 w3-margin-bottom">
 							    <span class="span_v">
-							    	<a href="../chuyen-gia/dam-Thanh-Son-17901-1991">
+							    	<a href="{{ URL::asset('chuyen-gia/dam-Thanh-Son-17901-1991') }}">
 
-									<img src="../storage/app/public/media/profile_khcn/dam-Thanh-Son-17901-1991.jpg" class="img1"><br>
+									<img src="{{ URL::asset('storage/app/public/media/profile_khcn/dam-Thanh-Son-17901-1991.jpg') }}" class="img1"><br>
 
 									<strong style="font-size: 15px; padding-top: 5%;padding-left: 12%;">GS Đàm Thanh Sơn</strong>
 
@@ -344,9 +344,9 @@
 							</div>
 						    <div class="w3-col l3 m6 w3-margin-bottom" >
 						      	<span class="span_v">
-							    	<a href="../chuyen-gia/Phan-Huy-Le-17896-2321934">
+							    	<a href="{{ URL::asset('chuyen-gia/Phan-Huy-Le-17896-2321934') }}">
 
-									<img src="../storage/app/public/media/profile_khcn/Phan-Huy-Le-17896-2321934.jpg" class="img1"><br>
+									<img src="{{ URL::asset('storage/app/public/media/profile_khcn/Phan-Huy-Le-17896-2321934.jpg') }}" class="img1"><br>
 
 									<strong style="font-size: 15px; padding-top: 5%;padding-left: 12%;">GS.Phan Huy Lê</strong>
 
@@ -360,9 +360,9 @@
 						    </div>
 						    <div class="w3-col l3 m6 w3-margin-bottom" id="thongtin3">
 						      	<span class="span_v">
-							    	<a href="../chuyen-gia/Nguyen-Son-Binh-17902-">
+							    	<a href="{{ URL::asset('chuyen-gia/Nguyen-Son-Binh-17902-')}}">
 
-									<img src="../storage/app/public/media/profile_khcn/Nguyen-Son-Binh-17902-.jpg" class="img1"><br>
+									<img src="{{ URL::asset('storage/app/public/media/profile_khcn/Nguyen-Son-Binh-17902-.jpg') }}" class="img1"><br>
 
 									<strong style="font-size: 15px; padding-top: 5%;padding-left: 12%;">GS.TS Nguyễn Sơn Bình</strong>
 
@@ -376,9 +376,9 @@
 						    </div>
 						     <div class="w3-col l3 m6 w3-margin-bottom" id="thongtin4">
 						      	<span class="span_v">
-							    	<a href="../chuyen-gia/Luu-Le-Hang-17900-">
+							    	<a href="{{ URL::asset('chuyen-gia/Luu-Le-Hang-17900-') }}">
 
-									<img src="../storage/app/public/media/profile_khcn/Luu-Le-Hang-17900-.jpg" class="img1"><br>
+									<img src="{{ URL::asset('storage/app/public/media/profile_khcn/Luu-Le-Hang-17900-.jpg') }}" class="img1"><br>
 
 									<strong style="font-size: 15px; padding-top: 5%;padding-left: 12%;">TS.Lưu Lệ Hằng</strong>
 
