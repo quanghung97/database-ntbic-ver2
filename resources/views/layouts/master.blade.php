@@ -24,10 +24,7 @@
 		    </div>
 		    <div class="collapse navbar-collapse" id="myNavbar">
 		      <ul class="nav navbar-nav navbar-right">
-		      	<li><a href="#">Tra cứu thông tin</a></li>
 		      	<li><a href="#">Hướng dẫn sử dụng</a></li>
-		        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Đăng nhập</a></li>
-		        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Đăng ký</a></li>
 		      </ul>
 		    </div>
 		  </div>
