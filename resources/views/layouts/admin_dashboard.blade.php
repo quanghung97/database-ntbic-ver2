@@ -630,7 +630,14 @@
 <script src="/webarch/webarch/HTML/assets/js/core.js" type="text/javascript"></script>
 <script src="/webarch/webarch/HTML/assets/js/chat.js" type="text/javascript"></script>
 <script src="/webarch/webarch/HTML/assets/js/demo.js" type="text/javascript"></script>
-<script src="{{ URL::asset('public/js/admin/myscript.js') }}" type="text/javascript"></script>
+<script src="/webarch/webarch/HTML/assets/js/demo.js" type="text/javascript"></script>
+<script src="{{ URL::asset('public/js/angular/angular.min.js') }}"></script>
+<script src="{{ URL::asset('public/js/angular/my_angular.js') }}"></script>
+
+<script src="{{ URL::asset('public/js/jquery-3.1.1.min.js') }}"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="{{ URL::asset('public/js/jquery.cookie.js') }}"></script>
+    <script src="{{ URL::asset('public/js/my_script.js') }}"></script>
 {{-- <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script> --}}
 <script type="text/javascript">
     $(document).ready(function () {

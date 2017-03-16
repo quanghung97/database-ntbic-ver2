@@ -15,12 +15,12 @@ class AdminAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        // if (!Auth::guard($guard)->check()) {
-        //     return redirect()->route('login');
-        // }
-        // if(Auth::guard($guard)->user()->author != "admin") {
-        // return redirect()->route('permission_denied');
-        // }
+        if (!Auth::guard($guard)->check()) {
+            return redirect()->route('login');
+        }
+        if(Auth::guard($guard)->user()->author != "admin") {
+        return redirect()->route('permission_denied');
+        }
         return $next($request);
     }
 }

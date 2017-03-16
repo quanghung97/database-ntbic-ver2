@@ -15,13 +15,16 @@
 include_once 'backend/search_result.php';
 include_once 'backend/detail.php';
 include_once 'backend/admin.php';
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/','HomeController@index')->name('home');
 Route::post('app/get_captcha',function(){
 	return json_encode(Captcha::src());
 });
-
 Route::get('abc',function(){
-	 return Captcha::img();
+	 return bcrypt('123456');
 });
+Route::get('404-error', function(){
+	return view('errors.404');
+})->name('404');
+Route::get('permission_denied', function(){
+	return view('errors.permission_denied');
+})->name('permission_denied');

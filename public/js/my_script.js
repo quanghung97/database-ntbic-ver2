@@ -13,7 +13,6 @@ $(document).ready(function() {
 	$("#back_page").click(function(){
 		window.location.replace($.cookie("backurl"));
 	});
-
 	$(".top-banner").css("background-image","url('"+$(location).attr("href")+"storage/app/public/media/banner/banner.jpg')");
 });
 

@@ -16,14 +16,10 @@ class RedirectPermissionAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if (!Auth::guard($guard)->check()) {
-            return $next($request);
-            // return redirect()->route('login');
-        }
         if(DB::table('database_permission')
             ->where('table',$this->table)
             ->where('action',$this->action)
-            ->where('user_id',!Auth::guard($guard)->user()->id) == null && !Auth::guard($guard)->user()->author != "admin") {
+            ->where('user_id',Auth::guard($guard)->user()->id)->count() == 0 && Auth::guard($guard)->user()->author != "admin") {
             return redirect()->route('permission_denied');
         }
         return $next($request);

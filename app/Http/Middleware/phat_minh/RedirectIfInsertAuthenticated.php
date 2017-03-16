@@ -15,7 +15,7 @@ class RedirectIfInsertAuthenticated extends RedirectPermissionAuthenticated
      */
     public function __construct()
     {
-        $this->table = 'phat_minh_sang_che ';
+        $this->table = 'bang_phat_minh_sang_che';
         $this->action = 'insert';
     }
 }

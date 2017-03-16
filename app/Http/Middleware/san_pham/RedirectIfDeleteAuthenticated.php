@@ -15,7 +15,7 @@ class RedirectIfDeleteAuthenticated extends RedirectPermissionAuthenticated
      */
     public function __construct()
     {
-        $this->table = 'san_pham_khcn';
+        $this->table = 'san_pham';
         $this->action = 'delete';
     }
 }

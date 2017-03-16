@@ -5,40 +5,12 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 use Validator;
 use App\Ip;
 
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
-
-    use AuthenticatesUsers;
-
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('guest', ['except' => 'logout']);
-    }
 
     public function index(Request $request) 
     {
@@ -96,11 +68,11 @@ class LoginController extends Controller
             return redirect()->route('login')->withErrors($validate)->withInput();
         }
         else {
-            if(Auth::guard($this->guard)->attempt([
-                $this->column_user => $request->username, 
+            if(Auth::guard()->attempt([
+                'username' => $request->username, 
                 'password' => $request->password],
                 $request->remember == 1 ? true : false)){
-                    return redirect()->route('');
+                    return redirect()->route('admin_dashboard');
             }
             else {
                 Ip::new_ip($request);

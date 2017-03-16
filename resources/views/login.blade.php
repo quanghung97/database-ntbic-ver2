@@ -98,7 +98,7 @@ p {
 /* ---------- LOGIN ---------- */
 
 #login form{
-	width: 250px;
+	width: 300px;
 }
 #login, .logo{
     display:inline-block;
@@ -143,9 +143,11 @@ fieldset{
 	color: #000;
 	margin-bottom: 1em;
 	padding: 0 16px;
-	width: 200px;
+	width: 250px;
 }
-
+.form-group {
+  text-align: left;
+}
 #login form input[type="submit"] {
   border-radius: 3px;
   -moz-border-radius: 3px;
@@ -177,6 +179,9 @@ fieldset{
 img {
 	width: 100px;
 }
+.text-error {
+  color: white;
+}
 </style>
 </head>
 <body>
@@ -198,22 +203,17 @@ img {
             <p ><span class="fa fa-user"></span><input type="text" name="username" Placeholder="Tên tài khoản" required></p> <!-- JS because of IE support; better: placeholder="Username" -->
             <p><span class="fa fa-lock"></span><input type="password" name="password" Placeholder="Mật khẩu" required></p> <!-- JS because of IE support; better: placeholder="Password" -->
             @if($check_captcha == true)
-				<div class="form-group">
-					<img style="margin-top: -10px; width: 80%; border: 1px solid gray" id="login_captcha" src="{{ URL::asset(Captcha::src()) }}">
-					<i class="fa fa-refresh fa-2x" style="padding: 10px;cursor: pointer; margin: 20px 0 0 5px;" aria-hidden="true" id="re_login_captcha"></i>
-					<p></p>
-					<p id="captcha_null" class="text-error">
-						{{$errors->first('captcha')}}
-					</p>
-					{!!Captcha::img()!!}
-					<input id="text_captcha" type="text" class="form-control" name="captcha" placeholder="Nhập mã bảo vệ">
-				</div>
-			@endif
-			 <div id="remember" class="checkbox">
-                <label>
-                    <input type="checkbox" name="remember" value="1"> Ghi nhớ đăng nhập
-                </label>
-            </div>
+      				<div class="form-group">
+      					<img style="margin-top: -10px; width: 78%; border: 1px solid gray" id="login_captcha" src="{{ URL::asset(Captcha::src()) }}">
+      					<i class="fa fa-refresh fa-2x" style="color:white ;padding: 10px;cursor: pointer; margin: 20px 0 0 5px;" aria-hidden="true" id="re_login_captcha"></i>
+      					<p></p>
+      					<p id="captcha_null" class="text-error">
+      						{{$errors->first('captcha')}}
+      					</p>
+      					<input id="text_captcha" type="text" class="form-control" name="captcha" placeholder="Nhập mã bảo vệ">
+      				</div>
+			     @endif
+
             <input type="text" name="_token" value="{{CSRF_TOKEN()}}" hidden="">
              <div>
                                 <span style="width:48%; text-align:left;  display: inline-block;"><a class="small-text" href="#">Quên mật khẩu?</a></span>
@@ -237,6 +237,7 @@ img {
     </div>
 
 </div>
+<script src="{{URL::asset('public/js/jquery-3.1.1.min.js')}}"></script>
 <script src="{{URL::asset('public/js/admin/myscript.js')}}"></script>
 </body>
 </html>

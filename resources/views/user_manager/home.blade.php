@@ -15,7 +15,7 @@
 @section('main')
   <div class="row-fluid">
     <div class="span12">
-      <button class="add-btn btn btn-success"><span class="fa fa-pencil"></span>&nbsp;&nbsp;Thêm chuyên gia</button>
+      <a href="{{ URL::asset('quan-tri-vien/quan-ly-nguoi-dung/them-nguoi-dung') }}"><button class="add-btn btn btn-success"><span class="fa fa-pencil"></span>&nbsp;&nbsp;Thêm người dùng</button></a>
     </div>
   </div>
   <div class="row-fluid">
@@ -26,37 +26,33 @@
               <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="#grid-config" data-toggle="modal" class="config"></a> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
             </div>
             <div class="grid-body ">
+              @if(session('success'))
+                      <div class="alert alert-success">
+                    <button class="close" data-dismiss="alert"></button> xoá người dùng "{{ old("username") }}" thành công !</div>
+               @endif
               <table class="table table-hover" id="example" >
                 <thead>
                   <tr>
-                    <th>Tên chuyên gia</th>
-                    <th>Học vị</th>
-                    <th>Chuyên ngành</th>
-                    <th>Cơ quan</th>
-                    <th>Tỉnh thành</th>
-                    <th>Năm sinh</th>
-                    <th>Nghiên cứu</th>
-                    <th></th>
-                    <th></th>
+                    <th>id</th>
+                    <th>tên tài khoản</th>
+                    <th>quyền</th>
+                    <th>sửa</th>
+                    <th>xóa</th>
                   </tr>
                 </thead>
                 <tbody>
-                  @for($i=0;$i<100;$i++)
+                  @foreach($users as $user)
                   <tr class="odd gradeX">
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 4.0</td>
-                    <td>Win 95+</td>
-                    <td class="center"> 4</td>
-                    <td class="center">X</td>
-                    <td>17/10/1986</td>
-                    <td>Công nghệ thông tin</td>
-                    <td class="center"><a href="#"><span class="fa fa-pencil-square"></span></a></td>
-                    <td class="center"><a href="#"><span class="fa fa-trash-o"></span></a></td>
+                    <td>{{ $user->id }}</td>
+                    <td>{{ $user->username }}</td>
+                    <td>{{ $user->author }}</td>
+                    <td class="center"><a href="{{ URL::asset('quan-tri-vien/quan-ly-nguoi-dung/chinh-sua-nguoi-dung/'.$user->id) }}"><span class="fa fa-pencil-square"></span></a></td>
+                    <td class="center"><a href="{{ URL::asset('quan-tri-vien/quan-ly-nguoi-dung/xoa-nguoi-dung/'.$user->id) }}" onclick="return confirm('Bạn có chắc chắn xóa người dùng này ?')"><span class="fa fa-trash-o"></span></a></td>
                   </tr>
-                  @endfor
+                  @endforeach
                 </tbody>
               </table>
+              {!! $users->appends(request()->input())->render() !!}
             </div>
           </div>
         </div>

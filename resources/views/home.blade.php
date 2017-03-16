@@ -240,7 +240,24 @@
 				    <!-- Wrapper for slides -->
 				    <div class="carousel-inner" role="listbox">
 				      	<div class="item active">
-				      		
+				      		{{-- @foreach($chuyen_gia_khcn as $chuyen_gia)
+				            <div class="w3-col l3 m6 w3-margin-bottom">
+							    <span class="span_v">
+							    	<a href="{{ URL::asset('chuyen_gia/'.$chuyen_gia->linkid) }}">
+
+									<img src="{{ URL::asset($chuyen_gia->link_anh) }}" class="img1"><br>
+
+									<strong style="font-size: 15px; padding-top: 5%;padding-left: 12%;">{{ $chuyen_gia->ho_va_ten }}</strong>
+
+									</a>
+
+									<ul class="ul_listloop">
+										<p>{{ $chuyen_gia->co_quan }}</p>
+									</ul>
+
+								</span>
+							</div>
+							@endforeach --}}
 				            <div class="w3-col l3 m6 w3-margin-bottom">
 							    <span class="span_v">
 							    	<a href="../chuyen-gia/Nguyen-Lan-Dung-17897-">
