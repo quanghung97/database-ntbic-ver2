@@ -26,7 +26,7 @@
 	    </div>
 	@endif
     <div class="grid simple">
-        <form id="form_iconic_validation" action="{{route('sua-san-pham')}}" method="post" enctype="multipart/form-data">
+        <form id="form_iconic_validation" action="{{route('sua-san-pham')}}" method="POST" enctype="multipart/form-data">
                      <input type="hidden" name="_token" value="{{ csrf_token() }}">
                      <input type="hidden" name="id" value="{{ $datas->id }}">
                       <div class="form-group">

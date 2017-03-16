@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
+class Helper{
+     public static function format_message($message,$type)
+    {
+         return '<p class="alert alert-'.$type.'">'.$message.'</p>';
+    }
+}
 class EditController extends Controller
 {
     public function index(Request $request)
@@ -52,7 +58,7 @@ class EditController extends Controller
           $entry->save();
         
        
-        return redirect()->route('san-pham');
+        return redirect()->route('san-pham')->with('message2', Helper::format_message('Chỉnh sửa sản phẩm thành công','success'));
     }
 function text_to_link($string){
     $current_char = array(

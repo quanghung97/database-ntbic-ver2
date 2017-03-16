@@ -3,13 +3,21 @@
 namespace App\Http\Controllers\manager\database_manager\san_pham;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ThemSanPhamRequest;
 use App\Http\Controllers\Controller;
 use App\san_pham;
 use App\linh_vuc_san_pham;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Illuminate\Support\Facades\Input;
 
+class Helper{
+     public static function format_message($message,$type)
+    {
+         return '<p class="alert alert-'.$type.'">'.$message.'</p>';
+    }
+}
 class NewController extends Controller
 {
      public function index()
@@ -17,7 +25,7 @@ class NewController extends Controller
         $linh_vuc = linh_vuc_san_pham::all();
     	return view('database_manager.san_pham.new')->with(['linh_vuc'=>$linh_vuc]);;
     }
-    public function new_action(Request $request)
+    public function new_action(ThemSanPhamRequest $request)
     {
         $entry = new san_pham;
         
@@ -42,8 +50,8 @@ class NewController extends Controller
                $logo->move('/storage/app/public/media/spkhcn/', $logo_name);
           } else $entry->anh_san_pham = '/storage/app/public/media/spkhcn/default.jpg';
           $entry->save();
-
-         return redirect()->route('san-pham');
+       // $request->session()->put('success', 'Thêm thành công một sản phẩm');
+         return redirect()->route('san-pham')->with('message1', Helper::format_message('Thêm sản phẩm thành công','success'));
     }
  public function text_to_link($string){
     $current_char = array(

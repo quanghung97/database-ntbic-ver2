@@ -14,6 +14,15 @@
 @endsection
 @section('main')
 <!--php alert-->
+@if(Session::has('message1'))
+    {!!Session::get('message1')!!}
+@endif
+@if(Session::has('message2'))
+    {!!Session::get('message2')!!}
+@endif
+@if(Session::has('message3'))
+    {!!Session::get('message3')!!}
+@endif
 
 
  <form action="{{URL::asset('quan-tri-vien/quan-ly-du-lieu/san-pham/tao-moi')}}">
@@ -103,5 +112,12 @@
       "autoWidth": false
     });
   });
+   $(window).load(function(){ 
+    $(".alert-success").delay(3000).fadeOut();
+  });
+     $(window).load(function(){ 
+    $(".alert-warning").delay(3000).fadeOut();
+  });
+    
 </script>
 @endsection

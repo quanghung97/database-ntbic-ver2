@@ -12,7 +12,9 @@
 <!-- END CSS TEMPLATE -->
 <link rel="stylesheet" type="text/css" href="/public/css/admin_chuyen_gia.css">
 @endsection
-
+@section('name_page')
+sửa dữ liệu sản phẩm
+@endsection
 @section('main')
 <div class="form-group">
 	<h4 class="form-title">THÊM SẢN PHẨM</h4>
@@ -26,7 +28,7 @@
 	    </div>
 	@endif
 		<div class="grid simple">
-				<form id="form_iconic_validation" action="{{route('tao-san-pham')}}" method="post" enctype="multipart/form-data">
+				<form id="form_iconic_validation" action="{{route('tao-san-pham')}}" method="POST" enctype="multipart/form-data">
 				 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 					
                       <div class="form-group">
