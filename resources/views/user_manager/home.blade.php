@@ -11,6 +11,7 @@
 <link href="assets/css/custom-icon-set.css" rel="stylesheet" type="text/css"/>
 <!-- END CSS TEMPLATE -->
 <link rel="stylesheet" type="text/css" href="/public/css/admin_chuyen_gia.css">
+<link rel="stylesheet" type="text/css" href="/public/css/admin_user_manager.css">
 @endsection
 @section('main')
   <div class="row-fluid">
@@ -33,21 +34,21 @@
               <table class="table table-hover" id="example" >
                 <thead>
                   <tr>
-                    <th>id</th>
-                    <th>tên tài khoản</th>
-                    <th>quyền</th>
-                    <th>sửa</th>
-                    <th>xóa</th>
+                    <th id="id">id</th>
+                    <th id="username">tên tài khoản</th>
+                    <th id="author">quyền</th>
+                    <th id="edit">sửa</th>
+                    <th id="delete">xóa</th>
                   </tr>
                 </thead>
                 <tbody>
                   @foreach($users as $user)
                   <tr class="odd gradeX">
-                    <td>{{ $user->id }}</td>
-                    <td>{{ $user->username }}</td>
-                    <td>{{ $user->author }}</td>
-                    <td class="center"><a href="{{ URL::asset('quan-tri-vien/quan-ly-nguoi-dung/chinh-sua-nguoi-dung/'.$user->id) }}"><span class="fa fa-pencil-square"></span></a></td>
-                    <td class="center"><a href="{{ URL::asset('quan-tri-vien/quan-ly-nguoi-dung/xoa-nguoi-dung/'.$user->id) }}" onclick="return confirm('Bạn có chắc chắn xóa người dùng này ?')"><span class="fa fa-trash-o"></span></a></td>
+                    <td id="id">{{ $user->id }}</td>
+                    <td id="username">{{ $user->username }}</td>
+                    <td id="author">{{ $user->author }}</td>
+                    <td class="center" id="edit"><a href="{{ URL::asset('quan-tri-vien/quan-ly-nguoi-dung/chinh-sua-nguoi-dung/'.$user->id) }}"><span class="fa fa-pencil-square"></span></a></td>
+                    <td class="center" id="delete"><a href="{{ URL::asset('quan-tri-vien/quan-ly-nguoi-dung/xoa-nguoi-dung/'.$user->id) }}" onclick="return confirm('Bạn có chắc chắn xóa người dùng này ?')"><span class="fa fa-trash-o"></span></a></td>
                   </tr>
                   @endforeach
                 </tbody>

@@ -14,25 +14,21 @@
 @endsection
 
 @section('main')
-<div class="form-group">
-  <h4 class="form-title">SỬA DỮ LIỆU CHUYÊN GIA</h4>
-  
-    @if (count($errors) > 0)
-	    <div class="alert alert-danger">
-	        <ul>
-	            @foreach ($errors->all() as $error)
-	                <li>{{ $error }}</li>
-	            @endforeach
-	        </ul>
+	@if (session('status'))
+	    <div class="alert alert-success auto_disable">
+	        <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+	        {{ session('status') }}
 	    </div>
 	@endif
+<div class="form-group">
+  <h4 class="form-title">SỬA DỮ LIỆU DOANH NGHIỆP</h4>
 		<div class="grid simple">
 				<form id="form_iconic_validation" action="#" method="POST" enctype="multipart/form-data">
 				{{ csrf_field() }}
 					<h4 class="form-label">I. Thông tin chung </h4>
                       <div class="form-group">
                         <label class="form-label">Tên doanh nghiệp</label>
-                        
+                        <span class="error">(*)&nbsp;&nbsp;{{$errors->first('name')}}</span>
 						<div class="input-with-icon  right">                                       
 							<i class=""></i>
 							<input type="text" name="name" id="name" class="form-control" value="{{$doanh_nghiep->ten_doanh_nghiep}}">                                 
@@ -41,7 +37,7 @@
 
                       <div class="form-group">
                         <label class="form-label">Trụ sở</label>
-                        
+                        <span class="error">(*)&nbsp;&nbsp;{{$errors->first('dia_Chi')}}</span>
 						<div class="input-with-icon  right">                                       
 							<i class=""></i>
 							<input type="text" name="dia_chi" id="dia_chi" class="form-control" value="{{$doanh_nghiep->dia_chi}}"> 
@@ -92,7 +88,7 @@
 
                       <div class="form-group">
                         <label class="form-label">Email</label>
-                        
+                        <span class="error">(*)&nbsp;&nbsp;{{$errors->first('email')}}</span>
 						<div class="input-with-icon  right">                                       
 							<i class=""></i>
 							<input type="text" name="email" id="email" class="form-control" value="{{$doanh_nghiep->email}}">                                 
@@ -155,7 +151,7 @@
 
                 <div class="form-group">
                         <label class="form-label">Tên người đại diện theo pháp luật</label>
-                        
+                        <span class="error">(*)&nbsp;&nbsp;{{$errors->first('ten_dai_dien')}}</span>
 						<div class="input-with-icon  right">                                       
 							<i class=""></i>
 							<input type="text" name="ten_dai_dien" id="ten_dai_dien" class="form-control" value="{{$doanh_nghiep->ten_dai_dien}}"> 
@@ -173,7 +169,7 @@
 
                 <div class="form-group">
                         <label class="form-label">Email người đại diện</label>
-                        
+                        <span class="error">(*)&nbsp;&nbsp;{{$errors->first('email_dai_dien')}}</span>
 						<div class="input-with-icon  right">                                       
 							<i class=""></i>
 							<input type="text" name="email_dai_dien" id="email_dai_dien" class="form-control" value="{{$doanh_nghiep->email_dai_dien}}"> 
@@ -182,7 +178,7 @@
 
                 <div class="form-group">
                         <label class="form-label">Địa chỉ người đại diện</label>
-                        
+                        <span class="error">(*)&nbsp;&nbsp;{{$errors->first('dia_chi_dai_dien')}}</span>
 						<div class="input-with-icon  right">                                       
 							<i class=""></i>
 							<input type="text" name="dia_chi_dai_dien" id="dia_chi_dai_dien" class="form-control" value="{{$doanh_nghiep->dia_chi_dai_dien}}"> 
@@ -272,13 +268,14 @@
             
             <div class="form-group">
 				<span class="form-label">Logo profile</span>
+				<span class="error">&nbsp;&nbsp;{{$errors->first('logo')}}</span>
 		        <input type="file" name="logo" multiple>
 		    </div> 
 
           <div class="form-actions">  
 	          <div class="pull-right">
-	            <button type="submit" class="btn btn-success btn-cons"><i class="icon-ok"></i> Save</button>
-	            <button type="button" class="btn btn-white btn-cons">Cancel</button>
+	            <button type="submit" class="btn btn-success btn-cons"><i class="icon-ok"></i> Lưu</button>
+	            <a href="{{route('doanh-nghiep')}}" class="btn btn-danger btn-cons">Thoát</a>
 	          </div>
           </div>
         </form>
@@ -287,4 +284,6 @@
 @endsection
 
 @section('script')
+<script src="/webarch/webarch/HTML/assets/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script src="/public/js/admin/admin_database_manager.js" type="text/javascript"></script>
 @endsection

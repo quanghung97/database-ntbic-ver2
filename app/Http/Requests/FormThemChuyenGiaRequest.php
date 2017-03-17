@@ -32,16 +32,18 @@ class FormThemChuyenGiaRequest extends FormRequest
             'ten'=>'required',
             'nam_sinh'=>'required',
             'hoc_vi'=>'required',
-            'tinh_thanh_pho'=>'required'
+            'tinh_thanh_pho'=>'required',
+            'chuyen_nganh'=>'required',
+            'file-anh' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }
     public function messages()
     {
       return [
-        'ten.required' => 'Bắt buộc nhập tên chuyên gia',
-        //'ten.alpha'  => 'Tên chỉ chứ các chữ cái',
-        'nam_sinh.required'=>'Bắt buộc nhập ngày sinh',
-        //'nam_sinh.date'=>'Dữ liệu ngày tháng dạng dd/mm/yy'
+        'ten.required' => 'Chưa nhập tên chuyên gia',
+        'nam_sinh.required'=>'Chưa nhập ngày sinh',
+        'chuyen_nganh.required'=>'Chưa nhập chuyên ngành',
+        'file-anh.image'=>'Vui lòng chọn file có định dạng là ảnh'
         ];
     } 
 }

@@ -8,7 +8,7 @@ use App\doanh_nghiep_khcn;
 use App\linh_vuc_san_pham;
 use App\tinh_thanh_pho;
 use Carbon\Carbon;
-
+use Illuminate\Support\Facades\Redirect;
 class EditController extends Controller
 {
     public function index($id) {
@@ -57,7 +57,6 @@ class EditController extends Controller
             $logo->move('storage/app/public/media/doanh-nghiep', $logo_name);
         }
         $entry->save();
-
-        return redirect('quan-tri-vien/quan-ly-du-lieu/doanh-nghiep');
+        return Redirect::back()->with('status', 'Sửa thành công một doanh nghiệp!');
     }
 }

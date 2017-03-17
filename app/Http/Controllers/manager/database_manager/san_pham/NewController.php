@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Illuminate\Support\Facades\Input;
-
+use Illuminate\Support\Facades\Redirect;
 class Helper{
      public static function format_message($message,$type)
     {
@@ -50,8 +50,7 @@ class NewController extends Controller
                $logo->move('/storage/app/public/media/spkhcn/', $logo_name);
           } else $entry->anh_san_pham = '/storage/app/public/media/spkhcn/default.jpg';
           $entry->save();
-       // $request->session()->put('success', 'Thêm thành công một sản phẩm');
-         return redirect()->route('san-pham')->with('message1', Helper::format_message('Thêm sản phẩm thành công','success'));
+        return Redirect::back()->with('status', 'Thêm thành công một sản phẩm!');
     }
  public function text_to_link($string){
     $current_char = array(

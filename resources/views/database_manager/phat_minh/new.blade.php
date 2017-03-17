@@ -14,6 +14,12 @@
 @endsection
 
 @section('main')
+@if (session('status'))
+    <div class="alert alert-success auto_disable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+        {{ session('status') }}
+    </div>
+@endif
 <div class="form-group">
   <h4 class="form-title">THÊM DỮ LIỆU PHÁT MINH</h4>
   
@@ -21,48 +27,42 @@
         <form id="form_iconic_validation" method="POST" enctype="multipart/form-data">
         
             <div class="form-group">
-              <label class="form-label">Tên phát minh</label><span class="error">(*)</span>
-              <p class="error">{{$errors->first('ten')}}</p>
+              <label class="form-label">Tên phát minh</label><span class="error">(*)&nbsp;&nbsp;{{$errors->first('ten')}}</span>
               <div class="input-with-icon  right">                                       
                 <i class=""></i>
                 <input type="text" name="ten" id="form1Name" class="form-control" value="{{old('ten')}}">                                 
               </div>
             </div>
             <div class="form-group">
-              <label class="form-label">Số bằng - Ký hiệu</label><span class="error">(*)</span>
-              <p class="error">{{$errors->first('sobang_kyhieu')}}</p>
+              <label class="form-label">Số bằng - Ký hiệu</label><span class="error">(*)&nbsp;&nbsp;{{$errors->first('sobang_kyhieu')}}</span>
               <div class="input-with-icon  right">                                       
                 <i class=""></i>
                 <input type="text" name="sobang_kyhieu" id="form1Name" class="form-control" value="{{old('sobang_kyhieu')}}">                                 
               </div>
             </div>      
             <div class="form-group">
-              <label class="form-label">Ngày công bố</label><span class="error">(*)</span>
-              <p class="error">{{$errors->first('ngay_cong_bo')}}</p>
+              <label class="form-label">Ngày công bố</label><span class="error">(*)&nbsp;&nbsp;{{$errors->first('ngay_cong_bo')}}</span>
               <div class="input-with-icon  right">                                       
                 <i class=""></i>
                 <input type="text" name="ngay_cong_bo" id="form1Name" class="form-control" value="{{old('ngay_cong_bo')}}">                                 
               </div>
             </div>    
             <div class="form-group">
-              <label class="form-label">Ngày cấp</label><span class="error">(*)</span>
-              <p class="error">{{$errors->first('ngay_cap')}}</p>
+              <label class="form-label">Ngày cấp</label><span class="error">(*)&nbsp;&nbsp;{{$errors->first('ngay_cap')}}</span>
               <div class="input-with-icon  right">                                       
                 <i class=""></i>
                 <input type="text" name="ngay_cap" id="form1Name" class="form-control" value="{{old('ngay_cap')}}">                                 
               </div>
             </div> 
             <div class="form-group">
-              <label class="form-label">Chủ sở hữu chính</label><span class="error">(*)</span>
-              <p class="error">{{$errors->first('chu_so_huu_chinh')}}</p>
+              <label class="form-label">Chủ sở hữu chính</label><span class="error">(*)&nbsp;&nbsp;{{$errors->first('chu_so_huu_chinh')}}</span>
               <div class="input-with-icon  right">                                       
                 <i class=""></i>
                 <input type="text" name="chu_so_huu_chinh" id="form1Name" class="form-control" value="{{old('chu_so_huu_chinh')}}">                                 
               </div>
             </div> 
             <div class="form-group">
-              <label class="form-label">Tác giả</label><span class="error">(*)</span>
-              <p class="error">{{$errors->first('tac_gia')}}</p>
+              <label class="form-label">Tác giả</label><span class="error">(*)&nbsp;&nbsp;{{$errors->first('tac_gia')}}</span>
               <div class="input-with-icon  right">                                       
                 <i class=""></i>
                 <input type="text" name="tac_gia" id="form1Name" class="form-control" value="{{old('tac_gia')}}">                                 
@@ -104,16 +104,14 @@
               </div>
             </div>
            <div class="form-group">
-              <label class="form-label">Lĩnh vực khoa học công nghệ</label><span class="error">(*)</span>
-              <p class="error">{{$errors->first('linh_vuc_khcn')}}</p>
+              <label class="form-label">Lĩnh vực khoa học công nghệ</label><span class="error">(*)&nbsp;&nbsp;{{$errors->first('linh_vuc_khcn')}}</span>
               <div class="input-with-icon  right">                                       
                 <i class=""></i>
                 <input type="text" name="linh_vuc_khcn" id="form1Name" class="form-control" value="{{old('linh_vuc_khcn')}}">                                 
               </div>
             </div> 
             <div class="form-group">
-              <label class="form-label">Loại phát minh sáng chê</label><span class="error">(*)</span>
-              <p class="error">{{$errors->first('loai_phat_minh_sang_che')}}</p>
+              <label class="form-label">Loại phát minh sáng chê</label><span class="error">(*)&nbsp;&nbsp;{{$errors->first('loai_phat_minh_sang_che')}}</span>
               <div class="input-with-icon  right">                                       
                 <i class=""></i>
                 <input type="text" name="loai_phat_minh_sang_che" id="form1Name" class="form-control" value="{{old('loai_phat_minh_sang_che')}}">                                 
@@ -121,8 +119,8 @@
             </div> 
           <div class="form-actions">  
           <div class="pull-right">
-            <button type="submit" class="btn btn-success btn-cons"><i class="icon-ok"></i> Save</button>
-            <button type="button" class="btn btn-white btn-cons">Cancel</button>
+            <button type="submit" class="btn btn-success btn-cons"><i class="icon-ok"></i> Lưu</button>
+            <a href="{{route('phat_minh')}}" class="btn btn-danger btn-cons">Thoát</a>
           </div>
           </div>
           <input type="text" name="_token" value="{{CSRF_TOKEN()}}" hidden>
@@ -132,4 +130,6 @@
 @endsection
 
 @section('script')
+<script src="/webarch/webarch/HTML/assets/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script src="/public/js/admin/admin_database_manager.js" type="text/javascript"></script>
 @endsection

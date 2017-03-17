@@ -9,7 +9,7 @@ use App\linh_vuc_san_pham;
 use App\tinh_thanh_pho;
 use App\doanh_nghiep_khcn;
 use Carbon\Carbon;
-
+use Illuminate\Support\Facades\Redirect;
 class NewController extends Controller
 {
 	
@@ -67,7 +67,7 @@ class NewController extends Controller
           } else $entry->logo = 'storage/app/public/media/doanh-nghiep/default.jpg';
           $entry->save();
 
-          return redirect('quan-tri-vien/quan-ly-du-lieu/doanh-nghiep');
+          return Redirect::back()->with('status', 'Thêm thành công một doanh nghiệp!');
      }
 
      public function text_to_link($string){

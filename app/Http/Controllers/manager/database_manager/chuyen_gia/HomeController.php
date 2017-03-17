@@ -4,6 +4,7 @@ namespace App\Http\Controllers\manager\database_manager\chuyen_gia;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Redirect;
 use App\chuyen_gia_khcn;
 class HomeController extends Controller
 {

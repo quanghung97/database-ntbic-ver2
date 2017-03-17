@@ -14,6 +14,12 @@
 @endsection
 
 @section('main')
+	@if (session('status'))
+	    <div class="alert alert-success auto_disable">
+	        <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+	        {{ session('status') }}
+	    </div>
+	@endif
 <div class="form-group">
 	<h4 class="form-title">THÊM ĐỀ TÀI DỰ ÁN CÁC CẤP</h4>
 	
@@ -21,16 +27,14 @@
 				<form id="form_iconic_validation" method="POST" enctype="multipart/form-data">
 					
                       <div class="form-group">
-                      <label class="form-label">Tên đề tài</label> <span class="error">(*)</span>
-                        <p class="error">{{$errors->first('ten_de_tai')}}</p>
+                      <label class="form-label">Tên đề tài</label> <span class="error">(*)&nbsp;&nbsp;{{$errors->first('ten_de_tai')}}</span>
 						<div class="input-with-icon  right">                                       
 							<i class=""></i>
 							<input type="text" name="ten_de_tai" id="form1Name" class="form-control" value="{{old('ten_de_tai')}}" placeholder="Tên đề tài">                                 
 						</div>
                       </div>
                       <div class="form-group">
-                        <label class="form-label">Mã số - Kí kiệu</label><span class="error">(*)</span>
-                        <p class="error">{{$errors->first('maso_kyhieu')}}</p>
+                        <label class="form-label">Mã số - Kí kiệu</label><span class="error">(*)&nbsp;&nbsp;{{$errors->first('maso_kyhieu')}}</span>
                         
 						<div class="input-with-icon  right">                                       
 							<i class=""></i>
@@ -46,8 +50,7 @@
 						</div>
                       </div>
                       <div class="form-group">
-                        <label class="form-label">Chuyên ngành</label><span class="error">(*)</span>
-                        <p class="error">{{$errors->first('chuyen_nganh_khcn')}}</p>
+                        <label class="form-label">Chuyên ngành</label><span class="error">(*)&nbsp;&nbsp;{{$errors->first('chuyen_nganh_khcn')}}</span>
                         
 						<div class="input-with-icon  right">                                       
 							<i class=""></i>
@@ -79,8 +82,7 @@
 						</div>
                       </div>
                       <div class="form-group">
-                        <label class="form-label">Chủ nhiệm đề tài</label><span class="error">(*)</span>
-                        <p class="error">{{$errors->first('chu_nhiem_detai')}}</p>
+                        <label class="form-label">Chủ nhiệm đề tài</label><span class="error">(*)&nbsp;&nbsp;{{$errors->first('chu_nhiem_detai')}}</span>
                         
 						<div class="input-with-icon  right">                                       
 							<i class=""></i>
@@ -121,8 +123,8 @@
                       </div> 
 				  <div class="form-actions">  
 					<div class="pull-right">
-					  <button type="submit" class="btn btn-success btn-cons"><i class="icon-ok"></i> Save</button>
-					  <button type="button" class="btn btn-white btn-cons">Cancel</button>
+					  <button type="submit" class="btn btn-success btn-cons"><i class="icon-ok"></i> Lưu</button>
+					  <a href="{{route('de_tai_du_an_cac_cap')}}" class="btn btn-danger btn-cons">Thoát</a>
 					</div>
 					</div>
 					<input type="text" name="_token" value="{{CSRF_TOKEN()}}" hidden>
@@ -132,4 +134,6 @@
 @endsection
 
 @section('script')
+<script src="/webarch/webarch/HTML/assets/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script src="/public/js/admin/admin_database_manager.js" type="text/javascript"></script>
 @endsection

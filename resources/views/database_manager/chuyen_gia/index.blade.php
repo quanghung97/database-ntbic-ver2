@@ -16,14 +16,15 @@
 danh sách chuyên gia
 @endsection
 @section('main')
-  @if(Session::has('success'))
- 
-  <div class="alert alert-success">{{session::get('success')}}</div>
-   
-  @endif
+  @if (session('status'))
+    <div class="alert alert-success auto_disable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+        {{ session('status') }}
+    </div>
+@endif
   <div class="row-fluid">
     <div class="span12">
-      <a href="{{URL::asset('quan-tri-vien/quan-ly-du-lieu/chuyen-gia/tao-moi')}}" class="add-btn btn btn-primary"><span class="fa fa-pencil"></span>&nbsp;&nbsp;Thêm chuyên gia</a>
+      <a href="{{URL::asset('quan-tri-vien/quan-ly-du-lieu/chuyen-gia/tao-moi')}}" class="add-btn btn btn-success"><span class="fa fa-pencil"></span>&nbsp;&nbsp;Thêm chuyên gia</a>
     </div>
   </div>
   <div class="row-fluid">
@@ -37,6 +38,7 @@ danh sách chuyên gia
               <table class="table table-hover" id="example" >
                 <thead>
                   <tr>
+                    <th>STT</th>
                     <th>Tên chuyên gia</th>
                     <th>Học vị</th>
                     <th>Năm sinh</th>
@@ -45,14 +47,15 @@ danh sách chuyên gia
                     <th>Địa chỉ cơ quan</th>
                     <th>Nghiên cứu</th>
                     <th>Tỉnh thành</th>
-                    <th>Chi tiết</th>
+                    <th>Xem</th>
                     <th>Sửa</th>
                     <th>Xóa</th>
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach($chuyen_gia as $cg)
+                  @foreach($chuyen_gia as $key=>$cg)
                   <tr class="odd gradeX">
+                    <td><div class="chuyen_gia_inf">{{$key+1}}</div></td>
                     <td><div class="chuyen_gia_inf">{{$cg->ho_va_ten}}</div></td>
                     <td><div class="chuyen_gia_inf">{{$cg->hoc_vi}}</div></td>
                     <td><div class="chuyen_gia_inf">{{$cg->nam_sinh}}</div></td>
@@ -61,9 +64,9 @@ danh sách chuyên gia
                     <td><div class="chuyen_gia_inf">{{$cg->dia_chi_co_quan}}</div></td>
                     <td><div class="chuyen_gia_inf">{!!$cg->huong_nghien_cuu!!}</div></td>
                     <td><div class="chuyen_gia_inf">{{$cg->tinh_thanh}}</div></td>
-                    <td><a href="{{ URL::asset('chuyen-gia/'.$cg->linkid) }}"><span class="fa fa-road"></span></a></td>
-                    <td><div class="chuyen_gia_inf"><a href="{{URL::asset('quan-tri-vien/quan-ly-du-lieu/chuyen-gia/sua/'.$cg->id)}} "><span class="fa fa-pencil-square"></span></a></div></td>
-                    <td><div class="chuyen_gia_inf" delete-modal" data-toggle="modal" data-target="#delete-modal{{$cg->id}}"><span class="fa fa-trash-o"></span></a></div></td>
+                    <td class="center"><a target="_blank" href="{{ URL::asset('chuyen-gia/'.$cg->linkid) }}"><span class="fa fa-eye"></span></a></td>
+                    <td class="center"><div class="chuyen_gia_inf"><a href="{{URL::asset('quan-tri-vien/quan-ly-du-lieu/chuyen-gia/sua/'.$cg->id)}} "><span class="fa fa-pencil-square"></span></a></div></td>
+                    <td class="center"><div class="chuyen_gia_inf" delete-modal" data-toggle="modal" data-target="#delete-modal{{$cg->id}}"><span class="fa fa-trash-o"></span></a></div></td>
                     <div id="delete-modal{{$cg->id}}" class="modal fade" role="dialog">
                       <div class="modal-dialog">
 
@@ -71,10 +74,10 @@ danh sách chuyên gia
                         <div class="modal-content">
                           <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Xóa chuyên gia đã chọn?</h4>
+                            <h4 class="modal-title">Xóa chuyên gia {{$cg->ho_va_ten}} cùng tất cả công trình nghiên cứu của chuyên gia này?</h4>
                           </div>
                           <div class="modal-footer">
-                            <a href="{{URL::asset('quan-tri-vien/quan-ly-du-lieu/chuyen-gia/xoa/'.$cg->id)}} " type="submit" class="btn btn-primary" id="submit-delete">Xóa</a>
+                            <a href="{{URL::asset('quan-tri-vien/quan-ly-du-lieu/chuyen-gia/xoa/'.$cg->id)}} " class="btn btn-primary" id="submit-delete">Xóa</a>
                             <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
                           </div>
                         </div>
@@ -114,9 +117,6 @@ danh sách chuyên gia
 <script src="/webarch/webarch/HTML/assets/js/core.js" type="text/javascript"></script>
 <script src="/webarch/webarch/HTML/assets/js/chat.js" type="text/javascript"></script>
 <script src="/webarch/webarch/HTML/assets/js/demo.js" type="text/javascript"></script>
-<script type="text/javascript">
-  $(window).load(function(){ 
-    $(".alert-success").delay(3000).fadeOut();
-  });
-</script>
+<script src="/public/js/admin/admin_database_manager.js" type="text/javascript"></script>
+
 @endsection

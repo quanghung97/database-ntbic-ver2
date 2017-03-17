@@ -16,23 +16,20 @@
 sửa dữ liệu chuyên gia
 @endsection
 @section('main')
+	@if (session('status'))
+	    <div class="alert alert-success auto_disable">
+	        <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+	        {{ session('status') }}
+	    </div>
+	@endif
 <div class="form-group">
 	<h4 class="form-title">THÊM CHUYÊN GIA</h4>
-		@if (count($errors) > 0)
-	    <div class="alert alert-danger">
-	        <ul>
-	            @foreach ($errors->all() as $error)
-	                <li>{{ $error }}</li>
-	            @endforeach
-	        </ul>
-	    </div>
-		@endif
 		<div class="grid simple">
 				<form id="form_iconic_validation" action="{{route('them_chuyen_gia')}}" method="post" enctype="multipart/form-data">
 					{{csrf_field()}}
                       <div class="form-group">
-                        <label class="form-label">Tên chuyên gia *</label>
-                        
+                        <label class="form-label">Tên chuyên gia</label>
+                         <span class="error">(*)&nbsp;&nbsp;{{$errors->first('ten')}}</span>
 						<div class="input-with-icon  right">                                       
 							<i class=""></i>
 							<input type="text" name="ten" id="form1Name" class="form-control"  value="{{old('ten')}}" >                                
@@ -50,8 +47,8 @@ sửa dữ liệu chuyên gia
 						</div>
                       </div>
                       <div class="form-group">
-                        <label class="form-label">Ngày sinh *</label>
-                        
+                        <label class="form-label">Ngày sinh</label>
+                         <span class="error">(*)&nbsp;&nbsp;{{$errors->first('nam_sinh')}}</span>
 						<div class="input-with-icon  right">                                       
 							<i class=""></i>
 							<input type="text" name="nam_sinh" id="form1Url" class="form-control" value="{{old('nam_sinh')}}">
@@ -60,6 +57,7 @@ sửa dữ liệu chuyên gia
                       </div>
                       <div class="form-group">
                         <label class="form-label">Chuyên ngành</label>
+                         <span class="error">(*)&nbsp;&nbsp;{{$errors->first('chuyen_nganh')}}</span>
 						<div class="input-with-icon  right">   <div class="input-with-icon  right">                                       
 							<i class=""></i>
 							<input type="text" name="chuyen_nganh" id="form1Url" class="form-control"  value="{{old('chuyen_nganh')}}"> 
@@ -111,12 +109,13 @@ sửa dữ liệu chuyên gia
                       </div>
             <div class="form-group">
 				<span class="form-label">Chọn file ảnh upload</span>
+				<span class="error">&nbsp;&nbsp;{{$errors->first('file-anh')}}</span>
 		        <input name="file-anh" type="file" multiple />
 		    </div>            
-				  <div class="form-actions">  
+				  <div class="form-actions">
 					<div class="pull-right">
-					  <button type="submit" class="btn btn-success btn-cons"><i class="icon-ok"></i> Save</button>
-					  <button type="button" class="btn btn-white btn-cons">Cancel</button>
+					  <button type="submit" class="btn btn-success btn-cons"><i class="icon-ok"></i>Lưu</button>
+					  <a href="{{route('chuyen_gia')}}" class="btn btn-danger btn-cons">Thoát</a>
 					</div>
 					</div>
 				</form>
@@ -125,4 +124,6 @@ sửa dữ liệu chuyên gia
 @endsection
 
 @section('script')
+<script src="/webarch/webarch/HTML/assets/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script src="/public/js/admin/admin_database_manager.js" type="text/javascript"></script>
 @endsection

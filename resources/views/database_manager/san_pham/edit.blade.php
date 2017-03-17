@@ -15,23 +15,20 @@
 
 @section('main')
 <div class="form-group">
+@if (session('status'))
+    <div class="alert alert-success auto_disable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+        {{ session('status') }}
+    </div>
+@endif
   <h4 class="form-title">SỬA DỮ LIỆU SẢN PHẨM </h4>
-  @if (count($errors) > 0)
-	    <div class="alert alert-danger">
-	        <ul>
-	            @foreach ($errors->all() as $error)
-	                <li>{{ $error }}</li>
-	            @endforeach
-	        </ul>
-	    </div>
-	@endif
     <div class="grid simple">
         <form id="form_iconic_validation" action="{{route('sua-san-pham')}}" method="POST" enctype="multipart/form-data">
                      <input type="hidden" name="_token" value="{{ csrf_token() }}">
                      <input type="hidden" name="id" value="{{ $datas->id }}">
                       <div class="form-group">
                         <label class="form-label">Tên sản phẩm</label>
-                        
+                      <span class="error"> (*)&nbsp;&nbsp;{{$errors->first('ten_san_pham')}}</span>  
             <div class="input-with-icon  right">                                       
               <i class=""></i>
               <input type="text" name="ten_san_pham" id="form1Name" class="form-control" value="{{$datas->ten_san_pham}}">                                 
@@ -39,7 +36,7 @@
                       </div>
                       <div class="form-group">
                         <label class="form-label">Lĩnh vực</label>
-                        
+                        <span class="error">{{$errors->first('linh_vuc')}}</span>
             <div class="input-with-icon  right">                                       
               <i class=""></i>
                <select name="linh_vuc" id="gendericonic" class="select2 form-control">
@@ -55,7 +52,7 @@
                       </div>
                       <div class="form-group">
                         <label class="form-label">Đặc điểm nổi bật</label>
-                        
+                        <span class="error"> (*)&nbsp;&nbsp;{{$errors->first('dac_diem_noi_bat')}}</span>
             <div class="input-with-icon  right">                                       
               <i class=""></i>
               <input type="text" name="dac_diem_noi_bat" id="form1Url" class="form-control" value="{{$datas->dac_diem_noi_bat}}"> 
@@ -63,11 +60,12 @@
                       </div>
                       <div class="form-group">
                         <label class="form-label">Mô tả chung</label>
+                        <span class="error"> (*)&nbsp;&nbsp;{{$errors->first('mo_ta_chung')}}</span>
            <textarea name="mo_ta_chung" id="" >{{$datas->mo_ta_chung}}</textarea>
                       </div>
                       <div class="form-group">
                         <label class="form-label">Quy trình chuyển giao</label>
-                        
+                        <span class="error">&nbsp;&nbsp;{{$errors->first('quy_trinh_chuyen_giao')}}</span>
             <div class="input-with-icon  right">                                       
               <i class=""></i>
               <input type="text" name="quy_trinh_chuyen_giao" id="form1Url" class="form-control" value="{{$datas->quy_trinh_chuyen_giao}}">                                 
@@ -75,7 +73,7 @@
                       </div>
                       <div class="form-group">
                         <label class="form-label">Khả năng ứng dụng</label>
-                        
+                        <span class="error">&nbsp;&nbsp;{{$errors->first('kha_nang_ung_dung')}}</span>
             <div class="input-with-icon  right">                                       
               <i class=""></i>
               <input type="text" name="kha_nang_ung_dung" id="form1Url" class="form-control" value="{{$datas->kha_nang_ung_dung}}">                                 
@@ -89,8 +87,8 @@
           </div>  
           <div class="form-actions">  
           <div class="pull-right">
-            <button type="submit" class="btn btn-success btn-cons"><i class="icon-ok"></i> Save</button>
-            <button type="button" class="btn btn-white btn-cons">Cancel</button>
+            <button type="submit" class="btn btn-success btn-cons"><i class="icon-ok"></i> Lưu</button>
+            <a href="{{route('san_pham')}}" class="btn btn-danger btn-cons">Thoát</a>
           </div>
           </div>
         </form>
@@ -99,4 +97,6 @@
 @endsection
 
 @section('script')
+<script src="/webarch/webarch/HTML/assets/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script src="/public/js/admin/admin_database_manager.js" type="text/javascript"></script>
 @endsection

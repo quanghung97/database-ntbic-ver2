@@ -6,6 +6,7 @@ use App\hoc_vi;
 use App\Http\Requests\FormThemChuyenGiaRequest;
 use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Redirect;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 class NewController extends Controller
 {
@@ -66,8 +67,6 @@ class NewController extends Controller
        		echo "not";
        }
        $chuyen_gia1->save();
-
-       $request->session()->put('success', 'Thêm thành công một chuyen gia');
-       return redirect()->route('chuyen_gia');
+       return Redirect::back()->with('status', 'Thêm thành công một chuyên gia!');
     }
 }

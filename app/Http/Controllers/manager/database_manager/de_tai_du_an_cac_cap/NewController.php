@@ -65,7 +65,7 @@ class NewController extends Controller
         		'ket_qua_thuc_hien_ung_dung' => $ket_qua_thuc_hien_ung_dung,
         		'link' => $link
         		]);
-        	return Redirect::to('quan-tri-vien/quan-ly-du-lieu/de-tai-du-an-cac-cap')->with('status', 'Thêm thành công một đề tài dự án!');
+        	return Redirect::back()->with('status', 'Thêm thành công một đề tài dự án!');
         }
     }
     

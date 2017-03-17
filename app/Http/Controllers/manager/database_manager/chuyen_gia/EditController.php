@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\chuyen_gia_khcn;
 use App\hoc_vi;
 use App\tinh_thanh_pho;
+use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\FormThemChuyenGiaRequest;
 class EditController extends Controller
 {
@@ -56,7 +57,6 @@ class EditController extends Controller
        		$chuyen_gia->link_anh='/storage/app/public/media/profile_khcn/'.$text.'.jpg';
        }
        $chuyen_gia->save();
-       $request->session()->flash('success', 'Sửa thành công dữ liệu chuyên gia');
-       return redirect()->route('chuyen_gia');
+       return Redirect::back()->with('status', 'Sửa thành công một chuyên gia!');
     }
 }

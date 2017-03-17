@@ -37,7 +37,7 @@
 			});
 
 			Route::group(['prefix'=>'doanh-nghiep'], function(){
-				Route::get('/','manager\database_manager\doanh_nghiep\HomeController@index');
+				Route::get('/','manager\database_manager\doanh_nghiep\HomeController@index')->name('doanh_nghiep');
 				Route::group(['middleware'=>'insert_doanh_nghiep'],function(){
 					Route::get('tao-moi','manager\database_manager\doanh_nghiep\NewController@index');
 					Route::post('tao-moi','manager\database_manager\doanh_nghiep\NewController@new_action');
@@ -52,7 +52,7 @@
 			});
 
 			Route::group(['prefix'=>'san-pham'], function(){
-				Route::get('/','manager\database_manager\san_pham\HomeController@index')->name('san-pham');
+				Route::get('/','manager\database_manager\san_pham\HomeController@index')->name('san-pham')->name('san_pham');
 				Route::group(['middleware'=>'insert_san_pham'],function(){
 					Route::get('tao-moi','manager\database_manager\san_pham\NewController@index');
 					Route::post('tao-moi','manager\database_manager\san_pham\NewController@new_action')->name('tao-san-pham');
@@ -67,7 +67,7 @@
 			});
 
 			Route::group(['prefix'=>'de-tai-du-an-cac-cap'], function(){
-				Route::get('/','manager\database_manager\de_tai_du_an_cac_cap\HomeController@index');
+				Route::get('/','manager\database_manager\de_tai_du_an_cac_cap\HomeController@index')->name('de_tai_du_an_cac_cap');
 				Route::group(['middleware'=>'insert_de_tai_du_an_cac_cap'],function(){
 					Route::get('tao-moi','manager\database_manager\de_tai_du_an_cac_cap\NewController@index');
 					Route::post('tao-moi','manager\database_manager\de_tai_du_an_cac_cap\NewController@new_action');
@@ -84,7 +84,7 @@
 			Route::group(['prefix'=>'phat-minh'], function(){
 				Route::get('/','manager\database_manager\phat_minh\HomeController@index');
 				Route::group(['middleware'=>'insert_phat_minh'],function(){
-					Route::get('tao-moi','manager\database_manager\phat_minh\NewController@index');
+					Route::get('tao-moi','manager\database_manager\phat_minh\NewController@index')->name('phat_minh');
 					Route::post('tao-moi','manager\database_manager\phat_minh\NewController@new_action');
 				});
 				Route::group(['middleware'=>'update_phat_minh'],function(){

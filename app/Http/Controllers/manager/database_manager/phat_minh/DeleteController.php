@@ -17,6 +17,6 @@ class DeleteController extends Controller
      	$id = $request->id;
     	$rel=bang_phat_minh_sang_che::find($id);
     	$rel->delete();
-    	return Redirect::to('quan-tri-vien/quan-ly-du-lieu/phat-minh');
+    	return Redirect::back()->with('status', 'xóa thành công một phát minh!');
     }
 }

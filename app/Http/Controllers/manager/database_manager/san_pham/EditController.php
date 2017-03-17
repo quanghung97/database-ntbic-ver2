@@ -9,7 +9,7 @@ use App\linh_vuc_san_pham;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-
+use Illuminate\Support\Facades\Redirect;
 class Helper{
      public static function format_message($message,$type)
     {
@@ -58,7 +58,7 @@ class EditController extends Controller
           $entry->save();
         
        
-        return redirect()->route('san-pham')->with('message2', Helper::format_message('Chỉnh sửa sản phẩm thành công','success'));
+        return Redirect::back()->with('status', 'Sửa thành công một sản phẩm!');
     }
 function text_to_link($string){
     $current_char = array(

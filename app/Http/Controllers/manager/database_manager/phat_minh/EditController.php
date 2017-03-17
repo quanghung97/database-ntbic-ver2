@@ -84,7 +84,7 @@ class EditController extends Controller
         		'linh_vuc_khcn' =>$linh_vuc_khcn,
         		'loai_phat_minh_sang_che' =>$loai_phat_minh_sang_che,
         		]);
-        	return Redirect::to('quan-tri-vien/quan-ly-du-lieu/phat-minh');
+        	return Redirect::back()->with('status', 'Sửa thành công một phát minh!');
         }
     }
 }

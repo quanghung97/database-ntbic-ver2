@@ -13,16 +13,12 @@
 <link rel="stylesheet" type="text/css" href="/public/css/admin_chuyen_gia.css">
 @endsection
 @section('main')
-<!--php alert-->
-@if(Session::has('message1'))
-    {!!Session::get('message1')!!}
-@endif
-@if(Session::has('message2'))
-    {!!Session::get('message2')!!}
-@endif
-@if(Session::has('message3'))
-    {!!Session::get('message3')!!}
-@endif
+  @if (session('status'))
+      <div class="alert alert-success auto_disable">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+          {{ session('status') }}
+      </div>
+  @endif
 
 
  <form action="{{URL::asset('quan-tri-vien/quan-ly-du-lieu/san-pham/tao-moi')}}">
@@ -37,7 +33,7 @@
     <div class="span12">
         <div class="grid simple ">
             <div class="grid-title">
-              <h4>Table <span class="semi-bold">Styles</span></h4>
+              <h4>Bảng <span class="semi-bold">Sản phẩm khoa học công nghệ</span></h4>
               <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="#grid-config" data-toggle="modal" class="config"></a> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
             </div>
             <div class="grid-body ">
@@ -51,6 +47,9 @@
                     <th>Các điểm nổi bật</th>   
                     <th>Quy trình chuyển giao</th>
                     <th>Khả năng ứng dụng</th>
+                    <th>Xem</th>
+                    <th>Sửa</th>
+                    <th>Xóa</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -65,9 +64,27 @@
                    
                     <td class="center">{{$sp->quy_trinh_chuyen_giao}}</td>
                     <td>{{$sp->kha_nang_ung_dung}}</td>
-                    
+                    <td class="center"><a target="_blank" href="{{URL::asset('san-pham/'.$sp->link)}}"><span class="fa fa-eye"></span></a></td>
                     <td class="center"><a href="{{URL::asset('quan-tri-vien/quan-ly-du-lieu/san-pham/sua/'.$sp->id)}}"><span class="fa fa-pencil-square"></span></a></td>
-                    <td class="center"><a href="{{URL::asset('quan-tri-vien/quan-ly-du-lieu/san-pham/xoa/'.$sp->id)}}"><span class="fa fa-trash-o"></span></a></td>
+                    <td class="center"><div delete-modal" data-toggle="modal" data-target="#delete-modal{{$sp->id}}"><span class="fa fa-trash-o"></span></a></div></td>
+
+                   <!--  delete modal -->
+                    <div id="delete-modal{{$sp->id}}" class="modal fade" role="dialog">
+                      <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Xóa doanh nghiệp {{$sp->ten_san_pham}} đã chọn?</h4>
+                          </div>
+                          <div class="modal-footer">
+                            <a href="{{URL::asset('quan-tri-vien/quan-ly-du-lieu/san-pham/xoa/'.$sp->id)}}" class="btn btn-primary" id="submit-delete">Xóa</a>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </tr>
                   @endforeach
                 </tbody>
@@ -100,6 +117,7 @@
 <script src="/webarch/webarch/HTML/assets/js/core.js" type="text/javascript"></script>
 <script src="/webarch/webarch/HTML/assets/js/chat.js" type="text/javascript"></script>
 <script src="/webarch/webarch/HTML/assets/js/demo.js" type="text/javascript"></script>
+<script src="/public/js/admin/admin_database_manager.js" type="text/javascript"></script>
 <script type="text/javascript">
   $(function () {
     $("#example").DataTable();

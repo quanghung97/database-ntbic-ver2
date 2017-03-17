@@ -13,30 +13,31 @@
 <link rel="stylesheet" type="text/css" href="/public/css/admin_chuyen_gia.css">
 @endsection
 @section('main')
-  <div class="row-fluid">
-    <div class="span12">
-    <a href="{!! URL::asset('quan-tri-vien/quan-ly-du-lieu/de-tai-du-an-cac-cap/tao-moi') !!}">
-      <button class="add-btn btn btn-success"><span class="fa fa-pencil"></span>&nbsp;&nbsp;Thêm đề tài dự án các cấp</button></a>
-    </div>
-  </div>
   @if (session('status'))
-    <div class="alert alert-success">
+    <div class="alert alert-success auto_disable">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
         {{ session('status') }}
     </div>
 @endif
   <div class="row-fluid">
     <div class="span12">
+    <a href="{!! URL::asset('quan-tri-vien/quan-ly-du-lieu/de-tai-du-an-cac-cap/tao-moi') !!}">
+      <button class="add-btn btn btn-success"><span class="fa fa-pencil"></span>&nbsp;&nbsp;Thêm đề tài dự án các cấp</button></a>
+    </div>
+  </div>
+  
+  <div class="row-fluid">
+    <div class="span12">
         <div class="grid simple ">
             <div class="grid-title">
-              <h4>Table <span class="semi-bold">Styles</span></h4>
+              <h4>Bảng <span class="semi-bold">Đề tài dự án các cấp</span></h4>
               <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="#grid-config" data-toggle="modal" class="config"></a> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
             </div>
             <div class="grid-body ">
               <table class="table table-hover" id="example" >
                 <thead>
                   <tr>
-                    <th>ID</th>
+                    <th>STT</th>
                     <th>Tên đề tài</th>
                     <th>Mã số - Kí hiệu</th>
                     <th>Lĩnh vực</th>
@@ -44,15 +45,16 @@
                     <th>Cơ quan</th>
                     <th>Năm bắt đầu</th>
                     <th>Năm kết thúc</th>
-                    <th>Chủ nhiệm đề tài</th>  
-                    <th></th>
-                    <th></th>
+                    <th>Chủ nhiệm đề tài</th>
+                    <th>Xem</th>  
+                    <th>Sửa</th>
+                    <th>Xóa</th>
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach($datas as $row)
+                  @foreach($datas as $key=>$row)
                   <tr class="odd gradeX">
-                    <td>{{$row->id}}</td>
+                    <td>{{$key+1}}</td>
                     <td>{{$row->ten_de_tai}}</td>
                     <td>{{$row->maso_kyhieu}}</td>
                     <td class="center"> {{$row->linh_vuc}}</td>
@@ -61,8 +63,27 @@
                     <td>{{$row->nam_bat_dau}}</td>
                     <td>{{$row->nam_ket_thuc}}</td>
                     <td>{{$row->chu_nhiem_detai}}</td>
+                    <td class="center"><a target="_blank" href="{!! URL::asset('de-tai-du-an-cac-cap/'.$row->link)  !!}"><span class="fa fa-eye"></span></a></td>
                     <td class="center"><a href="{!! URL::asset('quan-tri-vien/quan-ly-du-lieu/de-tai-du-an-cac-cap/sua/'.$row->id) !!}"><span class="fa fa-pencil-square"></span></a></td>
-                    <td class="center"><a href="{{URL::asset('quan-tri-vien/quan-ly-du-lieu/de-tai-du-an-cac-cap/xoa/'.$row->id)}} "><span class="fa fa-trash-o"></span></a></td>
+                    <td class="center"><div delete-modal" data-toggle="modal" data-target="#delete-modal{{$row->id}}"><span class="fa fa-trash-o"></span></a></div></td>
+
+                   <!--  delete modal -->
+                    <div id="delete-modal{{$row->id}}" class="modal fade" role="dialog">
+                      <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Xóa doanh nghiệp {{$row->ten_de_tai}} đã chọn?</h4>
+                          </div>
+                          <div class="modal-footer">
+                            <a href="{{URL::asset('quan-tri-vien/quan-ly-du-lieu/de-tai-du-an-cac-cap/xoa/'.$row->id)}}" class="btn btn-primary" id="submit-delete">Xóa</a>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </tr>
                   @endforeach
                 </tbody>
@@ -97,6 +118,7 @@
 <script src="/webarch/webarch/HTML/assets/js/core.js" type="text/javascript"></script>
 <script src="/webarch/webarch/HTML/assets/js/chat.js" type="text/javascript"></script>
 <script src="/webarch/webarch/HTML/assets/js/demo.js" type="text/javascript"></script>
+<script src="/public/js/admin/admin_database_manager.js" type="text/javascript"></script>
 <script type="text/javascript">
   $(function () {
     $("#example").DataTable();
