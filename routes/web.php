@@ -15,6 +15,11 @@
 include_once 'backend/search_result.php';
 include_once 'backend/detail.php';
 include_once 'backend/admin.php';
+
+include_once 'test/dai.php';
+include_once 'test/hung.php';
+include_once 'test/nhu.php';
+
 Route::get('/','HomeController@index')->name('home');
 Route::post('app/get_captcha',function(){
 	return json_encode(Captcha::src());

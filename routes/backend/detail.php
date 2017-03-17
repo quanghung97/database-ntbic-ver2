@@ -33,6 +33,9 @@ Route::group(['prefix'=>'khoa-hoc-cong-nghe'], function(){
 //về phần chuyên gia khcn mô hình CSDL em thấy chưa rõ anh Hải xem giúp em nhé
 Route::group(['prefix'=>'chuyen-gia'], function(){
     Route::get('{link}','chuyen_gia\DetailController@index');
-    
+});
+
+Route::group(['prefix'=>'khoa-hoc-cong-nghe'], function(){
+    Route::get('{link}','khoa-hoc-cong-nghe\DetailController@index');
 });
 ?>
