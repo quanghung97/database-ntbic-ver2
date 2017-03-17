@@ -3,11 +3,11 @@ namespace App\Http\Controllers\manager\database_manager\chuyen_gia;
 use App\chuyen_gia_khcn;
 use App\tinh_thanh_pho;
 use App\hoc_vi;
+use Carbon\Carbon;
 use App\Http\Requests\FormThemChuyenGiaRequest;
 use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 class NewController extends Controller
 {
 	public function stripVN($str) {
@@ -59,12 +59,13 @@ class NewController extends Controller
        $chuyen_gia1->linkid=$text;
 
        if($request->hasFile('file-anh')){
-       		$request->file('file-anh')->move('C:\xampp\htdocs\ntbic_data\storage\app\public\media',$text.'.jpg',$text.'.jpg');
-       		$chuyen_gia1->link_anh='/storage/app/public/media/profile_khcn/'.$text.'.jpg';
+          $logo = $request->file('file-anh');
+               $logo_name = $text.'.'.$logo->getClientOriginalExtension();
+               $chuyen_gia1->link_anh = 'storage/app/public/media/profile_khcn/'.$logo_name;
+               $logo->move('storage/app/public/media/profile_khcn', $logo_name);
        }
        else{
        		$chuyen_gia1->link_anh='/storage/app/public/media/profile_khcn/default.jpg';
-       		echo "not";
        }
        $chuyen_gia1->save();
        return Redirect::back()->with('status', 'Thêm thành công một chuyên gia!');

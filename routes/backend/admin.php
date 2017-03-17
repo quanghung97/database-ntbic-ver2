@@ -52,7 +52,7 @@
 			});
 
 			Route::group(['prefix'=>'san-pham'], function(){
-				Route::get('/','manager\database_manager\san_pham\HomeController@index')->name('san-pham')->name('san_pham');
+				Route::get('/','manager\database_manager\san_pham\HomeController@index')->name('san_pham');
 				Route::group(['middleware'=>'insert_san_pham'],function(){
 					Route::get('tao-moi','manager\database_manager\san_pham\NewController@index');
 					Route::post('tao-moi','manager\database_manager\san_pham\NewController@new_action')->name('tao-san-pham');

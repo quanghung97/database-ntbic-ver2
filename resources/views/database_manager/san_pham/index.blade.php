@@ -11,6 +11,7 @@
 <link href="assets/css/custom-icon-set.css" rel="stylesheet" type="text/css"/>
 <!-- END CSS TEMPLATE -->
 <link rel="stylesheet" type="text/css" href="/public/css/admin_chuyen_gia.css">
+<link rel="stylesheet" type="text/css" href="/public/css/admin_san_pham.css">
 @endsection
 @section('main')
   @if (session('status'))
@@ -40,27 +41,25 @@
               <table class="table table-hover" id="example" >
                 <thead>
                   <tr>
-                   <th>STT</th>
-                    <th>Tên sản phẩm</th>
-                    <th>Ảnh sản phẩm</th>
-                    <th>Lĩnh vực</th>
-                    <th>Các điểm nổi bật</th>   
-                    <th>Quy trình chuyển giao</th>
-                    <th>Khả năng ứng dụng</th>
-                    <th>Xem</th>
-                    <th>Sửa</th>
-                    <th>Xóa</th>
+                   <th class="stt">STT</th>
+                    <th class="ten_sp">Tên sản phẩm</th>
+                    <th class="linh_vuc">Lĩnh vực</th>
+                    <th class="quy_trinh_chuyen_giao">Quy trình chuyển giao</th>
+                    <th class="kha_nang_ung_dung">Khả năng ứng dụng</th>
+                    <th class="xem">Xem</th>
+                    <th class="sua">Sửa</th>
+                    <th class="xoa">Xóa</th>
                   </tr>
                 </thead>
                 <tbody>
                   @foreach($datas as $key=>$sp)
                   <tr class="odd gradeX">
-                    <td>{{$sp->id}}</td>
+                    <td>{{$key+1}}</td>
                      <td>{{$sp->ten_san_pham}}</td>
-                    <td>{{$sp->anh_san_pham}}</td>
+                    
                     
                     <td>{{$sp->linh_vuc}}</td>
-                    <td>{{$sp->dac_diem_noi_bat}}</td>
+                    
                    
                     <td class="center">{{$sp->quy_trinh_chuyen_giao}}</td>
                     <td>{{$sp->kha_nang_ung_dung}}</td>
