@@ -8,19 +8,21 @@ use Validator;
 use Illuminate\Support\Facades\Redirect;
 use App\de_tai_du_an_cac_cap;
 use Illuminate\Support\Facades\Input;
+use App\chuyen_nganh_khcn;
 
 
 class NewController extends Controller
 {
 	public function index(){
-		return view('database_manager.de_tai_du_an_cac_cap.new');
+        $rel = chuyen_nganh_khcn::select('id','ten')->get();
+		return view('database_manager.de_tai_du_an_cac_cap.new')->with(['datas'=>$rel]);
 	}
 
 	public function new_action(Request $request){
     	$ten_de_tai = $request->ten_de_tai;
     	$maso_kyhieu = $request->maso_kyhieu;
     	$linh_vuc = $request->linh_vuc;
-    	$chuyen_nganh_khcn = $request->chuyen_nganh_khcn;
+    	$chuyen_nganh_khcn =  Input::get('id');
     	$nam_bat_dau = $request->nam_bat_dau;
     	$nam_ket_thuc = $request->nam_ket_thuc;
     	$co_quan = $request->co_quan;
@@ -34,12 +36,12 @@ class NewController extends Controller
     	return $str;}
 
         //Validation
-        $rules = array('ten_de_tai' => 'required', 'maso_kyhieu' => 'required','chu_nhiem_detai' => 'required','chuyen_nganh_khcn' => 'required',);
+        $rules = array('ten_de_tai' => 'required', 'maso_kyhieu' => 'required','chu_nhiem_detai' => 'required',);
         $messages = [
             'ten_de_tai.required' => 'Chưa nhập tên cho đề tài!',
             'maso_kyhieu.required' => 'Chưa nhập Mã số - Ký hiệu!',
             'chu_nhiem_detai.required' => 'Chưa nhập tên của chủ nhiệm cho đề tài này!',
-            'chuyen_nganh_khcn.required' => 'Chưa nhập số liệu cho chuyên ngành!',
+            
         ];
 
         $validator = Validator::make($request->all(), $rules,$messages);
@@ -49,7 +51,6 @@ class NewController extends Controller
         }
         else {
         	$link = remove_unicode($ten_de_tai);
-
         	de_tai_du_an_cac_cap::insert([
         		'ten_de_tai' => $ten_de_tai,
         		'maso_kyhieu' => $maso_kyhieu,

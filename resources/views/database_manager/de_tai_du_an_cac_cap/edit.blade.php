@@ -48,7 +48,7 @@
               </div>
             </div>
             <div class="form-group">
-              <label class="form-label">Chuyên ngành</label><span class="error">(*)&nbsp;&nbsp;{{$errors->first('chuyen_nganh_khcn')}}</span>
+              <label class="form-label">Chuyên ngành</label>
               <div class="input-with-icon  right">                                       
                 <i class=""></i>
                 <input type="text" name="chuyen_nganh_khcn" id="form1Name" class="form-control" value="{{$data->chuyen_nganh_khcn}}">                                 
@@ -90,24 +90,27 @@
               <input type="text" name="diem_noi_bat" id="form1Url" class="form-control" value="{{$data->diem_noi_bat}}">                                 
             </div>
           </div> 
-           <div class="form-group">
-              <label class="form-label">Mô tả chung</label>
-              <div>                                       
-                <i class=""></i>
-                <textarea  id="textEditer" name="mota_chung">{{$data->mota_chung}}</textarea>   </div>
+            <div class="form-group">
+            <label class="form-label">Mô tả chung</label>
+                        
+            <div>                                       
+              <i class=""></i>
+              <textarea  id="textEditer" name="mota_chung">{{$data->mota_chung}}</textarea>                                   
             </div>
+          </div> 
           <div class="form-group">
             <label class="form-label">Mô tả quy trình chuyển giao</label>
                         
-            <div class="input-with-icon  right">                                       
+            <div>                                       
               <i class=""></i>
               <textarea  id="textEditer" name="mota_quytrinh_chuyengiao">{{$data->mota_quytrinh_chuyengiao}}</textarea>                                   
             </div>
           </div> 
+          
           <div class="form-group">
             <label class="form-label">Kết quả thực hiện</label>
                         
-            <div class="input-with-icon  right">                                       
+            <div>                                       
               <i class=""></i>
               <textarea  id="textEditer" name="ket_qua_thuc_hien_ung_dung">{{$data->ket_qua_thuc_hien_ung_dung}}</textarea>                                   
             </div>

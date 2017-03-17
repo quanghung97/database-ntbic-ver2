@@ -50,11 +50,15 @@
 						</div>
                       </div>
                       <div class="form-group">
-                        <label class="form-label">Chuyên ngành</label><span class="error">(*)&nbsp;&nbsp;{{$errors->first('chuyen_nganh_khcn')}}</span>
+                        <label class="form-label">Chuyên ngành</label>
                         
 						<div class="input-with-icon  right">                                       
 							<i class=""></i>
-							<input type="text" name="chuyen_nganh_khcn" id="form1Url" class="form-control" value="{{old('chuyen_nganh_khcn')}}" placeholder="Chuyên ngành">                                 
+							<select id="form1Url" class="form-control">
+							@foreach($datas as $row)
+								<option value="{{$row->id}}" name="chuyen_nganh_khcn">{{$row->ten}}</option>
+							@endforeach
+							</select>				      
 						</div>
                       </div>
                       <div class="form-group">
