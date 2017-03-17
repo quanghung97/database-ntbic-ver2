@@ -108,7 +108,9 @@ sửa dữ liệu chuyên gia
             </div>
                       </div>
             <div class="form-group">
-        <span class="form-label">Chọn file ảnh upload</span>
+              <img class="responsive-img anh_cu" src="{{ URL::asset($chuyen_gia->link_anh) }}" alt="ảnh" class="img-circle anh_chuyen_gia">
+            <br>
+        <span class="form-label">Thay đổi ảnh chuyên gia</span>
         <span class="error">&nbsp;&nbsp;{{$errors->first('ten')}}</span>
             <input name="file-anh" type="file" multiple />
         </div>            

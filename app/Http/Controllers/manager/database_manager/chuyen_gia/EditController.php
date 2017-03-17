@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\chuyen_gia_khcn;
 use App\hoc_vi;
 use App\tinh_thanh_pho;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\FormThemChuyenGiaRequest;
 class EditController extends Controller
@@ -16,7 +17,7 @@ class EditController extends Controller
     $str = preg_replace("/(ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ)/", 'o', $str);
     $str = preg_replace("/(ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ)/", 'u', $str);
     $str = preg_replace("/(ỳ|ý|ỵ|ỷ|ỹ)/", 'y', $str);
-    $str = preg_replace("/(đ)/", 'd', $str);
+    $str = str_replace("đ", 'd', $str);
 
     $str = preg_replace("/(À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ)/", 'A', $str);
     $str = preg_replace("/(È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ)/", 'E', $str);
@@ -24,7 +25,7 @@ class EditController extends Controller
     $str = preg_replace("/(Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ)/", 'O', $str);
     $str = preg_replace("/(Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ)/", 'U', $str);
     $str = preg_replace("/(Ỳ|Ý|Ỵ|Ỷ|Ỹ)/", 'Y', $str);
-    $str = str_replace("/(Đ)/", 'D', $str);
+    $str = str_replace("Đ", 'D', $str);
     $str=str_replace(" ", "-", $str);
     return $str;
 
@@ -50,13 +51,13 @@ class EditController extends Controller
        $chuyen_gia->tinh_thanh=$request->tinh_thanh_pho;
        $text=$this->stripVN($request->ten).'-'.$id.'-'.str_replace("/", "", $request->nam_sinh);
        $chuyen_gia->linkid=$text;
-       if($request->hasFile('file_anh')){
-       		$request->file('file_anh')->move('/storage/app/public/media/test',$text.'.jpg',
-       			$text.'.jpg'
-       			);
-       		$chuyen_gia->link_anh='/storage/app/public/media/profile_khcn/'.$text.'.jpg';
+       if($request->hasFile('file-anh')){
+       		$logo = $request->file('file-anh');
+               $logo_name = $text.'.'.$logo->getClientOriginalExtension();
+               $chuyen_gia->link_anh = 'storage/app/public/media/profile_khcn/'.$logo_name;
+               $logo->move('storage/app/public/media/profile_khcn', $logo_name);
        }
        $chuyen_gia->save();
-       return Redirect::back()->with('status', 'Sửa thành công một chuyên gia!');
+       return Redirect::back()->with('status', 'Sửa thành công chuyên gia!');
     }
 }

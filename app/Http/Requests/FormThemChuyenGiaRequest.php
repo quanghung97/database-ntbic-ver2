@@ -43,7 +43,9 @@ class FormThemChuyenGiaRequest extends FormRequest
         'ten.required' => 'Chưa nhập tên chuyên gia',
         'nam_sinh.required'=>'Chưa nhập ngày sinh',
         'chuyen_nganh.required'=>'Chưa nhập chuyên ngành',
-        'file-anh.image'=>'Vui lòng chọn file có định dạng là ảnh'
+        'file-anh.image'=>'Vui lòng chọn file có định dạng là ảnh',
+        'file-anh.mimes'=>'Vui lòng chọn file có định dạng là ảnh',
+        'file-anh.mimes'=>'Ảnh có kích thước quá lớn'
         ];
     } 
 }

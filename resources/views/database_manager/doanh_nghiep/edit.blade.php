@@ -275,7 +275,7 @@
           <div class="form-actions">  
 	          <div class="pull-right">
 	            <button type="submit" class="btn btn-success btn-cons"><i class="icon-ok"></i> Lưu</button>
-	            <a href="{{route('doanh-nghiep')}}" class="btn btn-danger btn-cons">Thoát</a>
+	            <a href="{{route('doanh_nghiep')}}" class="btn btn-danger btn-cons">Thoát</a>
 	          </div>
           </div>
         </form>
