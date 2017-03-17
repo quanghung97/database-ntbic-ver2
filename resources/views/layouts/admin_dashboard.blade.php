@@ -8,57 +8,57 @@
     <meta content="" name="description"/>
     <meta content="" name="author"/>
     <meta name="csrf-token" content="{{csrf_token()}}" />
-    <link href="/public/css/style.css" rel="stylesheet" type="text/css"/>
-    <link href="/webarch/webarch/HTML/assets/plugins/jquery-metrojs/MetroJs.min.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" type="text/css" href="/webarch/webarch/HTML/assets/plugins/shape-hover/css/demo.css"/>
-    <link rel="stylesheet" type="text/css" href="/webarch/webarch/HTML/assets/plugins/shape-hover/css/component.css"/>
-    <link rel="stylesheet" type="text/css" href="/webarch/webarch/HTML/assets/plugins/owl-carousel/owl.carousel.css"/>
-    <link rel="stylesheet" type="text/css" href="/webarch/webarch/HTML/assets/plugins/owl-carousel/owl.theme.css"/>
-    <link href="/webarch/webarch/HTML/assets/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css"
+    <link href="{{ URL::asset('public/css/style.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-metrojs/MetroJs.min.css') }}" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/shape-hover/css/demo.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/shape-hover/css/component.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/owl-carousel/owl.carousel.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/owl-carousel/owl.theme.css') }}"/>
+    <link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/pace/pace-theme-flash.css') }}" rel="stylesheet" type="text/css"
           media="screen"/>
-    <link href="/webarch/webarch/HTML/assets/plugins/jquery-slider/css/jquery.sidr.light.css" rel="stylesheet"
+    <link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-slider/css/jquery.sidr.light.css') }}" rel="stylesheet"
           type="text/css" media="screen"/>
-    <link rel="stylesheet" href="/webarch/webarch/HTML/assets/plugins/jquery-ricksaw-chart/css/rickshaw.css"
+    <link rel="stylesheet" href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-ricksaw-chart/css/rickshaw.css') }}"
           type="text/css" media="screen">
-    <link rel="stylesheet" href="/webarch/webarch/HTML/assets/plugins/Mapplic/mapplic/mapplic.css" type="text/css"
+    <link rel="stylesheet" href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/Mapplic/mapplic/mapplic.css') }}" type="text/css"
           media="screen">
     <!-- BEGIN CORE CSS FRAMEWORK -->
-    <link href="/webarch/webarch/HTML/assets/plugins/boostrapv3/css/bootstrap.min.css" rel="stylesheet"
+    <link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/boostrapv3/css/bootstrap.min.css') }}" rel="stylesheet"
           type="text/css"/>
-    <link href="/webarch/webarch/HTML/assets/plugins/boostrapv3/css/bootstrap-theme.min.css" rel="stylesheet"
+    <link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/boostrapv3/css/bootstrap-theme.min.css') }}" rel="stylesheet"
           type="text/css"/>
-    <link href="/webarch/webarch/HTML/assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet"
+    <link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/font-awesome/css/font-awesome.css') }}" rel="stylesheet"
           type="text/css"/>
-    <link href="/webarch/webarch/HTML/assets/css/animate.min.css" rel="stylesheet" type="text/css"/>
-    <link href="/webarch/webarch/HTML/assets/plugins/jquery-scrollbar/jquery.scrollbar.css" rel="stylesheet"
+    <link href="{{ URL::asset('webarch/webarch/HTML/assets/css/animate.min.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-scrollbar/jquery.scrollbar.css') }}" rel="stylesheet"
           type="text/css"/>
     <!-- END CORE CSS FRAMEWORK -->
 
     <!-- BEGIN CSS TEMPLATE -->
-    <link href="/webarch/webarch/HTML/assets/css/style.css" rel="stylesheet" type="text/css"/>
-    <link href="/webarch/webarch/HTML/assets/css/responsive.css" rel="stylesheet" type="text/css"/>
-    <link href="/webarch/webarch/HTML/assets/css/custom-icon-set.css" rel="stylesheet" type="text/css"/>
-    <link href="/webarch/webarch/HTML/assets/css/magic_space.css" rel="stylesheet" type="text/css"/>
+    <link href="{{ URL::asset('webarch/webarch/HTML/assets/css/style.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ URL::asset('webarch/webarch/HTML/assets/css/responsive.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ URL::asset('webarch/webarch/HTML/assets/css/custom-icon-set.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ URL::asset('webarch/webarch/HTML/assets/css/magic_space.css') }}" rel="stylesheet" type="text/css"/>
     <!-- END CSS TEMPLATE -->
 <!-- BEGIN FORM_ELEMENT PLUGIN CSS -->
-<link href="/webarch/webarch/HTML/assets/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css" media="screen"/>
-<link href="/webarch/webarch/HTML/assets/plugins/bootstrap-tag/bootstrap-tagsinput.css" rel="stylesheet" type="text/css"/>
-<link href="/webarch/webarch/HTML/assets/plugins/dropzone/css/dropzone.css" rel="stylesheet" type="text/css"/>
-<link href="/webarch/webarch/HTML/assets/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css" rel="stylesheet" type="text/css"/>
-<link href="/webarch/webarch/HTML/assets/plugins/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" type="text/css" />
-<link href="/webarch/webarch/HTML/assets/plugins/bootstrap-timepicker/css/bootstrap-timepicker.css" rel="stylesheet" type="text/css" />
-<link href="/webarch/webarch/HTML/assets/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css" rel="stylesheet" type="text/css" />
-<link href="/webarch/webarch/HTML/assets/plugins/ios-switch/ios7-switch.css" rel="stylesheet" type="text/css" media="screen">
-<link href="/webarch/webarch/HTML/assets/plugins/bootstrap-select2/select2.css" rel="stylesheet" type="text/css" media="screen"/>
-<link href="/webarch/webarch/HTML/assets/plugins/boostrap-clockpicker/bootstrap-clockpicker.min.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/pace/pace-theme-flash.css') }}" rel="stylesheet" type="text/css" media="screen"/>
+<link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/bootstrap-tag/bootstrap-tagsinput.css') }}" rel="stylesheet" type="text/css"/>
+<link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/dropzone/css/dropzone.css') }}" rel="stylesheet" type="text/css"/>
+<link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css') }}" rel="stylesheet" type="text/css"/>
+<link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/bootstrap-datepicker/css/datepicker.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/bootstrap-timepicker/css/bootstrap-timepicker.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/ios-switch/ios7-switch.css') }}" rel="stylesheet" type="text/css" media="screen">
+<link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/bootstrap-select2/select2.css') }}" rel="stylesheet" type="text/css" media="screen"/>
+<link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/boostrap-clockpicker/bootstrap-clockpicker.min.css') }}" rel="stylesheet" type="text/css" media="screen"/>
 <!-- END FORM_ELEVENT PLUGIN CSS -->
 
 
 <!-- BEGIN PLUGIN GROUP_LIST CSS -->
-<link href="/webarch/webarch/HTML/assets/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css" media="screen"/>
-<link href="/webarch/webarch/HTML/assets/plugins/jquery-nestable/jquery.nestable.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/pace/pace-theme-flash.css') }}" rel="stylesheet" type="text/css" media="screen"/>
+<link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-nestable/jquery.nestable.css') }}" rel="stylesheet" type="text/css" media="screen"/>
 <!-- END PLUGIN GROUP_LIST CSS -->
-<link href="/public/css/lib/bootstrap-toggle.min.css" rel="stylesheet">
+<link href="{{ URL::asset('/public/css/lib/bootstrap-toggle.min.css') }}" rel="stylesheet">
 @yield('css')
 </head>
 <!-- END HEAD -->
@@ -126,10 +126,10 @@
                     <div id="notification-list" style="display:none">
                         <div style="width:300px">
                             <div class="notification-messages info">
-                                <div class="user-profile"><img src="/webarch/webarch/HTML/assets/img/profiles/d.jpg"
+                                <div class="user-profile"><img src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d.jpg') }}"
                                                                alt=""
-                                                               data-src="/webarch/webarch/HTML/assets/img/profiles/d.jpg"
-                                                               data-src-retina="/webarch/webarch/HTML/assets/img/profiles/d2x.jpg"
+                                                               data-src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d.jpg') }}"
+                                                               data-src-retina="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d2x.jpg') }}"
                                                                width="35" height="35"></div>
                                 <div class="message-wrapper">
                                     <div class="heading"> David Nester - Commented on your wall</div>
@@ -148,10 +148,10 @@
                                 <div class="clearfix"></div>
                             </div>
                             <div class="notification-messages success">
-                                <div class="user-profile"><img src="/webarch/webarch/HTML/assets/img/profiles/h.jpg"
+                                <div class="user-profile"><img src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/h.jpg') }}"
                                                                alt=""
-                                                               data-src="/webarch/webarch/HTML/assets/img/profiles/h.jpg"
-                                                               data-src-retina="/webarch/webarch/HTML/assets/img/profiles/h2x.jpg"
+                                                               data-src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/h.jpg') }}"
+                                                               data-src-retina="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/h2x.jpg') }}"
                                                                width="35" height="35"></div>
                                 <div class="message-wrapper">
                                     <div class="heading"> You haveve got 150 messages</div>
@@ -162,10 +162,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="profile-pic"><img src="/webarch/webarch/HTML/assets/img/profiles/avatar.jpg"
+                    <div class="profile-pic"><img src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/avatar.jpg') }}"
                                                   alt=""
-                                                  data-src="/webarch/webarch/HTML/assets/img/profiles/avatar.jpg"
-                                                  data-src-retina="/webarch/webarch/HTML/assets/img/profiles/avatar.jpg"
+                                                  data-src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/avatar.jpg') }}"
+                                                  data-src-retina="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/avatar.jpg') }}"
                                                   width="35" height="35"/></div>
                 </div>
 
@@ -214,9 +214,9 @@
         <!-- BEGIN MINI-PROFILE -->
         <div class="page-sidebar-wrapper scrollbar-dynamic" id="main-menu-wrapper">
             <div class="user-info-wrapper">
-                <center><img src="/webarch/webarch/HTML/assets/img/profiles/avatar.jpg" alt=""
-                                                  data-src="/webarch/webarch/HTML/assets/img/profiles/avatar.jpg"
-                                                  data-src-retina="/webarch/webarch/HTML/assets/img/profiles/avatar.jpg"
+                <center><img src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/avatar.jpg') }}" alt=""
+                                                  data-src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/avatar.jpg') }}"
+                                                  data-src-retina="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/avatar.jpg') }}"
                                                   width="120" height="120" style="border-radius: 120px"/></center><br>
                 
             </div>
@@ -281,13 +281,13 @@
                     <div id="favourites-list">
                         <div class="side-widget-content">
                             <div class="user-details-wrapper active" data-chat-status="online"
-                                 data-chat-user-pic="/webarch/webarch/HTML/assets/img/profiles/d.jpg"
-                                 data-chat-user-pic-retina="/webarch/webarch/HTML/assets/img/profiles/d2x.jpg"
+                                 data-chat-user-pic="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d.jpg') }}"
+                                 data-chat-user-pic-retina="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d2x.jpg') }}"
                                  data-user-name="Jane Smith">
                                 <div class="user-profile">
-                                    <img src="/webarch/webarch/HTML/assets/img/profiles/d.jpg" alt=""
-                                         data-src="/webarch/webarch/HTML/assets/img/profiles/d.jpg"
-                                         data-src-retina="/webarch/webarch/HTML/assets/img/profiles/d2x.jpg" width="35"
+                                    <img src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d.jpg') }}" alt=""
+                                         data-src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d.jpg') }}"
+                                         data-src-retina="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d2x.jpg') }}" width="35"
                                          height="35">
                                 </div>
                                 <div class="user-details">
@@ -307,13 +307,13 @@
                                 <div class="clearfix"></div>
                             </div>
                             <div class="user-details-wrapper" data-chat-status="busy"
-                                 data-chat-user-pic="/webarch/webarch/HTML/assets/img/profiles/d.jpg"
-                                 data-chat-user-pic-retina="/webarch/webarch/HTML/assets/img/profiles/d2x.jpg"
+                                 data-chat-user-pic="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d.jpg') }}"
+                                 data-chat-user-pic-retina="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d2x.jpg') }}"
                                  data-user-name="David Nester">
                                 <div class="user-profile">
-                                    <img src="/webarch/webarch/HTML/assets/img/profiles/c.jpg" alt=""
-                                         data-src="/webarch/webarch/HTML/assets/img/profiles/c.jpg"
-                                         data-src-retina="/webarch/webarch/HTML/assets/img/profiles/c2x.jpg" width="35"
+                                    <img src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/c.jpg') }}" alt=""
+                                         data-src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/c.jpg') }}"
+                                         data-src-retina="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/c2x.jpg') }}" width="35"
                                          height="35">
                                 </div>
                                 <div class="user-details">
@@ -339,13 +339,13 @@
                     <div class="side-widget-title">more friends</div>
                     <div class="side-widget-content" id="friends-list">
                         <div class="user-details-wrapper" data-chat-status="online"
-                             data-chat-user-pic="/webarch/webarch/HTML/assets/img/profiles/d.jpg"
-                             data-chat-user-pic-retina="/webarch/webarch/HTML/assets/img/profiles/d2x.jpg"
+                             data-chat-user-pic="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d.jpg') }}"
+                             data-chat-user-pic-retina="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d2x.jpg') }}"
                              data-user-name="Jane Smith">
                             <div class="user-profile">
-                                <img src="/webarch/webarch/HTML/assets/img/profiles/d.jpg" alt=""
-                                     data-src="/webarch/webarch/HTML/assets/img/profiles/d.jpg"
-                                     data-src-retina="/webarch/webarch/HTML/assets/img/profiles/d2x.jpg" width="35"
+                                <img src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d.jpg') }}" alt=""
+                                     data-src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d.jpg') }}"
+                                     data-src-retina="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d2x.jpg') }}" width="35"
                                      height="35">
                             </div>
                             <div class="user-details">
@@ -365,13 +365,13 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="user-details-wrapper" data-chat-status="busy"
-                             data-chat-user-pic="/webarch/webarch/HTML/assets/img/profiles/d.jpg"
-                             data-chat-user-pic-retina="/webarch/webarch/HTML/assets/img/profiles/d2x.jpg"
+                             data-chat-user-pic="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d.jpg') }}"
+                             data-chat-user-pic-retina="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d2x.jpg') }}"
                              data-user-name="David Nester">
                             <div class="user-profile">
-                                <img src="/webarch/webarch/HTML/assets/img/profiles/h.jpg" alt=""
-                                     data-src="/webarch/webarch/HTML/assets/img/profiles/h.jpg"
-                                     data-src-retina="/webarch/webarch/HTML/assets/img/profiles/h2x.jpg" width="35"
+                                <img src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/h.jpg') }}" alt=""
+                                     data-src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/h.jpg') }}"
+                                     data-src-retina="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/h2x.jpg') }}" width="35"
                                      height="35">
                             </div>
                             <div class="user-details">
@@ -391,13 +391,13 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="user-details-wrapper" data-chat-status="online"
-                             data-chat-user-pic="/webarch/webarch/HTML/assets/img/profiles/d.jpg"
-                             data-chat-user-pic-retina="/webarch/webarch/HTML/assets/img/profiles/d2x.jpg"
+                             data-chat-user-pic="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d.jpg') }}"
+                             data-chat-user-pic-retina="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d2x.jpg') }}"
                              data-user-name="Jane Smith">
                             <div class="user-profile">
-                                <img src="/webarch/webarch/HTML/assets/img/profiles/c.jpg" alt=""
-                                     data-src="/webarch/webarch/HTML/assets/img/profiles/c.jpg"
-                                     data-src-retina="/webarch/webarch/HTML/assets/img/profiles/c2x.jpg" width="35"
+                                <img src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/c.jpg') }}" alt=""
+                                     data-src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/c.jpg') }}"
+                                     data-src-retina="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/c2x.jpg') }}" width="35"
                                      height="35">
                             </div>
                             <div class="user-details">
@@ -417,13 +417,13 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="user-details-wrapper" data-chat-status="busy"
-                             data-chat-user-pic="/webarch/webarch/HTML/assets/img/profiles/d.jpg"
-                             data-chat-user-pic-retina="/webarch/webarch/HTML/assets/img/profiles/d2x.jpg"
+                             data-chat-user-pic="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d.jpg') }}"
+                             data-chat-user-pic-retina="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d2x.jpg') }}"
                              data-user-name="David Nester">
                             <div class="user-profile">
-                                <img src="/webarch/webarch/HTML/assets/img/profiles/h.jpg" alt=""
-                                     data-src="/webarch/webarch/HTML/assets/img/profiles/h.jpg"
-                                     data-src-retina="/webarch/webarch/HTML/assets/img/profiles/h2x.jpg" width="35"
+                                <img src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/h.jpg') }}" alt=""
+                                     data-src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/h.jpg') }}"
+                                     data-src-retina="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/h2x.jpg') }}" width="35"
                                      height="35">
                             </div>
                             <div class="user-details">
@@ -468,9 +468,9 @@
                         <div class="sent_time">Yesterday 11:25pm</div>
                         <div class="user-details-wrapper ">
                             <div class="user-profile">
-                                <img src="/webarch/webarch/HTML/assets/img/profiles/d.jpg" alt=""
-                                     data-src="/webarch/webarch/HTML/assets/img/profiles/d.jpg"
-                                     data-src-retina="/webarch/webarch/HTML/assets/img/profiles/d2x.jpg" width="35"
+                                <img src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d.jpg') }}" alt=""
+                                     data-src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d.jpg') }}"
+                                     data-src-retina="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d2x.jpg') }}" width="35"
                                      height="35">
                             </div>
                             <div class="user-details">
@@ -483,9 +483,9 @@
                         </div>
                         <div class="user-details-wrapper ">
                             <div class="user-profile">
-                                <img src="/webarch/webarch/HTML/assets/img/profiles/d.jpg" alt=""
-                                     data-src="/webarch/webarch/HTML/assets/img/profiles/d.jpg"
-                                     data-src-retina="/webarch/webarch/HTML/assets/img/profiles/d2x.jpg" width="35"
+                                <img src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d.jpg') }}" alt=""
+                                     data-src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d.jpg') }}"
+                                     data-src-retina="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d2x.jpg') }}" width="35"
                                      height="35">
                             </div>
                             <div class="user-details">
@@ -498,9 +498,9 @@
                         </div>
                         <div class="user-details-wrapper ">
                             <div class="user-profile">
-                                <img src="/webarch/webarch/HTML/assets/img/profiles/d.jpg" alt=""
-                                     data-src="/webarch/webarch/HTML/assets/img/profiles/d.jpg"
-                                     data-src-retina="/webarch/webarch/HTML/assets/img/profiles/d2x.jpg" width="35"
+                                <img src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d.jpg') }}" alt=""
+                                     data-src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d.jpg') }}"
+                                     data-src-retina="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d2x.jpg') }}" width="35"
                                      height="35">
                             </div>
                             <div class="user-details">
@@ -538,77 +538,77 @@
 
 <!--[if lt IE 9]>
 
-<script src="/webarch/webarch/HTML/assets/plugins/respond.js"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/respond.js') }}"></script>
 <![endif]-->
-<script src="/public/js/lib/jquery-3.1.0.min.js"></script>
-<script src="/public/js/lib/excel.js"></script>
-<script src="/public/js/my_jquery.js"></script>
+<script src="{{ URL::asset('public/js/lib/jquery-3.1.0.min.js') }}"></script>
+<script src="{{ URL::asset('public/js/lib/excel.js') }}"></script>
+<script src="{{ URL::asset('public/js/my_jquery.js') }}"></script>
 @yield('script')
-<script src="/webarch/webarch/HTML/assets/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
-<script src="/webarch/webarch/HTML/assets/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.js"
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-1.8.3.min.js') }}" type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.js') }}"
         type="text/javascript"></script>
-<script src="/webarch/webarch/HTML/assets/plugins/boostrapv3/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="/webarch/webarch/HTML/assets/plugins/breakpoints.js" type="text/javascript"></script>
-<script src="/webarch/webarch/HTML/assets/plugins/jquery-unveil/jquery.unveil.min.js" type="text/javascript"></script>
-{{-- <script src="/webarch/webarch/HTML/assets/plugins/jquery-block-ui/jqueryblockui.js" type="text/javascript"></script> --}}
-<script src="/webarch/webarch/HTML/assets/plugins/jquery-lazyload/jquery.lazyload.min.js"
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/boostrapv3/js/bootstrap.min.js') }}" type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/breakpoints.js') }}" type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-unveil/jquery.unveil.min.js') }}" type="text/javascript"></script>
+{{-- <script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-block-ui/jqueryblockui.js') }}" type="text/javascript"></script> --}}
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-lazyload/jquery.lazyload.min.js') }}"
         type="text/javascript"></script>
-<script src="/webarch/webarch/HTML/assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js"
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js') }}"
         type="text/javascript"></script>
 <!-- END CORE JS FRAMEWORK -->
 <!-- BEGIN PAGE LEVEL JS -->
-<script src="/webarch/webarch/HTML/assets/plugins/jquery-slider/jquery.sidr.min.js" type="text/javascript"></script>
-<script src="/webarch/webarch/HTML/assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-slider/jquery.sidr.min.js') }}" type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js') }}"
         type="text/javascript"></script>
-<script src="/webarch/webarch/HTML/assets/plugins/pace/pace.min.js" type="text/javascript"></script>
-{{-- <script src="/webarch/webarch/HTML/assets/plugins/jquery-numberAnimate/jquery.animateNumbers.js"
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/pace/pace.min.js') }}" type="text/javascript"></script>
+{{-- <script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-numberAnimate/jquery.animateNumbers.js') }}"
         type="text/javascript"></script> --}}
-<script src="/webarch/webarch/HTML/assets/plugins/jquery-ricksaw-chart/js/raphael-min.js"></script>
-<script src="/webarch/webarch/HTML/assets/plugins/jquery-ricksaw-chart/js/d3.v2.js"></script>
-<script src="/webarch/webarch/HTML/assets/plugins/jquery-ricksaw-chart/js/rickshaw.min.js"></script>
-<script src="/webarch/webarch/HTML/assets/plugins/jquery-sparkline/jquery-sparkline.js"></script>
-<script src="/webarch/webarch/HTML/assets/plugins/skycons/skycons.js"></script>
-<script src="/webarch/webarch/HTML/assets/plugins/owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
-{{-- <script src="/webarch/webarch/HTML/assets/plugins/jquery-gmap/gmaps.js" type="text/javascript"></script> --}}
-<script src="/webarch/webarch/HTML/assets/plugins/Mapplic/js/jquery.easing.js" type="text/javascript"></script>
-<script src="/webarch/webarch/HTML/assets/plugins/Mapplic/js/jquery.mousewheel.js" type="text/javascript"></script>
-<script src="/webarch/webarch/HTML/assets/plugins/Mapplic/js/hammer.js" type="text/javascript"></script>
-<script src="/webarch/webarch/HTML/assets/plugins/Mapplic/mapplic/mapplic.js" type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-ricksaw-chart/js/raphael-min.js') }}"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-ricksaw-chart/js/d3.v2.js') }}"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-ricksaw-chart/js/rickshaw.min.js') }}"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-sparkline/jquery-sparkline.js') }}"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/skycons/skycons.js') }}"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/owl-carousel/owl.carousel.min.js') }}" type="text/javascript"></script>
+{{-- <script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-gmap/gmaps.js') }}" type="text/javascript"></script> --}}
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/Mapplic/js/jquery.easing.js') }}" type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/Mapplic/js/jquery.mousewheel.js') }}" type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/Mapplic/js/hammer.js') }}" type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/Mapplic/mapplic/mapplic.js') }}" type="text/javascript"></script>
 
-<script src="/webarch/webarch/HTML/assets/plugins/jquery-flot/jquery.flot.js" type="text/javascript"></script>
-<script src="/webarch/webarch/HTML/assets/plugins/jquery-flot/jquery.flot.resize.min.js"
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-flot/jquery.flot.js') }}" type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-flot/jquery.flot.resize.min.js') }}"
         type="text/javascript"></script>
-<script src="/webarch/webarch/HTML/assets/plugins/jquery-metrojs/MetroJs.min.js" type="text/javascript"></script>
-<script src="/webarch/webarch/HTML/assets/js/tabs_accordian.js" type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-metrojs/MetroJs.min.js') }}" type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/js/tabs_accordian.js') }}" type="text/javascript"></script>
 <!-- BEGIN PAGE FORM_ELEMENT LEVEL PLUGINS -->
-{{-- <script src="/webarch/webarch/HTML/assets/plugins/pace/pace.min.js" type="text/javascript"></script> --}}
-{{-- <script src="/webarch/webarch/HTML/assets/plugins/jquery-block-ui/jqueryblockui.js" type="text/javascript"></script>  --}}
-<script src="/webarch/webarch/HTML/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js" type="text/javascript"></script>
-<script src="/webarch/webarch/HTML/assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js" type="text/javascript"></script>
-<script src="/webarch/webarch/HTML/assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js" type="text/javascript"></script>
-<script src="/webarch/webarch/HTML/assets/plugins/jquery-inputmask/jquery.inputmask.min.js" type="text/javascript"></script>
-<script src="/webarch/webarch/HTML/assets/plugins/jquery-autonumeric/autoNumeric.js" type="text/javascript"></script>
-<script src="/webarch/webarch/HTML/assets/plugins/ios-switch/ios7-switch.js" type="text/javascript"></script>
-<script src="/webarch/webarch/HTML/assets/plugins/bootstrap-select2/select2.min.js" type="text/javascript"></script>
-<script src="/webarch/webarch/HTML/assets/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js" type="text/javascript"></script>
-<script src="/webarch/webarch/HTML/assets/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js" type="text/javascript"></script>
-<script src="/webarch/webarch/HTML/assets/plugins/bootstrap-tag/bootstrap-tagsinput.min.js" type="text/javascript"></script>
-<script src="/webarch/webarch/HTML/assets/plugins/boostrap-clockpicker/bootstrap-clockpicker.min.js" type="text/javascript"></script>
-<script src="/webarch/webarch/HTML/assets/plugins/dropzone/dropzone.min.js" type="text/javascript"></script>
+{{-- <script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/pace/pace.min.js') }}" type="text/javascript"></script> --}}
+{{-- <script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-block-ui/jqueryblockui.js') }}" type="text/javascript"></script>  --}}
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js') }}" type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js') }}" type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js') }}" type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-inputmask/jquery.inputmask.min.js') }}" type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-autonumeric/autoNumeric.js') }}" type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/ios-switch/ios7-switch.js') }}" type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/bootstrap-select2/select2.min.js') }}" type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js') }}" type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js') }}" type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/bootstrap-tag/bootstrap-tagsinput.min.js') }}" type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/boostrap-clockpicker/bootstrap-clockpicker.min.js') }}" type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/dropzone/dropzone.min.js') }}" type="text/javascript"></script>
 
-<script src="/public/js/lib/bootstrap-toggle.min.js"></script>
+<script src="{{ URL::asset('/public/js/lib/bootstrap-toggle.min.js') }}"></script>
 <!-- END PAGE FORM_ELEMENT LEVEL PLUGINS -->
 
 <!-- END PAGE LEVEL PLUGINS -->  
 <!-- BEGIN  SCROLL GRIB PAGE LEVEL JS -->
-{{-- <script src="/webarch/webarch/HTML/assets/plugins/jquery-block-ui/jqueryblockui.js" type="text/javascript"></script> --}}
-{{-- <script src="/webarch/webarch/HTML/assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js" type="text/javascript"></script> --}}
-{{-- <script src="/webarch/webarch/HTML/assets/plugins/pace/pace.min.js" type="text/javascript"></script> --}}
-{{-- <script src="/webarch/webarch/HTML/assets/plugins/jquery-numberAnimate/jquery.animateNumbers.js" type="text/javascript"></script> --}}
+{{-- <script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-block-ui/jqueryblockui.js') }}" type="text/javascript"></script> --}}
+{{-- <script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js') }}" type="text/javascript"></script> --}}
+{{-- <script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/pace/pace.min.js') }}" type="text/javascript"></script> --}}
+{{-- <script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-numberAnimate/jquery.animateNumbers.js') }}" type="text/javascript"></script> --}}
 <!-- END SCROLL GRIB LEVEL PLUGINS -->
 
 <!-- BEGIN CORE TEMPLATE JS -->
-<script src="{{URL::asset('resources/views/tinymce/js/tinymce/tinymce.min.js')}}"></script>
+<script src="{{URL::asset('resources/views/tinymce/js/tinymce/tinymce.min.js') }}"></script>
     <script>
         tinymce.init({
             selector: 'textarea',
@@ -627,10 +627,10 @@
             fontsize_formats: '8pt 10pt 12pt 14pt 18pt 24pt 36pt',
         });
     </script>
-<script src="/webarch/webarch/HTML/assets/js/core.js" type="text/javascript"></script>
-<script src="/webarch/webarch/HTML/assets/js/chat.js" type="text/javascript"></script>
-<script src="/webarch/webarch/HTML/assets/js/demo.js" type="text/javascript"></script>
-<script src="/webarch/webarch/HTML/assets/js/demo.js" type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/js/core.js') }}" type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/js/chat.js') }}" type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/js/demo.js') }}" type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/js/demo.js') }}" type="text/javascript"></script>
 <script src="{{ URL::asset('public/js/angular/angular.min.js') }}"></script>
 <script src="{{ URL::asset('public/js/angular/my_angular.js') }}"></script>
 
@@ -638,7 +638,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="{{ URL::asset('public/js/jquery.cookie.js') }}"></script>
     <script src="{{ URL::asset('public/js/my_script.js') }}"></script>
-{{-- <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script> --}}
+{{-- <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js') }}"></script> --}}
 <script type="text/javascript">
     $(document).ready(function () {
         $(".live-tile,.flip-list").liveTile();

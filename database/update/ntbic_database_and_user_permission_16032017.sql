@@ -1,4 +1,4 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 4.5.1
 -- http://www.phpmyadmin.net
 --
@@ -47,8 +47,8 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `author` varchar(100) NOT NULL,
   `remember_token` varchar(255) DEFAULT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `updated_at` timestamp,
+  `created_at` timestamp
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
