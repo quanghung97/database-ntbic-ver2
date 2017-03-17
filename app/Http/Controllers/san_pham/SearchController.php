@@ -25,11 +25,11 @@ class SearchController extends Controller
 			2: Khả năng ứng dụng
 			3: Mô tả sản phẩm
 		*/
-		if($tim_theo == 0) {
+		if($tim_theo == 1) {
 			$result = san_pham::where('ten_san_pham', 'LIKE', '%'.$text_search.'%');
-		} else if ($tim_theo == 1) {
-			$result = san_pham::where('kha_nang_ung_dung', 'LIKE', '%'.$text_search.'%');
 		} else if ($tim_theo == 2) {
+			$result = san_pham::where('kha_nang_ung_dung', 'LIKE', '%'.$text_search.'%');
+		} else if ($tim_theo == 3) {
 			$result = san_pham::where('mo_ta_chung', 'LIKE', '%'.$text_search.'%');
 		} else {
 			$result = san_pham::where(function($query) use ($text_search){
