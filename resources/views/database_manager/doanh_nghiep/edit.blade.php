@@ -267,7 +267,8 @@
                       </div>
             
             <div class="form-group">
-				<span class="form-label">Logo profile</span>
+            	<img  style="max-height: 150px; max-width: auto" src="{{$doanh_nghiep->logo}}"/><br><br>
+				<span class="form-label">Thay đổi logo doanh nghiệp</span>
 				<span class="error">&nbsp;&nbsp;{{$errors->first('logo')}}</span>
 		        <input type="file" name="logo" multiple>
 		    </div> 
