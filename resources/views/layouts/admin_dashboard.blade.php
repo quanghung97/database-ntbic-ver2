@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
     <meta charset="utf-8"/>
-    <title>Trang quản lý khóa luận</title>
+    <title>NTBIC|Trang quản trị viên</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <meta content="" name="description"/>
     <meta content="" name="author"/>
@@ -51,6 +51,7 @@
 <link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/ios-switch/ios7-switch.css') }}" rel="stylesheet" type="text/css" media="screen">
 <link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/bootstrap-select2/select2.css') }}" rel="stylesheet" type="text/css" media="screen"/>
 <link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/boostrap-clockpicker/bootstrap-clockpicker.min.css') }}" rel="stylesheet" type="text/css" media="screen"/>
+<link href="{{ URL::asset('public/css/admin_dashboard.css') }}" rel="stylesheet" type="text/css" />
 <!-- END FORM_ELEVENT PLUGIN CSS -->
 
 
@@ -75,7 +76,7 @@
                     </a></li>
             </ul>
             <!-- BEGIN LOGO -->
-            <a href="/"><br><center><p class="semi-bold" style="color: white; font-size: 14px">TRƯỜNG ĐẠI HỌC CÔNG NGHỆ</p></center></a>
+            <a href="/"><br><center><p class="semi-bold" style="color: white; font-size: 14px">NTBIC</p></center></a>
             <!-- END LOGO -->
       
         </div>
@@ -96,9 +97,9 @@
                     <li class="quicklinks"><a href="#" class="">
                             <div class="iconset top-tiles"></div>
                         </a></li>
-                    <li class="m-r-10 input-prepend inside search-form no-boarder"><span class="add-on"> <span
+                   <!-- <li class="m-r-10 input-prepend inside search-form no-boarder"><span class="add-on"> <span
                                     class="iconset top-search"></span></span>
-                        <input id="key_search" type="text" class="no-boarder form-control" placeholder="Tìm kiếm giảng viên"
+                        <input id="key_search" type="text" class="no-boarder form-control" placeholder="Tìm kiếm "
                                style="width:300px;">
                                <select name="type_search" class="btn btn-primary" style="width: 180px">
                                    <option value="">Tìm kiếm theo</option>
@@ -107,18 +108,18 @@
                                </select>
                                <button type="button" id="searching" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tìm kiếm</button>
 
-                    </li>
+                    </li>-->
                     
                 </ul>
             </div>
             <!-- END TOP NAVIGATION MENU -->
             <!-- BEGIN CHAT TOGGLER -->
             <div class="pull-right">
-                <div class="chat-toggler"><a href="#" class="dropdown-toggle" id="my-task-list" data-placement="bottom"
+                <div class="chat-toggler1"><a href="#" class="dropdown-toggle" id="my-task-list" data-placement="bottom"
                                              data-content='' data-toggle="dropdown" data-original-title="Notifications">
                         <div class="user-details">
                             <div class="username"><i class="fa fa-bell"></i> Thông báo
-                            <span class="badge badge-important">3</span>
+                            <!--<span class="badge badge-important">3</span>-->
                             </div>
                         </div>
                         <div class="iconset top-down-arrow"></div>
@@ -143,7 +144,7 @@
                                 <div class="message-wrapper">
                                     <div class="heading"> Server load limited</div>
                                     <div class="description"> Database server has reached its daily capicity</div>
-                                    <div class="date pull-left"> 2 mins ago</div>
+                                    <div class="date pull-left"> 11 mins ago</div>
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
@@ -162,11 +163,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="profile-pic"><img src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/avatar.jpg') }}"
+                  <!--  <div class="profile-pic"><img src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/avatar.jpg') }}"
                                                   alt=""
                                                   data-src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/avatar.jpg') }}"
                                                   data-src-retina="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/avatar.jpg') }}"
-                                                  width="35" height="35"/></div>
+                                                  width="35" height="35"/></div>-->
                 </div>
 
                 <ul class="nav quick-section ">
@@ -176,8 +177,9 @@
                         </a>
                         <ul class="dropdown-menu  pull-right" role="menu" aria-labelledby="user-options">
                             <li><a href="/trang-ca-nhan"> Trang cá nhân</a></li>
-                            <li><a href="email.html"> Tin nhắn&nbsp;&nbsp;<span
-                                            class="badge badge-important animated bounceIn">2</span></a></li>
+                            <li><a href="email.html"> Tin nhắn&nbsp;&nbsp;
+                            <!--<span
+                                            class="badge badge-important animated bounceIn">2</span>--></a></li>
                             <li class="divider"></li>
                             <li><a href="/doi-mat-khau"> Đổi mật khẩu</a></li>
                             <li><a href="/logout"><i class="fa fa-power-off"></i>&nbsp;&nbsp;Đăng xuất</a></li>
@@ -185,8 +187,9 @@
                     </li>
                     <li class="quicklinks"><span class="h-seperate"></span></li>
                     <li class="quicklinks"><a id="chat-menu-toggle" href="#sidr" class="chat-menu-toggle">
-                            <div class="iconset top-chat-dark "><span class="badge badge-important hide"
-                                                                      id="chat-message-count">1</span></div>
+                            <div class="iconset top-chat-dark ">
+                            <!--<span class="badge badge-important hide"
+                                                                      id="chat-message-count">1</span>--></div>
                         </a>
                         <div class="simple-chat-popup chat-menu-toggle hide">
                             <div class="simple-chat-popup-arrow"></div>
@@ -214,9 +217,9 @@
         <!-- BEGIN MINI-PROFILE -->
         <div class="page-sidebar-wrapper scrollbar-dynamic" id="main-menu-wrapper">
             <div class="user-info-wrapper">
-                <center><img src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/avatar.jpg') }}" alt=""
-                                                  data-src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/avatar.jpg') }}"
-                                                  data-src-retina="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/avatar.jpg') }}"
+                <center><img src="{{ URL::asset('storage/app/public/media_backup/logo.png') }}" alt=""
+                                                  data-src="{{ URL::asset('storage/app/public/media_backup/logo.png') }}"
+                                                  data-src-retina="{{ URL::asset('storage/app/public/media_backup/logo.png') }}"
                                                   width="120" height="120" style="border-radius: 120px"/></center><br>
                 
             </div>
@@ -299,7 +302,7 @@
                                     </div>
                                 </div>
                                 <div class="user-details-status-wrapper">
-                                    <span class="badge badge-important">3</span>
+                                   <!-- <span class="badge badge-important">3</span>-->
                                 </div>
                                 <div class="user-details-count-wrapper">
                                     <div class="status-icon green"></div>
