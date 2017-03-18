@@ -9,15 +9,15 @@ use Illuminate\Support\Facades\Redirect;
 use App\de_tai_du_an_cac_cap;
 use Illuminate\Support\Facades\Input;
 use DB;
-
+use App\chuyen_nganh_khcn;
 
 class EditController extends Controller
 {
     public function index(Request $request){
     	$id = $request->id;
     	$result = DB::table('de_tai_du_an_cac_cap')->select('ten_de_tai','maso_kyhieu','linh_vuc','co_quan','nam_bat_dau','nam_ket_thuc','chu_nhiem_detai','chuyen_nganh_khcn','diem_noi_bat','mota_chung','mota_quytrinh_chuyengiao','ket_qua_thuc_hien_ung_dung')->where('id',$id)->first();
-		
-    	return view('database_manager.de_tai_du_an_cac_cap.edit')->with(['data'=>$result]);
+		$rel = chuyen_nganh_khcn::select('id','ten')->get();
+    	return view('database_manager.de_tai_du_an_cac_cap.edit')->with(['data'=>$result,'datas'=>$rel]);
 	}
 
 	public function edit_action(Request $request){
@@ -61,7 +61,7 @@ class EditController extends Controller
         		'ket_qua_thuc_hien_ung_dung' => $ket_qua_thuc_hien_ung_dung,
         		]);
 
-        	return Redirect::back()->with('status', 'Sửa thành công một đề tài dự án!');
+        	return Redirect::to('quan-tri-vien/quan-ly-du-lieu/de-tai-du-an-cac-cap/sua/'.$id)->withInput()->with('status', 'Sửa thành công một đề tài dự án!');
         }
 	}
 }
