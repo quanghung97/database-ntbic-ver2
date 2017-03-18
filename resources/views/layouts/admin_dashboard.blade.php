@@ -144,7 +144,7 @@
                                 <div class="message-wrapper">
                                     <div class="heading"> Server load limited</div>
                                     <div class="description"> Database server has reached its daily capicity</div>
-                                    <div class="date pull-left"> 2 mins ago</div>
+                                    <div class="date pull-left"> 1 mins ago</div>
                                 </div>
                                 <div class="clearfix"></div>
                             </div>

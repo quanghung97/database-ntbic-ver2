@@ -52,6 +52,7 @@
   display: inline-block;
   float: left;
 }
+
 .header .chat-toggler1 .message-count .badge {
   position: absolute;
   float: left;
