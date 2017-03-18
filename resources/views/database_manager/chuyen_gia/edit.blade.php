@@ -41,7 +41,11 @@ sửa dữ liệu chuyên gia
                           <i class=""></i>
                           <select name="hoc_vi" id="hoc_vi" class="select2 form-control"  >
                                        @foreach($hoc_vi as $item)
-                                      <option value="{{$item->hoc_vi}}">{{$item->hoc_vi}}</option>
+                                       @if($chuyen_gia->hoc_vi == $item->hoc_vi)
+                                         <option value="{{$item->hoc_vi}}" selected>{{$item->hoc_vi}}</option>
+                                         @else
+                                         <option value="{{$item->hoc_vi}}">{{$item->hoc_vi}}</option>
+                                         @endif
                                       @endforeach
                                     </select>
                         </div>
@@ -102,7 +106,12 @@ sửa dữ liệu chuyên gia
               <i class=""></i>
               <select name="tinh_thanh_pho" id="tinh_thanh_pho" class="select2 form-control"  >
                            @foreach($tinh_thanh as $item)
-                          <option value="{{$item->tinh_thanh_pho}}">{{$item->tinh_thanh_pho}}</option>
+                           
+                           @if($chuyen_gia->tinh_thanh == $item->tinh_thanh_pho)
+                           <option value="{{$item->tinh_thanh_pho}}" selected>{{$item->tinh_thanh_pho}}</option>
+                           @else
+                           <option value="{{$item->tinh_thanh_pho}}">{{$item->tinh_thanh_pho}}</option>
+                           @endif
                           @endforeach
                         </select>
             </div>
@@ -111,7 +120,7 @@ sửa dữ liệu chuyên gia
               <img class="responsive-img anh_cu" src="{{ URL::asset($chuyen_gia->link_anh) }}" alt="ảnh" class="img-circle anh_chuyen_gia">
             <br>
         <span class="form-label">Thay đổi ảnh chuyên gia</span>
-        <span class="error">&nbsp;&nbsp;{{$errors->first('ten')}}</span>
+        <span class="error">&nbsp;&nbsp;{{$errors->first('file-anh')}}</span>
             <input name="file-anh" type="file" multiple />
         </div>            
           <div class="form-actions">  

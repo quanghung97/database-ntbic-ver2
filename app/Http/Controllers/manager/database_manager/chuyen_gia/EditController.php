@@ -40,6 +40,8 @@ class EditController extends Controller
     public function edit_action(FormThemChuyenGiaRequest $request,$id)
     {
        $chuyen_gia=chuyen_gia_khcn::find($id);
+       $hoc_vi=hoc_vi::where('hoc_vi',$request->hoc_vi)->first();
+       $tinh_thanh=tinh_thanh_pho::where('tinh_thanh_pho',$request->tinh_thanh_pho)->first();
        $chuyen_gia->ho_va_ten=$request->ten;
        $chuyen_gia->hoc_vi=$request->hoc_vi;
        $chuyen_gia->nam_sinh=$request->nam_sinh;
@@ -50,7 +52,7 @@ class EditController extends Controller
        $chuyen_gia->Sl_congTrinh_baiBao=$request->so_cong_trinh;
        $chuyen_gia->tinh_thanh=$request->tinh_thanh_pho;
        $text=$this->stripVN($request->ten).'-'.$id.'-'.str_replace("/", "", $request->nam_sinh);
-       $chuyen_gia->linkid=$text;
+       $chuyen_gia->linkid=substr($text,0,45);
        if($request->hasFile('file-anh')){
        		$logo = $request->file('file-anh');
                $logo_name = $text.'.'.$logo->getClientOriginalExtension();
@@ -58,6 +60,6 @@ class EditController extends Controller
                $logo->move('storage/app/public/media/profile_khcn', $logo_name);
        }
        $chuyen_gia->save();
-       return Redirect::back()->with('status', 'Sửa thành công chuyên gia!');
+       return Redirect::back()->with('status','Sửa thành công chuyên gia!');
     }
 }
