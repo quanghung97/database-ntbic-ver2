@@ -1,12 +1,16 @@
 <?php
 namespace App\Http\Controllers\manager\database_manager\phat_minh;
 use Illuminate\Http\Request;
+use App\Http\Requests\FormThemPhatMinhRequest;
 use App\Http\Controllers\Controller;
 use Validator;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Redirect;
 use App\bang_phat_minh_sang_che;
 use Illuminate\Support\Facades\Input;
 use DB;
+use App\linh_vuc_khcn;
+use App\loai_phat_minh_sang_che;
 
 class EditController extends Controller
 {
@@ -32,59 +36,36 @@ class EditController extends Controller
 }
     public function index($id)
     {
+      $lv=linh_vuc_khcn::select('id','linh_vuc')->get();
+      $lpm=loai_phat_minh_sang_che::all();
     	$pm=bang_phat_minh_sang_che::find($id);
-    	return view('database_manager.phat_minh.edit')->with(['phat_minh'=>$pm]);
+    	return view('database_manager.phat_minh.edit')->with(['phat_minh'=>$pm, 'linh_vuc_khcn'=>$lv,'loai_phat_minh_sang_che'=>$lpm]);
     }
-   public function edit_action(Request $request){
-       $id = $request->id;
-       $ten=$request->ten;
-       $sobang_kyhieu=$request->sobang_kyhieu;
-       $ngay_cong_bo=$request->ngay_cong_bo;
-       $ngay_cap=$request->ngay_cap;
-       $chu_so_huu_chinh=$request->chu_so_huu_chinh;
-       $tac_gia=$request->tac_gia;
-       $diem_noi_bat=$request->diem_noi_bat;
-       $mota_sangche_phatminh_giaiphap=$request->mota_sangche_phatminh_giaiphap;
-       $noidung_cothe_chuyengiao=$request->nd_chuyengiao;
-       $thitruong_ungdung=$request->thitruong_ungdung;
-       $hinh_anh_minh_hoa=$request->hinh_anh_minh_hoa;
-       $link=$request->link;
-       $linh_vuc_khcn=$request->linh_vuc_khcn;
-       $loai_phat_minh_sang_che=$request->loai_phat_minh_sang_che;
-       $rules = array('ten' => 'required', 'sobang_kyhieu' => 'required','ngay_cong_bo' => 'required','ngay_cap' => 'required','chu_so_huu_chinh' => 'required','tac_gia' => 'required','linh_vuc_khcn' => 'required','loai_phat_minh_sang_che' => 'required');
-        $messages = [
-            'ten.required' => 'Chưa nhập tên cho phat minh!',
-            'sobang_kyhieu.required' => 'Chưa nhập số bằng - ký hiệu!',
-            'ngay_cong_bo.required' => 'Chưa nhập ngày công bố!',
-            'ngay_cap.required' => 'Chưa nhập ngày cấp!',
-            'chu_so_huu_chinh.required' => 'Chưa nhập dữ liệu!',
-            'tac_gia.required' => 'Chưa nhập dữ liệu!',
-            'linh_vuc_khcn.required' => 'Chưa nhập dữ liệu!',
-        	'loai_phat_minh_sang_che.required' => 'Chưa nhập dữ liệu!',
-        ];
-
-        $validator = Validator::make($request->all(), $rules,$messages);
-        if ($validator->fails()) {
-            return Redirect::to('quan-tri-vien/quan-ly-du-lieu/phat-minh/tao-moi')->withInput()->withErrors($validator);
-        }
-        else {
-        	bang_phat_minh_sang_che::where('id',$id)->update([
-        		'ten' => $ten,
-        		'sobang_kyhieu' => $sobang_kyhieu,
-        		'ngay_cong_bo' => $ngay_cong_bo,
-        		'ngay_cap' => $ngay_cap,
-        		'chu_so_huu_chinh' => $chu_so_huu_chinh,
-        		'tac_gia' => $tac_gia,
-        		'diem_noi_bat' => $diem_noi_bat,
-        		'mota_sangche_phatminh_giaiphap' => $mota_sangche_phatminh_giaiphap,
-        		'noidung_cothe_chuyengiao' => $noidung_cothe_chuyengiao,
-        		'thitruong_ungdung' => $thitruong_ungdung,
-        		'hinh_anh_minh_hoa' => $hinh_anh_minh_hoa,
-        		'link' =>$link,
-        		'linh_vuc_khcn' =>$linh_vuc_khcn,
-        		'loai_phat_minh_sang_che' =>$loai_phat_minh_sang_che,
-        		]);
-        	return Redirect::back()->with('status', 'Sửa thành công một phát minh!');
-        }
+   public function edit_action(FormThemPhatMinhRequest $request, $id){
+       $phat_minh=bang_phat_minh_sang_che::find($id);
+       $phat_minh->ten=$request->ten;
+       $phat_minh->sobang_kyhieu=$request->sobang_kyhieu;
+       $phat_minh->ngay_cong_bo=$request->ngay_cong_bo;
+       $phat_minh->ngay_cap=$request->ngay_cap;
+       $phat_minh->chu_so_huu_chinh=$request->chu_so_huu_chinh;
+       $phat_minh->tac_gia=$request->tac_gia;
+       $phat_minh->diem_noi_bat=$request->diem_noi_bat;
+       $phat_minh->mota_sangche_phatminh_giaiphap=$request->mota_sangche_phatminh_giaiphap;
+       $phat_minh->noidung_cothe_chuyengiao=$request->nd_chuyengiao;
+       $phat_minh->thitruong_ungdung=$request->thitruong_ungdung;
+       $text=$id.$this->stripVN($request->ten);
+       $text1=substr($text,0,45);
+       $phat_minh->link=$text1;
+       $phat_minh->linh_vuc_khcn=$request->linh_vuc_khcn;
+       $phat_minh->loai_phat_minh_sang_che=$request->loai_phat_minh_sang_che;
+        if($request->hasFile('file-anh')){
+          $logo = $request->file('file-anh');
+               $logo_name = $text1.'.'.$logo->getClientOriginalExtension();
+               $phat_minh->hinh_anh_minh_hoa = 'storage/app/public/media/pmsc/'.$logo_name;
+               $logo->move('storage/app/public/media/pmsc', $logo_name);
+       }
+     
+      $phat_minh->save();
+      return Redirect::back()->with('status', 'Sửa thành công chuyên gia!');
     }
 }
