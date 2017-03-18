@@ -36,12 +36,12 @@
                 <thead>
                   <tr>
                     <th>STT</th>
-                    <th>Tên</th>
-                    <th>Số bằng - Ký hiệu</th>
-                    <th>Ngày công bố</th>
+                    <th style="width: 20%;">Tên</th>
+                    <th style="width:15%;"">Số bằng - Ký hiệu</th>
+                    <th style="width: 12%;">Ngày công bố</th>
                     <th>Ngày cấp</th>
-                    <th>Chủ sở hữu</th>
-                    <th>Điểm nổi bật</th>
+                    <th style="width: 12%;">Chủ sở hữu</th>
+                    <th>Tác giả</th>
                     <th>Xem</th>
                     <th>Sửa</th>
                     <th>Xóa</th>
@@ -56,7 +56,7 @@
                     <td> {{ $pm->ngay_cong_bo}}</td>
                     <td>{{ $pm->ngay_cap}}</td>
                     <td>{{ $pm->chu_so_huu_chinh}}</td>
-                    <td>{{ $pm->diem_noi_bat}}</td>
+                    <td>{{ $pm->tac_gia}}</td>
                     <td class="center"><a target="_blank" href="{!! URL::asset('phat-minh/'.$pm->link) !!}"><span class="fa fa-eye"></span></a></td>
                     <td class="center"><a href="{!! URL::asset('quan-tri-vien/quan-ly-du-lieu/phat-minh/sua/'.$pm->id) !!}"><span class="fa fa-pencil-square"></span></a></td>
                     <td class="center"><div delete-modal" data-toggle="modal" data-target="#delete-modal{{$pm->id}}"><span class="fa fa-trash-o"></span></a></div></td>
