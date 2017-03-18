@@ -19,46 +19,56 @@
 							  	@endif
 
 							  	@if($tim_theo == '1')
-							  		<option value="1" selected="">Tên đề tài, đề án</option>
+							  		<option value="1" selected="">Tên báo cáo</option>
 							  	@else
-							  		<option value="1">Tên đề tài, đề án</option>
+							  		<option value="1">Tên báo cáo</option>
 							  	@endif
 
 							  	@if($tim_theo == '2')
-							  		<option value="2" selected="">CNĐT tác giả</option>
+							  		<option value="2" selected="">Trạng thái</option>
 							  	@else
-							  		<option value="2">CNĐT tác giả</option>
+							  		<option value="2">Trạng thái</option>
 							  	@endif
 
 							  	@if($tim_theo == '3')
-							  		<option value="3" selected="">Mã số, ký hiệu</option>
+							  		<option value="3" selected="">Mã số đề tài</option>
 							  	@else
-							  		<option value="3">Mã số, ký hiệu</option>
+							  		<option value="3">Mã số đề tài</option>
 							  	@endif
 
 							  	@if($tim_theo == '4')
-							  		<option value="4" selected="">Cơ quan chủ trì</option>
+							  		<option value="4" selected="">Cơ quan chủ trù</option>
 							  	@else
 							  		<option value="4">Cơ quan chủ trì</option>
 							  	@endif
 
 							  	@if($tim_theo == '5')
-							  		<option value="5" selected="">Tóm tắt nội dung</option>
+							  		<option value="5" selected="">Tóm tắt</option>
 							  	@else
-							  		<option value="5">Tóm tắt nội dung</option>
+							  		<option value="5">Tóm tắt</option>
 							  	@endif
 							</select>
 						</li>
 						<li>
-							<select name="chuyen_nganh">
-							  <option value="">Chuyên ngành</option>
-							  @foreach($chuyen_nganh_khcn as $item)
-							  	@if($chuyen_nganh_current == $item->id)
-									<option value="{{$item->id}}" selected="">{{$item->ten}}</option>
-								@else
-									<option value="{{$item->id}}">{{$item->ten}}</option>
-								@endif
-							  @endforeach
+							<select name='cap_quan_ly'>
+							  <option value="cap_quan_ly">Cấp quản lý</option>
+							  		@if($cap_quan_ly_current == 'cơ sở')
+							  			<option value="cơ sở" selected="">Cơ sở</option>
+							  		@else
+							  			<option value="cơ sở">Cơ sở</option>
+							  		@endif
+
+							  		@if($cap_quan_ly_current == 'quốc gia')
+							  			<option value="quốc gia" selected="">Quốc gia</option>
+							  		@else
+							  			<option value="quốc gia">Quốc gia</option>
+							  		@endif
+
+							  		@if($cap_quan_ly_current == 'bộ')
+							  			<option value="bộ" selected="">Bộ</option>
+							  		@else
+							  			<option value="bộ">Bộ</option>
+							  		@endif
 							</select>
 						</li>
 					</ul>
@@ -74,21 +84,23 @@
 			<table class="dataTable table-hover table-responsive" id="myTable">
 				<thead class="head-dataTable">
 					<th class="no">Stt</th>
-					<th class="name">Tên Báo cáo</th>
-					<th class="linh_vuc">Lĩnh vực nghiên cứu</th>
-					<th class="ma_so">Mã số đề tài</th>
-					<th class="tac_gia">Tỉnh thành</th>
-					<th class="thoi_gian">Thời gian</th>
+					<th class="ten_bao_cao">Tên Báo cáo</th>
+					<th class="linh_vuc_nghien_cuu">Lĩnh vực nghiên cứu</th>
+					<th class="ma_so_de_tai">Mã số đề tài</th>
+					<th class="tinh">Tỉnh thành</th>
+					<th class="co_quan_chu_tri">Cơ quan chủ trì</th>
+					<th class="thoi_gian_bat_dau">Thời gian</th>
 				</thead>
 				<tbody>
 					@foreach($datas as $key=>$item)
 						<tr>
 							<td>{!! ($datas->currentPage() - 1)*10 + $key +1 !!}</td>
-							<td><a href="{{ URL::asset('de-tai-du-an-cac-cap/'.$item->link) }}" class="ten_de_tai">{{$item->ten_de_tai}}</a></td>
-							<td>{{$item->linh_vuc}}</td>
-							<td>{{$item->maso_kyhieu}}</td>
-							<td>{{$item->chu_nhiem_detai}}</td>
-							<td>{{$item->nam_bat_dau}}-{{$item->nam_ket_thuc}}</td>
+							<td><a href="{{ URL::asset('de-tai-du-an/'.$item->link) }}" class="ten_de_tai">{{$item->ten_bao_cao}}</a></td>
+							<td>{{$item->linh_vuc_nghien_cuu}}</td>
+							<td>{{$item->ma_so_de_tai}}</td>
+							<td>{{$item->tinh}}</td>
+							<td>{{$item->co_quan_chu_tri}}</td>
+							<td>{{$item->thoi_gian_bat_dau}}-{{$item->thoi_gian_ket_thuc}}</td>
 						</tr>
 					@endforeach
 				</tbody>
