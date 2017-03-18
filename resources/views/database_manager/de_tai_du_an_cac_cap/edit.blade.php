@@ -51,7 +51,14 @@
               <label class="form-label">Chuyên ngành</label>
               <div class="input-with-icon  right">                                       
                 <i class=""></i>
-                <input type="text" name="chuyen_nganh_khcn" id="form1Name" class="form-control" value="{{$data->chuyen_nganh_khcn}}">                                 
+                <select  name="chuyen_nganh_khcn" id="form1Url" class="form-control">
+              @foreach($datas as $row)
+               @if ($data->chuyen_nganh_khcn == $row->id)
+                  <option value="{{$row->id}}" selected>{{$row->ten}}</option>
+              @endif
+                <option value="{{$row->id}}">{{$row->ten}}</option>
+              @endforeach
+              </select>                                 
               </div>
             </div>
             <div class="form-group">

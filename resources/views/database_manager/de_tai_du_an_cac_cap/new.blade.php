@@ -54,9 +54,9 @@
                         
 						<div class="input-with-icon  right">                                       
 							<i class=""></i>
-							<select id="form1Url" class="form-control">
+							<select  name="chuyen_nganh_khcn" id="form1Url" class="form-control">
 							@foreach($datas as $row)
-								<option value="{{$row->id}}" name="chuyen_nganh_khcn">{{$row->ten}}</option>
+								<option value="{{$row->id}}">{{$row->ten}}</option>
 							@endforeach
 							</select>				      
 						</div>
