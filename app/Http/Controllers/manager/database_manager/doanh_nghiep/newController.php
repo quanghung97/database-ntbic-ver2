@@ -13,13 +13,13 @@ use Illuminate\Support\Facades\Redirect;
 class NewController extends Controller
 {
 	
-     public function index() {
+    public function index() {
      	$linh_vuc = linh_vuc_san_pham::all();
      	$tinh_thanh_pho = tinh_thanh_pho::all();
      	return view('database_manager.doanh_nghiep.new')->with(['tinh_thanh'=>$tinh_thanh_pho,'linh_vuc'=>$linh_vuc]);
-     }
+    }
 
-     public function new_action(ThemDoanhNghiepRequest $request) {
+    public function new_action(ThemDoanhNghiepRequest $request) {
      	$entry = new doanh_nghiep_khcn;
      	$entry->logo = '';
      	$entry->ngay_cap_nhat = Carbon::now();
@@ -68,9 +68,36 @@ class NewController extends Controller
           $entry->save();
 
           return Redirect::back()->with('status', 'Thêm thành công một doanh nghiệp!');
-     }
+    }
 
-     public function text_to_link($string){
+    public function add_by_excel(ThemDoanhNghiepRequest $request) {
+        $entry = new doanh_nghiep_khcn;
+        $linh_vuc = linh_vuc_san_pham::where('linh_vuc',$request->linh_vuc)->first();
+        $tinh_thanh_pho = tinh_thanh_pho::where('tinh_thanh_pho',$request->tinh_thanh_pho)->first();
+
+        $entry->ngay_cap_nhat = Carbon::now();
+        $entry->ten_doanh_nghiep = $request->name;
+        $entry->dia_chi = $request->dia_chi;
+        $entry->email = $request->email;
+        $entry->ten_dai_dien = $request->ten_dai_dien;
+        $entry->email_dai_dien = $request->email_dai_dien;
+        $entry->dia_chi_dai_dien = $request->dia_chi_dai_dien;
+        $entry->linh_vuc = $linh_vuc->id;
+        $entry->tinh_thanh_pho = $tinh_thanh_pho->id;
+        $entry->logo = 'storage/app/public/media/doanh-nghiep/default.jpg';
+        $entry->link ='';
+        if($entry->save()) {
+            $status = 'success';
+        } else $status = 'error';
+
+        $link = $this->text_to_link($entry->id.'-'.$entry->ten_doanh_nghiep);
+        $entry->link = substr($link,0,45);
+        $entry->save();
+
+        return json_encode(['status'=>$status]);
+    }
+
+    public function text_to_link($string){
     $current_char = array(
         "â","ấ","ầ","ậ","ẩ","ẫ",
         "é","è","ẽ","ẹ","ẻ",
