@@ -6,6 +6,7 @@ use App\hoc_vi;
 use Carbon\Carbon;
 use App\Http\Requests\FormThemChuyenGiaRequest;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
 class NewController extends Controller
@@ -69,5 +70,33 @@ class NewController extends Controller
        }
        $chuyen_gia1->save();
        return Redirect::back()->with('status', 'Thêm thành công một chuyên gia!');
+    }
+
+    protected function ajax_new_record(Request $request)
+    {
+
+        $errors = [];
+        // mảng chứa các lỗi. $errors
+        // ví dụ khi validate dữ liệu. Trường họ và tên bị rỗng thì thêm lỗi bằng cách
+        // $errors[] = Họ và tên không được rỗng !
+        // return json_encode(['errors'=>'']) để trả về danh sách lỗi. trong code javascript đã có code để hiện
+        $check = false;
+        if(chuyen_gia_khcn::insert([
+              'ho_va_ten' => $request->ho_va_ten,
+              'nam_sinh' => $request->nam_sinh,
+              'hoc_vi' => $request->hoc_vi,
+              'chuyen_nganh'=> $request->chuyen_nganh,
+              'tinh_thanh'=> $request->tinh_thanh,
+              'co_quan' => $request->co_quan,
+              'dia_chi_co_quan' => $request->dia_chi_co_quan,
+              'huong_nghien_cuu' => $request->huong_nghien_cuu,
+              'Sl_congTrinh_baiBao' => $request->so_cong_trinh,
+          ])){
+              return json_encode(['errors'=>'']);
+            //thêm chuyên gia thành công
+        }
+
+        $errors[] = 'Lỗi thêm dữ liệu chưa xác định !';
+        return json_encode(['errors'=>$errors]);
     }
 }

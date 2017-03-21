@@ -26,6 +26,7 @@
 				Route::group(['middleware'=>'insert_chuyen_gia'],function(){
 					Route::get('tao-moi','manager\database_manager\chuyen_gia\NewController@index');
 					Route::post('tao-moi','manager\database_manager\chuyen_gia\NewController@new_action')->name('them_chuyen_gia');
+					Route::post('tao-moi/ajax','manager\database_manager\chuyen_gia\NewController@ajax_new_record');
 				});
 				Route::group(['middleware'=>'delete_chuyen_gia'],function(){
 					Route::get('xoa/{id}','manager\database_manager\chuyen_gia\DeleteController@index');
