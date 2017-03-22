@@ -1,18 +1,19 @@
 
+//import file 
 $("#excel_import_new_product:file").change(function(e) {
 
 		$("#thead_import_product").text("");
 		$("tbody").text("");		
 		$("#import_product").remove();
-		$("#thead_import_product").append('<tr><th>Tên sản phẩm</th><th>Lĩnh vực</th><th>Đặc điểm nổi bật</th><th>Mô tả chung</th><th>Khả năng ứng dụng</th><th class="tuy_chon">Tùy chọn</th></tr>');
+		$("#thead_import_product").append('<tr><th>Tên sản phẩm</th><th>Lĩnh vực</th><th>Đặc điểm nổi bật</th><th>Mô tả chung</th><th>Quy trình chuyển giao</th><th>Khả năng ứng dụng</th><th class="tuy_chon">Tùy chọn</th></tr>');
 		handleFile(e);
 	});
-
+//icon remove 
  $(document).on("click",".remove_record_excel",function(){
         $(this).parent().parent().remove();
     });
     
-        //click them san pham vao he thong
+        //click them san pham vao he thong load %
     $(document).on("click","#import_product",function(){
         $('#status_all').text('');
         $('#status_all').append('<h4 class="semi-bold text-info">Đang thêm sản phẩm. Vui lòng không tắt trình duyệt !</h4><div class="progress progress-striped active "><div id="processing" data-percentage="0%" class="progress-bar progress-bar-danger"></div></div>');
@@ -25,13 +26,23 @@ $("#excel_import_new_product:file").change(function(e) {
             action.append('<img src="/storage/app/public/icons/loading_small.gif">');
         });
 
-        ajax_add_excel_product(items,0);
+        
     });
-    
+       
+$(document).on("click","#import_product",function() {
+	var items = new Array();
+	$.each($("tbody").children('tr'), function(item,val) {
+		items.push($(this));
+	});
+
+	ajax_add_excel_product(items,0);//them 1 san pham vao he thong
+}); 
+
+//ham xu ly chinh
     function handleFile(e) {
         var files = e.target.files;
         var i,f;
-        var num_row = 9;
+        var num_row = 6;
         for (i = 0, f = files[i]; i != files.length; ++i) {
             var reader = new FileReader();
             var name = f.name;
@@ -53,7 +64,7 @@ $("#excel_import_new_product:file").change(function(e) {
                         +'<td class="dac_diem_noi_bat">'+ new_workbook[i+2] +'</td>'
                         +'<td class="mo_ta_chung">'+ new_workbook[i+3] +'</td>'
                         +'<td class="quy_trinh_chuyen_giao">'+ new_workbook[i+4] +'</td>'
-                        +'<td class="kha_nang_ung_dung" style="display: none">'+ new_workbook[i+5] +'</td>'
+                        +'<td class="kha_nang_ung_dung">'+ new_workbook[i+5] +'</td>'
                         +'<td style="text-align:center; cursor: pointer" class="status_new_record"><div class="remove_record_excel"><span class="text-danger semi-bold">xóa</span></div></td>'
                         +'</tr>';
                     $("tbody").append(html);
@@ -68,15 +79,7 @@ $("#excel_import_new_product:file").change(function(e) {
     
     
     
-    
-$(document).on("click","#import_product",function() {
-	var items = new Array();
-	$.each($("tbody").children('tr'), function(item,val) {
-		items.push($(this));
-	});
-
-	ajax_add_excel_product(items,0);
-});
+//hien thong bao
 function ajax_add_excel_product(item, index) {
 	$number_success = 0;
 	if(index >= item.length) {
@@ -86,7 +89,7 @@ function ajax_add_excel_product(item, index) {
                 ' sản phẩm, Có '+$(".errors").length+' lỗi !</p></div>');
             return;
 	}
-
+//chuyen qua sang Newcontroller
 	var ten_san_pham = item[index].children(".ten_san_pham").text();
 	var linh_vuc = item[index].children(".linh_vuc").text();
 	var dac_diem_noi_bat = item[index].children(".dac_diem_noi_bat").text();
@@ -114,7 +117,7 @@ function ajax_add_excel_product(item, index) {
 //			$('#status').append('<div id="alert-note" class="alert alert-danger"><strong>Error!</strong></div>');
 //		}
 	})
-    
+    //xu ly thong bao
                 .done(function(response) {
                 if(response['errors'] == ''){
                     action.text('');
@@ -143,7 +146,7 @@ function ajax_add_excel_product(item, index) {
                 action.append('<div class="errors"><p class="text-danger semi-bold" style="text-align:left"><i class="fa fa-warning"></i> Lỗi chưa xác định !</p></div>');
             })
 	.always(function() {
-        $("#processing").css("width",((index+1)*100/(item.length - 11))+"%");
+        $("#processing").css("width",((index+1)*100/(item.length - 6))+"%");
 		return ajax_add_excel_product(item,index+1);
 	});
 
