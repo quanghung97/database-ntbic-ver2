@@ -22,11 +22,13 @@ danh sách chuyên gia
         {{ session('status') }}
     </div>
 @endif
-  <div class="row-fluid">
-    <div class="span12">
-      <a href="{{URL::asset('quan-tri-vien/quan-ly-du-lieu/chuyen-gia/tao-moi')}}" class="add-btn btn btn-success"><span class="fa fa-pencil"></span>&nbsp;&nbsp;Thêm chuyên gia</a>
+  @if($can_insert)
+    <div class="row-fluid">
+      <div class="span12">
+        <a href="{{URL::asset('quan-tri-vien/quan-ly-du-lieu/chuyen-gia/tao-moi')}}" class="add-btn btn btn-success"><span class="fa fa-pencil"></span>&nbsp;&nbsp;Thêm chuyên gia</a>
+      </div>
     </div>
-  </div>
+  @endif
   <div class="row-fluid">
     <div class="span12">
         <div class="grid simple ">
@@ -48,8 +50,12 @@ danh sách chuyên gia
                     <th>Nghiên cứu</th>
                     <th>Tỉnh thành</th>
                     <th>Xem</th>
-                    <th>Sửa</th>
-                    <th>Xóa</th>
+                    @if($can_update)
+                      <th>Sửa</th>
+                    @endif
+                    @if($can_delete)
+                      <th>Xóa</th>
+                    @endif
                   </tr>
                 </thead>
                 <tbody>
@@ -65,8 +71,12 @@ danh sách chuyên gia
                     <td><div class="chuyen_gia_inf">{!!$cg->huong_nghien_cuu!!}</div></td>
                     <td><div class="chuyen_gia_inf">{{$cg->tinh_thanh}}</div></td>
                     <td class="center"><a target="_blank" href="{{ URL::asset('chuyen-gia/'.$cg->linkid) }}"><span class="fa fa-eye"></span></a></td>
-                    <td class="center"><div class="chuyen_gia_inf"><a href="{{URL::asset('quan-tri-vien/quan-ly-du-lieu/chuyen-gia/sua/'.$cg->id)}} "><span class="fa fa-pencil-square"></span></a></div></td>
-                    <td class="center"><div class="chuyen_gia_inf" delete-modal" data-toggle="modal" data-target="#delete-modal{{$cg->id}}"><span class="fa fa-trash-o"></span></a></div></td>
+                    @if($can_update)
+                        <td class="center"><div class="chuyen_gia_inf"><a href="{{URL::asset('quan-tri-vien/quan-ly-du-lieu/chuyen-gia/sua/'.$cg->id)}} "><span class="fa fa-pencil-square"></span></a></div></td>
+                    @endif
+                    @if($can_delete)
+                      <td class="center"><div class="chuyen_gia_inf" delete-modal" data-toggle="modal" data-target="#delete-modal{{$cg->id}}"><span class="fa fa-trash-o"></span></a></div></td>
+                    @endif
                     <div id="delete-modal{{$cg->id}}" class="modal fade" role="dialog">
                       <div class="modal-dialog">
 

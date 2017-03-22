@@ -21,11 +21,13 @@
           {{ session('status') }}
       </div>
   @endif
+  @if($can_insert)
   <div class="row-fluid">
     <div class="span12">
       <a class="add-btn btn btn-success" href="{!! url('quan-tri-vien/quan-ly-du-lieu/doanh-nghiep/tao-moi') !!}"><span class="fa fa-pencil"></span>&nbsp;&nbsp;Thêm doanh nghiệp</a>
     </div>
   </div>
+  @endif
   <div class="row-fluid">
     <div class="span12">
         <div class="grid simple ">
@@ -42,9 +44,13 @@
                     <th>Lĩnh vực KH&CN</th>
                     <th>Trụ sở</th>
                     <th>Tỉnh, thành phố</th> 
-                    <th>Xem</th>                 
+                    <th>Xem</th>  
+                    @if($can_update)               
                     <th>Sửa</th>
+                    @endif
+                    @if($can_delete)
                     <th>Xóa</th>
+                    @endif
                   </tr>
                 </thead>
                 <tbody>
@@ -56,8 +62,12 @@
                     <td>{{$item->dia_chi}}</td>
                     <td class="center">{{$item->tinh_thanh_pho}}</td>
                     <td class="center"><a target="_blank" href="{!! url('doanh-nghiep/'.$item->link) !!}"><span class="fa fa-eye"></span></a></td>
-                    <td class="center"><a href="{!! url('quan-tri-vien/quan-ly-du-lieu/doanh-nghiep/sua/'.$item->id) !!}"><span class="fa fa-pencil-square"></span></a></td>
-                    <td class="center"><div delete-modal" data-toggle="modal" data-target="#delete-modal{{$item->id}}"><span class="fa fa-trash-o"></span></a></div></td>
+                    @if($can_update)
+                      <td class="center"><a href="{!! url('quan-tri-vien/quan-ly-du-lieu/doanh-nghiep/sua/'.$item->id) !!}"><span class="fa fa-pencil-square"></span></a></td>
+                    @endif
+                    @if($can_delete)
+                      <td class="center"><div delete-modal" data-toggle="modal" data-target="#delete-modal{{$item->id}}"><span class="fa fa-trash-o"></span></a></div></td>
+                    @endif
 
                    <!--  delete modal -->
                     <div id="delete-modal{{$item->id}}" class="modal fade" role="dialog">

@@ -73,14 +73,14 @@
               <label class="form-label">Điểm nổi bật</label>
               <div class="input-with-icon  right">                                       
                 <i class=""></i>
-                <input type="text" name="diem_noi_bat" id="form1Name" class="form-control" value="{{$phat_minh->diem_noi_bat}}">                                 
+                <textarea  id="textEditer" name="diem_noi_bat">{{$phat_minh->diem_noi_bat}}</textarea>                                 
               </div>
             </div>
             <div class="form-group">
               <label class="form-label">Mô tả sáng chế phát minh và giải pháp</label>
               <div class="input-with-icon  right">                                       
                 <i class=""></i>
-                <input type="text" name="mota_sangche_phatminh_giaiphap" id="form1Name" class="form-control" value="{{$phat_minh->mota_sangche_phatminh_giaiphap}}">                                 
+                <textarea  id="textEditer" name="mota_giaiphap_sangche_phatminh">{{$phat_minh->mota_giaiphap_sangche_phatminh}}</textarea>                                
               </div>
             </div>
             <div class="form-group">
@@ -105,19 +105,40 @@
               </div>
             </div>
            <div class="form-group">
-              <label class="form-label">Lĩnh vực khoa học công nghệ</label><span class="error">(*)&nbsp;&nbsp;{{$errors->first('linh_vuc_khcn')}}</span>
+              <label class="form-label">Lĩnh vực khoa học công nghệ</label>
               <div class="input-with-icon  right">                                       
                 <i class=""></i>
-                <input type="text" name="linh_vuc_khcn" id="form1Name" class="form-control" value="{{$phat_minh->linh_vuc_khcn}}">                                 
+               <select name="linh_vuc_khcn" id="form1Url" class="form-control">
+                   @foreach($linh_vuc_khcn as $row)
+                        @if($phat_minh->linh_vuc_khcn == $row->id)
+                            <option value="{{$row->id}}" selected>{{$row->linh_vuc}}</option>
+                        @endif
+                            <option value="{{$row->id}}">{{$row->linh_vuc}}</option>}
+                        @endforeach
+               </select>                            
               </div>
             </div> 
             <div class="form-group">
-              <label class="form-label">Loại phát minh sáng chê</label><span class="error">(*)&nbsp;&nbsp;{{$errors->first('loai_phat_minh_sang_che')}}</span>
+              <label class="form-label">Loại phát minh sáng chê</label>
               <div class="input-with-icon  right">                                       
                 <i class=""></i>
-                <input type="text" name="loai_phat_minh_sang_che" id="form1Name" class="form-control" value="{{$phat_minh->loai_phat_minh_sang_che}}">                                 
+                <select name="loai_phat_minh_sang_che" id="form1Url" class="form-control">
+                   @foreach($loai_phat_minh_sang_che as $row)
+                        @if($phat_minh->loai_phat_minh_sang_che == $row->id)
+                            <option value="{{$row->id}}" selected>{{$row->loai_phat_minh_sang_che}}</option>
+                        @endif
+                            <option value="{{$row->id}}">{{$row->loai_phat_minh_sang_che}}</option>}
+                        @endforeach
+               </select>                            
               </div>
             </div> 
+            <div class="form-group">
+              <img class="responsive-img anh_cu" src="{{ URL::asset($phat_minh->hinh_anh_minh_hoa) }}" alt="ảnh" class="img-circle anh_chuyen_gia">
+              <br>
+              <span class="form-label">Thay đổi ảnh phát minh</span>
+              <span class="error">&nbsp;&nbsp;{{$errors->first('ten')}}</span>
+                  <input name="file-anh" type="file" multiple />
+          </div>            
           <div class="form-actions">  
           <div class="pull-right">
             <button type="submit" class="btn btn-success btn-cons"><i class="icon-ok"></i> Lưu</button>

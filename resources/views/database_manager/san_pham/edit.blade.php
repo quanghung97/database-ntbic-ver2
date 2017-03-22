@@ -79,10 +79,13 @@
               <input type="text" name="kha_nang_ung_dung" id="form1Url" class="form-control" value="{{$datas->kha_nang_ung_dung}}">                                 
             </div>
           </div>
-          
+          <div class="form-group">
+              <span class="form-label">Ảnh sản phẩm hiện tại</span>
+          </div>
+          <img  style="max-height: 150px; max-width: auto" src="{{$datas->anh_san_pham}}"/><br><br>
            <div class="form-group">
-            <span class="form-label">Chọn file ảnh upload</span>
-             
+            <span class="form-label">Thay đổi ảnh sản phẩm</span>
+                 
                 <input type="file" name="logo" multiple />
           </div>  
           <div class="form-actions">  

@@ -5,7 +5,7 @@ $(document).ready(function() {
 	$("#text_search").focus(function(){
 		$(document).keypress(function(event) {
 			if(event.which == '13'){
-				window.location.replace('/database-ntbic/' + $('input[name=type-search]:checked').val() + '?text_search='+ $("#text_search").val());
+				window.location.replace($(location).attr("href") + $('input[name=type-search]:checked').val() + '?text_search='+ $("#text_search").val());
 			}
 		});
 	});

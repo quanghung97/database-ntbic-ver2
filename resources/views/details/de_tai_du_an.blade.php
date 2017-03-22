@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('style')
-   <link rel="stylesheet" type="text/css" href="{{ URL::asset('public/css/details_de_tai_du_an.css') }}">
+   <link rel="stylesheet" type="text/css" href="{{ URL::asset('public/css/details_de_tai_du_an_cac_cap.css') }}">
    <link rel="stylesheet" type="text/css" href="{{ URL::asset('public/css/sidebar.css') }}">
    <link rel="stylesheet" type="text/css" href="{{ URL::asset('public/css/search_result_de_tai.css') }}">
 @endsection
@@ -10,54 +10,20 @@
                 <div class="filter">
                     <ul class="list-search-filter">
                         <li>
-                            <select name="tim_theo">
-                                @if($tim_theo == '0')
-                                    <option value="0" selected="">Tìm theo</option>
-                                @else
-                                    <option value="0">Tìm theo</option>
-                                @endif
-
-                                @if($tim_theo == '1')
-                                    <option value="1" selected="">Tên đề tài, đề án</option>
-                                @else
-                                    <option value="1">Tên đề tài, đề án</option>
-                                @endif
-
-                                @if($tim_theo == '2')
-                                    <option value="2" selected="">CNĐT tác giả</option>
-                                @else
-                                    <option value="2">CNĐT tác giả</option>
-                                @endif
-
-                                @if($tim_theo == '3')
-                                    <option value="3" selected="">Mã số, ký hiệu</option>
-                                @else
-                                    <option value="3">Mã số, ký hiệu</option>
-                                @endif
-
-                                @if($tim_theo == '4')
-                                    <option value="4" selected="">Cơ quan chủ trì</option>
-                                @else
-                                    <option value="4">Cơ quan chủ trì</option>
-                                @endif
-
-                                @if($tim_theo == '5')
-                                    <option value="5" selected="">Tóm tắt nội dung</option>
-                                @else
-                                    <option value="5">Tóm tắt nội dung</option>
-                                @endif
+                            <select name="tim_theo">    
+                               <option value="0" selected="">Tìm theo</option>
+                               <option value="0" selected="">Tìm theo</option>
+                               <option value="0" selected="">Tìm theo</option>
+                               <option value="0" selected="">Tìm theo</option>
+                               <option value="0" selected="">Tìm theo</option>
                             </select>
                         </li>
                         <li>
-                            <select name="chuyen_nganh">
+                            <select name="cap_quan_ly">
                               <option value="">Chuyên ngành</option>
-                              @foreach($chuyen_nganh_khcn as $item)
-                                @if($chuyen_nganh_current == $item->id)
-                                    <option value="{{$item->id}}" selected="">{{$item->ten}}</option>
-                                @else
-                                    <option value="{{$item->id}}">{{$item->ten}}</option>
-                                @endif
-                              @endforeach
+                              <option value="">A</option>
+                              <option value="">B</option>
+                              <option value="">D</option>
                             </select>
                         </li>
                     </ul>
@@ -71,7 +37,7 @@
   </div>
     <div class="articles_detail col-md-12">
 
-    <h2 class="title_pages">{{ $datas->ten_de_tai }}</h2>
+    <h2 class="title_pages">Tên đề tài</h2>
 
     <p class="time">Cập nhật Thứ năm - 08/09/2016  16:15 
 
@@ -96,11 +62,11 @@
 
             </td>
 
-            <td width="150"><strong>Tên đề tài, đề án các cấp:</strong></td>
+            <td width="150"><strong>Tên báo cáo:</strong></td>
 
             <td>
 
-             {{ $datas->ten_de_tai }} 
+              Đây là tên báo cáo
 
             </td>
 
@@ -114,11 +80,11 @@
 
             </td>
 
-            <td><strong>{{ $datas->maso_kyhieu }}</strong></td>
+            <td><strong>Mã số đề tài</strong></td>
 
             <td>
 
-                TS
+                Đây là mã số đề tài
 
             </td>
 
@@ -132,11 +98,11 @@
 
             </td>
 
-            <td><strong>Thuộc lĩnh vực KHCN</strong></td>
+            <td><strong>Tỉnh, thành phố</strong></td>
 
             <td>
 
-                {{ $datas->linh_vuc }}
+                    Đây là tỉnh, thành phố
 
             </td>
 
@@ -150,11 +116,11 @@
 
             </td>
 
-            <td><strong>Năm bắt đầu tài trợ</strong></td>
+            <td><strong>Cơ quan chủ trì</strong></td>
 
             <td>
 
-                {{ $datas->nam_bat_dau }}<br><br>
+                Đây là cơ quan chủ trì
 
             </td>
 
@@ -168,11 +134,11 @@
 
             </td>
 
-            <td><strong>Năm kết thúc</strong></td>
+            <td><strong>Cấp quản lý đề tài</strong></td>
 
             <td>
 
-                {{ $datas->nam_ket_thuc }}
+                    Cấp quản lý đề tài
 
             </td>
 
@@ -186,11 +152,11 @@
 
             </td>
 
-            <td><strong>Cơ quan chủ trì</strong></td>
+            <td><strong>Cơ quan quản lý đề tài</strong></td>
 
             <td>
 
-                {{ $datas->co_quan }}
+                Cơ quan quản lý đề tài
 
             </td>
 
@@ -204,57 +170,76 @@
 
             </td>
 
-            <td><strong>Chủ nhiệm đề tài</strong></td>
+            <td><strong>Lĩnh vực nghiên cứu</strong></td>
             <td>
-                
-            {{ $datas->chu_nhiem_detai }}
+                    Lĩnh vực nghiên cứu
 
             </td>
 
           </tr>
 
-        <tr>
+       <tr>
 
+            <td align="center">
 
-            <td colspan="3"><strong>8. Điểm nổi bật</strong><br>
+                <strong>8.</strong>
 
-            {!! $datas->diem_noi_bat !!}
             </td>
 
+            <td><strong>Thời gian bắt đầu </strong></td>
+            <td>
+                    Thời gian bắt đầu
 
-        </tr>
-        <tr>
-           
-
-            <td colspan="3."><strong>9. Mô tả chung về đề tài dự án KH&CN</strong><br>
-
-            {!! $datas->mota_chung !!}
             </td>
 
+          </tr>
+          <tr>
 
-        </tr>
-        <tr>
-           
+            <td align="center">
 
-            <td colspan="3"><strong>10. Mô tả về quy trình chuyển giao</strong><br>
-            {!! $datas->mota_quytrinh_chuyengiao !!}            
+                <strong>9.</strong>
+
+            </td>
+
+            <td><strong>Thời gian kết thúc</strong></td>
+            <td>
+                    Thời gian kết thúc
+
+            </td>
+
+          </tr>
+          <tr>
+
+            <td align="center">
+
+                <strong>10.</strong>
+
+            </td>
+
+            <td><strong>Trạng thái</strong></td>
+            <td>
+                        Đây là trạng thái
+
+            </td>
+
+          </tr>
+          <tr>
+            
+
+            <td colspan="3"><strong>11. Tóm tắt nội dung</strong><br>
+
+             Tóm tắt ở đây
             </td>
         </tr>
         <tr>
             
 
-            <td colspan="3"><strong>11. Kết quả thự hiện và khả năng ứng dụng</strong><br>
+            <td colspan="3"><strong>12. Kinh phí</strong><br>
 
-            {!! $datas->ket_qua_thuc_hien_ung_dung !!}
+                Kinh phí
             </td>
         </tr>
-        <tr>
-            <td colspan=3>
-           <strong>Từ khóa: </strong><a href="#">Ntbic</a>
-                    <p align="right">
-            </td>
-          
-        </tr>
+        
         <tr>
             <td colspan=3>
                 <i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i>

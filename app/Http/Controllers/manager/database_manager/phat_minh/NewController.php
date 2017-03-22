@@ -4,10 +4,10 @@ namespace App\Http\Controllers\manager\database_manager\phat_minh;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Validator;
 use Illuminate\Support\Facades\Redirect;
 use App\bang_phat_minh_sang_che;
 use Illuminate\Support\Facades\Input;
+use App\Http\Requests\FormThemPhatMinhRequest;
 
 
 class NewController extends Controller
@@ -36,43 +36,8 @@ class NewController extends Controller
     	return $str;}
 
         //Validation
-        $rules = array('ten' => 'required', 'sobang_kyhieu' => 'required','ngay_cong_bo' => 'required','ngay_cap' => 'required','chu_so_huu_chinh' => 'required','tac_gia' => 'required','linh_vuc_khcn' => 'required','loai_phat_minh_sang_che' => 'required');
-        $messages = [
-            'ten.required' => 'Chưa nhập tên cho phat minh!',
-            'sobang_kyhieu.required' => 'Chưa nhập số bằng - ký hiệu!',
-            'ngay_cong_bo.required' => 'Chưa nhập ngày công bố!',
-            'ngay_cap.required' => 'Chưa nhập ngày cấp!',
-            'chu_so_huu_chinh.required' => 'Chưa nhập dữ liệu!',
-            'tac_gia.required' => 'Chưa nhập dữ liệu!',
-            'linh_vuc_khcn.required' => 'Chưa nhập dữ liệu!',
-            'loai_phat_minh_sang_che.required' => 'Chưa nhập dữ liệu!',
-        ];
-
-        $validator = Validator::make($request->all(), $rules,$messages);
-        if ($validator->fails()) {
-            return Redirect::to('quan-tri-vien/quan-ly-du-lieu/phat-minh/tao-moi')->withInput()->withErrors($validator);
-        }
-        else {
-              $link = remove_unicode($ten);
-
-              bang_phat_minh_sang_che::insert([
-              'ten' => $ten,
-              'sobang_kyhieu' => $sobang_kyhieu,
-              'ngay_cong_bo' => $ngay_cong_bo,
-              'ngay_cap' => $ngay_cap,
-              'chu_so_huu_chinh' => $chu_so_huu_chinh,
-              'tac_gia' => $tac_gia,
-              'diem_noi_bat' => $diem_noi_bat,
-              'mota_sangche_phatminh_giaiphap' => $mota_sangche_phatminh_giaiphap,
-              'noidung_cothe_chuyengiao' => $noidung_cothe_chuyengiao,
-              'thitruong_ungdung' => $thitruong_ungdung,
-              'hinh_anh_minh_hoa' => $hinh_anh_minh_hoa,
-              'link' =>$link,
-              'linh_vuc_khcn' =>$linh_vuc_khcn,
-              'loai_phat_minh_sang_che' =>$loai_phat_minh_sang_che,
-              ]);
+       
             return Redirect::back()->with('status', 'Thêm thành công một phát minh!');
-        }
     }
     
 }
