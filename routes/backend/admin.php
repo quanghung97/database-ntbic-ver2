@@ -42,6 +42,7 @@
 				Route::group(['middleware'=>'insert_doanh_nghiep'],function(){
 					Route::get('tao-moi','manager\database_manager\doanh_nghiep\NewController@index');
 					Route::post('tao-moi','manager\database_manager\doanh_nghiep\NewController@new_action');
+					Route::post('tao-moi/ajax','manager\database_manager\doanh_nghiep\NewController@ajax_new_record');
 				});
 				Route::group(['middleware'=>'update_doanh_nghiep'],function(){
 					Route::get('sua/{id}','manager\database_manager\doanh_nghiep\EditController@index');
@@ -57,6 +58,7 @@
 				Route::group(['middleware'=>'insert_san_pham'],function(){
 					Route::get('tao-moi','manager\database_manager\san_pham\NewController@index');
 					Route::post('tao-moi','manager\database_manager\san_pham\NewController@new_action')->name('tao-san-pham');
+					Route::post('tao-moi/ajax','manager\database_manager\san_pham\NewController@ajax_new_record');
 				});
 				Route::group(['middleware'=>'udpate_san_pham'],function(){
 					Route::get('sua/{id}','manager\database_manager\san_pham\EditController@index');
@@ -72,6 +74,7 @@
 				Route::group(['middleware'=>'insert_de_tai_du_an_cac_cap'],function(){
 					Route::get('tao-moi','manager\database_manager\de_tai_du_an_cac_cap\NewController@index');
 					Route::post('tao-moi','manager\database_manager\de_tai_du_an_cac_cap\NewController@new_action');
+					Route::post('tao-moi/ajax','manager\database_manager\de_tai_du_an_cac_cap\NewController@ajax_new_record');
 				});
 				Route::group(['middleware'=>'delete_de_tai_du_an_cac_cap'],function(){
 					Route::get('xoa/{id}','manager\database_manager\de_tai_du_an_cac_cap\DeleteController@index');
@@ -87,6 +90,7 @@
 				Route::group(['middleware'=>'insert_phat_minh'],function(){
 					Route::get('tao-moi','manager\database_manager\phat_minh\NewController@index')->name('phat_minh');
 					Route::post('tao-moi','manager\database_manager\phat_minh\NewController@new_action');
+					Route::post('tao-moi/ajax','manager\database_manager\phat_minh\NewController@ajax_new_record');
 				});
 				Route::group(['middleware'=>'update_phat_minh'],function(){
 					Route::get('sua/{id}','manager\database_manager\phat_minh\EditController@index');
