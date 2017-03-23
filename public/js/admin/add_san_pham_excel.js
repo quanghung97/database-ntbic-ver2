@@ -5,7 +5,7 @@ $("#excel_import_new_product:file").change(function(e) {
 		$("#thead_import_product").text("");
 		$("tbody").text("");		
 		$("#import_product").remove();
-		$("#thead_import_product").append('<tr><th>Tên sản phẩm</th><th>Lĩnh vực</th><th>Đặc điểm nổi bật</th><th>Mô tả chung</th><th>Quy trình chuyển giao</th><th>Khả năng ứng dụng</th><th class="tuy_chon">Tùy chọn</th></tr>');
+		$("#thead_import_product").append('<tr><th>Tên sản phẩm</th><th>Lĩnh vực</th><th>Đặc điểm nổi bật</th><th>Mô tả chung</th><th>Khả năng ứng dụng</th><th class="tuy_chon">Tùy chọn</th></tr>');
 		handleFile(e);
 	});
 //icon remove 
@@ -63,7 +63,7 @@ $(document).on("click","#import_product",function() {
                         +'<td class="linh_vuc">'+ new_workbook[i+1] +'</td>'
                         +'<td class="dac_diem_noi_bat">'+ new_workbook[i+2] +'</td>'
                         +'<td class="mo_ta_chung">'+ new_workbook[i+3] +'</td>'
-                        +'<td class="quy_trinh_chuyen_giao">'+ new_workbook[i+4] +'</td>'
+                        +'<td class="quy_trinh_chuyen_giao" style="display: none">'+ new_workbook[i+4] +'</td>'
                         +'<td class="kha_nang_ung_dung">'+ new_workbook[i+5] +'</td>'
                         +'<td style="text-align:center; cursor: pointer" class="status_new_record"><div class="remove_record_excel"><span class="text-danger semi-bold">xóa</span></div></td>'
                         +'</tr>';
