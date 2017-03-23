@@ -29,7 +29,7 @@ class FormThemChuyenGiaRequest extends FormRequest
     public function rules()
     {
         return [
-            'ten'=>'required',
+            'ten'=>'required|max:50',
             'nam_sinh'=>'required',
             'hoc_vi'=>'required',
             'tinh_thanh_pho'=>'required',
@@ -41,6 +41,7 @@ class FormThemChuyenGiaRequest extends FormRequest
     {
       return [
         'ten.required' => 'Chưa nhập tên chuyên gia',
+        'ten.max'=>'Tên quá dài (<50 kí tự)',
         'nam_sinh.required'=>'Chưa nhập ngày sinh',
         'chuyen_nganh.required'=>'Chưa nhập chuyên ngành',
         'file-anh.image'=>'Vui lòng chọn file có định dạng là ảnh',
