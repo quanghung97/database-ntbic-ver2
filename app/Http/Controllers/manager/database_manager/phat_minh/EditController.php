@@ -51,7 +51,7 @@ class EditController extends Controller
        $phat_minh->tac_gia=$request->tac_gia;
        $phat_minh->diem_noi_bat=$request->diem_noi_bat;
        $phat_minh->mota_sangche_phatminh_giaiphap=$request->mota_sangche_phatminh_giaiphap;
-       $phat_minh->noidung_cothe_chuyengiao=$request->nd_chuyengiao;
+       $phat_minh->noidung_cothe_chuyengiao=$request->noidung_cothe_chuyengiao;
        $phat_minh->thitruong_ungdung=$request->thitruong_ungdung;
        $text=$id.$this->stripVN($request->ten);
        $text1=substr($text,0,45);

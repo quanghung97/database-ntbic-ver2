@@ -4,7 +4,6 @@
 <link href="/webarch/webarch/HTML/assets/plugins/jquery-datatable/css/jquery.dataTables.css" rel="stylesheet" type="text/css"/>
 <link href="/webarch/webarch/HTML/assets/plugins/datatables-responsive/css/datatables.responsive.css" rel="stylesheet" type="text/css" media="screen"/>
 <!-- END CORE CSS FRAMEWORK -->
-
 <!-- BEGIN CSS TEMPLATE -->
 <link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
 <link href="assets/css/responsive.css" rel="stylesheet" type="text/css"/>
@@ -12,21 +11,55 @@
 <!-- END CSS TEMPLATE -->
 <link rel="stylesheet" type="text/css" href="/public/css/admin_chuyen_gia.css">
 @endsection
-
+@section('name_page')
+thêm liệu phát minh
+@endsection
 @section('main')
 @if (session('status'))
-    <div class="alert alert-success auto_disable">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
-        {{ session('status') }}
-    </div>
+<div class="alert alert-success auto_disable">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+  {{ session('status') }}
+</div>
 @endif
-<div class="form-group">
-  <h4 class="form-title">THÊM DỮ LIỆU PHÁT MINH</h4>
-  
-    <div class="grid simple">
-        <form id="form_iconic_validation" method="POST" enctype="multipart/form-data">
-        
+<ul class="nav nav-tabs" id="tab-01">
+  <li class="active"><a href="#tab1hellowWorld">Thêm thủ công</a></li>
+  <li><a href="#tab1FollowUs">Thêm bằng excel</a></li>
+</ul>
+<div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="#grid-config" data-toggle="modal" class="config"></a> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
+<div class="tab-content">
+  <div class="tab-pane" id="tab1FollowUs">
+    <div class="row column-seperation">
+      <div class="col-md-12">
+        <form id="upload_excel_invention" class="form-group" method="post" enctype="multipart/form-data">
+          <input id="excel_import_new_invention" type="file" name="excel_import">
+          <input id="excel_import_token" name="_token" value="{{csrf_token()}}" hidden>
+        </form>
+        <div id="show_item_excel">
+          <table class="table table-bordered">
+            <thead id="thead_import_invention">
+              
+            </thead>
+            <tbody id="tbody_excel_record">
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tab-pane active" id="tab1hellowWorld" >
+    <div class="row">
+      <div class="col-md-12">
+        <div class="grid simple">
+          <div class="grid-title no-border">
+            <h4><span  class="semi-bold">Thêm phát minh</span></h4>
+            <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="#grid-config" data-toggle="modal" class="config"></a> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
+          </div>
+          <div class="grid-body">
             <div class="form-group">
+              <div class="grid simple">
+                <form id="form_iconic_validation" action="{{route('them_phat_minh')}}" method="post" enctype="multipart/form-data">
+                  {{csrf_field()}}
+                 <div class="form-group">
               <label class="form-label">Tên phát minh</label><span class="error">(*)&nbsp;&nbsp;{{$errors->first('ten')}}</span>
               <div class="input-with-icon  right">                                       
                 <i class=""></i>
@@ -72,64 +105,78 @@
               <label class="form-label">Điểm nổi bật</label>
               <div class="input-with-icon  right">                                       
                 <i class=""></i>
-                <input type="text" name="diem_noi_bat" id="form1Name" class="form-control" value="{{old('diem_noi_bat')}}">                                 
+                <textarea id="textEditer" name="diem_noi_bat">{{old('diem_noi_bat')}}</textarea>
               </div>
             </div>
             <div class="form-group">
               <label class="form-label">Mô tả sáng chế phát minh và giải pháp</label>
               <div class="input-with-icon  right">                                       
                 <i class=""></i>
-                <input type="text" name="mota_sangche_phatminh_giaiphap" id="form1Name" class="form-control" value="{{old('mota_sangche_phatminh_giaiphap')}}">                                 
+               <textarea id="textEditer" name="mota_sangche_phatminh_giaiphap">{{old('mota_sangche_phatminh_giaiphap')}}</textarea>                                
               </div>
             </div>
             <div class="form-group">
               <label class="form-label">Nội dung có thể chuyển giao</label>
               <div class="input-with-icon  right">                                       
                 <i class=""></i>
-                <input type="text" name="noidung_cothe_chuyengiao" id="form1Name" class="form-control" value="{{old('noidung_cothe_chuyengiao')}}">                                 
+                <textarea id="textEditer" name="noidung_cothe_chuyengiao">{{old('noidung_cothe_chuyengiao')}}</textarea>                               
               </div>
             </div>
             <div class="form-group">
               <label class="form-label">Thị trường và ứng dụng</label>
               <div class="input-with-icon  right">                                       
                 <i class=""></i>
-                <input type="text" name="thitruong_ungdung" id="form1Name" class="form-control" value="{{old('thitruong_ungdung')}}">                                 
+                <textarea id="textEditer" name="thitruong_ungdung">{{old('thitruong_ungdung')}}</textarea>                                
               </div>
             </div>          
-            <div class="form-group">
-              <label class="form-label">Hình ảnh minh họa</label>
-              <div class="input-with-icon  right">                                       
-                <i class=""></i>
-                <input type="text" name="hinh_anh_minh_hoa" id="form1Name" class="form-control" value="{{old('hinh_anh_minh_hoa')}}">                                 
-              </div>
-            </div>
            <div class="form-group">
               <label class="form-label">Lĩnh vực khoa học công nghệ</label><span class="error">(*)&nbsp;&nbsp;{{$errors->first('linh_vuc_khcn')}}</span>
               <div class="input-with-icon  right">                                       
                 <i class=""></i>
-                <input type="text" name="linh_vuc_khcn" id="form1Name" class="form-control" value="{{old('linh_vuc_khcn')}}">                                 
+                <select name="linh_vuc_khcn" id="form1Url" class="form-control">
+                   @foreach($linh_vuc_khcn as $row)
+                      <option value="{{$row->id}}" selected>{{$row->linh_vuc}}</option>
+                    @endforeach
+               </select>                                   
               </div>
             </div> 
             <div class="form-group">
               <label class="form-label">Loại phát minh sáng chê</label><span class="error">(*)&nbsp;&nbsp;{{$errors->first('loai_phat_minh_sang_che')}}</span>
               <div class="input-with-icon  right">                                       
                 <i class=""></i>
-                <input type="text" name="loai_phat_minh_sang_che" id="form1Name" class="form-control" value="{{old('loai_phat_minh_sang_che')}}">                                 
+                <select name="loai_phat_minh_sang_che" id="form1Url" class="form-control">
+                   @foreach($loai_phat_minh_sang_che as $row)
+                      <option value="{{$row->id}}" selected>{{$row->loai_phat_minh_sang_che}}</option>
+                    @endforeach
+               </select>                               
               </div>
-            </div> 
-          <div class="form-actions">  
-          <div class="pull-right">
-            <button type="submit" class="btn btn-success btn-cons"><i class="icon-ok"></i> Lưu</button>
-            <a href="{{route('phat_minh')}}" class="btn btn-danger btn-cons">Thoát</a>
+            </div>  
+                <div class="form-group">
+                  <span class="form-label">Hình ảnh minh họa</span>
+                  <span class="error">&nbsp;&nbsp;{{$errors->first('file-anh')}}</span>
+                  <input name="file-anh" type="file" multiple />
+                </div>
+                <div class="form-actions">
+                  <div class="pull-right">
+                    <button type="submit" class="btn btn-success btn-cons"><i class="icon-ok"></i>Lưu</button>
+                    <a href="{{route('phat_minh')}}" class="btn btn-danger btn-cons">Thoát</a>
+                  </div>
+                </div>
+              </form>
+            </div>
           </div>
-          </div>
-          <input type="text" name="_token" value="{{CSRF_TOKEN()}}" hidden>
-        </form>
+        </div>
       </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
 </div>
 @endsection
-
 @section('script')
 <script src="/webarch/webarch/HTML/assets/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
 <script src="/public/js/admin/admin_database_manager.js" type="text/javascript"></script>
+<script src="{{URL::asset('/public/js/excel.js')}}" type="text/javascript"></script>
+<script src="/public/js/admin/them_phat_minh_excel.js" type="text/javascript"></script>
 @endsection
