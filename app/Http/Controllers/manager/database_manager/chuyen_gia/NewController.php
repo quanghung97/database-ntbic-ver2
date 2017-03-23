@@ -113,9 +113,14 @@ class NewController extends Controller
              $chuyen_gia->huong_nghien_cuu=$request->huong_nghien_cuu;
              $chuyen_gia->Sl_congTrinh_baiBao=$request->so_cong_trinh;
              $chuyen_gia->tinh_thanh=$request->tinh_thanh;
+
              $chuyen_gia->save();
 
-
+             $chuyen_gia1=chuyen_gia_khcn::find($chuyen_gia->id);
+             $text=$this->stripVN($request->ho_va_ten).'-'.$chuyen_gia->id.'-'.str_replace("/", "", $chuyen_gia->nam_sinh);
+             $chuyen_gia1->linkid=$text;
+             $chuyen_gia1->link_anh='/storage/app/public/media/profile_khcn/default.jpg';
+             $chuyen_gia1->save();
              // insert cong trinh nghien cuu va ket qua nghien cuu
              if(substr(trim($request->ket_qua_nghien_cuu),0,1)=='+'){
                 $ket_qua=explode("+", substr(trim($request->ket_qua_nghien_cuu),1));
