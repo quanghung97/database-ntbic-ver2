@@ -333,7 +333,9 @@ thead tr {
 @section('script')
 <script src="/webarch/webarch/HTML/assets/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
  <script>
+ 	
  	$(document).ready(function() {
+ 		$("#active_quan_ly_user").addClass("active");
  		if($("#author").val() != 'moderator'){
 	 			$("#more_option").hide();
 	 		}

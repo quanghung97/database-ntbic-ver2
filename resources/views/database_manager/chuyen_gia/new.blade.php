@@ -167,4 +167,9 @@ sửa dữ liệu chuyên gia
 <script src="/public/js/admin/admin_database_manager.js" type="text/javascript"></script>
 <script src="{{URL::asset('/public/js/excel.js')}}" type="text/javascript"></script>
 <script src="/public/js/admin/them_chuyen_gia_excel.js" type="text/javascript"></script>
+<script type="text/javascript">
+  $(".sub-menu").css('display','block');
+  $("#sub_menu_quan_ly_database").addClass("active");
+  $("#active_chuyen_gia").addClass("active");
+</script>
 @endsection

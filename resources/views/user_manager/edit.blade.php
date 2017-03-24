@@ -20,7 +20,7 @@ thead tr {
 
 @section('main')
 <div class="form-group">
-	<h4 class="form-title">THÊM NGƯỜI DÙNG</h4>
+	<h4 class="form-title">SỬA THÔNG TIN NGƯỜI DÙNG</h4>
 		
 		<div class="grid simple">
 
@@ -335,6 +335,7 @@ thead tr {
 <script src="/webarch/webarch/HTML/assets/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
  <script>
  	$(document).ready(function() {
+ 		$("#active_quan_ly_user").addClass("active");
  		if($("#author").val() != 'moderator'){
 	 			$("#more_option").hide();
 	 		}

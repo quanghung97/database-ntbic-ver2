@@ -179,4 +179,9 @@ thêm liệu phát minh
 <script src="/public/js/admin/admin_database_manager.js" type="text/javascript"></script>
 <script src="{{URL::asset('/public/js/excel.js')}}" type="text/javascript"></script>
 <script src="/public/js/admin/them_phat_minh_excel.js" type="text/javascript"></script>
+<script type="text/javascript">
+  $(".sub-menu").css('display','block');
+  $("#sub_menu_quan_ly_database").addClass("active");
+  $("#active_phat_minh").addClass("active");
+</script>
 @endsection
