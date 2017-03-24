@@ -4,7 +4,6 @@
 <link href="/webarch/webarch/HTML/assets/plugins/jquery-datatable/css/jquery.dataTables.css" rel="stylesheet" type="text/css"/>
 <link href="/webarch/webarch/HTML/assets/plugins/datatables-responsive/css/datatables.responsive.css" rel="stylesheet" type="text/css" media="screen"/>
 <!-- END CORE CSS FRAMEWORK -->
-
 <!-- BEGIN CSS TEMPLATE -->
 <link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
 <link href="assets/css/responsive.css" rel="stylesheet" type="text/css"/>
@@ -12,19 +11,53 @@
 <!-- END CSS TEMPLATE -->
 <link rel="stylesheet" type="text/css" href="/public/css/admin_chuyen_gia.css">
 @endsection
-
+@section('name_page')
+sửa dữ liệu đề tài dự án các cấp
+@endsection
 @section('main')
-	@if (session('status'))
-	    <div class="alert alert-success auto_disable">
-	        <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
-	        {{ session('status') }}
-	    </div>
-	@endif
-<div class="form-group">
-	<h4 class="form-title">THÊM ĐỀ TÀI DỰ ÁN CÁC CẤP</h4>
-	
-		<div class="grid simple">
-				<form id="form_iconic_validation" method="POST" enctype="multipart/form-data">
+@if (session('status'))
+<div class="alert alert-success auto_disable">
+	<button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+	{{ session('status') }}
+</div>
+@endif
+<ul class="nav nav-tabs" id="tab-01">
+	<li class="active"><a href="#tab1hellowWorld">Thêm thủ công</a></li>
+	<li><a href="#tab1FollowUs">Thêm bằng excel</a></li>
+</ul>
+<div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="#grid-config" data-toggle="modal" class="config"></a> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
+<div class="tab-content">
+	<div class="tab-pane" id="tab1FollowUs">
+		<div class="row column-seperation">
+			<div class="col-md-12">
+				<form id="upload_excel_record" class="form-group" method="post" enctype="multipart/form-data">
+					<input id="excel_import_new_record" type="file" name="excel_import">
+					<input id="excel_import_token" name="_token" value="{{csrf_token()}}" hidden>
+				</form>
+				<div id="show_item_excel">
+					<table class="table table-bordered">
+						<thead id="thead_import_record">
+							
+						</thead>
+						<tbody id="tbody_excel_record">
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tab-pane active" id="tab1hellowWorld" >
+		<div class="row">
+			<div class="col-md-12">
+				<div class="grid simple">
+					<div class="grid-title no-border">
+						<h4><span  class="semi-bold">Thêm Đề Tài Dự Án Các Cấp</span></h4>
+						<div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="#grid-config" data-toggle="modal" class="config"></a> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
+					</div>
+					<div class="grid-body">
+						<div class="form-group">
+							<div class="grid simple">
+								<form id="form_iconic_validation" method="POST" enctype="multipart/form-data">
 					
                       <div class="form-group">
                       <label class="form-label">Tên đề tài</label> <span class="error">(*)&nbsp;&nbsp;{{$errors->first('ten_de_tai')}}</span>
@@ -133,11 +166,26 @@
 					</div>
 					<input type="text" name="_token" value="{{CSRF_TOKEN()}}" hidden>
 				</form>
+
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
+		</div>
+	</div>
 </div>
 @endsection
-
 @section('script')
 <script src="/webarch/webarch/HTML/assets/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
 <script src="/public/js/admin/admin_database_manager.js" type="text/javascript"></script>
+<script src="{{URL::asset('/public/js/excel.js')}}" type="text/javascript"></script>
+<script src="/public/js/admin/them_deTaiDuAnCacCap_excel.js" type="text/javascript"></script>
 @endsection
+
+
+
+
+
+
+
