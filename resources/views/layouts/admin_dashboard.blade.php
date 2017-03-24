@@ -83,7 +83,7 @@
         <!-- END RESPONSIVE MENU TOGGLER -->
         <div class="header-quick-nav">
             <!-- BEGIN TOP NAVIGATION MENU -->
-            <div class="pull-left">
+            <!-- <div class="pull-left">
                 <ul class="nav quick-section">
                     <li class="quicklinks"><a href="#" class="" id="layout-condensed-toggle">
                             <div class="iconset top-menu-toggle-dark"></div>
@@ -96,7 +96,7 @@
                     <li class="quicklinks"><span class="h-seperate"></span></li>
                     <li class="quicklinks"><a href="#" class="">
                             <div class="iconset top-tiles"></div>
-                        </a></li>
+                        </a></li> -->
                    <!-- <li class="m-r-10 input-prepend inside search-form no-boarder"><span class="add-on"> <span
                                     class="iconset top-search"></span></span>
                         <input id="key_search" type="text" class="no-boarder form-control" placeholder="Tìm kiếm "
@@ -108,19 +108,19 @@
                                </select>
                                <button type="button" id="searching" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tìm kiếm</button>
 
-                    </li>-->
+                    </li>
                     
                 </ul>
-            </div>
+            </div>-->
             <!-- END TOP NAVIGATION MENU -->
             <!-- BEGIN CHAT TOGGLER -->
             <div class="pull-right">
-                <div class="chat-toggler1"><a href="#" class="dropdown-toggle" id="my-task-list" data-placement="bottom"
+                <!-- <div class="chat-toggler1"><a href="#" class="dropdown-toggle" id="my-task-list" data-placement="bottom"
                                              data-content='' data-toggle="dropdown" data-original-title="Notifications">
                         <div class="user-details">
-                            <div class="username"><i class="fa fa-bell"></i> Thông báo
+                            <div class="username"><i class="fa fa-bell"></i> Thông báo -->
                             <!--<span class="badge badge-important">3</span>-->
-                            </div>
+                         <!--    </div>
                         </div>
                         <div class="iconset top-down-arrow"></div>
                     </a>
@@ -163,33 +163,34 @@
                             </div>
                         </div>
                     </div>
-                  <!--  <div class="profile-pic"><img src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/avatar.jpg') }}"
+                  <div class="profile-pic"><img src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/avatar.jpg') }}"
                                                   alt=""
                                                   data-src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/avatar.jpg') }}"
                                                   data-src-retina="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/avatar.jpg') }}"
-                                                  width="35" height="35"/></div>-->
+                                                  width="35" height="35"/></div>
                 </div>
-
+ -->
                 <ul class="nav quick-section ">
                     <li class="quicklinks"><a data-toggle="dropdown" class="dropdown-toggle  pull-right " href="#"
                                               id="user-options">
-                            <div class="iconset top-settings-dark "></div>
+                            <!-- <div class="iconset top-settings-dark "></div> -->
+                            <div class="iconset top-chat-dark "></div>
                         </a>
                         <ul class="dropdown-menu  pull-right" role="menu" aria-labelledby="user-options">
-                            <li><a href="/trang-ca-nhan"> Trang cá nhân</a></li>
+                            <!-- <li><a href="/trang-ca-nhan"> Trang cá nhân</a></li>
                             <li><a href="email.html"> Tin nhắn&nbsp;&nbsp;
-                            <!--<span
-                                            class="badge badge-important animated bounceIn">2</span>--></a></li>
-                            <li class="divider"></li>
+                            <span
+                                            class="badge badge-important animated bounceIn">2</span></a></li>
+                            <li class="divider"></li> -->
                             <li><a href="/doi-mat-khau"> Đổi mật khẩu</a></li>
                             <li><a href="/logout"><i class="fa fa-power-off"></i>&nbsp;&nbsp;Đăng xuất</a></li>
                         </ul>
                     </li>
-                    <li class="quicklinks"><span class="h-seperate"></span></li>
+                    <!-- <li class="quicklinks"><span class="h-seperate"></span></li>
                     <li class="quicklinks"><a id="chat-menu-toggle" href="#sidr" class="chat-menu-toggle">
                             <div class="iconset top-chat-dark ">
-                            <!--<span class="badge badge-important hide"
-                                                                      id="chat-message-count">1</span>--></div>
+                            <span class="badge badge-important hide"
+                                                                      id="chat-message-count">1</span></div>
                         </a>
                         <div class="simple-chat-popup chat-menu-toggle hide">
                             <div class="simple-chat-popup-arrow"></div>
@@ -200,7 +201,7 @@
                                 </div>
                             </div>
                         </div>
-                    </li>
+                    </li>-->
                 </ul>
             </div>
             <!-- END CHAT TOGGLER -->
