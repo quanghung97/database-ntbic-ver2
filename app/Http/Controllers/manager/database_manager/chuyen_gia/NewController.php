@@ -3,6 +3,8 @@ namespace App\Http\Controllers\manager\database_manager\chuyen_gia;
 use App\chuyen_gia_khcn;
 use App\tinh_thanh_pho;
 use App\hoc_vi;
+use App\ket_qua_nghien_cuu;
+use App\cong_trinh_nghien_cuu;
 use Carbon\Carbon;
 use App\Http\Requests\FormThemChuyenGiaRequest;
 use Illuminate\Support\Facades\Input;
@@ -81,20 +83,89 @@ class NewController extends Controller
         // $errors[] = Họ và tên không được rỗng !
         // return json_encode(['errors'=>'']) để trả về danh sách lỗi. trong code javascript đã có code để hiện
         $check = false;
-        if(chuyen_gia_khcn::insert([
-              'ho_va_ten' => $request->ho_va_ten,
-              'nam_sinh' => $request->nam_sinh,
-              'hoc_vi' => $request->hoc_vi,
-              'chuyen_nganh'=> $request->chuyen_nganh,
-              'tinh_thanh'=> $request->tinh_thanh,
-              'co_quan' => $request->co_quan,
-              'dia_chi_co_quan' => $request->dia_chi_co_quan,
-              'huong_nghien_cuu' => $request->huong_nghien_cuu,
-              'Sl_congTrinh_baiBao' => $request->so_cong_trinh,
-          ])){
+        if(strlen(trim($request->ho_va_ten))==0){
+          $errors[]="họ và tên không được rỗng";
+          return json_encode(['errors'=>$errors]);
+        }
+        if(strlen(trim($request->ho_va_ten))>45)
+        {
+          $errors[]="họ và tên quá dài";
+          return json_encode(['errors'=>$errors]);
+        }
+        if(strlen(trim($request->nam_sinh))==0)
+        {
+          $errors[]="năm sinh không được rỗng";
+          return json_encode(['errors'=>$errors]);
+        }
+        if(strlen(trim($request->nam_sinh))<4)
+        {
+          $errors[]="kiểm tra lại năm sinh";
+          return json_encode(['errors'=>$errors]);
+        }
+        if(strlen(trim($request->hoc_vi))>0){
+             $chuyen_gia=new chuyen_gia_khcn;
+             $chuyen_gia->ho_va_ten=$request->ho_va_ten;
+             $chuyen_gia->hoc_vi=$request->hoc_vi;
+             $chuyen_gia->nam_sinh=$request->nam_sinh;
+             $chuyen_gia->chuyen_nganh=$request->chuyen_nganh;
+             $chuyen_gia->co_quan=$request->co_quan;
+             $chuyen_gia->dia_chi_co_quan=$request->dia_chi_co_quan;
+             $chuyen_gia->huong_nghien_cuu=$request->huong_nghien_cuu;
+             $chuyen_gia->Sl_congTrinh_baiBao=$request->so_cong_trinh;
+             $chuyen_gia->tinh_thanh=$request->tinh_thanh;
+
+             $chuyen_gia->save();
+
+             $chuyen_gia1=chuyen_gia_khcn::find($chuyen_gia->id);
+             $text=$this->stripVN($request->ho_va_ten).'-'.$chuyen_gia->id.'-'.str_replace("/", "", $chuyen_gia->nam_sinh);
+             $chuyen_gia1->linkid=$text;
+             $chuyen_gia1->link_anh='/storage/app/public/media/profile_khcn/default.jpg';
+             $chuyen_gia1->save();
+             // insert cong trinh nghien cuu va ket qua nghien cuu
+             if(substr(trim($request->ket_qua_nghien_cuu),0,1)=='+'){
+                $ket_qua=explode("+", substr(trim($request->ket_qua_nghien_cuu),1));
+             }
+             else{
+              $ket_qua=explode("+",trim($request->ket_qua_nghien_cuu));
+             }
+              $kq_size=count($ket_qua);
+
+              if(substr(trim($request->cong_trinh_nghien_cuu),0,1)=='+'){
+                $cong_trinh=explode("+", substr(trim($request->cong_trinh_nghien_cuu),1));
+              }
+              else{
+                $cong_trinh=explode("+",trim($request->cong_trinh_nghien_cuu));
+              }
+              $ct_size=count($cong_trinh);
+              for($i=0;$i<$kq_size;$i++)
+              {
+                if(trim($ket_qua[$i]!='x') && strlen(trim($ket_qua[$i]))>0){
+                ket_qua_nghien_cuu::insert([
+                  'id_profile'=>$chuyen_gia->id,
+                  'content'=>$ket_qua[$i],
+                  ]);
+                }
+              }
+              for($i=0;$i<$ct_size;$i++)
+              {
+                if(trim($cong_trinh[$i]!='x')&& strlen(trim($cong_trinh[$i]))>0)
+                {
+                cong_trinh_nghien_cuu::insert([
+                  'id_profile'=>$chuyen_gia->id,
+                  'content'=>$cong_trinh[$i],
+                  ]);
+                }
+              }
               return json_encode(['errors'=>'']);
             //thêm chuyên gia thành công
         }
+        else if(strlen(trim($request->hoc_vi))==0)
+        {
+          $errors[]="học vị không được rỗng";
+          return json_encode(['errors'=>$errors]);
+        }
+        // $cong_trinh=$request->cong_trinh_nghien_cuu;
+        // $ket_qua=$request->ket_qua_nghien_cuu;
 
         $errors[] = 'Lỗi thêm dữ liệu chưa xác định !';
         return json_encode(['errors'=>$errors]);

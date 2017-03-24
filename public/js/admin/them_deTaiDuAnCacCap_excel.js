@@ -1,7 +1,3 @@
-/**
- * Created by Duong Td on 17/11/2016.
- */
-//khoa tao moi chuyen gia
 $(document).ready(function() {
     $.ajaxSetup({
         headers: {
@@ -13,16 +9,16 @@ $(document).ready(function() {
         $("#thead_import_record").text("");
         $("tbody").text("");
         $("#import_record").remove();
-        $("#thead_import_record").append('<tr><th>Tên</th><th>Năm sinh</th><th>học vị</th><th>Chuyên ngành</th><th>Tỉnh thành</th><th class="th_tuychon">tùy chọn</th></tr>');
+        $("#thead_import_record").append('<tr><th>Tên đề tài</th><th>Mã số - Ký hiệu</th><th>Lĩnh vực</th><th>Chuyên ngành</th><th>Cơ quan</th><th class="th_tuychon">tùy chọn</th></tr>');
         handleFile(e);
     });
 
-    //nhan xoa 1 chuyen gia o hang tuy chon
+    //nhan xoa 1 sinh vien o cot tuy chon
     $(document).on("click",".remove_record_excel",function(){
         $(this).parent().parent().remove();
     });
 
-    //click them chuyen gia vao he thong
+    //click them sinh vien vao he thong
     $(document).on("click","#import_record",function(){
         $('#status_all').text('');
         $('#status_all').append('<h4 class="semi-bold text-info">Đang thêm chuyên gia. Vui lòng không tắt trình duyệt !</h4><div class="progress progress-striped active "><div id="processing" data-percentage="0%" class="progress-bar progress-bar-danger"></div></div>');
@@ -41,7 +37,7 @@ $(document).ready(function() {
     function handleFile(e) {
         var files = e.target.files;
         var i,f;
-        var num_row = 11;
+        var num_row = 12;
         for (i = 0, f = files[i]; i != files.length; ++i) {
             var reader = new FileReader();
             var name = f.name;
@@ -56,19 +52,20 @@ $(document).ready(function() {
                     new_workbook.push(val['v']);
                 });
 
-                for (var i = num_row +1; i < new_workbook.length; i += num_row) {
+                for (var i = num_row + 1; i < new_workbook.length; i += num_row) {
                     var html = '<tr>'
-                        +'<td class="ho_va_ten">'+ new_workbook[i] +'</td>'
-                        +'<td class="nam_sinh">'+ new_workbook[i+1] +'</td>'
-                        +'<td class="hoc_vi">'+ new_workbook[i+2] +'</td>'
-                        +'<td class="chuyen_nganh">'+ new_workbook[i+3] +'</td>'
-                        +'<td class="tinh_thanh">'+ new_workbook[i+4] +'</td>'
-                        +'<td class="co_quan" style="display: none">'+ new_workbook[i+5] +'</td>'
-                        +'<td class="dia_chi_co_quan" style="display: none">'+ new_workbook[i+6] +'</td>'
-                        +'<td class="huong_nghien_cuu" style="display: none">'+ new_workbook[i+7] +'</td>'
-                        +'<td class="so_cong_trinh" style="display: none">'+ new_workbook[i+8] +'</td>'
-                        +'<td class="ket_qua_nghien_cuu" style="display: none">'+new_workbook[i+9]+'</td>'
-                        +'<td class="cong_trinh_nghien_cuu" style="display: none">'+ new_workbook[i+10]+'</td>'
+                        +'<td class="ten_de_tai">'+ new_workbook[i] +'</td>'
+                        +'<td class="maso_kyhieu">'+ new_workbook[i+1] +'</td>'
+                        +'<td class="linh_vuc">'+ new_workbook[i+2] +'</td>'
+                        +'<td class="chuyen_nganh_khcn">'+ new_workbook[i+3] +'</td>'
+                        +'<td class="nam_bat_dau" style="display: none">'+ new_workbook[i+4] +'</td>'
+                        +'<td class="nam_ket_thuc" style="display: none">'+ new_workbook[i+5] +'</td>'
+                        +'<td class="co_quan">'+ new_workbook[i+6] +'</td>'
+                        +'<td class="chu_nhiem_detai" style="display: none">'+ new_workbook[i+7] +'</td>'
+                        +'<td class="diem_noi_bat" style="display: none">'+ new_workbook[i+8] +'</td>'
+                        +'<td class="mota_chung" style="display: none">'+ new_workbook[i+9] +'</td>'
+                        +'<td class="mota_quytrinh_chuyengiao" style="display: none">'+ new_workbook[i+10] +'</td>'
+                        +'<td class="ket_qua_thuc_hien_ung_dung" style="display: none">'+ new_workbook[i+11] +'</td>'
                         +'<td style="text-align:center; cursor: pointer" class="status_new_record"><div class="remove_record_excel"><span class="text-danger semi-bold">xóa</span></div></td>'
                         +'</tr>';
                     $("tbody").append(html);
@@ -77,7 +74,7 @@ $(document).ready(function() {
             };
             reader.readAsBinaryString(f);
         }
-        $('table').before('<div id="status_all" class="form-group"><button class="btn btn-success" id="import_record" type="button">Thêm chuyên gia vào hệ thống</button></div>');
+        $('table').before('<div id="status_all" class="form-group"><button class="btn btn-success" id="import_record" type="button">Thêm sinh viên vào hệ thống</button></div>');
     }
 
     function ajax_excel_record(item, index) {
@@ -89,34 +86,36 @@ $(document).ready(function() {
             return;
         }
 
-        var ho_va_ten = item[index].children('.ho_va_ten').text();
-        var nam_sinh = item[index].children('.nam_sinh').text();
-        var hoc_vi = item[index].children('.hoc_vi').text();
-        var chuyen_nganh = item[index].children('.chuyen_nganh').text();
-        var tinh_thanh = item[index].children('.tinh_thanh').text();
+        var ten_de_tai = item[index].children('.ten_de_tai').text();
+        var maso_kyhieu = item[index].children('.maso_kyhieu').text();
+        var linh_vuc = item[index].children('.linh_vuc').text();
+        var chuyen_nganh_khcn = item[index].children('.chuyen_nganh_khcn').text();
+        var nam_bat_dau = item[index].children('.nam_bat_dau').text();
+        var nam_ket_thuc = item[index].children('.nam_ket_thuc').text();
         var co_quan = item[index].children('.co_quan').text();
-        var dia_chi_co_quan = item[index].children('.dia_chi_co_quan').text();
-        var huong_nghien_cuu = item[index].children('.huong_nghien_cuu').text();
-        var so_cong_trinh = item[index].children('.so_cong_trinh').text();
-        var ket_qua_nghien_cuu=item[index].children('.ket_qua_nghien_cuu').text();
-        var cong_trinh_nghien_cuu=item[index].children('.cong_trinh_nghien_cuu').text();
+        var chu_nhiem_detai = item[index].children('.chu_nhiem_detai').text();
+        var diem_noi_bat = item[index].children('.diem_noi_bat').text();
+        var mota_chung = item[index].children('.mota_chung').text();
+        var mota_quytrinh_chuyengiao = item[index].children('.mota_quytrinh_chuyengiao').text();
+        var ket_qua_thuc_hien_ung_dung = item[index].children('.ket_qua_thuc_hien_ung_dung').text();
         var action = item[index].children('.status_new_record');
         $.ajax({
-            url: '/quan-tri-vien/quan-ly-du-lieu/chuyen-gia/tao-moi/ajax',
+            url: '/quan-tri-vien/quan-ly-du-lieu/de-tai-du-an-cac-cap/tao-moi/ajax',
             type: 'POST',
             dataType: 'JSON',
             data: {
-                ho_va_ten: ho_va_ten,
-                nam_sinh: nam_sinh,
-                hoc_vi: hoc_vi,
-                chuyen_nganh: chuyen_nganh,
-                tinh_thanh: tinh_thanh,
+                ten_de_tai: ten_de_tai,
+                maso_kyhieu: maso_kyhieu,
+                linh_vuc: linh_vuc,
+                chuyen_nganh_khcn: chuyen_nganh_khcn,
+                nam_bat_dau: nam_bat_dau,
+                nam_ket_thuc: nam_ket_thuc,
                 co_quan: co_quan,
-                dia_chi_co_quan: dia_chi_co_quan,
-                huong_nghien_cuu: huong_nghien_cuu,
-                so_cong_trinh: so_cong_trinh,
-                ket_qua_nghien_cuu: ket_qua_nghien_cuu,
-                cong_trinh_nghien_cuu:cong_trinh_nghien_cuu,
+                chu_nhiem_detai: chu_nhiem_detai,
+                diem_noi_bat: diem_noi_bat,
+                mota_chung: mota_chung,
+                mota_quytrinh_chuyengiao: mota_quytrinh_chuyengiao,
+                ket_qua_thuc_hien_ung_dung: ket_qua_thuc_hien_ung_dung,
             }
         })
             .done(function(response) {

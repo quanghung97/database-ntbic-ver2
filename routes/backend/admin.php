@@ -86,15 +86,15 @@
 			});
 
 			Route::group(['prefix'=>'phat-minh'], function(){
-				Route::get('/','manager\database_manager\phat_minh\HomeController@index');
+				Route::get('/','manager\database_manager\phat_minh\HomeController@index')->name('phat_minh');
 				Route::group(['middleware'=>'insert_phat_minh'],function(){
-					Route::get('tao-moi','manager\database_manager\phat_minh\NewController@index')->name('phat_minh');
-					Route::post('tao-moi','manager\database_manager\phat_minh\NewController@new_action');
+					Route::get('tao-moi','manager\database_manager\phat_minh\NewController@index');
+					Route::post('tao-moi','manager\database_manager\phat_minh\NewController@new_action')->name('them_phat_minh');
 					Route::post('tao-moi/ajax','manager\database_manager\phat_minh\NewController@ajax_new_record');
 				});
 				Route::group(['middleware'=>'update_phat_minh'],function(){
 					Route::get('sua/{id}','manager\database_manager\phat_minh\EditController@index');
-					Route::post('sua/{id}','manager\database_manager\phat_minh\EditController@edit_action');
+					Route::post('sua/{id}','manager\database_manager\phat_minh\EditController@edit_action')->name('sua_phat_minh');
 				});
 				Route::group(['middleware'=>'delete_phat_minh'],function(){
 					Route::get('xoa/{id}','manager\database_manager\phat_minh\DeleteController@index');

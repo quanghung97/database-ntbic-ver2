@@ -126,4 +126,32 @@ class NewController extends Controller
     }
     return $new;
 }
+        protected function ajax_new_record(Request $request)
+    {
+
+        $entry = new san_pham;
+        
+       $entry->ten_san_pham = $request->ten_san_pham;
+        $entry->linh_vuc = $request->linh_vuc;
+        $entry->dac_diem_noi_bat = $request->dac_diem_noi_bat;
+        $entry->mo_ta_chung = $request->mo_ta_chung;
+        $entry->quy_trinh_chuyen_giao = $request->quy_trinh_chuyen_giao;
+        $entry->kha_nang_ung_dung = $request->kha_nang_ung_dung;
+        $entry->link = '';
+        $entry->anh_san_pham = '/storage/app/public/media/spkhcn/default.jpg';
+        $entry->save();
+        $link = $this->text_to_link($entry->id.'-'.$entry->ten_san_pham);
+          $entry->link = substr($link,0,45);
+          $entry->save();
+        if($entry->save()) {
+            return json_encode(['errors'=>'']);
+        }
+        else
+        {
+            $errors[] = 'Lỗi thêm dữ liệu chưa xác định !';
+        return json_encode(['errors'=>$errors]);    
+        }
+        
+        
+    }
 }

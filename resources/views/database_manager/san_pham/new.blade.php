@@ -16,14 +16,43 @@
 sửa dữ liệu sản phẩm
 @endsection
 @section('main')
-<div class="form-group">
+
 @if (session('status'))
     <div class="alert alert-success auto_disable">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
         {{ session('status') }}
     </div>
 @endif
-	<h4 class="form-title">THÊM SẢN PHẨM</h4>
+<div class="form-group">
+<ul class="nav nav-tabs" id="tab-01">
+    <li class="active"><a href="#tabAddByHand">Thêm thủ công</a></li>
+    <li><a href="#tabAddByExcel">Thêm bằng excel</a></li>
+  </ul>
+ <div class="tab-content">
+	    <div class="tab-pane" id="tabAddByExcel">
+	    <h4 class="form-title">THÊM SẢN PHẨM</h4>
+	    <div id="status"></div>
+    
+	     <div class="row column-seperation">
+			<div class="col-md-12">
+				<form id="upload_excel_record" class="form-group" method="post" enctype="multipart/form-data">
+					<input id="excel_import_new_product" type="file" name="excel_import">
+					<input id="excel_import_token" name="_token" value="{{csrf_token()}}" hidden>
+				</form>
+				<div id="show_item_excel">
+					<table class="table table-bordered">
+						<thead id="thead_import_product">
+							
+						</thead>
+						<tbody id="tbody_excel_record">
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	    </div>
+    <div class="tab-pane active" id="tabAddByHand">
+	    <h4 class="form-title">THÊM SẢN PHẨM</h4>
 		<div class="grid simple">
 				<form id="form_iconic_validation" action="{{route('tao-san-pham')}}" method="POST" enctype="multipart/form-data">
 				 <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -90,10 +119,14 @@ sửa dữ liệu sản phẩm
 					</div>
 				</form>
 			</div>
+    </div>
+    </div>			
 </div>
 @endsection
 
 @section('script')
 <script src="/webarch/webarch/HTML/assets/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
 <script src="/public/js/admin/admin_database_manager.js" type="text/javascript"></script>
+<script src="{{URL::asset('/public/js/excel.js')}}" type="text/javascript"></script>
+<script type="text/javascript" src="/public/js/admin/add_san_pham_excel.js"></script>
 @endsection
