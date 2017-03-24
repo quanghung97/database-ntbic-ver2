@@ -9,6 +9,7 @@ use App\linh_vuc_san_pham;
 use App\tinh_thanh_pho;
 use App\doanh_nghiep_khcn;
 use Carbon\Carbon;
+use Validator;
 use Illuminate\Support\Facades\Redirect;
 class NewController extends Controller
 {
@@ -70,31 +71,101 @@ class NewController extends Controller
           return Redirect::back()->with('status', 'Thêm thành công một doanh nghiệp!');
     }
 
-    public function add_by_excel(ThemDoanhNghiepRequest $request) {
-        $entry = new doanh_nghiep_khcn;
-        $linh_vuc = linh_vuc_san_pham::where('linh_vuc',$request->linh_vuc)->first();
-        $tinh_thanh_pho = tinh_thanh_pho::where('tinh_thanh_pho',$request->tinh_thanh_pho)->first();
+    public function add_by_excel(Request $request) {
+        $error = [];
 
-        $entry->ngay_cap_nhat = Carbon::now();
-        $entry->ten_doanh_nghiep = $request->name;
-        $entry->dia_chi = $request->dia_chi;
-        $entry->email = $request->email;
-        $entry->ten_dai_dien = $request->ten_dai_dien;
-        $entry->email_dai_dien = $request->email_dai_dien;
-        $entry->dia_chi_dai_dien = $request->dia_chi_dai_dien;
-        $entry->linh_vuc = $linh_vuc->id;
-        $entry->tinh_thanh_pho = $tinh_thanh_pho->id;
-        $entry->logo = 'storage/app/public/media/doanh-nghiep/default.jpg';
-        $entry->link ='';
-        if($entry->save()) {
-            $status = 'success';
-        } else $status = 'error';
+        //make validate
+        $rules = [
+            'name' => 'required',
+            'dia_chi' => 'required',
+            'linh_vuc' => 'required',
+            'tinh_thanh_pho' => 'required',
+            'email' => 'required',
+            'ten_dai_dien' => 'required',
+            'dia_chi_dai_dien' => 'required',
+            'email_dai_dien' => 'required',
+        ];
+        $messages = [
+            'name.required' => 'Vui lòng nhập tên doanh nghiệp',
+            'dia_chi.required'=>'Vui lòng nhập địa chỉ trụ sở doanh nghiệp',
+            'linh_vuc.required' =>'Vui lòng nhập lĩnh vực KH&CN',
+            'tinh_thanh_pho.required' => 'Vui lòng nhập email doanh nghiệp',
+            'ten_dai_dien.required' => 'Vui lòng nhập tên người đại diện',
+            'dia_chi_dai_dien.required' => 'Vui lòng nhập địa chỉ người đại diện',
+            'email_dai_dien.required' => 'Vui lòng nhập email người đại diện',
+        ];
+        $validator = Validator::make([
+                'name' => $request->name,
+                'dia_chi' => $request->dia_chi,
+                'email' => $request->email,
+                'ten_dai_dien' => $request->ten_dai_dien,
+                'email_dai_dien' => $request->email_dai_dien,
+                'dia_chi_dai_dien' => $request->dia_chi_dai_dien,
+                'linh_vuc' => $request->linh_vuc,
+                'tinh_thanh_pho' => $request->tinh_thanh_pho,
+            ],$rules,$messages);
 
-        $link = $this->text_to_link($entry->id.'-'.$entry->ten_doanh_nghiep);
-        $entry->link = substr($link,0,45);
-        $entry->save();
+        //check validate
+        if ($validator->fails()) {
+            if($validator->errors()->first('name') != '') {
+                $errors[] = $validator->errors()->first('name');
+            }
+            if($validator->errors()->first('dia_chi') != '') {
+                $errors[] = $validator->errors()->first('dia_chi');
+            }
+            if($validator->errors()->first('email') != '') {
+                $errors[] = $validator->errors()->first('email');
+            }
+            if($validator->errors()->first('ten_dai_dien') != '') {
+                $errors[] = $validator->errors()->first('ten_dai_dien');
+            }
+            if($validator->errors()->first('dia_chi_dai_dien') != '') {
+                $errors[] = $validator->errors()->first('dia_chi_dai_dien');
+            }
+            if($validator->errors()->first('email_dai_dien') != '') {
+                $errors[] = $validator->errors()->first('email_dai_dien');
+            }
+            if($validator->errors()->first('tinh_thanh_pho') != '') {
+                $errors[] = $validator->errors()->first('tinh_thanh_pho');
+            }
+            if($validator->errors()->first('linh_vuc') != '') {
+                $errors[] = $validator->errors()->first('linh_vuc');
+            }
+            return json_encode(['errors' => $errors]);
+        }
+        else {
+            //make new company
+            $entry = new doanh_nghiep_khcn;
+            $linh_vuc = linh_vuc_san_pham::where('linh_vuc',$request->linh_vuc)->first();
+            if($linh_vuc == null) {
+                $errors[] = 'Lĩnh vực không xác định!';
+                return json_encode(['errors' => $errors]);
+            } 
+            $tinh_thanh_pho = tinh_thanh_pho::where('tinh_thanh_pho',$request->tinh_thanh_pho)->first();
+            if($tinh_thanh_pho == null) {
+                $errors[] = 'Tỉnh thành phố không xác định';
+                return json_encode(['errors' => $errors]);
+            }
 
-        return json_encode(['status'=>$status]);
+            $entry->ngay_cap_nhat = Carbon::now();
+            $entry->ten_doanh_nghiep = $request->name;
+            $entry->dia_chi = $request->dia_chi;
+            $entry->email = $request->email;
+            $entry->ten_dai_dien = $request->ten_dai_dien;
+            $entry->email_dai_dien = $request->email_dai_dien;
+            $entry->dia_chi_dai_dien = $request->dia_chi_dai_dien;
+            $entry->linh_vuc = $linh_vuc->id;
+            $entry->tinh_thanh_pho = $tinh_thanh_pho->id;
+            $entry->logo = 'storage/app/public/media/doanh-nghiep/default.jpg';
+            $entry->link ='';
+            $entry->save();
+
+            $link = $this->text_to_link($entry->id.'-'.$entry->ten_doanh_nghiep);
+            $entry->link = substr($link,0,45);
+            $entry->save();
+
+            return json_encode(['errors'=>'']);                                
+        }
     }
 
     public function text_to_link($string){
