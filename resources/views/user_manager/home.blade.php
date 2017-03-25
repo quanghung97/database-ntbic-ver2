@@ -1,4 +1,7 @@
 @extends('admin.home')
+@section('is_active_userpage')
+  active
+@endsection
 @section('css')
 <link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/bootstrap-select2/select2.css') }}" rel="stylesheet" type="text/css" media="screen"/>
 <link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-datatable/css/jquery.dataTables.css') }}" rel="stylesheet" type="text/css"/>

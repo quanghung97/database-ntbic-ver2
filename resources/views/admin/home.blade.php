@@ -1,11 +1,11 @@
 @extends('layouts.admin_dashboard')
 @section('sidebar')
-	<li id="active_tong_quan"><a href="/"> <i class="icon-custom-home"></i> <span
+	<li id="active_tong_quan" class="@yield('is_active_home')"><a href="{{ URL::asset('quan-tri-vien') }}"> <i class="icon-custom-home"></i> <span
                     class="title">Tổng quan</span></span> </a>
 
     </li>
 
-    <li class="" id="active_quan_ly_user"><a href="{{ URL::asset('quan-tri-vien/quan-ly-nguoi-dung') }}"> <i class="fa fa-user"></i> <span class="title">Quản lý người dùng</span></a>
+    <li id="active_quan_ly_user" class="@yield('is_active_userpage')"><a href="{{ URL::asset('quan-tri-vien/quan-ly-nguoi-dung') }}"> <i class="fa fa-user"></i> <span class="title">Quản lý người dùng</span></a>
     </li>
     <li class="" id="sub_menu_quan_ly_database"><a href="javascript:;"> <i class="fa fa-group"></i>  <span
                     class="title">Quản lý dữ liệu</span> <span class="arrow "></span> </a>

@@ -1,4 +1,7 @@
 @extends('admin.home')
+@section('is_active_home')
+	active
+@endsection
 @section('main')
 	<div class="w3-content w3-padding" style="max-width:1564px; ">
 	  <!-- Danh mục -->

@@ -3,12 +3,11 @@
 <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
     <meta charset="utf-8"/>
-    <title>NTBIC|Trang quản trị viên</title>
+    <title>NTBIC | Trang quản trị viên</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <meta content="" name="description"/>
     <meta content="" name="author"/>
     <meta name="csrf-token" content="{{csrf_token()}}"/>
-    <link href="{{ URL::asset('public/css/style.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-metrojs/MetroJs.min.css') }}" rel="stylesheet"
           type="text/css"/>
     <link rel="stylesheet" type="text/css"
@@ -98,7 +97,7 @@
                     </a></li>
             </ul>
             <!-- BEGIN LOGO -->
-            <a href="/"><br>
+            <a href="{{ URL::asset('quan-tri-vien') }}"><br>
                 <center><p class="semi-bold" style="color: white; font-size: 14px">QUẢN TRỊ VIÊN NTBIC</p></center>
             </a>
             <!-- END LOGO -->
@@ -120,8 +119,9 @@
                         </a>
                         <ul class="dropdown-menu  pull-right" role="menu" aria-labelledby="user-options">
 
-                            <li><a href="/doi-mat-khau"> Đổi mật khẩu</a></li>
-                            <li><a href="/logout"><i class="fa fa-power-off"></i>&nbsp;&nbsp;Đăng xuất</a></li>
+                            <li><a href="{{ URL::asset('quan-tri-vien/trang-ca-nhan') }}"><i class="fa fa-user"></i> Trang cá nhân</a></li>
+                            <li><a href="{{ URL::asset('quan-tri-vien/trang-ca-nhan/doi-mat-khau') }}"><i class="fa fa-gear"></i> Đổi mật khẩu</a></li>
+                            <li><a href="{{ URL::asset('quan-tri-vien/logout') }}"><i class="fa fa-power-off"></i>&nbsp;&nbsp;Đăng xuất</a></li>
                         </ul>
                     </li>
 
