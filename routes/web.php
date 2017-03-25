@@ -27,6 +27,9 @@ Route::post('app/get_captcha',function(){
 Route::get('abc',function(){
 	 return bcrypt('123456');
 });
+
+Route::get('huong-dan-su-dung','HomeController@huong_dan_su_dung');
+
 Route::get('404-error', function(){
 	return view('errors.404');
 })->name('404');

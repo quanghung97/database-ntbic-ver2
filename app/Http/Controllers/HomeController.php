@@ -58,4 +58,8 @@ class HomeController extends Controller
 		      return view('home',compact('counts','chuyen_gia_khcn','bang_phat_minh_sang_che',
 		      'de_tai_du_an_cac_cap','san_pham','doanh_nghiep_khcn','keyword','filter'));
 		  }
+
+	public function huong_dan_su_dung(){
+		
+	}
 }
