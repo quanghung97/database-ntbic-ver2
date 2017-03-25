@@ -1,23 +1,18 @@
 @extends('admin.home')
 @section('main')
 	<div class="w3-content w3-padding" style="max-width:1564px; ">
+	  <!-- Danh mục -->
+		<div class="w3-container w3-padding-32" id="projects">
+		    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-12">Thống kê chung </h3>
+		</div>
+		<div id="piechart1" class="col-lg-4" style=" height: 300px;"></div>
+		<div id="piechart2" class="col-lg-4" style=" height: 300px;"></div>
+		<div id="piechart3" class="col-lg-4" style=" height: 300px;"></div>
 
-			  <!-- Danh mục -->
-				<div class="w3-container w3-padding-32" id="projects">
-				    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-12">Thống kê chung </h3>
-				</div>
-				<div id="piechart1" class="col-lg-4" style=" height: 300px;"></div>
-				<div id="piechart2" class="col-lg-4" style=" height: 300px;"></div>
-				<div id="piechart3" class="col-lg-4" style=" height: 300px;"></div>
-
-			</div>
-			<div class="w3-content w3-padding" style="max-width:1564px">
-
-				<div id="piechart4" class="col-lg-6" style=" height: 300px;"></div>
-				<div id="piechart5" class="col-lg-6" style=" height: 300px;"></div>
-				
-				
-			</div>
+	</div>
+	<div class="w3-content w3-padding" style="max-width:1564px">
+		<div id="piechart4" class="col-lg-6" style=" height: 300px;"></div>
+		<div id="piechart5" class="col-lg-6" style=" height: 300px;"></div>
 	</div>
 
 @endsection
