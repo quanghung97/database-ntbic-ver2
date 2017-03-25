@@ -128,5 +128,9 @@ danh sách chuyên gia
 <script src="/webarch/webarch/HTML/assets/js/chat.js" type="text/javascript"></script>
 <script src="/webarch/webarch/HTML/assets/js/demo.js" type="text/javascript"></script>
 <script src="/public/js/admin/admin_database_manager.js" type="text/javascript"></script>
-
+<script type="text/javascript">
+  $(".sub-menu").css('display','block');
+  $("#sub_menu_quan_ly_database").addClass("active");
+  $("#active_chuyen_gia").addClass("active");
+</script>
 @endsection

@@ -137,4 +137,9 @@ sửa dữ liệu chuyên gia
 @section('script')
 <script src="/webarch/webarch/HTML/assets/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
 <script src="/public/js/admin/admin_database_manager.js" type="text/javascript"></script>
+<script type="text/javascript">
+  $(".sub-menu").css('display','block');
+  $("#sub_menu_quan_ly_database").addClass("active");
+  $("#active_chuyen_gia").addClass("active");
+</script>
 @endsection

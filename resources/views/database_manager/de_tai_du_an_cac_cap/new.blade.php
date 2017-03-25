@@ -181,6 +181,11 @@ sửa dữ liệu đề tài dự án các cấp
 <script src="/public/js/admin/admin_database_manager.js" type="text/javascript"></script>
 <script src="{{URL::asset('/public/js/excel.js')}}" type="text/javascript"></script>
 <script src="/public/js/admin/them_deTaiDuAnCacCap_excel.js" type="text/javascript"></script>
+<script type="text/javascript">
+  $(".sub-menu").css('display','block');
+  $("#sub_menu_quan_ly_database").addClass("active");
+  $("#active_de_tai").addClass("active");
+</script>
 @endsection
 
 

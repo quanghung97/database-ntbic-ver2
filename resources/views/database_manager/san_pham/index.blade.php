@@ -126,17 +126,9 @@
 <script src="/webarch/webarch/HTML/assets/js/demo.js" type="text/javascript"></script>
 <script src="/public/js/admin/admin_database_manager.js" type="text/javascript"></script>
 <script type="text/javascript">
-  $(function () {
-    $("#example").DataTable();
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false
-    });
-  });
+  $(".sub-menu").css('display','block');
+  $("#sub_menu_quan_ly_database").addClass("active");
+  $("#active_san_pham").addClass("active");
    $(window).load(function(){ 
     $(".alert-success").delay(3000).fadeOut();
   });

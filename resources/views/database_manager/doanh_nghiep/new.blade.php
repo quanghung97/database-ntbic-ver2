@@ -305,4 +305,9 @@
 <script src="/public/js/admin/admin_database_manager.js" type="text/javascript"></script>
 <script src="{{URL::asset('/public/js/excel.js')}}" type="text/javascript"></script>
 <script type="text/javascript" src="/public/js/admin/add_doanh_nghiep_excel.js"></script>
+<script type="text/javascript">
+  $(".sub-menu").css('display','block');
+  $("#sub_menu_quan_ly_database").addClass("active");
+  $("#active_doanh_nghiep").addClass("active");
+</script>
 @endsection

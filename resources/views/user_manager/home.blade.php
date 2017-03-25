@@ -81,6 +81,7 @@
 <script src="/webarch/webarch/HTML/assets/js/chat.js" type="text/javascript"></script>
 <script src="/webarch/webarch/HTML/assets/js/demo.js" type="text/javascript"></script>
 <script type="text/javascript">
+  $("#active_quan_ly_user").addClass("active");
   $(function () {
     $("#example").DataTable();
     $('#example2').DataTable({
