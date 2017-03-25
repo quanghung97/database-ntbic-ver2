@@ -5,11 +5,10 @@
 		Route::post('ntbic-admin/dang-nhap','Auth\LoginController@login')->name('login');
 		
 	});
-	Route::get('logout','Auth\LogoutController@index')->name('logout');
 	// Route::group(['prefix'=>'bien-tap-vien', 'middleware'=>'moderator'], $route_database_manager);
 	// Route::group(['prefix'=>'quan-tri-vien', 'middleware'=>'admin'], $route_database_manager);
 	Route::group(['prefix'=>'quan-tri-vien', 'middleware'=>'moderator'], function(){
-
+	Route::get('logout','Auth\LogoutController@index')->name('logout');
 		Route::get('/','admin\HomeController@index')->name('admin_dashboard');
 		Route::group(['prefix'=>'quan-ly-nguoi-dung', 'middleware'=>'admin'],function(){
 			Route::get('/','manager\user_manager\HomeController@index')->name('home_user_index');
