@@ -13,7 +13,9 @@
   	<link rel="stylesheet" type="text/css" href="{{ URL::asset('public/css/master.css') }}">
   	<link rel="stylesheet" type="text/css" href="{{ URL::asset('public/css/home.css') }}">
   	<link rel="stylesheet" type="text/css" href="{{ URL::asset('public/css/responsive.css') }}">
-  	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  	<link href="https://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+  	<link rel="stylesheet" type="text/css" href="{{ URL::asset('public/css/footer_home.css') }}">
+  	<!--<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>-->
   	 
 		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 				 <script type="text/javascript">
@@ -695,42 +697,67 @@
 				</div>
 				<div class="col-lg-12" style="padding-bottom:2%;">
 					<!-- Add Google Maps -->
-					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.32192326675!2d105.85650651455113!3d21.019801286003222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135abee0f48e19b%3A0x23d765710433152b!2zVmnhu4duIOG7qG5nIEThu6VuZyBDw7RuZyBOZ2jhu4c!5e0!3m2!1svi!2s!4v1489416948702" width="100%" height="450px" frameborder="0" style="border:0" allowfullscreen></iframe>
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.32192326675!2d105.85650651455113!3d21.019701287003222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135abee0f48e19b%3A0x23d765710433152b!2zVmnhu4duIOG7qG5nIEThu6VuZyBDw7RuZyBOZ2jhu4c!5e0!3m2!1svi!2s!4v1489416948702" width="100%" height="450px" frameborder="0" style="border:0" allowfullscreen></iframe>
 				</div>
 			</div>
 		</div>
+		<!---phan footer-->
+			
 		<div class="row div-footer">
 			<div class="container">
-				<div class="col-md-3 display-block">
-					<ul>
-						<li><a href="#">Dữ liệu chuyên gia KH&CN</a></li>
-						<li><a href="#">Dữ liệu đề tài, dự án KH&CN các cấp</a></li>
-						<li><a href="#">Dữ liệu phát minh, sáng chế, giải pháp</a></li>
-						<li><a href="#">Dữ liệu sản phẩm, công nghệ mới</a></li>
-					</ul>
-				</div>
-				<div class="col-md-3 display-block">
-					<ul>
-						<li><a href="#">Dữ liệu doanh nghiệp KH&CN</a></li>
-						<li><a href="#">Văn phòng đại diện tại nước ngoài</a></li>
-						<li><a href="#">Hướng dẫn sử dụng</a></li>
-						<li><a href="#">Giới thiệu về NTBIC</a></li>
-					</ul>
-				</div>
-				<div class="col-md-3 display-block">
-					<p>LIÊN HỆ:</p>
+				<div class="col-md-4 display-block">
 					<p>Trung tâm ươm tạo Công nghệ và Doanh nghiệp Khoa học Công nghệ- Viện ứng dụng công nghệ</p>
-					<p>Địa chỉ: 25- Lê Thánh Tông- Hoàn Kiếm- Hà Nội</p>
-					<p>Hotline: 0439336570</p>
-					<p>Email: info@ntbic.com</p>
-					<p>Facebook:</p>
+      				<p><i class="fa fa-map-pin"></i> Địa chỉ  :25-Lê Thánh Tông-Hoàn Kiếm-Hà Nội</p>
+        			<p><i class="fa fa-phone"></i> Hotline  :0439336570</p>
+       				<p><i class="fa fa-envelope"></i> E-mail :info@ntbic.com</p>
+        
 				</div>
 				<div class="col-md-3 display-block">
-					Google map
+					<ul>
+						<li><a href="#">	Dữ liệu chuyên gia KH&CN</a></li>
+						<li><a href="#">	Dữ liệu đề tài, dự án KH&CN các cấp</a></li>
+						<li><a href="#">	Dữ liệu phát minh, sáng chế, giải pháp</a></li>
+						<li><a href="#">	Dữ liệu sản phẩm, công nghệ mới</a></li>
+						<li><a href="#">	Dữ liệu doanh nghiệp KH&CN</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 display-block">
+					<li><a href="#">	Văn phòng đại diện tại nước ngoài</a></li>
+					<li><a href="#">	Hướng dẫn sử dụng</a></li>
+					<li><a href="#">	Giới thiệu về NTBIC</a></li>
+				</div>
+				<div class="col-md-2 display-block">
+					 <div class="social-icons">
+	          	 <div class="social-icons">
+                                
+           		 <ul class="nomargin">
+                                    
+               		 <a href="#"><i class="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
+	           		 <a href="#"><i class="fa fa-pinterest-square fa-3x social-fr" id="social"></i></a>
+	           		 <a href="#"><i class="fa fa-twitter-square fa-3x social-tw" id="social"></i></a>
+	                              
+          		  </ul>
+           		  </div>
 				</div>
 			</div>
 		</div>
 	</div>
+
+<div class="copyright">
+  <div class="container">
+    <div class="col-md-6">
+      <p>Copyright © 2016 csdl.ntbic.com</p>
+    </div>
+    <div class="col-md-6">
+      <ul class="bottom_ul">
+      
+        <li><a href="https://www.google.com/maps/place/Vi%E1%BB%87n+%E1%BB%A8ng+D%E1%BB%A5ng+C%C3%B4ng+Ngh%E1%BB%87/@21.006394,105.8129819,14z/data=!4m8!1m2!2m1!1zVHJ1bmcgdMOibSDGr8ahbSB04bqhbyBDw7RuZyBuZ2jhu4cgdsOgIERvYW5oIG5naGnhu4dwIEtob2EgaOG7jWMgQ8O0bmcgbmdo4buHLSBWaeG7h24g4buobmcgZOG7pW5nIEPDtG5nIG5naOG7hw!3m4!1s0x3135abee0f48e19b:0x23d765710433152b!8m2!3d21.0198013!4d105.8586952">Site Map</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
 
 	<!-- script -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
