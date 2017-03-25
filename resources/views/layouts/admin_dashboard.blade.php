@@ -544,7 +544,7 @@
 
 <script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/respond.js') }}"></script>
 <![endif]-->
-<script src="{{ URL::asset('public/js/lib/jquery-3.1.0.min.js') }}"></script>
+<script src="{{ URL::asset('public/js/lib/jquery-3.1.1.min.js') }}"></script>
 <script src="{{ URL::asset('public/js/lib/excel.js') }}"></script>
 <script src="{{ URL::asset('public/js/my_jquery.js') }}"></script>
 @yield('script')
