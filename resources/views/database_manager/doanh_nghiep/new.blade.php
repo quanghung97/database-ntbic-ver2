@@ -37,6 +37,8 @@
 	            <input id="excel_import_new_company" type="file" name="excel_import">
 	            <input id="excel_import_token" name="_token" value="{{csrf_token()}}" hidden>
 	          </form>
+	          <a href="{{ URL::asset('storage/app/private/test_doanh_nghiep.xlsx') }}"><button type="button" class="btn btn-primary" style="float:right;">Tải file excel mẫu</button></a>
+				<div style="clear:both"></div>
 	          <div id="show_item_excel">
 	            <table class="table table-hover">
 	                <thead id="thead_import_company">
