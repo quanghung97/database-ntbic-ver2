@@ -5,11 +5,6 @@
 <link href="/webarch/webarch/HTML/assets/plugins/datatables-responsive/css/datatables.responsive.css" rel="stylesheet" type="text/css" media="screen"/>
 <!-- END CORE CSS FRAMEWORK -->
 
-<!-- BEGIN CSS TEMPLATE -->
-<link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
-<link href="assets/css/responsive.css" rel="stylesheet" type="text/css"/>
-<link href="assets/css/custom-icon-set.css" rel="stylesheet" type="text/css"/>
-<!-- END CSS TEMPLATE -->
 <link rel="stylesheet" type="text/css" href="/public/css/admin_chuyen_gia.css">
 @endsection
 @section('name_page')
@@ -108,7 +103,7 @@ danh sách chuyên gia
 @endsection
 
 @section('script')
-<script src="/webarch/webarch/HTML/assets/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
+
 <script src="/webarch/webarch/HTML/assets/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
 <script src="/webarch/webarch/HTML/assets/plugins/boostrapv3/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="/webarch/webarch/HTML/assets/plugins/breakpoints.js" type="text/javascript"></script>
@@ -124,9 +119,7 @@ danh sách chuyên gia
 <!-- END PAGE LEVEL PLUGINS -->
 <script src="/webarch/webarch/HTML/assets/js/datatables.js" type="text/javascript"></script>
 <!-- BEGIN CORE TEMPLATE JS -->
-<script src="/webarch/webarch/HTML/assets/js/core.js" type="text/javascript"></script>
-<script src="/webarch/webarch/HTML/assets/js/chat.js" type="text/javascript"></script>
-<script src="/webarch/webarch/HTML/assets/js/demo.js" type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-1.8.3.min.js') }}" type="text/javascript"></script>
 <script src="/public/js/admin/admin_database_manager.js" type="text/javascript"></script>
 <script type="text/javascript">
   $(".sub-menu").css('display','block');

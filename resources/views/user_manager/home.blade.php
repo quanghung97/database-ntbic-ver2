@@ -1,17 +1,17 @@
 @extends('admin.home')
 @section('css')
-<link href="/webarch/webarch/HTML/assets/plugins/bootstrap-select2/select2.css" rel="stylesheet" type="text/css" media="screen"/>
-<link href="/webarch/webarch/HTML/assets/plugins/jquery-datatable/css/jquery.dataTables.css" rel="stylesheet" type="text/css"/>
-<link href="/webarch/webarch/HTML/assets/plugins/datatables-responsive/css/datatables.responsive.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/bootstrap-select2/select2.css') }}" rel="stylesheet" type="text/css" media="screen"/>
+<link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-datatable/css/jquery.dataTables.css') }}" rel="stylesheet" type="text/css"/>
+<link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/datatables-responsive/css/datatables.responsive.css') }}" rel="stylesheet" type="text/css" media="screen"/>
 <!-- END CORE CSS FRAMEWORK -->
 
 <!-- BEGIN CSS TEMPLATE -->
-<link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
-<link href="assets/css/responsive.css" rel="stylesheet" type="text/css"/>
-<link href="assets/css/custom-icon-set.css" rel="stylesheet" type="text/css"/>
+<link href="{{ URL::asset('webarch/webarch/HTML/assets/css/style.css') }}" rel="stylesheet" type="text/css"/>
+<link href="{{ URL::asset('webarch/webarch/HTML/assets/css/responsive.css') }}" rel="stylesheet" type="text/css"/>
+<link href="{{ URL::asset('webarch/webarch/HTML/assets/css/custom-icon-set.css') }}" rel="stylesheet" type="text/css"/>
 <!-- END CSS TEMPLATE -->
-<link rel="stylesheet" type="text/css" href="/public/css/admin_chuyen_gia.css">
-<link rel="stylesheet" type="text/css" href="/public/css/admin_user_manager.css">
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('public/css/admin_chuyen_gia.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('public/css/admin_user_manager.css') }}">
 @endsection
 @section('main')
   <div class="row-fluid">
@@ -61,25 +61,6 @@
 @endsection
 
 @section('script')
-<script src="/webarch/webarch/HTML/assets/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
-<script src="/webarch/webarch/HTML/assets/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
-<script src="/webarch/webarch/HTML/assets/plugins/boostrapv3/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="/webarch/webarch/HTML/assets/plugins/breakpoints.js" type="text/javascript"></script>
-<script src="/webarch/webarch/HTML/assets/plugins/jquery-unveil/jquery.unveil.min.js" type="text/javascript"></script>
-<script src="/webarch/webarch/HTML/assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js" type="text/javascript"></script>    
-<script src="/webarch/webarch/HTML/assets/plugins/jquery-block-ui/jqueryblockui.js" type="text/javascript"></script>
-<script src="/webarch/webarch/HTML/assets/plugins/jquery-numberAnimate/jquery.animateNumbers.js" type="text/javascript"></script>
-<script src="/webarch/webarch/HTML/assets/plugins/bootstrap-select2/select2.min.js" type="text/javascript"></script>
-<script src="/webarch/webarch/HTML/assets/plugins/jquery-datatable/js/jquery.dataTables.min.js" type="text/javascript" ></script>
-<script src="/webarch/webarch/HTML/assets/plugins/jquery-datatable/extra/js/dataTables.tableTools.min.js" type="text/javascript" ></script>
-<script type="text/javascript" src="/webarch/webarch/HTML/assets/plugins/datatables-responsive/js/datatables.responsive.js"></script>
-<script type="text/javascript" src="/webarch/webarch/HTML/assets/plugins/datatables-responsive/js/lodash.min.js"></script>
-<!-- END PAGE LEVEL PLUGINS -->
-<script src="/webarch/webarch/HTML/assets/js/datatables.js" type="text/javascript"></script>
-<!-- BEGIN CORE TEMPLATE JS -->
-<script src="/webarch/webarch/HTML/assets/js/core.js" type="text/javascript"></script>
-<script src="/webarch/webarch/HTML/assets/js/chat.js" type="text/javascript"></script>
-<script src="/webarch/webarch/HTML/assets/js/demo.js" type="text/javascript"></script>
 <script type="text/javascript">
   $("#active_quan_ly_user").addClass("active");
   $(function () {

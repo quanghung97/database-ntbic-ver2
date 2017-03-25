@@ -7,60 +7,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <meta content="" name="description"/>
     <meta content="" name="author"/>
-    <meta name="csrf-token" content="{{csrf_token()}}" />
+    <meta name="csrf-token" content="{{csrf_token()}}"/>
     <link href="{{ URL::asset('public/css/style.css') }}" rel="stylesheet" type="text/css"/>
-    <link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-metrojs/MetroJs.min.css') }}" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" type="text/css" href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/shape-hover/css/demo.css') }}"/>
-    <link rel="stylesheet" type="text/css" href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/shape-hover/css/component.css') }}"/>
-    <link rel="stylesheet" type="text/css" href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/owl-carousel/owl.carousel.css') }}"/>
-    <link rel="stylesheet" type="text/css" href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/owl-carousel/owl.theme.css') }}"/>
-    <link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/pace/pace-theme-flash.css') }}" rel="stylesheet" type="text/css"
+    <link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-metrojs/MetroJs.min.css') }}" rel="stylesheet"
+          type="text/css"/>
+    <link rel="stylesheet" type="text/css"
+          href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/shape-hover/css/demo.css') }}"/>
+    <link rel="stylesheet" type="text/css"
+          href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/shape-hover/css/component.css') }}"/>
+    <link rel="stylesheet" type="text/css"
+          href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/owl-carousel/owl.carousel.css') }}"/>
+    <link rel="stylesheet" type="text/css"
+          href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/owl-carousel/owl.theme.css') }}"/>
+    <link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/pace/pace-theme-flash.css') }}" rel="stylesheet"
+          type="text/css"
           media="screen"/>
-    <link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-slider/css/jquery.sidr.light.css') }}" rel="stylesheet"
+    <link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-slider/css/jquery.sidr.light.css') }}"
+          rel="stylesheet"
           type="text/css" media="screen"/>
-    <link rel="stylesheet" href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-ricksaw-chart/css/rickshaw.css') }}"
+    <link rel="stylesheet"
+          href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-ricksaw-chart/css/rickshaw.css') }}"
           type="text/css" media="screen">
-    <link rel="stylesheet" href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/Mapplic/mapplic/mapplic.css') }}" type="text/css"
+    <link rel="stylesheet" href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/Mapplic/mapplic/mapplic.css') }}"
+          type="text/css"
           media="screen">
     <!-- BEGIN CORE CSS FRAMEWORK -->
-    <link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/boostrapv3/css/bootstrap.min.css') }}" rel="stylesheet"
+    <link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/boostrapv3/css/bootstrap.min.css') }}"
+          rel="stylesheet"
           type="text/css"/>
-    <link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/boostrapv3/css/bootstrap-theme.min.css') }}" rel="stylesheet"
+    <link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/boostrapv3/css/bootstrap-theme.min.css') }}"
+          rel="stylesheet"
           type="text/css"/>
-    <link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/font-awesome/css/font-awesome.css') }}" rel="stylesheet"
+    <link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/font-awesome/css/font-awesome.css') }}"
+          rel="stylesheet"
           type="text/css"/>
     <link href="{{ URL::asset('webarch/webarch/HTML/assets/css/animate.min.css') }}" rel="stylesheet" type="text/css"/>
-    <link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-scrollbar/jquery.scrollbar.css') }}" rel="stylesheet"
+    <link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-scrollbar/jquery.scrollbar.css') }}"
+          rel="stylesheet"
           type="text/css"/>
     <!-- END CORE CSS FRAMEWORK -->
-
     <!-- BEGIN CSS TEMPLATE -->
     <link href="{{ URL::asset('webarch/webarch/HTML/assets/css/style.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ URL::asset('webarch/webarch/HTML/assets/css/responsive.css') }}" rel="stylesheet" type="text/css"/>
-    <link href="{{ URL::asset('webarch/webarch/HTML/assets/css/custom-icon-set.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ URL::asset('webarch/webarch/HTML/assets/css/custom-icon-set.css') }}" rel="stylesheet"
+          type="text/css"/>
     <link href="{{ URL::asset('webarch/webarch/HTML/assets/css/magic_space.css') }}" rel="stylesheet" type="text/css"/>
     <!-- END CSS TEMPLATE -->
-<!-- BEGIN FORM_ELEMENT PLUGIN CSS -->
-<link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/pace/pace-theme-flash.css') }}" rel="stylesheet" type="text/css" media="screen"/>
-<link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/bootstrap-tag/bootstrap-tagsinput.css') }}" rel="stylesheet" type="text/css"/>
-<link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/dropzone/css/dropzone.css') }}" rel="stylesheet" type="text/css"/>
-<link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css') }}" rel="stylesheet" type="text/css"/>
-<link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/bootstrap-datepicker/css/datepicker.css') }}" rel="stylesheet" type="text/css" />
-<link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/bootstrap-timepicker/css/bootstrap-timepicker.css') }}" rel="stylesheet" type="text/css" />
-<link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css') }}" rel="stylesheet" type="text/css" />
-<link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/ios-switch/ios7-switch.css') }}" rel="stylesheet" type="text/css" media="screen">
-<link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/bootstrap-select2/select2.css') }}" rel="stylesheet" type="text/css" media="screen"/>
-<link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/boostrap-clockpicker/bootstrap-clockpicker.min.css') }}" rel="stylesheet" type="text/css" media="screen"/>
-<link href="{{ URL::asset('public/css/admin_dashboard.css') }}" rel="stylesheet" type="text/css" />
-<!-- END FORM_ELEVENT PLUGIN CSS -->
-
-
-<!-- BEGIN PLUGIN GROUP_LIST CSS -->
-<link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/pace/pace-theme-flash.css') }}" rel="stylesheet" type="text/css" media="screen"/>
-<link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-nestable/jquery.nestable.css') }}" rel="stylesheet" type="text/css" media="screen"/>
-<!-- END PLUGIN GROUP_LIST CSS -->
-<link href="{{ URL::asset('/public/css/lib/bootstrap-toggle.min.css') }}" rel="stylesheet">
-@yield('css')
+    <!-- BEGIN FORM_ELEMENT PLUGIN CSS -->
+    <link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/pace/pace-theme-flash.css') }}" rel="stylesheet"
+          type="text/css" media="screen"/>
+    <link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/bootstrap-tag/bootstrap-tagsinput.css') }}"
+          rel="stylesheet" type="text/css"/>
+    <link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/dropzone/css/dropzone.css') }}" rel="stylesheet"
+          type="text/css"/>
+    <link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css') }}"
+          rel="stylesheet" type="text/css"/>
+    <link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/bootstrap-datepicker/css/datepicker.css') }}"
+          rel="stylesheet" type="text/css"/>
+    <link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/bootstrap-timepicker/css/bootstrap-timepicker.css') }}"
+          rel="stylesheet" type="text/css"/>
+    <link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css') }}"
+          rel="stylesheet" type="text/css"/>
+    <link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/ios-switch/ios7-switch.css') }}" rel="stylesheet"
+          type="text/css" media="screen">
+    <link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/bootstrap-select2/select2.css') }}" rel="stylesheet"
+          type="text/css" media="screen"/>
+    <link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/boostrap-clockpicker/bootstrap-clockpicker.min.css') }}"
+          rel="stylesheet" type="text/css" media="screen"/>
+    <link href="{{ URL::asset('public/css/admin_dashboard.css') }}" rel="stylesheet" type="text/css"/>
+    <!-- END FORM_ELEVENT PLUGIN CSS -->
+    <!-- BEGIN PLUGIN GROUP_LIST CSS -->
+    <link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/pace/pace-theme-flash.css') }}" rel="stylesheet"
+          type="text/css" media="screen"/>
+    <link href="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-nestable/jquery.nestable.css') }}"
+          rel="stylesheet" type="text/css" media="screen"/>
+    <!-- END PLUGIN GROUP_LIST CSS -->
+    @yield('css')
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
@@ -76,132 +98,33 @@
                     </a></li>
             </ul>
             <!-- BEGIN LOGO -->
-            <a href="/"><br><center><p class="semi-bold" style="color: white; font-size: 14px">NTBIC</p></center></a>
+            <a href="/"><br>
+                <center><p class="semi-bold" style="color: white; font-size: 14px">QUẢN TRỊ VIÊN NTBIC</p></center>
+            </a>
             <!-- END LOGO -->
-      
+
         </div>
         <!-- END RESPONSIVE MENU TOGGLER -->
         <div class="header-quick-nav">
             <!-- BEGIN TOP NAVIGATION MENU -->
-            <!-- <div class="pull-left">
-                <ul class="nav quick-section">
-                    <li class="quicklinks"><a href="#" class="" id="layout-condensed-toggle">
-                            <div class="iconset top-menu-toggle-dark"></div>
-                        </a></li>
-                </ul>
-                <ul class="nav quick-section">
-                    <li class="quicklinks"><a href="#" class="">
-                            <div class="iconset top-reload"></div>
-                        </a></li>
-                    <li class="quicklinks"><span class="h-seperate"></span></li>
-                    <li class="quicklinks"><a href="#" class="">
-                            <div class="iconset top-tiles"></div>
-                        </a></li> -->
-                   <!-- <li class="m-r-10 input-prepend inside search-form no-boarder"><span class="add-on"> <span
-                                    class="iconset top-search"></span></span>
-                        <input id="key_search" type="text" class="no-boarder form-control" placeholder="Tìm kiếm "
-                               style="width:300px;">
-                               <select name="type_search" class="btn btn-primary" style="width: 180px">
-                                   <option value="">Tìm kiếm theo</option>
-                                   <option value="1">Tên giảng viên</option>
-                                   <option value="2">Lĩnh vực nghiên cứu</option>
-                               </select>
-                               <button type="button" id="searching" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tìm kiếm</button>
 
-                    </li>
-                    
-                </ul>
-            </div>-->
             <!-- END TOP NAVIGATION MENU -->
             <!-- BEGIN CHAT TOGGLER -->
             <div class="pull-right">
-                <!-- <div class="chat-toggler1"><a href="#" class="dropdown-toggle" id="my-task-list" data-placement="bottom"
-                                             data-content='' data-toggle="dropdown" data-original-title="Notifications">
-                        <div class="user-details">
-                            <div class="username"><i class="fa fa-bell"></i> Thông báo -->
-                            <!--<span class="badge badge-important">3</span>-->
-                         <!--    </div>
-                        </div>
-                        <div class="iconset top-down-arrow"></div>
-                    </a>
-                    <div id="notification-list" style="display:none">
-                        <div style="width:300px">
-                            <div class="notification-messages info">
-                                <div class="user-profile"><img src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d.jpg') }}"
-                                                               alt=""
-                                                               data-src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d.jpg') }}"
-                                                               data-src-retina="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d2x.jpg') }}"
-                                                               width="35" height="35"></div>
-                                <div class="message-wrapper">
-                                    <div class="heading"> David Nester - Commented on your wall</div>
-                                    <div class="description"> Meeting postponed to tomorrow</div>
-                                    <div class="date pull-left"> A min ago</div>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="notification-messages danger">
-                                <div class="iconholder"><i class="icon-warning-sign"></i></div>
-                                <div class="message-wrapper">
-                                    <div class="heading"> Server load limited</div>
-                                    <div class="description"> Database server has reached its daily capicity</div>
-                                    <div class="date pull-left"> 11 mins ago</div>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="notification-messages success">
-                                <div class="user-profile"><img src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/h.jpg') }}"
-                                                               alt=""
-                                                               data-src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/h.jpg') }}"
-                                                               data-src-retina="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/h2x.jpg') }}"
-                                                               width="35" height="35"></div>
-                                <div class="message-wrapper">
-                                    <div class="heading"> You haveve got 150 messages</div>
-                                    <div class="description"> 150 newly unread messages in your inbox</div>
-                                    <div class="date pull-left"> An hour ago</div>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-                    </div>
-                  <div class="profile-pic"><img src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/avatar.jpg') }}"
-                                                  alt=""
-                                                  data-src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/avatar.jpg') }}"
-                                                  data-src-retina="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/avatar.jpg') }}"
-                                                  width="35" height="35"/></div>
-                </div>
- -->
+
                 <ul class="nav quick-section ">
                     <li class="quicklinks"><a data-toggle="dropdown" class="dropdown-toggle  pull-right " href="#"
                                               id="user-options">
-                            <!-- <div class="iconset top-settings-dark "></div> -->
+
                             <div class="iconset top-chat-dark "></div>
                         </a>
                         <ul class="dropdown-menu  pull-right" role="menu" aria-labelledby="user-options">
-                            <!-- <li><a href="/trang-ca-nhan"> Trang cá nhân</a></li>
-                            <li><a href="email.html"> Tin nhắn&nbsp;&nbsp;
-                            <span
-                                            class="badge badge-important animated bounceIn">2</span></a></li>
-                            <li class="divider"></li> -->
+
                             <li><a href="/doi-mat-khau"> Đổi mật khẩu</a></li>
                             <li><a href="/logout"><i class="fa fa-power-off"></i>&nbsp;&nbsp;Đăng xuất</a></li>
                         </ul>
                     </li>
-                    <!-- <li class="quicklinks"><span class="h-seperate"></span></li>
-                    <li class="quicklinks"><a id="chat-menu-toggle" href="#sidr" class="chat-menu-toggle">
-                            <div class="iconset top-chat-dark ">
-                            <span class="badge badge-important hide"
-                                                                      id="chat-message-count">1</span></div>
-                        </a>
-                        <div class="simple-chat-popup chat-menu-toggle hide">
-                            <div class="simple-chat-popup-arrow"></div>
-                            <div class="simple-chat-popup-inner">
-                                <div style="width:100px">
-                                    <div class="semi-bold">David Nester</div>
-                                    <div class="message">Hey you there</div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>-->
+
                 </ul>
             </div>
             <!-- END CHAT TOGGLER -->
@@ -219,35 +142,32 @@
         <div class="page-sidebar-wrapper scrollbar-dynamic" id="main-menu-wrapper">
             <div class="user-info-wrapper">
                 <center><img src="{{ URL::asset('storage/app/public/media_backup/logo.png') }}" alt=""
-                                                  data-src="{{ URL::asset('storage/app/public/media_backup/logo.png') }}"
-                                                  data-src-retina="{{ URL::asset('storage/app/public/media_backup/logo.png') }}"
-                                                  width="120" height="120" style="border-radius: 120px"/></center><br>
-                
+                             data-src="{{ URL::asset('storage/app/public/media_backup/logo.png') }}"
+                             data-src-retina="{{ URL::asset('storage/app/public/media_backup/logo.png') }}"
+                             width="120" height="120" style="border-radius: 120px"/></center>
+                <br>
+
             </div>
             <!-- END MINI-PROFILE -->
             <!-- BEGIN SIDEBAR MENU -->
-
             <ul>
                 @yield('sidebar')
             </ul>
-
             <div class="clearfix"></div>
             <!-- END SIDEBAR MENU -->
         </div>
     </div>
-
     <!-- END SIDEBAR -->
     <!-- BEGIN PAGE CONTAINER-->
     <div class="page-content">
         <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-
         <div class="content sm-gutter">
-        <ul class="breadcrumb">
-        <li>
-          <p>TRANG CHỦ</p>
-        </li>
-        <li><a href="#" class="active">@yield('name_page')</a> </li>
-      </ul>
+            <ul class="breadcrumb">
+                <li>
+                    <p>TRANG CHỦ</p>
+                </li>
+                <li><a href="#" class="active">@yield('name_page')</a></li>
+            </ul>
             @yield('main')
         </div>
     </div>
@@ -291,7 +211,8 @@
                                 <div class="user-profile">
                                     <img src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d.jpg') }}" alt=""
                                          data-src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d.jpg') }}"
-                                         data-src-retina="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d2x.jpg') }}" width="35"
+                                         data-src-retina="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d2x.jpg') }}"
+                                         width="35"
                                          height="35">
                                 </div>
                                 <div class="user-details">
@@ -303,7 +224,7 @@
                                     </div>
                                 </div>
                                 <div class="user-details-status-wrapper">
-                                   <!-- <span class="badge badge-important">3</span>-->
+                                    <!-- <span class="badge badge-important">3</span>-->
                                 </div>
                                 <div class="user-details-count-wrapper">
                                     <div class="status-icon green"></div>
@@ -317,7 +238,8 @@
                                 <div class="user-profile">
                                     <img src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/c.jpg') }}" alt=""
                                          data-src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/c.jpg') }}"
-                                         data-src-retina="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/c2x.jpg') }}" width="35"
+                                         data-src-retina="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/c2x.jpg') }}"
+                                         width="35"
                                          height="35">
                                 </div>
                                 <div class="user-details">
@@ -349,7 +271,8 @@
                             <div class="user-profile">
                                 <img src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d.jpg') }}" alt=""
                                      data-src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d.jpg') }}"
-                                     data-src-retina="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d2x.jpg') }}" width="35"
+                                     data-src-retina="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d2x.jpg') }}"
+                                     width="35"
                                      height="35">
                             </div>
                             <div class="user-details">
@@ -361,7 +284,6 @@
                                 </div>
                             </div>
                             <div class="user-details-status-wrapper">
-
                             </div>
                             <div class="user-details-count-wrapper">
                                 <div class="status-icon green"></div>
@@ -375,7 +297,8 @@
                             <div class="user-profile">
                                 <img src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/h.jpg') }}" alt=""
                                      data-src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/h.jpg') }}"
-                                     data-src-retina="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/h2x.jpg') }}" width="35"
+                                     data-src-retina="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/h2x.jpg') }}"
+                                     width="35"
                                      height="35">
                             </div>
                             <div class="user-details">
@@ -401,7 +324,8 @@
                             <div class="user-profile">
                                 <img src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/c.jpg') }}" alt=""
                                      data-src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/c.jpg') }}"
-                                     data-src-retina="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/c2x.jpg') }}" width="35"
+                                     data-src-retina="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/c2x.jpg') }}"
+                                     width="35"
                                      height="35">
                             </div>
                             <div class="user-details">
@@ -413,7 +337,6 @@
                                 </div>
                             </div>
                             <div class="user-details-status-wrapper">
-
                             </div>
                             <div class="user-details-count-wrapper">
                                 <div class="status-icon green"></div>
@@ -427,7 +350,8 @@
                             <div class="user-profile">
                                 <img src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/h.jpg') }}" alt=""
                                      data-src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/h.jpg') }}"
-                                     data-src-retina="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/h2x.jpg') }}" width="35"
+                                     data-src-retina="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/h2x.jpg') }}"
+                                     width="35"
                                      height="35">
                             </div>
                             <div class="user-details">
@@ -449,7 +373,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="chat-window-wrapper" id="messages-wrapper" style="display:none">
                 <div class="chat-header">
                     <div class="pull-left">
@@ -474,7 +397,8 @@
                             <div class="user-profile">
                                 <img src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d.jpg') }}" alt=""
                                      data-src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d.jpg') }}"
-                                     data-src-retina="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d2x.jpg') }}" width="35"
+                                     data-src-retina="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d2x.jpg') }}"
+                                     width="35"
                                      height="35">
                             </div>
                             <div class="user-details">
@@ -489,7 +413,8 @@
                             <div class="user-profile">
                                 <img src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d.jpg') }}" alt=""
                                      data-src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d.jpg') }}"
-                                     data-src-retina="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d2x.jpg') }}" width="35"
+                                     data-src-retina="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d2x.jpg') }}"
+                                     width="35"
                                      height="35">
                             </div>
                             <div class="user-details">
@@ -504,7 +429,8 @@
                             <div class="user-profile">
                                 <img src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d.jpg') }}" alt=""
                                      data-src="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d.jpg') }}"
-                                     data-src-retina="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d2x.jpg') }}" width="35"
+                                     data-src-retina="{{ URL::asset('webarch/webarch/HTML/assets/img/profiles/d2x.jpg') }}"
+                                     width="35"
                                      height="35">
                             </div>
                             <div class="user-details">
@@ -536,24 +462,20 @@
     </div>
     <!-- END CHAT -->
 </div>
-
 <!-- END CONTAINER -->
 <!-- BEGIN CORE JS FRAMEWORK-->
 
-<!--[if lt IE 9]>
 
-<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/respond.js') }}"></script>
-<![endif]-->
-<script src="{{ URL::asset('public/js/lib/jquery-3.1.1.min.js') }}"></script>
-<script src="{{ URL::asset('public/js/lib/excel.js') }}"></script>
-<script src="{{ URL::asset('public/js/my_jquery.js') }}"></script>
 @yield('script')
-<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-1.8.3.min.js') }}" type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-1.8.3.min.js') }}"
+        type="text/javascript"></script>
 <script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.js') }}"
         type="text/javascript"></script>
-<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/boostrapv3/js/bootstrap.min.js') }}" type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/boostrapv3/js/bootstrap.min.js') }}"
+        type="text/javascript"></script>
 <script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/breakpoints.js') }}" type="text/javascript"></script>
-<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-unveil/jquery.unveil.min.js') }}" type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-unveil/jquery.unveil.min.js') }}"
+        type="text/javascript"></script>
 {{-- <script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-block-ui/jqueryblockui.js') }}" type="text/javascript"></script> --}}
 <script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-lazyload/jquery.lazyload.min.js') }}"
         type="text/javascript"></script>
@@ -561,93 +483,104 @@
         type="text/javascript"></script>
 <!-- END CORE JS FRAMEWORK -->
 <!-- BEGIN PAGE LEVEL JS -->
-<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-slider/jquery.sidr.min.js') }}" type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-slider/jquery.sidr.min.js') }}"
+        type="text/javascript"></script>
 <script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js') }}"
         type="text/javascript"></script>
 <script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/pace/pace.min.js') }}" type="text/javascript"></script>
 {{-- <script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-numberAnimate/jquery.animateNumbers.js') }}"
-        type="text/javascript"></script> --}}
+type="text/javascript"></script> --}}
 <script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-ricksaw-chart/js/raphael-min.js') }}"></script>
 <script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-ricksaw-chart/js/d3.v2.js') }}"></script>
 <script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-ricksaw-chart/js/rickshaw.min.js') }}"></script>
 <script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-sparkline/jquery-sparkline.js') }}"></script>
 <script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/skycons/skycons.js') }}"></script>
-<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/owl-carousel/owl.carousel.min.js') }}" type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/owl-carousel/owl.carousel.min.js') }}"
+        type="text/javascript"></script>
 {{-- <script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-gmap/gmaps.js') }}" type="text/javascript"></script> --}}
-<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/Mapplic/js/jquery.easing.js') }}" type="text/javascript"></script>
-<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/Mapplic/js/jquery.mousewheel.js') }}" type="text/javascript"></script>
-<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/Mapplic/js/hammer.js') }}" type="text/javascript"></script>
-<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/Mapplic/mapplic/mapplic.js') }}" type="text/javascript"></script>
-
-<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-flot/jquery.flot.js') }}" type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/Mapplic/js/jquery.easing.js') }}"
+        type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/Mapplic/js/jquery.mousewheel.js') }}"
+        type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/Mapplic/js/hammer.js') }}"
+        type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/Mapplic/mapplic/mapplic.js') }}"
+        type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-flot/jquery.flot.js') }}"
+        type="text/javascript"></script>
 <script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-flot/jquery.flot.resize.min.js') }}"
         type="text/javascript"></script>
-<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-metrojs/MetroJs.min.js') }}" type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-metrojs/MetroJs.min.js') }}"
+        type="text/javascript"></script>
 <script src="{{ URL::asset('webarch/webarch/HTML/assets/js/tabs_accordian.js') }}" type="text/javascript"></script>
 <!-- BEGIN PAGE FORM_ELEMENT LEVEL PLUGINS -->
 {{-- <script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/pace/pace.min.js') }}" type="text/javascript"></script> --}}
 {{-- <script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-block-ui/jqueryblockui.js') }}" type="text/javascript"></script>  --}}
-<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js') }}" type="text/javascript"></script>
-<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js') }}" type="text/javascript"></script>
-<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js') }}" type="text/javascript"></script>
-<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-inputmask/jquery.inputmask.min.js') }}" type="text/javascript"></script>
-<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-autonumeric/autoNumeric.js') }}" type="text/javascript"></script>
-<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/ios-switch/ios7-switch.js') }}" type="text/javascript"></script>
-<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/bootstrap-select2/select2.min.js') }}" type="text/javascript"></script>
-<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js') }}" type="text/javascript"></script>
-<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js') }}" type="text/javascript"></script>
-<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/bootstrap-tag/bootstrap-tagsinput.min.js') }}" type="text/javascript"></script>
-<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/boostrap-clockpicker/bootstrap-clockpicker.min.js') }}" type="text/javascript"></script>
-<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/dropzone/dropzone.min.js') }}" type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js') }}"
+        type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js') }}"
+        type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js') }}"
+        type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-inputmask/jquery.inputmask.min.js') }}"
+        type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-autonumeric/autoNumeric.js') }}"
+        type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/ios-switch/ios7-switch.js') }}"
+        type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/bootstrap-select2/select2.min.js') }}"
+        type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js') }}"
+        type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js') }}"
+        type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/bootstrap-tag/bootstrap-tagsinput.min.js') }}"
+        type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/boostrap-clockpicker/bootstrap-clockpicker.min.js') }}"
+        type="text/javascript"></script>
+<script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/dropzone/dropzone.min.js') }}"
+        type="text/javascript"></script>
 
-<script src="{{ URL::asset('/public/js/lib/bootstrap-toggle.min.js') }}"></script>
 <!-- END PAGE FORM_ELEMENT LEVEL PLUGINS -->
-
-<!-- END PAGE LEVEL PLUGINS -->  
+<!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN  SCROLL GRIB PAGE LEVEL JS -->
 {{-- <script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-block-ui/jqueryblockui.js') }}" type="text/javascript"></script> --}}
 {{-- <script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js') }}" type="text/javascript"></script> --}}
 {{-- <script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/pace/pace.min.js') }}" type="text/javascript"></script> --}}
 {{-- <script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-numberAnimate/jquery.animateNumbers.js') }}" type="text/javascript"></script> --}}
-<!-- END SCROLL GRIB LEVEL PLUGINS -->
-
+        <!-- END SCROLL GRIB LEVEL PLUGINS -->
 <!-- BEGIN CORE TEMPLATE JS -->
 <script src="{{URL::asset('resources/views/tinymce/js/tinymce/tinymce.min.js') }}"></script>
-    <script>
-        tinymce.init({
-            selector: 'textarea',
-            entity_encoding : "raw",
-            height: 200,
-            theme: 'modern',
-            plugins: [
-                'advlist autolink lists link image charmap print preview hr anchor pagebreak',
-                'searchreplace wordcount visualblocks visualchars code fullscreen',
-                'insertdatetime media nonbreaking save table contextmenu directionality',
-                'emoticons template paste textcolor colorpicker textpattern imagetools'
-            ],
-            toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-            toolbar2: 'print preview media | forecolor backcolor emoticons | fontsizeselect',
-            image_advtab: true,
-            fontsize_formats: '8pt 10pt 12pt 14pt 18pt 24pt 36pt',
-        });
-    </script>
+<script>
+    tinymce.init({
+        selector: 'textarea',
+        entity_encoding: "raw",
+        height: 200,
+        theme: 'modern',
+        plugins: [
+            'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+            'searchreplace wordcount visualblocks visualchars code fullscreen',
+            'insertdatetime media nonbreaking save table contextmenu directionality',
+            'emoticons template paste textcolor colorpicker textpattern imagetools'
+        ],
+        toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+        toolbar2: 'print preview media | forecolor backcolor emoticons | fontsizeselect',
+        image_advtab: true,
+        fontsize_formats: '8pt 10pt 12pt 14pt 18pt 24pt 36pt',
+    });
+</script>
 <script src="{{ URL::asset('webarch/webarch/HTML/assets/js/core.js') }}" type="text/javascript"></script>
 <script src="{{ URL::asset('webarch/webarch/HTML/assets/js/chat.js') }}" type="text/javascript"></script>
 <script src="{{ URL::asset('webarch/webarch/HTML/assets/js/demo.js') }}" type="text/javascript"></script>
 <script src="{{ URL::asset('webarch/webarch/HTML/assets/js/demo.js') }}" type="text/javascript"></script>
-<script src="{{ URL::asset('public/js/angular/angular.min.js') }}"></script>
+{{-- <script src="{{ URL::asset('public/js/angular/angular.min.js') }}"></script>
 <script src="{{ URL::asset('public/js/angular/my_angular.js') }}"></script>
-
 <script src="{{ URL::asset('public/js/jquery-3.1.1.min.js') }}"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="{{ URL::asset('public/js/jquery.cookie.js') }}"></script>
-    <script src="{{ URL::asset('public/js/my_script.js') }}"></script>
-{{-- <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js') }}"></script> --}}
-<script type="text/javascript">
-    $(document).ready(function () {
-        $(".live-tile,.flip-list").liveTile();
-    });
-</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="{{ URL::asset('public/js/jquery.cookie.js') }}"></script>
+<script src="{{ URL::asset('public/js/my_script.js') }}"></script> --}}
+
+
 <!-- END  CORE TEMPLATE JS -->
 </body>
 </html>
