@@ -85,7 +85,7 @@ $(document).ready(function() {
             $('#status_all').text('');
             $('#status_all').append('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button><h4 class="semi-bold">Hoàn thành !</h4><p class="text-info semi-bold">Đã thêm thành công '
                 + ($("tr").length - $(".errors").length - 1) +
-                ' sinh viên, Có '+$(".errors").length+' lỗi !</p></div>');
+                ' chuyên gia, Có '+$(".errors").length+' lỗi !</p></div>');
             return;
         }
 
