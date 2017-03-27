@@ -2,7 +2,8 @@
 @section('style')
 	<link rel="stylesheet" type="text/css" href="{{ URL::asset('public/css/details_chuyen_gia.css') }} ">
   <link rel="stylesheet" type="text/css" href="{{ URL::asset('public/css/sidebar.css') }}">
-  <link rel="stylesheet" type="text/css" href="{{ URL::asset('public/css/search_result_chuyen_gia.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ URL::asset('public/css/search_result_chuyen_gia.css') }}
+  ">
 @endsection
 <!-- main-content -->
 
@@ -75,9 +76,9 @@
     <button id="back_page" type="button" class="btn btn-primary"><b><span class="glyphicon glyphicon-arrow-left
 "></span> Quay lại</b></button>
   </div>
-	<div class="profiles_view col-md-12">
+	<div class="profiles_view col-md-12"  id="contentInvoice">
 
-    <table class="archives_list">
+    <table class="archives_list" >
       <tbody>
          <tr>
             <td width="120" align="center">
@@ -89,9 +90,7 @@
 
               <strong>{{ $datas->ho_va_ten }}</strong>&nbsp;&nbsp;&nbsp;Sinh ngày: {{ $datas->nam_sinh }}<br>
               Số công trình, bài báo, sách đã công bố: {{ $datas->Sl_congTrinh_baiBao }}<br>
-              <a href="#"><i class="glyphicon glyphicon-print"></i> In lý lịch KH</a>&nbsp;&nbsp;&nbsp;&nbsp;
-              <a href="#"><i class="glyphicon glyphicon-envelope"></i> Liên hệ với NKH</a>
-
+              <a href="#" onclick="this.style.display ='none';inbaiviet()"><i class="glyphicon glyphicon-print"></i> In lý lịch KH</a>&nbsp;&nbsp;&nbsp;&nbsp;
             </td>
             <td width="150" style="line-height:20px">
 
@@ -102,7 +101,7 @@
       </tbody>
      </table>
 
-    <table class="archives_list">
+    <table class="archives_list" >
       <tbody>
         <tr>
 
@@ -281,43 +280,21 @@
             </tr>
 
           @endforeach
-          <tr>
-            <td colspan=3>
-           <strong>Từ khóa: </strong><a href="#">Ntbic</a>
-                    <p align="right">
-            </td>
-          
-        </tr>
-        <tr>
-            <td colspan=3>
+           </tbody>
+    </table> 
+    </div>
+    <div class=" col-md-12">
+         <div style="padding: 8px;"> <strong>Từ khóa: </strong><a href="#">Ntbic</a> </div>
+         <div colspan=3 style="padding-left: 8px;">
                 <i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i>
                 <i class="fa fa-pinterest-square fa-3x" aria-hidden="true"></i>
                 <i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i>
+                <p align="right">
+                        <a href="#" onclick="this.style.display ='none';inbaiviet1()"><i class="glyphicon glyphicon-print"></i> In bài viết</a>
             </p>
-            <p align="right">
-                        <a href="#"><i class="glyphicon glyphicon-print"></i> In bài viết</a>
-            </p>
-            </td>
-        </tr>
-        <tr>
-            <td colspan=3 >
-                <strong>
-                   Các đề tài dự án khác
-                </strong><br>
-                <ul >
-       {{--              <li><a href="#">Trang chủ</a></li>
-                    <li><a href="#">Trang chủ</a></li>
-                    <li><a href="#">Trang chủ</a></li>
-                    <li><a href="#">Trang chủ</a></li> --}}
-                <ul>
-
-            </td>
-
-        </tr>
-
-    </tbody>
-    </table> 
-  </div>
+            </div>
+           <div  style="padding: 15px 8px 12px 12px;"> <strong> Các đề tài dự án khác</strong><br> </div>
+    </div>  
   {{-- @include('details.sidebar') --}}
 </div>
 
