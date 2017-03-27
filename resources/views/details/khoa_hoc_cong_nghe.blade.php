@@ -27,13 +27,13 @@
         <button id="back_page" type="button" class="btn btn-primary"><b><span class="glyphicon glyphicon-arrow-left
     "></span> Quay lại</b></button>
   </div>
-    <div class="articles_detail col-md-12">
+    <div class="articles_detail col-md-12" id="contentInvoice" >
 
     <h2 class="title_pages">Nhan đề</h2>
 
     <p class="time">Cập nhật Thứ năm - 08/09/2016  16:15 
 
-    <a class="print" href="#" target="_blank">
+    <a  href="#"  onclick="inbaiviet()">
 
                 <i class="glyphicon glyphicon-print"></i>
 
@@ -188,37 +188,22 @@
             </td>
         </tr>
         
-        <tr>
-            <td colspan=3>
+         </tbody>
+    </table> 
+    </div>
+    <div class=" col-md-12">
+         <div style="padding: 8px;"> <strong>Từ khóa: </strong><a href="#">Ntbic</a> </div>
+         <div colspan=3 style="padding-left: 8px;">
                 <i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i>
                 <i class="fa fa-pinterest-square fa-3x" aria-hidden="true"></i>
                 <i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i>
+                <p align="right">
+                        <a href="#" onclick="this.style.display ='none';inbaiviet1()"><i class="glyphicon glyphicon-print"></i> In bài viết</a>
             </p>
-            <p align="right">
-                        <a href="#"><i class="glyphicon glyphicon-print"></i> In bài viết</a>
-            </p>
-            </td>
-        </tr>
-        <tr>
-            <td colspan=3 >
-                <strong>
-                   Các đề tài dự án khác
-                </strong><br>
-                <ul >
-       {{--              <li><a href="#">Trang chủ</a></li>
-                    <li><a href="#">Trang chủ</a></li>
-                    <li><a href="#">Trang chủ</a></li>
-                    <li><a href="#">Trang chủ</a></li> --}}
-                <ul>
-
-            </td>
-
-        </tr>
-       
-    </tbody>
-    </table> 
+            </div>
+           <div  style="padding: 15px 8px 12px 12px;"> <strong> Các đề tài dự án khác</strong><br> </div>
+    </div>  
     
-</div>
    {{--  @include('details.sidebar') --}}
 </div>
 
