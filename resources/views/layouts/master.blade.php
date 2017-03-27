@@ -124,6 +124,17 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="{{ URL::asset('public/js/jquery.cookie.js') }}"></script>
 	<script src="{{ URL::asset('public/js/my_script.js') }}"></script>
+	  <script src="{{ URL::asset('public/js/printThis.js') }}"></script>
+ <script type="text/javascript">
+        function inbaiviet() {
+   $("#contentInvoice").printThis();
+}
+    </script>
+<script>
+function inbaiviet1() {
+    window.print();
+}
+</script>
 	@yield('script')
 </body>
 </html>
