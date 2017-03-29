@@ -8,6 +8,9 @@ use Validator;
 use App\User;
 use App\DatabasePermission;
 use Carbon\Carbon;
+use App\ActiveAccount;
+use App\Mail\RegisterMail;
+use Illuminate\Support\Facades\Mail;
 class NewUserController extends Controller
 {
     public function index(Request $request)
@@ -22,16 +25,33 @@ class NewUserController extends Controller
     		return redirect()->route('new_user_index')->withErrors($validate)->withInput();
     	}
     	else {
+            $token = str_random(255);
+            $password = str_random(12);
             $user_id = User::insertGetId([
+                    'fullname' => $request->fullname,
+                    'email' => $request->email,
                     'username' => $request->username,
                     'author' => $request->author,
-                    'password' => bcrypt('123456'),
+                    'password' => bcrypt($password),
                     'updated_at' => Carbon::now(),
+                    'created_at' => Carbon::now(),
+                ]);
+            ActiveAccount::insert([
+                    'user_id' => $user_id,
+                    'token' => $token,
+                    'expire' => 24,
                     'created_at' => Carbon::now(),
                 ]);
     		if($request->author == 'moderator'){
                 self::change_permission_database($user_id, $request);
     		}
+            Mail::to($request->email)->send(new RegisterMail(
+                $request->fullname,
+                $request->email,
+                $request->username,
+                $password,
+                url('kich-hoat-tai-khoan/'.$token)
+                ));
             return redirect()->route('new_user_index')
                                 ->withErrors($validate)
                                 ->withInput()
@@ -42,15 +62,19 @@ class NewUserController extends Controller
     public function validate_input(Request $request)
     {
         $rules = [
-            'username' => 'required|alpha_dash|max:255|unique:users,username',
+            'username' => 'required|max:255|unique:users,username|regex:/(^[A-Za-z0-9 ]+$)+/',
+            'email' => 'required|max:255|unique:users,email',
             'author' => 'required|in:admin,moderator',
         ];
 
         $messages = [
             'username.required' => 'Chưa nhập tên tài khoản !',
-            'username.alpha_dash' => 'Tên tài khoản chỉ được chứa kí tự a-z, A-Z, 0-9 và dấu _ !',
+            'username.regex' => 'Tên tài khoản chỉ được chứa kí tự a-z, A-Z, 0-9!',
             'username.max' => 'Tên tài khoản phải dưới 255 kí tự !',
             'username.unique' => 'Tên tài khoản đã tồn tại !',
+            'email.required' => 'Chưa nhập Email !',
+            'email.max' => 'Email phải dưới 255 kí tự !',
+            'email.unique' => 'Email đã tồn tại !',
             'author.required' => 'Chưa chọn quyền !',
             'author.in' => 'Quyền phải là admin hoặc moderator !',
         ];

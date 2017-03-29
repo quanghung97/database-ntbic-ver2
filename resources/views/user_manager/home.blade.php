@@ -32,14 +32,18 @@
             <div class="grid-body ">
               @if(session('success'))
                       <div class="alert alert-success">
-                    <button class="close" data-dismiss="alert"></button> xoá người dùng "{{ old("username") }}" thành công !</div>
+                    <button class="close" data-dismiss="alert"></button> {{ session('success') }}</div>
                @endif
+
               <table class="table table-hover" id="example" >
                 <thead>
                   <tr>
-                    <th id="id">id</th>
+                    <th id="id" width="10%">id</th>
+                    <th width="15%">Họ và tên</th>
                     <th id="username">tên tài khoản</th>
+                    <th>email</th>
                     <th id="author">quyền</th>
+                    <th>Tình trạng</th>
                     <th id="edit">sửa</th>
                     <th id="delete">xóa</th>
                   </tr>
@@ -48,8 +52,15 @@
                   @foreach($users as $user)
                   <tr class="odd gradeX">
                     <td id="id">{{ $user->id }}</td>
+                    <td>{{ $user->fullname }}</td>
                     <td id="username">{{ $user->username }}</td>
+                    <td>{{ $user->email }}</td>
                     <td id="author">{{ $user->author }}</td>
+                    @if($user->user_id == null)
+                        <td style="color: green"><i class="fa fa-check"></i></td>
+                    @else
+                        <td><a href="{{ url('quan-tri-vien/quan-ly-nguoi-dung/kich-hoat-tai-khoan/'.$user->user_id) }}" onclick="return confirm('Bạn có chắc chắn kích hoạt người dùng này ?')">ACTIVE</a></td>
+                    @endif
                     <td class="center" id="edit"><a href="{{ URL::asset('quan-tri-vien/quan-ly-nguoi-dung/chinh-sua-nguoi-dung/'.$user->id) }}"><span class="fa fa-pencil-square"></span></a></td>
                     <td class="center" id="delete"><a href="{{ URL::asset('quan-tri-vien/quan-ly-nguoi-dung/xoa-nguoi-dung/'.$user->id) }}" onclick="return confirm('Bạn có chắc chắn xóa người dùng này ?')"><span class="fa fa-trash-o"></span></a></td>
                   </tr>

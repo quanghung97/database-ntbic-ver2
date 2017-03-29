@@ -196,10 +196,13 @@ img {
 
         <form method="POST" >
 
-          <fieldset class="clearfix">
-<p class="text-error">{{$errors->first('username')}}</p>
-<p class="text-error">{{$errors->first('password')}}</p>
+          <fieldset class="clearfix" style="text-align: left">
+          <p class="text-error">{{$errors->first('username')}}</p>
+          <p class="text-error">{{$errors->first('password')}}</p>
+            @if(session('success'))
+                <p class="text-error">{{ session('success') }}</p>
 
+            @endif
             <p ><span class="fa fa-user"></span><input type="text" name="username" Placeholder="Tên tài khoản" required></p> <!-- JS because of IE support; better: placeholder="Username" -->
             <p><span class="fa fa-lock"></span><input type="password" name="password" Placeholder="Mật khẩu" required></p> <!-- JS because of IE support; better: placeholder="Password" -->
             @if($check_captcha == true)
@@ -216,7 +219,7 @@ img {
 
             <input type="text" name="_token" value="{{CSRF_TOKEN()}}" hidden="">
              <div>
-                                <span style="width:48%; text-align:left;  display: inline-block;"><a class="small-text" href="#">Quên mật khẩu?</a></span>
+                                <span style="width:48%; text-align:left;  display: inline-block;"><a class="small-text" href="{{url('quen-mat-khau')}}">Quên mật khẩu?</a></span>
                                 <span style="width:50%; text-align:right;  display: inline-block;"><input type="submit" value="Đăng nhập"></span>
                             </div>
 

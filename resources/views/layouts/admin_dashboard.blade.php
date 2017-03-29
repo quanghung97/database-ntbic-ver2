@@ -579,8 +579,9 @@ type="text/javascript"></script> --}}
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="{{ URL::asset('public/js/jquery.cookie.js') }}"></script>
 <script src="{{ URL::asset('public/js/my_script.js') }}"></script> --}}
-
-
+<script src="{{ URL::asset('public/js/jquery.cookie.js') }}"></script>
+<script src="{{ URL::asset('public/js/my_script.js') }}"></script>
+<script src="{{ URL::asset('public/js/cookie.js') }}"></script>
 <!-- END  CORE TEMPLATE JS -->
 </body>
 </html>

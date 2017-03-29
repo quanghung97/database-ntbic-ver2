@@ -8,14 +8,15 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use Validator;
 use App\Ip;
-
+use App\ActiveAccount;
+use App\User;
 class LoginController extends Controller
 {
 
     public function index(Request $request) 
     {
         $captcha = $this->check_captcha($request->ip());
-        return view('login')->with(['check_captcha'=>$captcha]);
+        return view('auth.login')->with(['check_captcha'=>$captcha]);
     }
 
     private function check_captcha($ip_address) 
@@ -68,6 +69,14 @@ class LoginController extends Controller
             return redirect()->route('login')->withErrors($validate)->withInput();
         }
         else {
+            $check = false;
+            $username = $request->username;
+            $user_id = User::where('username',$username)->first()->id;
+            $check = ActiveAccount::where('user_id',$user_id)->count();
+            if($check){
+                return redirect()->back()->withErrors(['username'=>'Tài khoản này chưa được kích hoạt ! vui lòng truy cập địa chỉ email để lấy đường dẫn kích hoạt tài khoản !'])->withInput();
+            }
+
             if(Auth::guard()->attempt([
                 'username' => $request->username, 
                 'password' => $request->password],

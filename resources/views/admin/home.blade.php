@@ -4,9 +4,9 @@
                     class="title">Tổng quan</span></span> </a>
 
     </li>
-
     <li id="active_quan_ly_user" class="@yield('is_active_userpage')"><a href="{{ URL::asset('quan-tri-vien/quan-ly-nguoi-dung') }}"> <i class="fa fa-user"></i> <span class="title">Quản lý người dùng</span></a>
     </li>
+
     <li class="" id="sub_menu_quan_ly_database"><a href="javascript:;"> <i class="fa fa-group"></i>  <span
                     class="title">Quản lý dữ liệu</span> <span class="arrow "></span> </a>
         <ul class="sub-menu">

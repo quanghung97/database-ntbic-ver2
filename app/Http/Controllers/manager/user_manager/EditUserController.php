@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
 use Validator;
+use Carbon\Carbon;
 use App\DatabasePermission;
 use App\Http\Controllers\manager\user_manager\NewUserController;
 class EditUserController extends NewUserController
@@ -88,15 +89,19 @@ class EditUserController extends NewUserController
     {
     	$user_id = $request->id;
     	$rules = [
-            'username' => 'required|alpha_dash|max:255|unique:users,username,'.$user_id,
+            'username' => 'required|max:255|unique:users,username,'.$user_id.'|regex:/(^[A-Za-z0-9 ]+$)+/',
+            'email' => 'required|max:255|unique:users,email,'.$user_id,
             'author' => 'required|in:admin,moderator',
         ];
 
         $messages = [
             'username.required' => 'Chưa nhập tên tài khoản !',
-            'username.alpha_dash' => 'Tên tài khoản chỉ được chứa kí tự a-z, A-Z, 0-9 và dấu _ !',
+            'username.regex' => 'Tên tài khoản chỉ được chứa kí tự a-z, A-Z, 0-9!',
             'username.max' => 'Tên tài khoản phải dưới 255 kí tự !',
             'username.unique' => 'Tên tài khoản đã tồn tại !',
+            'email.required' => 'Chưa nhập Email !',
+            'email.max' => 'Email phải dưới 255 kí tự !',
+            'email.unique' => 'Email đã tồn tại !',
             'author.required' => 'Chưa chọn quyền !',
             'author.in' => 'Quyền phải là admin hoặc moderator !',
         ];
@@ -107,8 +112,11 @@ class EditUserController extends NewUserController
     	}
     	else {
     		User::find($user_id)->update([
-    				'username' => $request->username,
-    				'author' => $request->author,
+    				'fullname' => $request->fullname,
+                    'email' => $request->email,
+                    'username' => $request->username,
+                    'author' => $request->author,
+                    'updated_at' => Carbon::now(),
     			]);
     		if($request->author == 'admin'){
                 DatabasePermission::where('user_id',$user_id)->delete();

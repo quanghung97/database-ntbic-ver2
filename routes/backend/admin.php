@@ -2,15 +2,24 @@
 	
 	Route::group(['middleware'=>'guest'],function(){
 		Route::get('ntbic-admin/dang-nhap','Auth\LoginController@index')->name('login');
-		Route::post('ntbic-admin/dang-nhap','Auth\LoginController@login')->name('login');
-		
+		Route::post('ntbic-admin/dang-nhap','Auth\LoginController@login')->name('login');	
 	});
+	Route::get('kich-hoat-tai-khoan/{token}','Auth\ActiveAccountController@index');
+	Route::get('quen-mat-khau','Auth\ForgotPasswordController@index');
+	Route::post('quen-mat-khau','Auth\ForgotPasswordController@send_email');
+	Route::get('dat-lai-mat-khau/{token}','Auth\ResetPasswordController@index');
+	Route::post('dat-lai-mat-khau/{token}','Auth\ResetPasswordController@reset_password');
 	// Route::group(['prefix'=>'bien-tap-vien', 'middleware'=>'moderator'], $route_database_manager);
 	// Route::group(['prefix'=>'quan-tri-vien', 'middleware'=>'admin'], $route_database_manager);
 	Route::group(['prefix'=>'quan-tri-vien', 'middleware'=>'moderator'], function(){
-	Route::get('logout','Auth\LogoutController@index')->name('logout');
+		Route::get('logout','Auth\LogoutController@index')->name('logout');
+		Route::group(['prefix'=>'trang-ca-nhan'], function(){
+			Route::get('doi-mat-khau','Auth\ChangePasswordController@index');
+			Route::post('doi-mat-khau','Auth\ChangePasswordController@change_password');
+		});
 		Route::get('/','admin\HomeController@index')->name('admin_dashboard');
 		Route::group(['prefix'=>'quan-ly-nguoi-dung', 'middleware'=>'admin'],function(){
+			Route::get('kich-hoat-tai-khoan/{id}','manager\user_manager\ActiveAccountController@index');
 			Route::get('/','manager\user_manager\HomeController@index')->name('home_user_index');
 			Route::get('them-nguoi-dung','manager\user_manager\NewUserController@index')->name('new_user_index');
 			Route::post('them-nguoi-dung','manager\user_manager\NewUserController@new_user');
