@@ -5,7 +5,6 @@
   <link rel="stylesheet" type="text/css" href="{{ URL::asset('public/css/search_result_chuyen_gia.css') }}
   ">
 @endsection
-<!-- main-content -->
 
 @section("content")
 <div class="row col-md-12 filter-row ">
@@ -90,7 +89,7 @@
 
               <strong>{{ $datas->ho_va_ten }}</strong>&nbsp;&nbsp;&nbsp;Sinh ngày: {{ $datas->nam_sinh }}<br>
               Số công trình, bài báo, sách đã công bố: {{ $datas->Sl_congTrinh_baiBao }}<br>
-              <a href="#" onclick="this.style.display ='none';inbaiviet()"><i class="glyphicon glyphicon-print"></i> In lý lịch KH</a>&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="#" onclick="inbaiviet()"><i class="glyphicon glyphicon-print"></i> In lý lịch KH</a>&nbsp;&nbsp;&nbsp;&nbsp;
             </td>
             <td width="150" style="line-height:20px">
 
@@ -283,17 +282,13 @@
            </tbody>
     </table> 
     </div>
-    <div class=" col-md-12">
-         <div style="padding: 8px;"> <strong>Từ khóa: </strong><a href="#">Ntbic</a> </div>
-         <div colspan=3 style="padding-left: 8px;">
-                <i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i>
-                <i class="fa fa-pinterest-square fa-3x" aria-hidden="true"></i>
-                <i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i>
-                <p align="right">
-                        <a href="#" onclick="this.style.display ='none';inbaiviet1()"><i class="glyphicon glyphicon-print"></i> In bài viết</a>
-            </p>
-            </div>
-           <div  style="padding: 15px 8px 12px 12px;"> <strong> Các đề tài dự án khác</strong><br> </div>
+    <div class=" col-md-12 share">
+        <div id="fb-root"></div>
+        <div style="float: left;"><a href="#"><div class="fb-share-button" 
+        data-href="{{ URL::asset('chuyen-gia/'.$datas->linkid) }}" data-size="large" data-layout="button_count"></div></a></div>
+        <div style="float:right;">
+            <a href="#" onclick="inbaiviet()"><i class="glyphicon glyphicon-print"></i> In bài viết</a>
+        </div>
     </div>  
   {{-- @include('details.sidebar') --}}
 </div>
