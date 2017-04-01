@@ -797,7 +797,7 @@
    <div class=" col-md-12 share">
         <div id="fb-root"></div>
         <div style="float: left;"><a href="#"><div class="fb-share-button" 
-        data-href="{{ URL::asset('chuyen-gia/'.$datas->link) }}" data-size="large" data-layout="button_count"></div></a></div>
+        data-href="{{ URL::asset('doanh-nghiep/'.$datas->link) }}" data-size="large" data-layout="button_count"></div></a></div>
         <div style="float:right;">
             <a href="#" onclick="inbaiviet()"><i class="glyphicon glyphicon-print"></i> In bài viết</a>
         </div>
