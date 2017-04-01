@@ -24,7 +24,7 @@
 		    </div>
 		    <div class="collapse navbar-collapse" id="myNavbar">
 		      <ul class="nav navbar-nav navbar-right">
-		      	<li><a href="#">Hướng dẫn sử dụng</a></li>
+		      	<li><a href="{{url('huong-dan-su-dung')}}"  target="_blank">Hướng dẫn sử dụng</a></li>
 		      </ul>
 		    </div>
 		  </div>
