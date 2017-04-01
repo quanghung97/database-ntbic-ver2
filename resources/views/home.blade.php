@@ -428,38 +428,39 @@
 					<!---phan footer-->
 					<div class="row div-footer">
 						<div class="container">
-							<div class="col-md-4 display-block">
-								<p>Trung tâm ươm tạo Công nghệ và Doanh nghiệp Khoa học Công nghệ- Viện ứng dụng công nghệ</p>
-								<p><i class="fa fa-map-pin"></i> Địa chỉ  :25-Lê Thánh Tông-Hoàn Kiếm-Hà Nội</p>
-								<p><i class="fa fa-phone"></i> Hotline  :0439336570</p>
-								<p><i class="fa fa-envelope"></i> E-mail :info@ntbic.com</p>
-							</div>
-							<div class="col-md-3 display-block">
-								<ul>
-									<li><a href="#">	Dữ liệu chuyên gia KH&CN</a></li>
-									<li><a href="#">	Dữ liệu đề tài, dự án KH&CN các cấp</a></li>
-									<li><a href="#">	Dữ liệu phát minh, sáng chế, giải pháp</a></li>
-									<li><a href="#">	Dữ liệu sản phẩm, công nghệ mới</a></li>
-									<li><a href="#">	Dữ liệu doanh nghiệp KH&CN</a></li>
-								</ul>
-							</div>
-							<div class="col-md-3 display-block">
-								<li><a href="#">	Văn phòng đại diện tại nước ngoài</a></li>
-								<li><a href="#">	Hướng dẫn sử dụng</a></li>
-								<li><a href="#">	Giới thiệu về NTBIC</a></li>
-							</div>
-							<div class="col-md-2 display-block">
-								<div class="social-icons">
-									<div class="social-icons">
-										<ul class="nomargin">
-											<a href="#"><i class="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
-											<a href="#"><i class="fa fa-pinterest-square fa-3x social-fr" id="social"></i></a>
-											<a href="#"><i class="fa fa-twitter-square fa-3x social-tw" id="social"></i></a>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
+					<div class="col-md-4 display-block">
+						<p>Trung tâm Ươm tạo Công nghệ và Doanh nghiệp Khoa học Công nghệ- Viện Ứng dụng Công nghệ</p>
+	      				<p><i class="fa fa-map-pin"></i> Địa chỉ: 25 Lê Thánh Tông, Hoàn Kiếm, Hà Nội</p>
+	        			<p><i class="fa fa-phone"></i> Hotline: 0439336570</p>
+	       				<p><i class="fa fa-envelope"></i> E-mail: info@ntbic.com</p>
+	        
+					</div>
+				<div class="col-md-3 display-block">
+					<ul>
+						<li><a href="{!! url('chuyen-gia') !!}">	Dữ liệu chuyên gia KH&CN</a></li>
+						<li><a href="{!! url('de-tai-du-an-cac-cap') !!}">	Dữ liệu đề tài, dự án các cấp</a></li>
+						<li><a href="{!! url('phat-minh') !!}">	Dữ liệu phát minh, sáng chế</a></li>
+						<li><a href="{!! url('san-pham') !!}">	Dữ liệu sản phẩm, công nghệ mới</a></li>
+						<li><a href="{!! url('doanh-nghiep') !!}">	Dữ liệu doanh nghiệp KH&CN</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 display-block">
+					<li><a href="{{url('huong-dan-su-dung')}}">	Hướng dẫn sử dụng</a></li>
+					<li><a href="http://ntbic.com/">	Giới thiệu về NTBIC</a></li>
+				</div>
+				<div class="col-md-2 display-block">
+					 <div class="social-icons">
+	          	 <div class="social-icons">
+                                
+           		 <ul class="nomargin">
+                                    
+               		 <a href="#"><i class="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
+	           		 <a href="#"><i class="fa fa-pinterest-square fa-3x social-fr" id="social"></i></a>
+	           		 <a href="#"><i class="fa fa-twitter-square fa-3x social-tw" id="social"></i></a>
+	                              
+          		  </ul>
+           		  </div>
+				</div>
 					</div>
 					<div class="copyright">
 						<div class="container">
