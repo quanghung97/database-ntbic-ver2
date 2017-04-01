@@ -135,7 +135,7 @@
 		    </div>
 		    <div class="collapse navbar-collapse" id="myNavbar">
 		      <ul class="nav navbar-nav navbar-right">
-		      	<li><a href="#">Hướng dẫn sử dụng</a></li>
+		      	<li><a href="{!! URL::asset('huong-dan-su-dung') !!}">Hướng dẫn sử dụng</a></li>
 		      </ul>
 		    </div>
 		  </div>

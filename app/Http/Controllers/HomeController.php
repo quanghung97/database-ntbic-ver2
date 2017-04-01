@@ -60,6 +60,6 @@ class HomeController extends Controller
 		  }
 
 	public function huong_dan_su_dung(){
-		
+		return view('huong_dan');
 	}
 }
