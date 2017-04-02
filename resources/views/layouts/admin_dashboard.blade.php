@@ -97,7 +97,7 @@
                     </a></li>
             </ul>
             <!-- BEGIN LOGO -->
-            <a href="{{ URL::asset('quan-tri-vien') }}"><br>
+            <a href="{{ URL::asset('admin') }}"><br>
                 <center><p class="semi-bold" style="color: white; font-size: 14px">QUẢN TRỊ VIÊN NTBIC</p></center>
             </a>
             <!-- END LOGO -->
@@ -119,9 +119,9 @@
                         </a>
                         <ul class="dropdown-menu  pull-right" role="menu" aria-labelledby="user-options">
 
-                            <li><a href="{{ URL::asset('quan-tri-vien/trang-ca-nhan') }}"><i class="fa fa-user"></i> Trang cá nhân</a></li>
-                            <li><a href="{{ URL::asset('quan-tri-vien/trang-ca-nhan/doi-mat-khau') }}"><i class="fa fa-gear"></i> Đổi mật khẩu</a></li>
-                            <li><a href="{{ URL::asset('quan-tri-vien/logout') }}"><i class="fa fa-power-off"></i>&nbsp;&nbsp;Đăng xuất</a></li>
+                            <li><a href="{{ URL::asset('admin/trang-ca-nhan') }}"><i class="fa fa-user"></i> Trang cá nhân</a></li>
+                            <li><a href="{{ URL::asset('admin/trang-ca-nhan/doi-mat-khau') }}"><i class="fa fa-gear"></i> Đổi mật khẩu</a></li>
+                            <li><a href="{{ URL::asset('admin/logout') }}"><i class="fa fa-power-off"></i>&nbsp;&nbsp;Đăng xuất</a></li>
                         </ul>
                     </li>
 
