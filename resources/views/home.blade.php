@@ -23,11 +23,11 @@
 		function drawChart() {
 		var data = google.visualization.arrayToDataTable([
 		['Task', 'Hours per Day'],
-		['TS',     39.8],
-		['ThS',      25.2],
-		['KS',  14.3],
-		['CN',    10],
-		['Khác', 20.7]
+		['TS',     {{$datachuyengia['TS']}}],
+		['ThS',      {{$datachuyengia['ThS']}}],
+		['KS',  {{$datachuyengia['KS']}}],
+		['CN',    {{$datachuyengia['CN']}}],
+		['Khác', {{$datachuyengia['other']}}]
 		]);
 		var options = {
 		title: 'Nhà khoa học'
@@ -42,14 +42,16 @@
 		function drawChart() {
 		var data = google.visualization.arrayToDataTable([
 		['Task', 'Hours per Day'],
-		['KH&CN',     31.9],
-		['KHXH ',  30.2],
-		['KHNN-TT', 13.3],
-		['KHNN',    10.7],
-		['Khác',  13.9]
+		['Khoa học kỹ thuật và công nghệ',  {{$datadetai['kh_kt_cn']}}],
+		['Khoa học nhân văn',  {{$datadetai['kh_nhan_van']}}],
+		['Khoa học nông nghiệp', {{$datadetai['kh_nong_nghiep']}}],
+		['Khoa học tự nhiên',    {{$datadetai['kh_tu_nhien']}}],
+		['Khoa học xã hội',    {{$datadetai['kh_xa_hoi']}}],
+		['Khoa học y, dược', {{$datadetai['kh_y_duoc']}}],
+		['Khác',  {{$datadetai['other']}}]
 		]);
 		var options = {
-		title: 'Đề tài -dự án'
+		title: 'Đề tài -dự án các cấp'
 		};
 		var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
 		chart.draw(data, options);
@@ -61,11 +63,14 @@
 					function drawChart() {
 					var data = google.visualization.arrayToDataTable([
 				['Task', 'Hours per Day'],
-				['CNCTM-TĐH',     30.2],
-				['CNSH',  29.2],
-				['CNTT&TT', 17.7],
-				['CNVLM',    14.2],
-				['CNMT',  8.3]
+				['Công nghệ thông tin và truyền thông',     {{$datasanpham['cntt_va_truyen_thong']}}],
+				['Công nghệ sinh học',  {{$datasanpham['cn_sinh_hoc']}}],
+				['Công nghệ vật liệu mới',  {{$datasanpham['cn_vat_lieu_moi']}}],
+				['Công nghệ chế tạo máy - tự động hóa',  {{$datasanpham['cn_ctm_tdh']}}],
+				['Công nghệ môi trường',  {{$datasanpham['cn_moi_truong']}}],
+				['Công nghệ năng lượng mới',  {{$datasanpham['cn_nang_luong_moi']}}],
+				['Công nghệ vũ trụ',  {{$datasanpham['cn_vu_tru']}}],
+				['Công nghệ khác',  {{$datasanpham['cn_khac']}}]
 				]);
 				var options = {
 				title: 'Sản phẩm'
@@ -79,11 +84,14 @@
 		function drawChart() {
 		var data = google.visualization.arrayToDataTable([
 		['Task', 'Hours per Day'],
-		['Công nghệ khác (Sáng chế)',     39.4],
-		['Công nghệ khác (Giải pháp hữu ích) ',  20.3],
-		['Công nghệ chế tạo máy - tự động hóa',  15.2],
-		['Công nghệ sinh học', 12.6],
-		['Công nghệ vật liệu mới ',    12.5]
+		['Công nghệ thông tin và truyền thông',     {{$dataphatminh['cntt_va_truyen_thong']}}],
+		['Công nghệ sinh học',  {{$dataphatminh['cn_sinh_hoc']}}],
+		['Công nghệ vật liệu mới',  {{$dataphatminh['cn_vat_lieu_moi']}}],
+		['Công nghệ chế tạo máy - tự động hóa',  {{$dataphatminh['cn_ctm_tdh']}}],
+		['Công nghệ môi trường',  {{$dataphatminh['cn_moi_truong']}}],
+		['Công nghệ năng lượng mới',  {{$dataphatminh['cn_nang_luong_moi']}}],
+		['Công nghệ vũ trụ',  {{$dataphatminh['cn_vu_tru']}}],
+		['Công nghệ khác',  {{$dataphatminh['cn_khac']}}]
 		]);
 		var options = {
 		title: 'Phát minh'
@@ -98,11 +106,14 @@
 		function drawChart() {
 		var data = google.visualization.arrayToDataTable([
 		['Task', 'Hours per Day'],
-		['Công nghệ khác',     94.6],
-		['Công nghệ vật liệu mới ',  2],
-		['Công nghệ sinh học',  1.8],
-		['Công nghệ chế tạo máy - tự động hóa', 1.3],
-		['Công nghệ môi trường ',    0.4]
+		['Công nghệ thông tin và truyền thông',     {{$datadoanhnghiep['cntt_va_truyen_thong']}}],
+		['Công nghệ sinh học',  {{$datadoanhnghiep['cn_sinh_hoc']}}],
+		['Công nghệ vật liệu mới',  {{$datadoanhnghiep['cn_vat_lieu_moi']}}],
+		['Công nghệ chế tạo máy - tự động hóa',  {{$datadoanhnghiep['cn_ctm_tdh']}}],
+		['Công nghệ môi trường',  {{$datadoanhnghiep['cn_moi_truong']}}],
+		['Công nghệ năng lượng mới',  {{$datadoanhnghiep['cn_nang_luong_moi']}}],
+		['Công nghệ vũ trụ',  {{$datadoanhnghiep['cn_vu_tru']}}],
+		['Công nghệ khác',  {{$datadoanhnghiep['cn_khac']}}]
 		]);
 		var options = {
 		title: 'Doanh nghiệp'
@@ -171,10 +182,10 @@
 							</fieldset>
 							<div>
 								<h3 class="inner2">
-								Hiện đang có <span class="num_c">23,553</span> chuyên gia;
-								<span class="num_c">22,810</span> đề tài, dự án các cấp;
-								<span class="num_c">3,448</span> bằng phát minh, sáng chế, giải pháp hữu ích;
-								<span class="num_c">9,766</span> doanh nghiệp ứng dụng công nghệ;
+								Hiện đang có <span class="num_c">{{$counts['chuyen_gia_khcn']}}</span> chuyên gia;
+								<span class="num_c">{{$counts['de_tai_du_an_cac_cap']}}</span> đề tài, dự án các cấp;
+								<span class="num_c">{{$counts['bang_phat_minh_sang_che']}}</span> bằng phát minh, sáng chế, giải pháp hữu ích;
+								<span class="num_c">{{$counts['doanh_nghiep_khcn']}}</span> doanh nghiệp ứng dụng công nghệ;
 								<span class="num_c">68</span> quỹ đầu tư, hỗ trợ cho khoa học và công nghệ;
 								<span class="num_c">446</span> trung tâm, viện nghiên cứu trong cơ sở dữ liệu
 								</h3>
