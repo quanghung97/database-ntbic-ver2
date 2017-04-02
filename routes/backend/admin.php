@@ -10,8 +10,8 @@
 	Route::get('dat-lai-mat-khau/{token}','Auth\ResetPasswordController@index');
 	Route::post('dat-lai-mat-khau/{token}','Auth\ResetPasswordController@reset_password');
 	// Route::group(['prefix'=>'bien-tap-vien', 'middleware'=>'moderator'], $route_database_manager);
-	// Route::group(['prefix'=>'quan-tri-vien', 'middleware'=>'admin'], $route_database_manager);
-	Route::group(['prefix'=>'quan-tri-vien', 'middleware'=>'moderator'], function(){
+	// Route::group(['prefix'=>'admin', 'middleware'=>'admin'], $route_database_manager);
+	Route::group(['prefix'=>'admin', 'middleware'=>'moderator'], function(){
 		Route::get('logout','Auth\LogoutController@index')->name('logout');
 		Route::group(['prefix'=>'trang-ca-nhan'], function(){
 			Route::get('doi-mat-khau','Auth\ChangePasswordController@index');
