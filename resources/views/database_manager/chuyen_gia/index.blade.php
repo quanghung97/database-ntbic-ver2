@@ -20,7 +20,7 @@ danh sách chuyên gia
   @if($can_insert)
     <div class="row-fluid">
       <div class="span12">
-        <a href="{{URL::asset('quan-tri-vien/quan-ly-du-lieu/chuyen-gia/tao-moi')}}" class="add-btn btn btn-success"><span class="fa fa-pencil"></span>&nbsp;&nbsp;Thêm chuyên gia</a>
+        <a href="{{URL::asset('admin/quan-ly-du-lieu/chuyen-gia/tao-moi')}}" class="add-btn btn btn-success"><span class="fa fa-pencil"></span>&nbsp;&nbsp;Thêm chuyên gia</a>
       </div>
     </div>
   @endif
@@ -67,7 +67,7 @@ danh sách chuyên gia
                     <td><div class="chuyen_gia_inf">{{$cg->tinh_thanh}}</div></td>
                     <td class="center"><a target="_blank" href="{{ URL::asset('chuyen-gia/'.$cg->linkid) }}"><span class="fa fa-eye"></span></a></td>
                     @if($can_update)
-                        <td class="center"><div class="chuyen_gia_inf"><a href="{{URL::asset('quan-tri-vien/quan-ly-du-lieu/chuyen-gia/sua/'.$cg->id)}} "><span class="fa fa-pencil-square"></span></a></div></td>
+                        <td class="center"><div class="chuyen_gia_inf"><a href="{{URL::asset('admin/quan-ly-du-lieu/chuyen-gia/sua/'.$cg->id)}} "><span class="fa fa-pencil-square"></span></a></div></td>
                     @endif
                     @if($can_delete)
                       <td class="center"><div class="chuyen_gia_inf" delete-modal" data-toggle="modal" data-target="#delete-modal{{$cg->id}}"><span class="fa fa-trash-o"></span></a></div></td>
@@ -82,7 +82,7 @@ danh sách chuyên gia
                             <h4 class="modal-title">Xóa chuyên gia {{$cg->ho_va_ten}} cùng tất cả công trình nghiên cứu của chuyên gia này?</h4>
                           </div>
                           <div class="modal-footer">
-                            <a href="{{URL::asset('quan-tri-vien/quan-ly-du-lieu/chuyen-gia/xoa/'.$cg->id)}} " class="btn btn-primary" id="submit-delete">Xóa</a>
+                            <a href="{{URL::asset('admin/quan-ly-du-lieu/chuyen-gia/xoa/'.$cg->id)}} " class="btn btn-primary" id="submit-delete">Xóa</a>
                             <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
                           </div>
                         </div>

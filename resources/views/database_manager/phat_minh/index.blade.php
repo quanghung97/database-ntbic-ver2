@@ -22,7 +22,7 @@
   @if($can_insert)
   <div class="row-fluid">
     <div class="span12">
-      <a href="{{URL::asset('quan-tri-vien/quan-ly-du-lieu/phat-minh/tao-moi')}}" class="add-btn btn btn-success"><span class="fa fa-pencil"></span>&nbsp;&nbsp;Thêm phát minh</a>
+      <a href="{{URL::asset('admin/quan-ly-du-lieu/phat-minh/tao-moi')}}" class="add-btn btn btn-success"><span class="fa fa-pencil"></span>&nbsp;&nbsp;Thêm phát minh</a>
     </div>
   </div>
   @endif
@@ -65,7 +65,7 @@
                     <td>{{ $pm->tac_gia}}</td>
                     <td class="center"><a target="_blank" href="{!! URL::asset('phat-minh/'.$pm->link) !!}"><span class="fa fa-eye"></span></a></td>
                     @if($can_update)
-                       <td class="center"><a href="{!! URL::asset('quan-tri-vien/quan-ly-du-lieu/phat-minh/sua/'.$pm->id) !!}"><span class="fa fa-pencil-square"></span></a></td>
+                       <td class="center"><a href="{!! URL::asset('admin/quan-ly-du-lieu/phat-minh/sua/'.$pm->id) !!}"><span class="fa fa-pencil-square"></span></a></td>
                     @endif
                     @if($can_delete)
                       <td class="center"><div delete-modal" data-toggle="modal" data-target="#delete-modal{{$pm->id}}"><span class="fa fa-trash-o"></span></a></div></td>
@@ -81,7 +81,7 @@
                             <h4 class="modal-title">Xóa doanh nghiệp {{$pm->ten}} đã chọn?</h4>
                           </div>
                           <div class="modal-footer">
-                            <a href="{!! URL::asset('quan-tri-vien/quan-ly-du-lieu/phat-minh/xoa/'.$pm->id) !!}" class="btn btn-primary" id="submit-delete">Xóa</a>
+                            <a href="{!! URL::asset('admin/quan-ly-du-lieu/phat-minh/xoa/'.$pm->id) !!}" class="btn btn-primary" id="submit-delete">Xóa</a>
                             <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
                           </div>
                         </div>

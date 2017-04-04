@@ -25,7 +25,7 @@ sửa dữ liệu chuyên gia
 <div class="form-group">
   <h4 class="form-title">SỬA DỮ LIỆU CHUYÊN GIA</h4>
     <div class="grid simple">
-        <form id="form_iconic_validation" action="{{URL::asset('quan-tri-vien/quan-ly-du-lieu/chuyen-gia/sua/'.$chuyen_gia->id)}}" method="post"  enctype="multipart/form-data">
+        <form id="form_iconic_validation" action="{{URL::asset('admin/quan-ly-du-lieu/chuyen-gia/sua/'.$chuyen_gia->id)}}" method="post"  enctype="multipart/form-data">
           {{csrf_field()}}
                       <div class="form-group">
                         <label class="form-label">Tên chuyên gia</label>

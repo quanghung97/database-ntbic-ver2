@@ -24,7 +24,7 @@
   @if($can_insert)
   <div class="row-fluid">
     <div class="span12">
-      <a class="add-btn btn btn-success" href="{!! url('quan-tri-vien/quan-ly-du-lieu/doanh-nghiep/tao-moi') !!}"><span class="fa fa-pencil"></span>&nbsp;&nbsp;Thêm doanh nghiệp</a>
+      <a class="add-btn btn btn-success" href="{!! url('admin/quan-ly-du-lieu/doanh-nghiep/tao-moi') !!}"><span class="fa fa-pencil"></span>&nbsp;&nbsp;Thêm doanh nghiệp</a>
     </div>
   </div>
   @endif
@@ -63,7 +63,7 @@
                     <td class="center">{{$item->tinh_thanh_pho}}</td>
                     <td class="center"><a target="_blank" href="{!! url('doanh-nghiep/'.$item->link) !!}"><span class="fa fa-eye"></span></a></td>
                     @if($can_update)
-                      <td class="center"><a href="{!! url('quan-tri-vien/quan-ly-du-lieu/doanh-nghiep/sua/'.$item->id) !!}"><span class="fa fa-pencil-square"></span></a></td>
+                      <td class="center"><a href="{!! url('admin/quan-ly-du-lieu/doanh-nghiep/sua/'.$item->id) !!}"><span class="fa fa-pencil-square"></span></a></td>
                     @endif
                     @if($can_delete)
                       <td class="center"><div delete-modal" data-toggle="modal" data-target="#delete-modal{{$item->id}}"><span class="fa fa-trash-o"></span></a></div></td>
@@ -80,7 +80,7 @@
                             <h4 class="modal-title">Xóa doanh nghiệp {{$item->ten_doanh_nghiep}} đã chọn?</h4>
                           </div>
                           <div class="modal-footer">
-                            <a href="{!! url('quan-tri-vien/quan-ly-du-lieu/doanh-nghiep/xoa/'.$item->id) !!}" class="btn btn-primary" id="submit-delete">Xóa</a>
+                            <a href="{!! url('admin/quan-ly-du-lieu/doanh-nghiep/xoa/'.$item->id) !!}" class="btn btn-primary" id="submit-delete">Xóa</a>
                             <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
                           </div>
                         </div>

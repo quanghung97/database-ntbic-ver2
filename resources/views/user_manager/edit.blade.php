@@ -337,7 +337,7 @@ thead tr {
 			<div class="form-actions">
 				<div class="pull-right">
 					<button type="submit" class="btn btn-success btn-cons" onclick="return confirm('Bạn có chắc chắn cập nhật thay đổi này ?')"><i class="icon-ok"></i> Cập nhật</button>
-					<a href="{{ URL::asset('quan-tri-vien/quan-ly-nguoi-dung') }}"><button type="button" class="btn btn-danger btn-cons" onclick="return confirm('Bạn có chắc chắn xóa hủy cập nhật người dùng ?')">Hủy</button></a>
+					<a href="{{ URL::asset('admin/quan-ly-nguoi-dung') }}"><button type="button" class="btn btn-danger btn-cons" onclick="return confirm('Bạn có chắc chắn xóa hủy cập nhật người dùng ?')">Hủy</button></a>
 				</div>
 			</div>
 			

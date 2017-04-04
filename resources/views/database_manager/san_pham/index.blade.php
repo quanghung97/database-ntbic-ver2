@@ -22,7 +22,7 @@
   @endif
 
 @if($can_insert)
- <form action="{{URL::asset('quan-tri-vien/quan-ly-du-lieu/san-pham/tao-moi')}}">
+ <form action="{{URL::asset('admin/quan-ly-du-lieu/san-pham/tao-moi')}}">
   <div class="row-fluid">
     <div class="span12">
       <button class="add-btn btn btn-success" action><span class="fa fa-pencil"></span>&nbsp;&nbsp;Thêm sản phẩm </button>
@@ -69,7 +69,7 @@
                     <td>{{$sp->kha_nang_ung_dung}}</td>
                     <td class="center"><a target="_blank" href="{{URL::asset('san-pham/'.$sp->link)}}"><span class="fa fa-eye"></span></a></td>
                     @if($can_update)
-                      <td class="center"><a href="{{URL::asset('quan-tri-vien/quan-ly-du-lieu/san-pham/sua/'.$sp->id)}}"><span class="fa fa-pencil-square"></span></a></td>
+                      <td class="center"><a href="{{URL::asset('admin/quan-ly-du-lieu/san-pham/sua/'.$sp->id)}}"><span class="fa fa-pencil-square"></span></a></td>
                     @endif
                     @if($can_delete)
                       <td class="center"><div delete-modal" data-toggle="modal" data-target="#delete-modal{{$sp->id}}"><span class="fa fa-trash-o"></span></a></div></td>
@@ -86,7 +86,7 @@
                             <h4 class="modal-title">Xóa sản phẩm {{$sp->ten_san_pham}} đã chọn?</h4>
                           </div>
                           <div class="modal-footer">
-                            <a href="{{URL::asset('quan-tri-vien/quan-ly-du-lieu/san-pham/xoa/'.$sp->id)}}" class="btn btn-primary" id="submit-delete">Xóa</a>
+                            <a href="{{URL::asset('admin/quan-ly-du-lieu/san-pham/xoa/'.$sp->id)}}" class="btn btn-primary" id="submit-delete">Xóa</a>
                             <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
                           </div>
                         </div>
