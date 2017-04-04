@@ -82,11 +82,24 @@
           <div class="form-group">
               <span class="form-label">Ảnh sản phẩm hiện tại</span>
           </div>
-          <img  style="max-height: 150px; max-width: auto" src="{{$datas->anh_san_pham}}"/><br><br>
+          <img  style="max-height: 300px; max-width: auto" src="{{$datas->anh_san_pham}}"/><br><br>
            <div class="form-group">
             <span class="form-label">Thay đổi ảnh sản phẩm</span>
-                 
-                <input type="file" name="logo" multiple />
+                 <ul class="nav nav-tabs">
+                        <li><a href="#home" data-toggle="tab">Thay đổi ảnh</a></li>
+                        <li><a href="#info" data-toggle="tab">Xóa ảnh(trả về ảnh mặc định)</a></li>
+                        
+                    </ul>
+ 
+                    <div class="tab-content">
+                        <div class="tab-pane" id="home"><input type="file" name="logo" multiple /></div>
+                        <div class="tab-pane" id="info">
+                            <button type="button" class="btn btn-danger btn-cons" id="delete_logo">Xóa ảnh</button>
+                            
+                        </div>
+                        
+                    </div>
+                
           </div>  
           <div class="form-actions">  
           <div class="pull-right">
@@ -106,5 +119,16 @@
   $(".sub-menu").css('display','block');
   $("#sub_menu_quan_ly_database").addClass("active");
   $("#active_san_pham").addClass("active");
+  
+    
+   $(document).ready(function(){
+    $("#delete_logo").click(function(){
+        var d1 = document.getElementById('info');
+        d1.insertAdjacentHTML('afterend', '<div class="alert alert-warning auto_disable"> <h3>Nhấn Lưu để xóa ảnh</h3> <input type="hidden" name="delete_logo" value="delete"> </div>');
+        $("#delete_logo").remove();
+
+    });
+    
+});
 </script>
 @endsection

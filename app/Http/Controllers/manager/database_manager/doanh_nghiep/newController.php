@@ -63,9 +63,9 @@ class NewController extends Controller
           if($request->hasFile('logo')) {
                $logo = $request->file('logo');
                $logo_name = $entry->link.'.'.$logo->getClientOriginalExtension();
-               $entry->logo = 'storage/app/public/media/doanh-nghiep/'.$logo_name;
+               $entry->logo = '/storage/app/public/media/doanh-nghiep/'.$logo_name;
                $logo->move('storage/app/public/media/doanh-nghiep', $logo_name);
-          } else $entry->logo = 'storage/app/public/media/doanh-nghiep/default.jpg';
+          } else $entry->logo = '/storage/app/public/media/doanh-nghiep/default.jpg';
           $entry->save();
 
           return Redirect::back()->with('status', 'Thêm thành công một doanh nghiệp!');
