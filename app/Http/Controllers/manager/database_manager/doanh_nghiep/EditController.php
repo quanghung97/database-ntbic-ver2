@@ -9,6 +9,7 @@ use App\linh_vuc_san_pham;
 use App\tinh_thanh_pho;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Redirect;
+use File;
 class EditController extends Controller
 {
     public function index($id) {
@@ -53,10 +54,17 @@ class EditController extends Controller
         if($request->hasFile('logo')) {
             $logo = $request->file('logo');
             $logo_name = $entry->link.'.'.$logo->getClientOriginalExtension();
-            $entry->logo = 'storage/app/public/media/doanh-nghiep/'.$logo_name;
+            $entry->logo = '/storage/app/public/media/doanh-nghiep/'.$logo_name;
             $logo->move('storage/app/public/media/doanh-nghiep', $logo_name);
         }
         $entry->save();
+         if($request->delete_logo == 'delete' && $entry->logo != '/storage/app/public/media/doanh-nghiep/default.jpg'){
+           $str = substr($entry->logo, 1);
+              File::delete($str);
+           $entry->logo = '/storage/app/public/media/doanh-nghiep/default.jpg';
+           
+       }
+         $entry->save();
         return Redirect::back()->with('status', 'Sửa thành công một doanh nghiệp!');
     }
 }

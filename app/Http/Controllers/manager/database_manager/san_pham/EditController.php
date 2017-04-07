@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
+use File;
+
 class Helper{
      public static function format_message($message,$type)
     {
@@ -53,11 +56,17 @@ class EditController extends Controller
              
                $logo_name = $entry->link.'.'.$logo->getClientOriginalExtension();
                $entry->anh_san_pham = '/storage/app/public/media/spkhcn/'.$logo_name;
-               $logo->move('/storage/app/public/media/spkhcn/', $logo_name);
-          } else $entry->anh_san_pham = '/storage/app/public/media/spkhcn/default.jpg';
+               $logo->move('storage/app/public/media/spkhcn/', $logo_name);
+          } 
           $entry->save();
         
-       
+       if($request->delete_logo == 'delete' && $entry->anh_san_pham != '/storage/app/public/media/spkhcn/default.jpg'){
+           $str = substr($entry->anh_san_pham, 1);
+              File::delete($str);
+           $entry->anh_san_pham = '/storage/app/public/media/spkhcn/default.jpg';
+           
+       }
+         $entry->save();
         return Redirect::back()->with('status', 'Sửa thành công một sản phẩm!');
     }
 function text_to_link($string){

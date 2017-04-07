@@ -8,6 +8,7 @@ use App\tinh_thanh_pho;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\FormThemChuyenGiaRequest;
+use File;
 class EditController extends Controller
 {
 	public function stripVN($str) {
@@ -60,6 +61,17 @@ class EditController extends Controller
                $logo->move('storage/app/public/media/profile_khcn', $logo_name);
        }
        $chuyen_gia->save();
+        
+         if($request->delete_logo == 'delete' && $chuyen_gia->link_anh != '/storage/app/public/media/profile_khcn/default.jpg'){
+           $str = substr($chuyen_gia->link_anh , 0);
+          
+             File::delete($str);
+           $chuyen_gia->link_anh = '/storage/app/public/media/profile_khcn/default.jpg';
+           
+       }
+   
+     
+  $chuyen_gia->save();
        return Redirect::back()->with('status','Sửa thành công chuyên gia!');
     }
 }

@@ -47,7 +47,7 @@ class NewController extends Controller
                $logo = $request->file('logo');
                $logo_name = $entry->link.'.'.$logo->getClientOriginalExtension();
                $entry->anh_san_pham = '/storage/app/public/media/spkhcn/'.$logo_name;
-               $logo->move('/storage/app/public/media/spkhcn/', $logo_name);
+               $logo->move('storage/app/public/media/spkhcn/', $logo_name);
           } else $entry->anh_san_pham = '/storage/app/public/media/spkhcn/default.jpg';
           $entry->save();
         return Redirect::back()->with('status', 'Thêm thành công một sản phẩm!');

@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Input;
 use DB;
 use App\linh_vuc_khcn;
 use App\loai_phat_minh_sang_che;
+use File;
 
 class EditController extends Controller
 {
@@ -64,6 +65,15 @@ class EditController extends Controller
                $phat_minh->hinh_anh_minh_hoa = 'storage/app/public/media/pmsc/'.$logo_name;
                $logo->move('storage/app/public/media/pmsc', $logo_name);
        }
+       $phat_minh->save();
+       if($request->delete_logo == 'delete' && $phat_minh->hinh_anh_minh_hoa != '/storage/app/public/media/pmsc/default.jpg'){
+           $str = substr($phat_minh->hinh_anh_minh_hoa, 0);
+          
+             File::delete($str);
+           $phat_minh->hinh_anh_minh_hoa = '/storage/app/public/media/spkhcn/default.jpg';
+           
+       }
+   
      
       $phat_minh->save();
       return Redirect::back()->with('status', 'Sửa thành công chuyên gia!');
