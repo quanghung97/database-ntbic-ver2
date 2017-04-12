@@ -42,7 +42,7 @@
 			<div class="search-area col-md-9">
 				
 	                <div class="input-group">
-	                    <input type="text" class="form-control" placeholder="Tìm kiếm..." name="text_search" value="@if(isset($text_search)) {{$text_search}} @endif">
+	                    <input type="text" class="form-control" placeholder="Tìm kiếm..." name="text_search" value="@if(isset($text_search)){{$text_search}}@endif">
 	                    <div class="input-group-btn">
 	                        <button type="submit" class="btn submit-button">
 	                            <span class="glyphicon glyphicon-search">&nbsp;</span>Tìm kiếm dữ liệu

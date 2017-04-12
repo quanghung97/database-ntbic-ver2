@@ -15,7 +15,8 @@ class SearchController extends Controller
 		/*Truyền vào text và các option*/
 		$text_search = $request->text_search;
 		$tim_theo = $request->tim_theo;
-
+		$text_search = mb_strtolower($text_search);
+		$text_searchs = explode(' ', $text_search);
 		/*
 			Tìm theo: truyền vào 1 số nguyên
 			1: Nhan đề khoa học công nghệ
@@ -23,15 +24,27 @@ class SearchController extends Controller
 			3: Tóm tắt
 		*/
 		if($tim_theo == 1) {
-			$result = khoa_hoc_cong_nghe::where('nhan_de', 'LIKE', '%'.$text_search.'%');
+			$result = khoa_hoc_cong_nghe::whereRaw('LOWER(nhan_de) LIKE BINARY "%'.$text_search.'%"');
+			$result = self::orWhereTextSearchs($result, $text_searchs, 'nhan_de');
+
 		} else if ($tim_theo == 2) {
-			$result = khoa_hoc_cong_nghe::where('tac_gia', 'LIKE', '%'.$text_search.'%');
+			$result = khoa_hoc_cong_nghe::whereRaw('LOWER(tac_gia) LIKE BINARY "%'.$text_search.'%"');
+			$result = self::orWhereTextSearchs($result, $text_searchs, 'tac_gia');
+
 		} else if ($tim_theo == 3) {
-			$result = khoa_hoc_cong_nghe::where('tom_tat', 'LIKE', '%'.$text_search.'%');
+			$result = khoa_hoc_cong_nghe::whereRaw('LOWER(tom_tat) LIKE BINARY "%'.$text_search.'%"');
+			$result = self::orWhereTextSearchs($result, $text_searchs, 'tom_tat');
+
 		} else {
-			$result = khoa_hoc_cong_nghe::where(function($query) use ($text_search){
-				$query->where('nhan_de', 'LIKE', '%'.$text_search.'%')->orWhere('tac_gia', 'LIKE', '%'.$text_search.'%')->orWhere('tom_tat', 'LIKE', '%'.$text_search.'%')->orWhere('tu_khoa', 'LIKE', '%'.$text_search.'%')->orWhere('chi_so_de_muc', 'LIKE', '%'.$text_search.'%')->orWhere('dang_tai_lieu', 'LIKE', '%'.$text_search.'%')->orWhere('nguon_trich', 'LIKE', '%'.$text_search.'%')->orWhere('nam_xuat_ban', 'LIKE', '%'.$text_search.'%')->orWhere('ki_hieu_kho', 'LIKE', '%'.$text_search.'%');
-			});
+			//tim theo tat ca
+			$result = khoa_hoc_cong_nghe::whereRaw('
+					LOWER(nhan_de) LIKE BINARY "%'.$text_search.'%" 
+					or LOWER(tac_gia) LIKE BINARY "%'.$text_search.'%"
+					or LOWER(tom_tat) LIKE BINARY "%'.$text_search.'%"
+					');
+			$result = self::orWhereTextSearchs($result, $text_searchs, 'nhan_de');
+			$result = self::orWhereTextSearchs($result, $text_searchs, 'tac_gia');
+			$result = self::orWhereTextSearchs($result, $text_searchs, 'tom_tat');
 		}
 
 		$result = $result->paginate($per_page);
@@ -44,5 +57,14 @@ class SearchController extends Controller
 			'time_search' => $time_search,
 			'text_search' => $text_search,
 			]);
+	}
+
+	private function orWhereTextSearchs($result, $text_searchs, $column)
+	{
+		return $result->orwhere(function($query) use ($text_searchs, $column) {
+				foreach ($text_searchs as $value) {
+					$query->whereRaw('LOWER('.$column.') LIKE BINARY "%'.$value.'%"');
+				}
+			});	
 	}
 }

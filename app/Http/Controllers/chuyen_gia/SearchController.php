@@ -13,7 +13,8 @@ use App\hoc_vi;
 
 class SearchController extends Controller
 {
-	public function getSearch(Request $request) {
+	public function getSearch(Request $request) 
+	{
 		$time_search = -microtime(true);
 		$item_per_page = 10;
 		$tt = tinh_thanh_pho::all();
@@ -24,7 +25,8 @@ class SearchController extends Controller
 		$linh_vuc_khcn = $request->linh_vuc_khcn;
 		$chuc_danh = $request->chuc_danh;
 		$tinh_thanh = $request->tinh_thanh_pho;
-
+		$text_search = mb_strtolower($text_search);
+		$text_searchs = explode(' ', $text_search);
 		/*
 			Tìm theo: Truyền vào 1 số nguyên
 			1: Tên nhà KH
@@ -34,20 +36,34 @@ class SearchController extends Controller
 		*/
 
 		if ($tim_theo == 1) {
-			$result = chuyen_gia_khcn::where('ho_va_ten','LIKE','%'.$text_search.'%');
+			$result = chuyen_gia_khcn::whereRaw('LOWER(ho_va_ten) LIKE BINARY "%'.$text_search.'%"');
+			$result = self::orWhereTextSearchs($result, $text_searchs, 'ho_va_ten');
+			
 		} else if ($tim_theo == 2) {
-			$result = chuyen_gia_khcn::where('chuyen_nganh','LIKE','%'.$text_search.'%');
+			$result = chuyen_gia_khcn::whereRaw('LOWER(chuyen_nganh) LIKE BINARY "%'.$text_search.'%"');
+			$result = self::orWhereTextSearchs($result, $text_searchs, 'chuyen_nganh');
 		} else if ($tim_theo == 3) {
-			$result = chuyen_gia_khcn::where('huong_nghien_cuu','LIKE','%'.$text_search.'%');
+			$result = chuyen_gia_khcn::whereRaw('LOWER(huong_nghien_cuu) LIKE BINARY "%'.$text_search.'%"');
+			$result = self::orWhereTextSearchs($result, $text_searchs, 'huong_nghien_cuu');
 		} else if ($tim_theo == 4) {
-			$result = chuyen_gia_khcn::where('co_quan','LIKE','%'.$text_search.'%');
+			$result = chuyen_gia_khcn::whereRaw('LOWER(co_quan) LIKE BINARY "%'.$text_search.'%"');
+			$result = self::orWhereTextSearchs($result, $text_searchs, 'co_quan');	
 		} else {
-			$result = chuyen_gia_khcn::where(function($query) use ($text_search) {
-				$query->Where('ho_va_ten','LIKE','%'.$text_search.'%')->orWhere('chuyen_nganh','LIKE','%'.$text_search.'%')->orWhere('huong_nghien_cuu','LIKE','%'.$text_search.'%')->orWhere('co_quan','LIKE','%'.$text_search.'%')->orWhere('nam_sinh','LIKE','%'.$text_search.'%');
-			});
+			//tim theo tat ca
+			$result = chuyen_gia_khcn::whereRaw('
+					LOWER(ho_va_ten) LIKE BINARY "%'.$text_search.'%" 
+					or LOWER(chuyen_nganh) LIKE BINARY "%'.$text_search.'%"
+					or LOWER(huong_nghien_cuu) LIKE BINARY "%'.$text_search.'%"
+					or LOWER(co_quan) LIKE BINARY "%'.$text_search.'%"
+					');
+			$result = self::orWhereTextSearchs($result, $text_searchs, 'ho_va_ten');
+			$result = self::orWhereTextSearchs($result, $text_searchs, 'chuyen_nganh');
+			$result = self::orWhereTextSearchs($result, $text_searchs, 'huong_nghien_cuu');
+			$result = self::orWhereTextSearchs($result, $text_searchs, 'co_quan');	
 		}
 
 		$result = $result->where('tinh_thanh','LIKE','%'.$tinh_thanh.'%')->where('hoc_vi','LIKE','%'.$chuc_danh.'%')->select('link_anh','ho_va_ten','hoc_vi','co_quan','chuyen_nganh','tinh_thanh','linkid','link_anh')->paginate($item_per_page);
+
 		$time_search += microtime(true);
 		return view('search_result.chuyen_gia')
 		->with([
@@ -60,5 +76,14 @@ class SearchController extends Controller
 			'time_search' => $time_search,
 			'text_search' => $text_search,
 			]);
+	}
+
+	private function orWhereTextSearchs($result, $text_searchs, $column)
+	{
+		return $result->orwhere(function($query) use ($text_searchs, $column) {
+				foreach ($text_searchs as $value) {
+					$query->whereRaw('LOWER('.$column.') LIKE BINARY "%'.$value.'%"');
+				}
+			});	
 	}
 }
