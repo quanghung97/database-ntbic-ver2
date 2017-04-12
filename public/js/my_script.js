@@ -1,4 +1,10 @@
 $(document).ready(function() {
+	$("input[name='type-search']").click(function(){
+		if(this.checked){
+			$("#nangcao").text('');
+			$("#nangcao").text($(this).parent().text());
+		}
+	});
 	$("#search_home").click(function(){
 		window.location.replace($(location).attr("href") + $('input[name=type-search]:checked').val() + '?text_search='+ $("#text_search").val());
 	});
