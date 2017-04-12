@@ -11,6 +11,7 @@
   	<!-- style -->
   	<link rel="stylesheet" type="text/css" href="{{ URL::asset('public/css/master.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ URL::asset('public/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ URL::asset('public/css/footer_home.css') }}">
 	@yield('javascript')
 	<!-- end style -->
 </head>
@@ -104,22 +105,38 @@
 				</div>
 				<div class="col-md-2 display-block">
 					 <div class="social-icons">
-	          	 <div class="social-icons">
+	          	
                                 
-           		 <ul class="nomargin">
+           			 <ul class="nomargin">
                                     
                		 <a href="#"><i class="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
 	           		 <a href="#"><i class="fa fa-pinterest-square fa-3x social-fr" id="social"></i></a>
 	           		 <a href="#"><i class="fa fa-twitter-square fa-3x social-tw" id="social"></i></a>
 	                              
-          		  </ul>
-           		  </div>
+          		 	 </ul>
+           		
+					</div>
 				</div>
 			</div>
+		</div>
+		<div class="copyright">
+			<div class="container">
+				<div class="col-md-6">
+					<p>Copyright © 2016 csdl.ntbic.com</p>
+				</div>
+				<div class="col-md-6">
+					<ul class="bottom_ul">
+						<li><a href="https://www.google.com/maps/place/Vi%E1%BB%87n+%E1%BB%A8ng+D%E1%BB%A5ng+C%C3%B4ng+Ngh%E1%BB%87/@21.006394,105.8129819,14z/data=!4m8!1m2!2m1!1zVHJ1bmcgdMOibSDGr8ahbSB04bqhbyBDw7RuZyBuZ2jhu4cgdsOgIERvYW5oIG5naGnhu4dwIEtob2EgaOG7jWMgQ8O0bmcgbmdo4buHLSBWaeG7h24g4buobmcgZOG7pW5nIEPDtG5nIG5naOG7hw!3m4!1s0x3135abee0f48e19b:0x23d765710433152b!8m2!3d21.0198013!4d105.8586952">Site Map</a></li>
+						</ul>
+					</div>
+				</div>
 		</div>
 	</div>
 
 	<!-- script -->
+
+
+	
 	
 	<script src="{{ URL::asset('public/js/jquery-3.1.1.min.js') }}"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
