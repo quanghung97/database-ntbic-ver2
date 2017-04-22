@@ -5,7 +5,6 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="csrf-token" content="{{csrf_token()}}" />
 	<title></title>
-	<link rel="stylesheet" href="/public/css/login.css">
 	<link href="/webarch/webarch/HTML/assets/plugins/boostrapv3/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 	 <link href="/webarch/webarch/HTML/assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet"
           type="text/css"/>
@@ -31,7 +30,7 @@
 				</div>
 
                 <input name="_token" value="{{csrf_token()}}" hidden>
-                <button id="dauth_login" class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Gửi mật khẩu mới</button>
+                <button id="dauth_login" class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Gửi mật khẩu mới </button>
             </form><!-- /form -->
         </div><!-- /card-container -->
     </div><!-- /container -->
