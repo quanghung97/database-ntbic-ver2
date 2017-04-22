@@ -10,7 +10,14 @@
   }
 }
 
-
+@media only screen and (max-width: 1200px){
+  #piechart4 {
+    display: none;
+  }
+  #piechart5{
+    display:none;
+  }
+}
 @media only screen and (max-width: 992px){
   #thongtin1{
       display: none;
