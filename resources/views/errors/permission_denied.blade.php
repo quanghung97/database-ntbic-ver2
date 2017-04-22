@@ -21,13 +21,13 @@
                 <h1>
                     Oops!</h1>
                 <h2>
-                    Bạn không có quyền truy cập trang này !!!</h2>
+                    Bạn không có quyền truy cập trang này!!!</h2>
                 <div class="error-details">
-                    Rất tiếc, trang bạn vừa tìm không tổn tại !!!
+                    Rất tiếc, trang bạn vừa tìm không tổn tại!!!
                 </div>
                 <div class="error-actions">
                     <a id="back_page" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span>
-                        Quay lại trang trước </a><a href="{{ URL::asset('/') }}" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-envelope"></span> Liên hệ để được hỗ trợ </a>
+                        Quay lại trang trước </a><a href="{{ URL::asset('/') }}" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-envelope"></span> Liên hệ để được hỗ trợ. </a>
                 </div>
             </div>
         </div>

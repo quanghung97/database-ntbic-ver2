@@ -79,7 +79,7 @@
 	<div class="row col-md-12 div-content search_result_de_tai_du_an_cac_cap">
 			<div class="search-info">
 				<span class="glyphicon glyphicon-search
-				"></span> Kết quả tìm kiếm đề tài dự án các cấp: {!! $datas->total() !!} trong {{ $time_search }} giây
+				"></span> Kết quả tìm kiếm đề tài, dự án các cấp: {!! $datas->total() !!} trong {{ $time_search }} giây
 			</div>
 			<table class="dataTable table-hover table-responsive" id="myTable">
 				<thead class="head-dataTable">

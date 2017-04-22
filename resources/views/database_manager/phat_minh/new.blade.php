@@ -53,7 +53,7 @@ thêm liệu phát minh
       <div class="col-md-12">
         <div class="grid simple">
           <div class="grid-title no-border">
-            <h4><span  class="semi-bold">Thêm phát minh</span></h4>
+            <h4><span  class="semi-bold">THÊM BẰNG PHÁT MINH, SÁNG CHẾ</span></h4>
             <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="#grid-config" data-toggle="modal" class="config"></a> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
           </div>
           <div class="grid-body">

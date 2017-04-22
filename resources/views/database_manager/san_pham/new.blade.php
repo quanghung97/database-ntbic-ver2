@@ -30,7 +30,7 @@ sửa dữ liệu sản phẩm
   </ul>
  <div class="tab-content">
 	    <div class="tab-pane" id="tabAddByExcel">
-	    <h4 class="form-title">THÊM SẢN PHẨM</h4>
+	    <h4 class="form-title">THÊM SẢN PHẨM, CÔNG NGHỆ MỚI</h4>
 	    <div id="status"></div>
     
 	     <div class="row column-seperation">

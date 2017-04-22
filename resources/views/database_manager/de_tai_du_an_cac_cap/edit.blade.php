@@ -21,7 +21,7 @@
       </div>
   @endif
 <div class="form-group">
-  <h4 class="form-title">SỬA DỮ LIỆU ĐỀ TÀI DỰ ÁN CÁC CẤP</h4>
+  <h4 class="form-title">SỬA DỮ LIỆU ĐỀ TÀI, DỰ ÁN CÁC CẤP</h4>
   
     <div class="grid simple">
         <form id="form_iconic_validation" method="POST" enctype="multipart/form-data">

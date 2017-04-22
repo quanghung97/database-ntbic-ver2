@@ -226,7 +226,7 @@
         <tr>
            
 
-            <td colspan="3."><strong>9. Mô tả chung về đề tài dự án KH&CN</strong><br>
+            <td colspan="3."><strong>9. Mô tả chung về đề tài, dự án KH&CN</strong><br>
 
             {!! $datas->mota_chung !!}
             </td>

@@ -94,7 +94,7 @@
 					<ul>
 						<li><a href="{!! url('chuyen-gia') !!}">	Dữ liệu chuyên gia KH&CN</a></li>
 						<li><a href="{!! url('de-tai-du-an-cac-cap') !!}">	Dữ liệu đề tài, dự án các cấp</a></li>
-						<li><a href="{!! url('phat-minh') !!}">	Dữ liệu phát minh, sáng chế</a></li>
+						<li><a href="{!! url('phat-minh') !!}">	Dữ liệu bằng phát minh, sáng chế</a></li>
 						<li><a href="{!! url('san-pham') !!}">	Dữ liệu sản phẩm, công nghệ mới</a></li>
 						<li><a href="{!! url('doanh-nghiep') !!}">	Dữ liệu doanh nghiệp KH&CN</a></li>
 					</ul>
@@ -122,7 +122,7 @@
 		<div class="copyright">
 			<div class="container">
 				<div class="col-md-6">
-					<p>Copyright © 2016 csdl.ntbic.com</p>
+					<p>Copyright © 2016 <a href="http://csdl.ntbic.com/">csdl.ntbic.com</a></p>
 				</div>
 				<div class="col-md-6">
 					<ul class="bottom_ul">

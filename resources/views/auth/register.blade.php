@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 @section('sidebar')
-	<li><a href="/user/login">đăng nhập</a></li>
-	<li><a href="/user/register">đăng ký</a></li>
+	<li><a href="/user/login">Đăng nhập</a></li>
+	<li><a href="/user/register">Đăng ký</a></li>
 @endsection
 @section('main')
 	<div class="col-md-4 col-md-offset-4">
@@ -20,7 +20,7 @@
 			</div>
 
 			<div class="form-group">
-				<label for="username">nhập lại mật khẩu</label>
+				<label for="username">Nhập lại mật khẩu</label>
 				<p class="red-color">{{$errors->first('re_password')}}</p>
 				<input type="password" id="re_password" class="form-control" name="re_password" placeholder="Tên tài khoản">
 			</div>

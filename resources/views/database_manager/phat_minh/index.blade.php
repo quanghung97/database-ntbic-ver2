@@ -22,7 +22,7 @@
   @if($can_insert)
   <div class="row-fluid">
     <div class="span12">
-      <a href="{{URL::asset('admin/quan-ly-du-lieu/phat-minh/tao-moi')}}" class="add-btn btn btn-success"><span class="fa fa-pencil"></span>&nbsp;&nbsp;Thêm phát minh</a>
+      <a href="{{URL::asset('admin/quan-ly-du-lieu/phat-minh/tao-moi')}}" class="add-btn btn btn-success"><span class="fa fa-pencil"></span>&nbsp;&nbsp;Thêm bằng phát minh, sáng chế</a>
     </div>
   </div>
   @endif
@@ -30,7 +30,7 @@
     <div class="span12">
         <div class="grid simple ">
             <div class="grid-title">
-              <h4>Bảng <span class="semi-bold">Phát minh sáng chế</span></h4>
+              <h4>Bảng <span class="semi-bold">Bằng phát minh sáng chế</span></h4>
               <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="#grid-config" data-toggle="modal" class="config"></a> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
             </div>
             <div class="grid-body ">

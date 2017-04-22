@@ -23,12 +23,12 @@
                 <h2>
                     404 Not Found</h2>
                 <div class="error-details">
-                    Rất tiếc, trang bạn vừa tìm không tổn tại !!!
+                    Rất tiếc, trang bạn vừa tìm không tổn tại!!!
                 </div>
                 <div class="error-actions">
-                    <a id="back_page" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-arrow-left"></span> Quay lại trang trước </a>
+                    <a id="back_page" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-arrow-left"></span> Quay lại trang trước.</a>
                     <a href="{{ URL::asset('/') }}" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span> Trang chủ</a>
-                    <a href="{{ URL::asset('/') }}" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-envelope"></span> Liên hệ để được hỗ trợ </a>
+                    <a href="{{ URL::asset('/') }}" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-envelope"></span> Liên hệ để được hỗ trợ.</a>
                 </div>
             </div>
         </div>

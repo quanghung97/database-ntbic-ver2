@@ -21,7 +21,7 @@
         {{ session('status') }}
     </div>
 @endif
-  <h4 class="form-title">SỬA DỮ LIỆU SẢN PHẨM </h4>
+  <h4 class="form-title">SỬA DỮ LIỆU SẢN PHẨM, CÔNG NGHỆ MỚI</h4>
     <div class="grid simple">
         <form id="form_iconic_validation" action="{{route('sua-san-pham')}}" method="POST" enctype="multipart/form-data">
                      <input type="hidden" name="_token" value="{{ csrf_token() }}">

@@ -29,7 +29,7 @@ thead tr {
 			<div class="form-group">
 				@if(session('success'))
 				<div class="alert alert-success">
-				<button class="close" data-dismiss="alert"></button> cập nhật người dùng "{{ old("username") }}" thành công !</div>
+				<button class="close" data-dismiss="alert"></button> Cập nhật người dùng "{{ old("username") }}" thành công!</div>
 				@endif
 				<label class="form-label">Họ và tên</label>
 				<p class="text-error">{!! $errors->first('fullname') !!}</p>

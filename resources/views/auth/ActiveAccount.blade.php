@@ -17,7 +17,7 @@
             <img id="profile-img" class="profile-img-card" src="/storage/app/public/media/logo.png" />
             <form id="auth_login" method="post" class="form-signin">
                 
-				<p class="text-success">Đã kích hoạt tài khoản <span class="semi-bold">{{$username}} thành công ! </span> !</p>
+				<p class="text-success">Đã kích hoạt tài khoản <span class="semi-bold">{{$username}} thành công! </span> !</p>
                 <a href="{{url('ntbic-admin/dang-nhap')}}"><button id="dauth_login" class="btn btn-lg btn-danger btn-block btn-signin" type="button">Đăng nhập ngay</button></a>
             </form><!-- /form -->
         </div><!-- /card-container -->

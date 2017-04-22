@@ -20,7 +20,7 @@ active
 	<div class="col-md-12">
 		<div class="grid simple">
 			<div class="grid-title no-border">
-				<h4>Thông tin cung cấp để đổi mật khẩu</h4>
+				<h4>Thông tin cung cấp để đổi mật khẩu.</h4>
 				
 				<div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="#grid-config" data-toggle="modal" class="config"></a> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
 			</div>

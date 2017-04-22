@@ -29,7 +29,7 @@ thead tr {
 			<div class="form-group">
 				@if(session('success'))
 				<div class="alert alert-success">
-				<button class="close" data-dismiss="alert"></button> Thêm người dùng "{{old('username')}}" thành công !</div>
+				<button class="close" data-dismiss="alert"></button> Thêm người dùng "{{old('username')}}" thành công!</div>
 				@endif
 				<label class="form-label">Họ và tên</label>
 				<p class="text-error">{!! $errors->first('fullname') !!}</p>
@@ -75,7 +75,7 @@ thead tr {
 					</select>
 				</div>
 				<div style="margin: 10px 0 0 0" id="more_option">
-					<p class="col-md-12 text-info" style="font-weight: bold">Lựa chọn quyền thực thi cho biên tập viên</p>
+					<p class="col-md-12 text-info" style="font-weight: bold">Lựa chọn quyền thực thi cho biên tập viên.</p>
 					<div class="col-md-2">
 						<div style="font-weight: bold; text-align: center; background: #ECECEC; padding: 10px 0 10px 0">Chuyên gia KHCN</div>
 						<table class="table table-bordered no-more-tables">

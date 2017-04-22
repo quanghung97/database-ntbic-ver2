@@ -40,12 +40,12 @@
                   <tr>
                     <th id="id" width="10%">id</th>
                     <th width="15%">Họ và tên</th>
-                    <th id="username">tên tài khoản</th>
-                    <th>email</th>
-                    <th id="author">quyền</th>
+                    <th id="username">Tên tài khoản</th>
+                    <th>Email</th>
+                    <th id="author">Quyền</th>
                     <th>Tình trạng</th>
-                    <th id="edit">sửa</th>
-                    <th id="delete">xóa</th>
+                    <th id="edit">Sửa</th>
+                    <th id="delete">Xóa</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -59,10 +59,10 @@
                     @if($user->user_id == null)
                         <td style="color: green"><i class="fa fa-check"></i></td>
                     @else
-                        <td><a href="{{ url('admin/quan-ly-nguoi-dung/kich-hoat-tai-khoan/'.$user->user_id) }}" onclick="return confirm('Bạn có chắc chắn kích hoạt người dùng này ?')">ACTIVE</a></td>
+                        <td><a href="{{ url('admin/quan-ly-nguoi-dung/kich-hoat-tai-khoan/'.$user->user_id) }}" onclick="return confirm('Bạn có chắc chắn kích hoạt người dùng này?')">ACTIVE</a></td>
                     @endif
                     <td class="center" id="edit"><a href="{{ URL::asset('admin/quan-ly-nguoi-dung/chinh-sua-nguoi-dung/'.$user->id) }}"><span class="fa fa-pencil-square"></span></a></td>
-                    <td class="center" id="delete"><a href="{{ URL::asset('admin/quan-ly-nguoi-dung/xoa-nguoi-dung/'.$user->id) }}" onclick="return confirm('Bạn có chắc chắn xóa người dùng này ?')"><span class="fa fa-trash-o"></span></a></td>
+                    <td class="center" id="delete"><a href="{{ URL::asset('admin/quan-ly-nguoi-dung/xoa-nguoi-dung/'.$user->id) }}" onclick="return confirm('Bạn có chắc chắn xóa người dùng này?')"><span class="fa fa-trash-o"></span></a></td>
                   </tr>
                   @endforeach
                 </tbody>

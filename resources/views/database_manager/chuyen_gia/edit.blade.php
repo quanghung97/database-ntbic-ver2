@@ -23,7 +23,7 @@ sửa dữ liệu chuyên gia
       </div>
   @endif
 <div class="form-group">
-  <h4 class="form-title">SỬA DỮ LIỆU CHUYÊN GIA</h4>
+  <h4 class="form-title">SỬA DỮ LIỆU CHUYÊN GIA KH&CN</h4>
     <div class="grid simple">
         <form id="form_iconic_validation" action="{{URL::asset('admin/quan-ly-du-lieu/chuyen-gia/sua/'.$chuyen_gia->id)}}" method="post"  enctype="multipart/form-data">
           {{csrf_field()}}

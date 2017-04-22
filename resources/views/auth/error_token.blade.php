@@ -17,7 +17,7 @@
             <img id="profile-img" class="profile-img-card" src="/storage/app/public/media/logo.png" />
             <form id="auth_login" method="post" class="form-signin">
                 
-				<label><p class="text-error">Token đã hết hạn hoặc không tồn tại !</p></label>
+				<label><p class="text-error">Token đã hết hạn hoặc không tồn tại!</p></label>
                 <a href="/"><button id="dauth_login" class="btn btn-lg btn-danger btn-block btn-signin" type="button">Trang chủ</button></a>
             </form><!-- /form -->
         </div><!-- /card-container -->

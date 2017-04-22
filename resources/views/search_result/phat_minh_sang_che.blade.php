@@ -19,9 +19,9 @@
 							  	@endif
 
 							  	@if($tim_theo == '1')
-							  		<option value="1" selected="">Tên phát minh, sáng chế, giải pháp</option>
+							  		<option value="1" selected="">Tên bằng phát minh, sáng chế, giải pháp</option>
 							  	@else
-							  		<option value="1">Tên phát minh, sáng chế, giải pháp</option>
+							  		<option value="1">Tên bằng phát minh, sáng chế, giải pháp</option>
 							  	@endif
 
 							  	@if($tim_theo == '2')
@@ -71,7 +71,7 @@
 	<div class="row col-md-12 div-content search_result_phat_minh">
 		<div class="search-info">
 		 	<span class="glyphicon glyphicon-search
-				"></span> Kết quả tìm kiếm phát minh sáng chế: {!! $datas->total() !!} trong {{ $time_search }} giây
+				"></span> Kết quả tìm kiếm bắng phát minh, sáng chế: {!! $datas->total() !!} trong {{ $time_search }} giây
 		</div>
 		<table class="dataTable table-hover table-responsive" id="myTable">
 			<thead class="head-dataTable">

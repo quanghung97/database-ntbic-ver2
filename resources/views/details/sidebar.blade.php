@@ -9,7 +9,7 @@
 								<img src="{!! URL::asset('/storage/app/public/media/logo.png') !!}" alt="img-default" class="img-responsive">
 							</div>
 							<div class="col-md-8 sidebar-item-info">
-								<p>Dây chuyền làm sạch protein trong mủ cao su thiên nhiên</p>
+								<p>Dây chuyền làm sạch protein trong mủ cao su thiên nhiên.</p>
 							</div>
 						</div>
 					</li>

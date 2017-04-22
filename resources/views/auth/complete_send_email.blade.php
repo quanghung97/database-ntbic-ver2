@@ -17,7 +17,7 @@
             <img id="profile-img" class="profile-img-card" src="/storage/app/public/media/logo.png" />
             <form id="auth_login" method="post" class="form-signin">
                 
-				<label>Link tạo mật khẩu mới đã gửi đến mail <span class="text-success">{{$email}}</span></label>
+				<label>Link tạo mật khẩu mới đã gửi đến mail: <span class="text-success">{{$email}}</span></label>
                 <input name="_token" value="{{csrf_token()}}" hidden>
                 <a href="/dat-lai-mat-khau"><button id="dauth_login" class="btn btn-lg btn-primary btn-block btn-signin" type="button">Thực hiện lại</button></a>
             </form><!-- /form -->

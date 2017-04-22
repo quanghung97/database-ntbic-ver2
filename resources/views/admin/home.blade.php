@@ -14,7 +14,7 @@
             <li id="active_san_pham"><a href="{{ URL::asset('admin/quan-ly-du-lieu/san-pham') }}"> Sản phẩm KH&CN</a></li>
             <li id="active_doanh_nghiep"><a href="{{ URL::asset('admin/quan-ly-du-lieu/doanh-nghiep') }}"> Doanh nghiệp KH&CN</a></li>
             <li id="active_phat_minh"><a href="{{ URL::asset('admin/quan-ly-du-lieu/phat-minh') }}"> Phát minh sáng chế</a></li>
-            <li id="active_de_tai"><a href="{{ URL::asset('admin/quan-ly-du-lieu/de-tai-du-an-cac-cap') }}"> Đề tài dự án các cấp</a></li>
+            <li id="active_de_tai"><a href="{{ URL::asset('admin/quan-ly-du-lieu/de-tai-du-an-cac-cap') }}"> Đề tài, dự án các cấp</a></li>
             
         </ul>
     </li>

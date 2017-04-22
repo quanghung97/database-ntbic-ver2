@@ -34,7 +34,7 @@
 		['Khác', {{$datachuyengia['other']}}]
 		]);
 		var options = {
-		title: 'Nhà khoa học',
+		title: 'Chuyên gia',
 		chartArea:{width:'90%',height:'90%'}
 		};
 		var chart = new google.visualization.PieChart(document.getElementById('piechart1'));
@@ -56,7 +56,7 @@
 		['Khác',  {{$datadetai['other']}}]
 		]);
 		var options = {
-		title: 'Đề tài -dự án các cấp',
+		title: 'Đề tài, dự án các cấp',
 		chartArea:{width:'90%',height:'90%'}
 		};
 		var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
