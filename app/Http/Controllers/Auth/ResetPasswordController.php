@@ -18,7 +18,7 @@ class ResetPasswordController extends Controller
     {
         $row = PasswordReset::where('token',$token);
         if($row->count()){
-            return view('Auth.ResetPassword');
+            return view('auth.ResetPassword');
         }
         else {
             return view('auth.error_token');
