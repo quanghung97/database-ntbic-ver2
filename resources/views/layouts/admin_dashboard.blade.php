@@ -104,7 +104,7 @@
 
         </div>
         <!-- END RESPONSIVE MENU TOGGLER -->
-        <div class="header-quick-nav">
+        <div class="header-quick-nav" style="background: whitesmoke;">
             <!-- BEGIN TOP NAVIGATION MENU -->
 
             <!-- END TOP NAVIGATION MENU -->
@@ -159,7 +159,7 @@
     </div>
     <!-- END SIDEBAR -->
     <!-- BEGIN PAGE CONTAINER-->
-    <div class="page-content">
+    <div class="page-content" style="background: white;">
         <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
         <div class="content sm-gutter">
             <ul class="breadcrumb">

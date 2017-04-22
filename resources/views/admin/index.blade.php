@@ -34,7 +34,8 @@
 		['Khác', {{$datachuyengia['other']}}]
 		]);
 		var options = {
-		title: 'Nhà khoa học'
+		title: 'Nhà khoa học',
+		chartArea:{width:'90%',height:'90%'}
 		};
 		var chart = new google.visualization.PieChart(document.getElementById('piechart1'));
 		chart.draw(data, options);
@@ -55,7 +56,8 @@
 		['Khác',  {{$datadetai['other']}}]
 		]);
 		var options = {
-		title: 'Đề tài -dự án các cấp'
+		title: 'Đề tài -dự án các cấp',
+		chartArea:{width:'90%',height:'90%'}
 		};
 		var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
 		chart.draw(data, options);
@@ -77,7 +79,8 @@
 				['Công nghệ khác',  {{$datasanpham['cn_khac']}}]
 				]);
 				var options = {
-				title: 'Sản phẩm'
+				title: 'Sản phẩm',
+				chartArea:{width:'90%',height:'90%'}
 				};
 				var chart = new google.visualization.PieChart(document.getElementById('piechart3')); chart.draw(data, options);
 			}
@@ -98,7 +101,8 @@
 		['Công nghệ khác',  {{$dataphatminh['cn_khac']}}]
 		]);
 		var options = {
-		title: 'Phát minh'
+		title: 'Phát minh',
+		chartArea:{width:'75%',height:'75%'}
 		};
 		var chart = new google.visualization.PieChart(document.getElementById('piechart4'));
 		chart.draw(data, options);
@@ -120,7 +124,8 @@
 		['Công nghệ khác',  {{$datadoanhnghiep['cn_khac']}}]
 		]);
 		var options = {
-		title: 'Doanh nghiệp'
+		title: 'Doanh nghiệp',
+		chartArea:{width:'75%',height:'75%'}
 		};
 		var chart = new google.visualization.PieChart(document.getElementById('piechart5'));
 		chart.draw(data, options);
