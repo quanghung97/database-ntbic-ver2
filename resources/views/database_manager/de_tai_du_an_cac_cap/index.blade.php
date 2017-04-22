@@ -23,7 +23,7 @@
   <div class="row-fluid">
     <div class="span12">
     <a href="{!! URL::asset('admin/quan-ly-du-lieu/de-tai-du-an-cac-cap/tao-moi') !!}">
-      <button class="add-btn btn btn-success"><span class="fa fa-pencil"></span>&nbsp;&nbsp;Thêm đề tài dự án các cấp</button></a>
+      <button class="add-btn btn btn-success"><span class="fa fa-pencil"></span>&nbsp;&nbsp;Thêm đề tài, dự án các cấp</button></a>
     </div>
   </div>
   @endif
@@ -31,7 +31,7 @@
     <div class="span12">
         <div class="grid simple ">
             <div class="grid-title">
-              <h4>Bảng <span class="semi-bold">Đề tài dự án các cấp</span></h4>
+              <h4>Bảng <span class="semi-bold">Đề tài, dự án các cấp</span></h4>
               <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="#grid-config" data-toggle="modal" class="config"></a> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
             </div>
             <div class="grid-body ">
