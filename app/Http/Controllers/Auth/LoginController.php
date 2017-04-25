@@ -81,6 +81,10 @@ class LoginController extends Controller
                 'username' => $request->username, 
                 'password' => $request->password],
                 $request->remember == 1 ? true : false)){
+                    $ip_client_object = Ip::where('ip_address', $ip_address);
+                    if($ip_client_object->count()){
+                        $ip_client_object->delete();
+                    }
                     return redirect()->route('admin_dashboard');
             }
             else {
