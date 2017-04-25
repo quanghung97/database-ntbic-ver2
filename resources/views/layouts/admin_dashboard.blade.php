@@ -119,9 +119,12 @@
                         </a>
                         <ul class="dropdown-menu  pull-right" role="menu" aria-labelledby="user-options">
 
-                            <li><a href="{{ URL::asset('admin/trang-ca-nhan') }}"><i class="fa fa-user"></i> Trang cá nhân</a></li>
-                            <li><a href="{{ URL::asset('admin/trang-ca-nhan/doi-mat-khau') }}"><i class="fa fa-gear"></i> Đổi mật khẩu</a></li>
-                            <li><a href="{{ URL::asset('admin/logout') }}"><i class="fa fa-power-off"></i>&nbsp;&nbsp;Đăng xuất</a></li>
+                            {{--<li><a href="{{ URL::asset('admin/trang-ca-nhan') }}"><i class="fa fa-user"></i> Trang cá--}}
+                            {{--nhân</a></li>--}}
+                            <li><a href="{{ URL::asset('admin/trang-ca-nhan/doi-mat-khau') }}"><i
+                                            class="fa fa-gear"></i> Đổi mật khẩu</a></li>
+                            <li><a href="{{ URL::asset('admin/logout') }}"><i class="fa fa-power-off"></i>&nbsp;&nbsp;Đăng
+                                    xuất</a></li>
                         </ul>
                     </li>
 
@@ -548,7 +551,7 @@ type="text/javascript"></script> --}}
 {{-- <script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js') }}" type="text/javascript"></script> --}}
 {{-- <script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/pace/pace.min.js') }}" type="text/javascript"></script> --}}
 {{-- <script src="{{ URL::asset('webarch/webarch/HTML/assets/plugins/jquery-numberAnimate/jquery.animateNumbers.js') }}" type="text/javascript"></script> --}}
-        <!-- END SCROLL GRIB LEVEL PLUGINS -->
+<!-- END SCROLL GRIB LEVEL PLUGINS -->
 <!-- BEGIN CORE TEMPLATE JS -->
 <script src="{{URL::asset('resources/views/tinymce/js/tinymce/tinymce.min.js') }}"></script>
 <script>
