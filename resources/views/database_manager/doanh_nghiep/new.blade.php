@@ -22,11 +22,11 @@
 	@endif
 <div class="form-group">
 <ul class="nav nav-tabs" id="tab-01">
-    <li class="active"><a href="#tabAddByExcel">Thêm bằng excel</a></li>
-    <li><a href="#tabAddByHand">Thêm thủ công</a></li>
+    <li class="active"><a href="#tabAddByHand">Thêm thủ công</a></li>
+    <li><a href="#tabAddByExcel">Thêm bằng excel</a></li>
   </ul>
   <div class="tab-content">
-	    <div class="tab-pane active" id="tabAddByExcel">
+	    <div class="tab-pane" id="tabAddByExcel">
 	    <h4 class="form-title">THÊM DOANH NGHIỆP</h4>
 	    <div id="status"></div>
     
@@ -51,7 +51,7 @@
 	        </div>
 	      </div>
 	    </div>
-	  <div class="tab-pane" id="tabAddByHand">
+	  <div class="tab-pane active" id="tabAddByHand">
 		<h4 class="form-title">THÊM DOANH NGHIỆP</h4>
 			<div class="grid simple">
 					<form id="form_iconic_validation" action="#" method="POST" enctype="multipart/form-data">
