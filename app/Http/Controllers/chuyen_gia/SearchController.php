@@ -48,15 +48,49 @@ class SearchController extends Controller
             $result = chuyen_gia_khcn::complexSearch(array(
                 'body' => array(
                     'query' => array(
-                        'multi_match' => array(
-                            'query' => $text_search,
-                            'fields' => array('ho_va_ten^5','chuc_danh','tinh_thanh')
-                            //'hoc_vi' => $chuc_danh,
-                            //'tinh_thanh' => $tinh_thanh
-                        )
+                       'bool' => array(
+                            'must' => array(
+                                //search text
+                                'multi_match' => array(
+                                'query' => $text_search,
+                                'fields' => array('ho_va_ten')
+                                )
+                            ),
+                           //multiple filter 
+                           'filter' => array(
+                                'bool' => array(
+                                    'must' => array(
+                                        // chu y: mỗi phần term là riêng biệt không nên dạng như này
+                                        //trong tài liệu hướng dẫn đã có tách biệt về mỗi phần term
+//                                        [
+//                                         { "term" : { "tag" : "wow" } },
+//                                         { "term" : { "tag" : "elasticsearch" } }
+//                                        ],
+                                        //code
+//                                        'term' => array(
+//                                            'hoc_vi.keyword' =>  $chuc_danh
+//                                        ),
+//                                        'term' => array(
+//                                            'tinh_thanh.keyword' => $tinh_thanh
+//                                        )
+//                                        
+                                        ['term' => array(
+                                            'hoc_vi.keyword' =>  $chuc_danh
+                                        )],
+                                        
+                                        ['term' => array(
+                                            'tinh_thanh.keyword' => $tinh_thanh
+                                        )]
+
+                                    )
+                                )
+                           )
+                           
+                       )
                     )
                 )
             ))->paginate(10);
+             
 			
 		} else if ($tim_theo == 2) {
 //			$result = chuyen_gia_khcn::whereRaw('LOWER(chuyen_nganh) LIKE BINARY "%'.$text_search.'%"');
