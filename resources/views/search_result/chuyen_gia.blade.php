@@ -88,7 +88,66 @@
 					<th class="tinh_thanh">Tỉnh thành</th>
 				</thead>
 				<tbody>
+@if($datas[0]['_source']['id'] != null)
+				@if ($tim_theo == 1)
 					@foreach($datas as $key => $cg)
+						<tr>
+							<td>{!! ($datas->currentPage() - 1)*10 + $key +1 !!}</td>
+							<td><img src="{{ URL::asset($cg['_source']['link_anh']) }}" alt="ảnh" class="img-circle anh_chuyen_gia"></td>
+							<td><a href="{{ URL::asset('chuyen-gia/'.$cg['_source']['linkid']) }}" class="ten_chuyen_gia">{{$cg['_source']['hoc_vi']}} {!!$cg['highlight']['ho_va_ten'][0]!!}</a></td>
+							<td>{{$cg['_source']['co_quan']}}</td>
+							<td>{!! $cg['_source']['chuyen_nganh'] !!}</td>
+							<td>{{$cg['_source']['tinh_thanh']}}</td>
+						</tr>
+					@endforeach
+				@elseif ($tim_theo == 2)
+                    @foreach($datas as $key => $cg)
+						<tr>
+							<td>{!! ($datas->currentPage() - 1)*10 + $key +1 !!}</td>
+							<td><img src="{{ URL::asset($cg['_source']['link_anh']) }}" alt="ảnh" class="img-circle anh_chuyen_gia"></td>
+							<td><a href="{{ URL::asset('chuyen-gia/'.$cg['_source']['linkid']) }}" class="ten_chuyen_gia">{{$cg['_source']['hoc_vi']}} {{$cg['_source']['ho_va_ten']}}</a></td>
+							<td>{{$cg['_source']['co_quan']}}</td>
+							<td>{!! $cg['highlight']['chuyen_nganh'][0] !!}</td>
+							<td>{{$cg['_source']['tinh_thanh']}}</td>
+						</tr>
+					@endforeach
+				@elseif ($tim_theo == 3)
+				    @foreach($datas as $key => $cg)
+						<tr>
+							<td>{!! ($datas->currentPage() - 1)*10 + $key +1 !!}</td>
+							<td><img src="{{ URL::asset($cg['_source']['link_anh']) }}" alt="ảnh" class="img-circle anh_chuyen_gia"></td>
+							<td><a href="{{ URL::asset('chuyen-gia/'.$cg['_source']['linkid']) }}" class="ten_chuyen_gia">{{$cg['_source']['hoc_vi']}} {{$cg['_source']['ho_va_ten']}}</a></td>
+							<td>{{$cg['_source']['co_quan']}}</td>
+							<td>{!! $cg['_source']['chuyen_nganh'] !!}</td>
+							<td>{{$cg['_source']['tinh_thanh']}}</td>
+						</tr>
+					@endforeach
+                @elseif ($tim_theo == 4)
+				    @foreach($datas as $key => $cg)
+						<tr>
+							<td>{!! ($datas->currentPage() - 1)*10 + $key +1 !!}</td>
+							<td><img src="{{ URL::asset($cg['_source']['link_anh']) }}" alt="ảnh" class="img-circle anh_chuyen_gia"></td>
+							<td><a href="{{ URL::asset('chuyen-gia/'.$cg['_source']['linkid']) }}" class="ten_chuyen_gia">{{$cg['_source']['hoc_vi']}} {{$cg['_source']['ho_va_ten']}}</a></td>
+							<td>{!!$cg['highlight']['co_quan'][0]!!}</td>
+							<td>{!! $cg['_source']['chuyen_nganh'] !!}</td>
+							<td>{{$cg['_source']['tinh_thanh']}}</td>
+						</tr>
+					@endforeach	
+				@elseif ($tim_theo == 0)
+				    @foreach($datas as $key => $cg)
+						<tr>
+							<td>{!! ($datas->currentPage() - 1)*10 + $key +1 !!}</td>
+							<td><img src="{{ URL::asset($cg['_source']['link_anh']) }}" alt="ảnh" class="img-circle anh_chuyen_gia"></td>
+							<td><a href="{{ URL::asset('chuyen-gia/'.$cg['_source']['linkid']) }}" class="ten_chuyen_gia">{{$cg['_source']['hoc_vi']}} {{$cg['_source']['ho_va_ten']}}</a></td>
+							<td>{!!$cg['_source']['co_quan']!!}</td>
+							<td>{!! $cg['_source']['chuyen_nganh'] !!}</td>
+							<td>{{$cg['_source']['tinh_thanh']}}</td>
+						</tr>
+					@endforeach						
+				@endif
+@else
+                
+				     @foreach($datas as $key => $cg)
 						<tr>
 							<td>{!! ($datas->currentPage() - 1)*10 + $key +1 !!}</td>
 							<td><img src="{{ URL::asset($cg->link_anh) }}" alt="ảnh" class="img-circle anh_chuyen_gia"></td>
@@ -98,6 +157,7 @@
 							<td>{{$cg->tinh_thanh}}</td>
 						</tr>
 					@endforeach
+@endif	
 				</tbody>
 			</table>
 			<div>

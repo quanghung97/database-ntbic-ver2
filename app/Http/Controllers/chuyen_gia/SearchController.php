@@ -12,6 +12,8 @@ use App\tinh_thanh_pho;
 use App\hoc_vi;
 
 use Elasticsearch\ClientBuilder;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class SearchController extends Controller
 {
@@ -28,8 +30,8 @@ class SearchController extends Controller
 		$linh_vuc_khcn = $request->linh_vuc_khcn;
 		$chuc_danh = $request->chuc_danh;
 		$tinh_thanh = $request->tinh_thanh_pho;
-		//$text_search = mb_strtolower($text_search);
-		//$text_searchs = explode(' ', $text_search);
+		//$chuc_danh = mb_strtolower($chuc_danh);
+		//$chuc_danhs = explode(' ', $chuc_danh);
 		/*
 			Tìm theo: Truyền vào 1 số nguyên
 			1: Tên nhà KH
@@ -39,121 +41,873 @@ class SearchController extends Controller
 		*/
         
         //api client
-        //$client = ClientBuilder::create()->build();
+        $client = ClientBuilder::create()->build();
         
+//        if($tinh_thanh == null){
+//            $tinh_thanh = "";
+//        }
+//         if($chuc_danh == null){
+//            $chuc_danh = "";
+//        }
         if($text_search != ''){
-            if ($tim_theo == 1) {
-//			$result = chuyen_gia_khcn::whereRaw('LOWER(ho_va_ten) LIKE BINARY "%'.$text_search.'%"');
-//			$result = self::orWhereTextSearchs($result, $text_searchs, 'ho_va_ten');
-            $result = chuyen_gia_khcn::complexSearch(array(
-                'body' => array(
-                    'query' => array(
-                       'bool' => array(
-                            'must' => array(
-                                //search text
-                                'multi_match' => array(
-                                'query' => $text_search,
-                                'fields' => array('ho_va_ten')
-                                )
-                            ),
-                           //multiple filter 
-                           'filter' => array(
-                                'bool' => array(
-                                    'must' => array(
-                                        // chu y: mỗi phần term là riêng biệt không nên dạng như này
-                                        //trong tài liệu hướng dẫn đã có tách biệt về mỗi phần term
-//                                        [
-//                                         { "term" : { "tag" : "wow" } },
-//                                         { "term" : { "tag" : "elasticsearch" } }
-//                                        ],
-                                        //code
-//                                        'term' => array(
-//                                            'hoc_vi.keyword' =>  $chuc_danh
-//                                        ),
-//                                        'term' => array(
-//                                            'tinh_thanh.keyword' => $tinh_thanh
-//                                        )
-//                                        
-                                        ['term' => array(
-                                            'hoc_vi.keyword' =>  $chuc_danh
-                                        )],
-                                        
-                                        ['term' => array(
-                                            'tinh_thanh.keyword' => $tinh_thanh
-                                        )]
+            if($tim_theo == 1){
+                if($tinh_thanh != null && $chuc_danh != null){
+                    $params = [
+                        'index' => 'ntbic_index',
+                        'type' => 'chuyen_gia_khcn',
+                        'from' => 0,   // <--- Start at #1
+                        'size' => 10000, // <--- And retrieve 10 docs
+                        'body' => [
+                            'query' => [
+                                'bool' => [
+                                    'must' => [
+                                        ['match' => [
+                                            'ho_va_ten' => $text_search
+                                        ]],
+                                                                  
+                                    ],
+                                    'filter' => [
+                                        'bool' => [
+                                            'must' => [
+                                                ['term' => [ 
+                                                 'tinh_thanh.keyword' => $tinh_thanh
+                                                ]],
+                                                ['term' => [
+                                                    'hoc_vi.keyword' => $chuc_danh
+                                                ]]
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ],
+                            'highlight' => [
+                                'fields' => [
+                                    ['ho_va_ten' => [
+                                        'force_source' => true
+                                    ]]
+                                  //  '*' => (Object)[],
+                                ]
+                            ]
+                        ]
+                    ];
+                    
+                    $results = $client->search($params);  
+                    //dd($results);
+                    //dd($results['hits']['hits'][0]);
+                } else if($tinh_thanh == null && $chuc_danh != null){
+                    $params = [
+                        'index' => 'ntbic_index',
+                        'type' => 'chuyen_gia_khcn',
+                        'from' => 0,   // <--- Start at #1
+                        'size' => 10000, // <--- And retrieve 10 docs
+                        'body' => [
+                            'query' => [
+                                'bool' => [
+                                    'must' => [
+                                        ['match' => [
+                                            'ho_va_ten' => $text_search
+                                        ]],
+                                                                  
+                                    ],
+                                    'filter' => [
+                                        'bool' => [
+                                            'must' => [
+                                                ['term' => [
+                                                    'hoc_vi.keyword' => $chuc_danh
+                                                ]]
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ],
+                            'highlight' => [
+                                'fields' => [
+                                    ['ho_va_ten' => [
+                                        'force_source' => true
+                                    ]]
+                                  //  '*' => (Object)[],
+                                ]
+                            ]
+                        ]
+                    ];
 
-                                    )
-                                )
-                           )
-                           
-                       )
-                    )
-                )
-            ))->paginate(10);
-             
-			
-		} else if ($tim_theo == 2) {
-//			$result = chuyen_gia_khcn::whereRaw('LOWER(chuyen_nganh) LIKE BINARY "%'.$text_search.'%"');
-//			$result = self::orWhereTextSearchs($result, $text_searchs, 'chuyen_nganh');
-            $result = chuyen_gia_khcn::complexSearch(array(
-                'body' => array(
-                    'query' => array(
-                        'multi_match' => array(
-                            'query' => $text_search,
-                            'fields' => array('chuyen_nganh^5','chuc_danh','tinh_thanh')
-                        )
-                    )
-                )
-            ))->paginate(10);
-		} else if ($tim_theo == 3) {
-//			$result = chuyen_gia_khcn::whereRaw('LOWER(huong_nghien_cuu) LIKE BINARY "%'.$text_search.'%"');
-//			$result = self::orWhereTextSearchs($result, $text_searchs, 'huong_nghien_cuu');
-              $result = chuyen_gia_khcn::complexSearch(array(
-                'body' => array(
-                    'query' => array(
-                        'multi_match' => array(
-                           'query' => $text_search,
-                            'fields' => array('huong_nghien_cuu^5','chuc_danh','tinh_thanh')
-                        )
-                    )
-                )
-            ))->paginate(10);
-		} else if ($tim_theo == 4) {
-//			$result = chuyen_gia_khcn::whereRaw('LOWER(co_quan) LIKE BINARY "%'.$text_search.'%"');
-//			$result = self::orWhereTextSearchs($result, $text_searchs, 'co_quan');	
-            $result = chuyen_gia_khcn::complexSearch(array(
-                'body' => array(
-                    'query' => array(
-                        'multi_match' => array(
-                            'query' => $text_search,
-                            'fields' => array('co_quan^5','chuc_danh','tinh_thanh')
-                        )
-                    )
-                )
-            ))->paginate(10);
-		} else {
-			//tim theo tat ca
-//			$result = chuyen_gia_khcn::whereRaw('
-//					LOWER(ho_va_ten) LIKE BINARY "%'.$text_search.'%" 
-//					or LOWER(chuyen_nganh) LIKE BINARY "%'.$text_search.'%"
-//					or LOWER(huong_nghien_cuu) LIKE BINARY "%'.$text_search.'%"
-//					or LOWER(co_quan) LIKE BINARY "%'.$text_search.'%"
-//					');
-//			$result = self::orWhereTextSearchs($result, $text_searchs, 'ho_va_ten');
-//			$result = self::orWhereTextSearchs($result, $text_searchs, 'chuyen_nganh');
-//			$result = self::orWhereTextSearchs($result, $text_searchs, 'huong_nghien_cuu');
-//			$result = self::orWhereTextSearchs($result, $text_searchs, 'co_quan');	
+                    $results = $client->search($params);  
+                } else if($tinh_thanh != null && $chuc_danh == null){
+                    $params = [
+                        'index' => 'ntbic_index',
+                        'type' => 'chuyen_gia_khcn',
+                        'from' => 0,   // <--- Start at #1
+                        'size' => 10000, // <--- And retrieve 10 docs
+                        'body' => [
+                            'query' => [
+                                'bool' => [
+                                    'must' => [
+                                        ['match' => [
+                                            'ho_va_ten' => $text_search
+                                        ]],
+                                                                  
+                                    ],
+                                    'filter' => [
+                                        'bool' => [
+                                            'must' => [
+                                                ['term' => [ 
+                                                 'tinh_thanh.keyword' => $tinh_thanh
+                                                ]],
+                                               
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ],
+                            'highlight' => [
+                                'fields' => [
+                                    ['ho_va_ten' => [
+                                        'force_source' => true
+                                    ]]
+                                  //  '*' => (Object)[],
+                                ]
+                            ]
+                        ]
+                    ];
+
+                    $results = $client->search($params);  
+                   
+                   
+                } else if($tinh_thanh == null && $chuc_danh == null){
+                    $params = [
+                        'index' => 'ntbic_index',
+                        'type' => 'chuyen_gia_khcn',
+                        'from' => 0,   // <--- Start at #1
+                        'size' => 10000, // <--- And retrieve 10 docs
+                        'body' => [
+                            'query' => [
+                                'bool' => [
+                                    'must' => [
+                                        ['match' => [
+                                            'ho_va_ten' => $text_search
+                                        ]],
+                                                                  
+                                    ],
+                                    
+                                ]
+                            ],
+                            'highlight' => [
+                                'fields' => [
+                                    ['ho_va_ten' => [
+                                        'force_source' => true
+                                    ]]
+                                  //  '*' => (Object)[],
+                                ]
+                            ]
+                        ]
+                    ];
+
+                    $results = $client->search($params);  
+                    
+                }
+            } else if($tim_theo == 2){
+                    if($tinh_thanh != null && $chuc_danh != null){
+                    $params = [
+                        'index' => 'ntbic_index',
+                        'type' => 'chuyen_gia_khcn',
+                        'from' => 0,   // <--- Start at #1
+                        'size' => 10000, // <--- And retrieve 10 docs
+                        'body' => [
+                            'query' => [
+                                'bool' => [
+                                    'must' => [
+                                        ['match' => [
+                                            'chuyen_nganh' => $text_search
+                                        ]],
+                                                                  
+                                    ],
+                                    'filter' => [
+                                        'bool' => [
+                                            'must' => [
+                                                ['term' => [ 
+                                                 'tinh_thanh.keyword' => $tinh_thanh
+                                                ]],
+                                                ['term' => [
+                                                    'hoc_vi.keyword' => $chuc_danh
+                                                ]]
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ],
+                            'highlight' => [
+                                'fields' => [
+                                    ['chuyen_nganh' => [
+                                        'force_source' => true
+                                    ]]
+                                  //  '*' => (Object)[],
+                                ]
+                            ]
+                        ]
+                    ];
+
+                    $results = $client->search($params);  
+                        
+                } else if($tinh_thanh == null && $chuc_danh != null){
+                    $params = [
+                        'index' => 'ntbic_index',
+                        'type' => 'chuyen_gia_khcn',
+                        'from' => 0,   // <--- Start at #1
+                        'size' => 10000, // <--- And retrieve 10 docs
+                        'body' => [
+                            'query' => [
+                                'bool' => [
+                                    'must' => [
+                                        ['match' => [
+                                            'chuyen_nganh' => $text_search
+                                        ]],
+                                                                  
+                                    ],
+                                    'filter' => [
+                                        'bool' => [
+                                            'must' => [
+                                                
+                                                ['term' => [
+                                                    'hoc_vi.keyword' => $chuc_danh
+                                                ]]
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ],
+                            'highlight' => [
+                                'fields' => [
+                                    ['chuyen_nganh' => [
+                                        'force_source' => true
+                                    ]]
+                                  //  '*' => (Object)[],
+                                ]
+                            ]
+                        ]
+                    ];
+
+                    $results = $client->search($params);  
+                } else if($tinh_thanh != null && $chuc_danh == null){
+                    $params = [
+                        'index' => 'ntbic_index',
+                        'type' => 'chuyen_gia_khcn',
+                        'from' => 0,   // <--- Start at #1
+                        'size' => 10000, // <--- And retrieve 10 docs
+                        'body' => [
+                            'query' => [
+                                'bool' => [
+                                    'must' => [
+                                        ['match' => [
+                                            'chuyen_nganh' => $text_search
+                                        ]],
+                                                                  
+                                    ],
+                                    'filter' => [
+                                        'bool' => [
+                                            'must' => [
+                                                ['term' => [ 
+                                                 'tinh_thanh.keyword' => $tinh_thanh
+                                                ]],
+                                                
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ],
+                            'highlight' => [
+                                'fields' => [
+                                    ['chuyen_nganh' => [
+                                        'force_source' => true
+                                    ]]
+                                  //  '*' => (Object)[],
+                                ]
+                            ]
+                        ]
+                    ];
+
+                    $results = $client->search($params);  
+                   
+                   
+                } else if($tinh_thanh == null && $chuc_danh == null){
+                    $params = [
+                        'index' => 'ntbic_index',
+                        'type' => 'chuyen_gia_khcn',
+                        'from' => 0,   // <--- Start at #1
+                        'size' => 10000, // <--- And retrieve 10 docs
+                        'body' => [
+                            'query' => [
+                                'bool' => [
+                                    'must' => [
+                                        ['match' => [
+                                            'chuyen_nganh' => $text_search
+                                        ]],
+                                                                  
+                                    ]
+                                ]
+                            ],
+                            'highlight' => [
+                                'fields' => [
+                                    ['chuyen_nganh' => [
+                                        'force_source' => true
+                                    ]]
+                                  //  '*' => (Object)[],
+                                ]
+                            ]
+                        ]
+                    ];
+
+                    $results = $client->search($params);  
+                    
+                }
+            } else if($tim_theo == 3){
+                    if($tinh_thanh != null && $chuc_danh != null){
+                    $params = [
+                        'index' => 'ntbic_index',
+                        'type' => 'chuyen_gia_khcn',
+                        'from' => 0,   // <--- Start at #1
+                        'size' => 10000, // <--- And retrieve 10 docs
+                        'body' => [
+                            'query' => [
+                                'bool' => [
+                                    'must' => [
+                                        ['match' => [
+                                            'huong_nghien_cuu' => $text_search
+                                        ]],
+                                                                  
+                                    ],
+                                    'filter' => [
+                                        'bool' => [
+                                            'must' => [
+                                                ['term' => [ 
+                                                 'tinh_thanh.keyword' => $tinh_thanh
+                                                ]],
+                                                ['term' => [
+                                                    'hoc_vi.keyword' => $chuc_danh
+                                                ]]
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ],
+                            'highlight' => [
+                                'fields' => [
+                                    ['huong_nghien_cuu' => [
+                                        'force_source' => true
+                                    ]]
+                                  //  '*' => (Object)[],
+                                ]
+                            ]
+                        ]
+                    ];
+
+                    $results = $client->search($params);  
+                } else if($tinh_thanh == null && $chuc_danh != null){
+                    $params = [
+                        'index' => 'ntbic_index',
+                        'type' => 'chuyen_gia_khcn',
+                        'from' => 0,   // <--- Start at #1
+                        'size' => 10000, // <--- And retrieve 10 docs
+                        'body' => [
+                            'query' => [
+                                'bool' => [
+                                    'must' => [
+                                        ['match' => [
+                                            'huong_nghien_cuu' => $text_search
+                                        ]],
+                                                                  
+                                    ],
+                                    'filter' => [
+                                        'bool' => [
+                                            'must' => [
+                                            
+                                                ['term' => [
+                                                    'hoc_vi.keyword' => $chuc_danh
+                                                ]]
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ],
+                            'highlight' => [
+                                'fields' => [
+                                    ['huong_nghien_cuu' => [
+                                        'force_source' => true
+                                    ]]
+                                  //  '*' => (Object)[],
+                                ]
+                            ]
+                        ]
+                    ];
+
+                    $results = $client->search($params);  
+                } else if($tinh_thanh != null && $chuc_danh == null){
+                    $params = [
+                        'index' => 'ntbic_index',
+                        'type' => 'chuyen_gia_khcn',
+                        'from' => 0,   // <--- Start at #1
+                        'size' => 10000, // <--- And retrieve 10 docs
+                        'body' => [
+                            'query' => [
+                                'bool' => [
+                                    'must' => [
+                                        ['match' => [
+                                            'huong_nghien_cuu' => $text_search
+                                        ]],
+                                                                  
+                                    ],
+                                    'filter' => [
+                                        'bool' => [
+                                            'must' => [
+                                                ['term' => [ 
+                                                 'tinh_thanh.keyword' => $tinh_thanh
+                                                ]],
+                                                
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ],
+                            'highlight' => [
+                                'fields' => [
+                                    ['huong_nghien_cuu' => [
+                                        'force_source' => true
+                                    ]]
+                                  //  '*' => (Object)[],
+                                ]
+                            ]
+                        ]
+                    ];
+
+                    $results = $client->search($params);  
+                   
+                   
+                } else if($tinh_thanh == null && $chuc_danh == null){
+                    $params = [
+                        'index' => 'ntbic_index',
+                        'type' => 'chuyen_gia_khcn',
+                        'from' => 0,   // <--- Start at #1
+                        'size' => 10000, // <--- And retrieve 10 docs
+                        'body' => [
+                            'query' => [
+                                'bool' => [
+                                    'must' => [
+                                        ['match' => [
+                                            'huong_nghien_cuu' => $text_search
+                                        ]],
+                                                                  
+                                    ],
+                                    
+                                ]
+                            ],
+                            'highlight' => [
+                                'fields' => [
+                                    ['huong_nghien_cuu' => [
+                                        'force_source' => true
+                                    ]]
+                                  //  '*' => (Object)[],
+                                ]
+                            ]
+                        ]
+                    ];
+
+                    $results = $client->search($params);  
+                    
+                }
+            } else if($tim_theo == 4){
+                    if($tinh_thanh != null && $chuc_danh != null){
+                    $params = [
+                        'index' => 'ntbic_index',
+                        'type' => 'chuyen_gia_khcn',
+                        'from' => 0,   // <--- Start at #1
+                        'size' => 10000, // <--- And retrieve 10 docs
+                        'body' => [
+                            'query' => [
+                                'bool' => [
+                                    'must' => [
+                                        ['match' => [
+                                            'co_quan' => $text_search
+                                        ]],
+                                                                  
+                                    ],
+                                    'filter' => [
+                                        'bool' => [
+                                            'must' => [
+                                                ['term' => [ 
+                                                 'tinh_thanh.keyword' => $tinh_thanh
+                                                ]],
+                                                ['term' => [
+                                                    'hoc_vi.keyword' => $chuc_danh
+                                                ]]
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ],
+                            'highlight' => [
+                                'fields' => [
+                                    ['co_quan' => [
+                                        'force_source' => true
+                                    ]]
+                                  //  '*' => (Object)[],
+                                ]
+                            ]
+                        ]
+                    ];
+
+                    $results = $client->search($params);  
+                } else if($tinh_thanh == null && $chuc_danh != null){
+                    $params = [
+                        'index' => 'ntbic_index',
+                        'type' => 'chuyen_gia_khcn',
+                        'from' => 0,   // <--- Start at #1
+                        'size' => 10000, // <--- And retrieve 10 docs
+                        'body' => [
+                            'query' => [
+                                'bool' => [
+                                    'must' => [
+                                        ['match' => [
+                                            'co_quan' => $text_search
+                                        ]],
+                                                                  
+                                    ],
+                                    'filter' => [
+                                        'bool' => [
+                                            'must' => [
+                                                
+                                                ['term' => [
+                                                    'hoc_vi.keyword' => $chuc_danh
+                                                ]]
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ],
+                            'highlight' => [
+                                'fields' => [
+                                    ['co_quan' => [
+                                        'force_source' => true
+                                    ]]
+                                  //  '*' => (Object)[],
+                                ]
+                            ]
+                        ]
+                    ];
+
+                    $results = $client->search($params);  
+                } else if($tinh_thanh != null && $chuc_danh == null){
+                    $params = [
+                        'index' => 'ntbic_index',
+                        'type' => 'chuyen_gia_khcn',
+                        'from' => 0,   // <--- Start at #1
+                        'size' => 10000, // <--- And retrieve 10 docs
+                        'body' => [
+                            'query' => [
+                                'bool' => [
+                                    'must' => [
+                                        ['match' => [
+                                            'co_quan' => $text_search
+                                        ]],
+                                                                  
+                                    ],
+                                    'filter' => [
+                                        'bool' => [
+                                            'must' => [
+                                                ['term' => [ 
+                                                 'tinh_thanh.keyword' => $tinh_thanh
+                                                ]],
+                                                
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ],
+                            'highlight' => [
+                                'fields' => [
+                                    ['co_quan' => [
+                                        'force_source' => true
+                                    ]]
+                                  //  '*' => (Object)[],
+                                ]
+                            ]
+                        ]
+                    ];
+
+                    $results = $client->search($params);  
+                   
+                   
+                } else if($tinh_thanh == null && $chuc_danh == null){
+                    $params = [
+                        'index' => 'ntbic_index',
+                        'type' => 'chuyen_gia_khcn',
+                        'from' => 0,   // <--- Start at #1
+                        'size' => 10000, // <--- And retrieve 10 docs
+                        'body' => [
+                            'query' => [
+                                'bool' => [
+                                    'must' => [
+                                        ['match' => [
+                                            'co_quan' => $text_search
+                                        ]],
+                                                                  
+                                    ]
+                                ]
+                            ],
+                            'highlight' => [
+                                'fields' => [
+                                    ['co_quan' => [
+                                        'force_source' => true
+                                    ]]
+                                  //  '*' => (Object)[],
+                                ]
+                            ]
+                        ]
+                    ];
+
+                    $results = $client->search($params);  
+                    
+                }
+            } else if($tim_theo == 0){
+                    if($tinh_thanh != null && $chuc_danh != null){
+                    $params = [
+                        'index' => 'ntbic_index',
+                        'type' => 'chuyen_gia_khcn',
+                        'from' => 0,   // <--- Start at #1
+                        'size' => 10000, // <--- And retrieve 10 docs
+                        'body' => [
+                            'query' => [
+                                'bool' => [
+                                    'must' => [
+                                        ['multi_match' => [
+                                            'query' => $text_search,
+                                            'fields' => ['ho_va_ten^5','chuyen_nganh','co_quan','huong_nghien_cuu']
+                                        ]],
+                                                                  
+                                    ],
+                                    'filter' => [
+                                        'bool' => [
+                                            'must' => [
+                                                ['term' => [ 
+                                                 'tinh_thanh.keyword' => $tinh_thanh
+                                                ]],
+                                                ['term' => [
+                                                    'hoc_vi.keyword' => $chuc_danh
+                                                ]]
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ];
+
+                    $results = $client->search($params);  
+                        //dd($results);
+                } else if($tinh_thanh == null && $chuc_danh != null){
+                    $params = [
+                        'index' => 'ntbic_index',
+                        'type' => 'chuyen_gia_khcn',
+                        'from' => 0,   // <--- Start at #1
+                        'size' => 10000, // <--- And retrieve 10 docs
+                        'body' => [
+                            'query' => [
+                                'bool' => [
+                                    'must' => [
+                                        ['multi_match' => [
+                                            'query' => $text_search,
+                                            'fields' => ['ho_va_ten^5','chuyen_nganh','co_quan','huong_nghien_cuu']
+                                        ]],
+                                                                  
+                                    ],
+                                    'filter' => [
+                                        'bool' => [
+                                            'must' => [
+                                               
+                                                ['term' => [
+                                                    'hoc_vi.keyword' => $chuc_danh
+                                                ]]
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ];
+
+                    $results = $client->search($params);  
+                } else if($tinh_thanh != null && $chuc_danh == null){
+                    $params = [
+                        'index' => 'ntbic_index',
+                        'type' => 'chuyen_gia_khcn',
+                        'from' => 0,   // <--- Start at #1
+                        'size' => 10000, // <--- And retrieve 10 docs
+                        'body' => [
+                            'query' => [
+                                'bool' => [
+                                    'must' => [
+                                        ['multi_match' => [
+                                            'query' => $text_search,
+                                            'fields' => ['ho_va_ten^5','chuyen_nganh','co_quan','huong_nghien_cuu']
+                                        ]],
+                                                                  
+                                    ],
+                                    'filter' => [
+                                        'bool' => [
+                                            'must' => [
+                                                ['term' => [ 
+                                                 'tinh_thanh.keyword' => $tinh_thanh
+                                                ]],
+                                                
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ];
+
+                    $results = $client->search($params);  
+                   
+                   
+                } else if($tinh_thanh == null && $chuc_danh == null){
+                    $params = [
+                        'index' => 'ntbic_index',
+                        'type' => 'chuyen_gia_khcn',
+                        'from' => 0,   // <--- Start at #1
+                        'size' => 10000, // <--- And retrieve 10 docs
+                        'body' => [
+                           'query' => [
+                                'bool' => [
+                                    'must' => [
+                                        ['multi_match' => [
+                                            'query' => $text_search,
+                                            'fields' => ['ho_va_ten^3','chuyen_nganh','co_quan','huong_nghien_cuu']
+                                        ]]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ];
+
+                    $results = $client->search($params);  
+                    
+                }
+            }
             
-            $result = chuyen_gia_khcn::search($text_search)->paginate(10);
-		}
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            // khong cho text nao truyen vao
+        } else if($text_search == ''){
+            if($tinh_thanh != null && $chuc_danh != null){
+                    $params = [
+                        'index' => 'ntbic_index',
+                        'type' => 'chuyen_gia_khcn',
+                        'from' => 0,   // <--- Start at #1
+                        'size' => 10000, // <--- And retrieve 10 docs
+                        'body' => [
+                            'query' => [
+                                'bool' => [
+                                    'must' => [
+                                   
+                                        ['match' => [
+                                            'tinh_thanh' => $tinh_thanh
+                                        ]],
+                                        ['match' => [
+                                            'hoc_vi' => $chuc_danh
+                                        ]],                                       
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ];
 
-        } else $result = chuyen_gia_khcn::select('link_anh','ho_va_ten','hoc_vi','co_quan','chuyen_nganh','tinh_thanh','linkid','link_anh')->where('tinh_thanh','LIKE','%'.$tinh_thanh.'%')->where('hoc_vi','LIKE','%'.$chuc_danh.'%')->paginate($item_per_page);
-		
-		
-        
-//		$result = $result->where('tinh_thanh','LIKE','%'.$tinh_thanh.'%')->where('hoc_vi','LIKE','%'.$chuc_danh.'%')->select('link_anh','ho_va_ten','hoc_vi','co_quan','chuyen_nganh','tinh_thanh','linkid','link_anh')->paginate($item_per_page);
+                    $results = $client->search($params);  
+                } else if($tinh_thanh == null && $chuc_danh != null){
+                    $params = [
+                        'index' => 'ntbic_index',
+                        'type' => 'chuyen_gia_khcn',
+                        'from' => 0,   // <--- Start at #1
+                        'size' => 10000, // <--- And retrieve 10 docs
+                        'body' => [
+                            'query' => [
+                                'bool' => [
+                                    'must' => [
+                                    
+                                        ['match' => [
+                                            'hoc_vi' => $chuc_danh
+                                        ]]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ];
+
+                    $results = $client->search($params);  
+                } else if($tinh_thanh != null && $chuc_danh == null){
+                    $params = [
+                        'index' => 'ntbic_index',
+                        'type' => 'chuyen_gia_khcn',
+                        'from' => 0,   // <--- Start at #1
+                        'size' => 10000, // <--- And retrieve 10 docs
+                        'body' => [
+                            'query' => [
+                                'bool' => [
+                                    'must' => [
+                                 
+                                        ['match' => [
+                                            'tinh_thanh' => $tinh_thanh
+                                        ]]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ];
+
+                    $results = $client->search($params);  
+                   
+                   
+                } else if($tinh_thanh == null && $chuc_danh == null){
+		                $time_search += microtime(true);
+                        $result = chuyen_gia_khcn::paginate(10);
+                        return view('search_result.chuyen_gia')
+                        ->with([
+                            'hoc_vi'=>$hv,
+                            'tinh_thanh'=>$tt,
+                            'datas'=>$result,
+                            'tim_theo'=>$tim_theo,
+                            'tinh_thanh_current' => $tinh_thanh,
+                            'hoc_vi_current' => $chuc_danh,
+                            'time_search' => $time_search,
+                            'text_search' => $text_search,
+                            ]);
+                    
+                    
+                }
+            
+            
+     
+        } 
+
 
 		$time_search += microtime(true);
+    
+  
+        
+        $result = $results['hits']['hits'];
+        //dd($results);
+        $result = $this->paginate_customer($result,10);
+        
 		return view('search_result.chuyen_gia')
 		->with([
 			'hoc_vi'=>$hv,
@@ -165,14 +919,18 @@ class SearchController extends Controller
 			'time_search' => $time_search,
 			'text_search' => $text_search,
 			]);
+   
 	}
+	private function paginate_customer($items,$perPage)
+    {
+        $pageStart = \Request::get('page', 1);
+        // Start displaying items from this number;
+        $offSet = ($pageStart * $perPage) - $perPage; 
 
-//	private function orWhereTextSearchs($result, $text_searchs, $column)
-//	{
-//		return $result->orwhere(function($query) use ($text_searchs, $column) {
-//				foreach ($text_searchs as $value) {
-//					$query->whereRaw('LOWER('.$column.') LIKE BINARY "%'.$value.'%"');
-//				}
-//			});	
-//	}
+        // Get only the items you need using array_slice
+        $itemsForCurrentPage = array_slice($items, $offSet, $perPage, true);
+
+        return new LengthAwarePaginator($itemsForCurrentPage, count($items), $perPage,Paginator::resolveCurrentPage(), array('path' => Paginator::resolveCurrentPath()));
+    }
+
 }
