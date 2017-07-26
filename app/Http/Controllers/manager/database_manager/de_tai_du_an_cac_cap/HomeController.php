@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\de_tai_du_an_cac_cap;
 use App\DatabasePermission;
 use Illuminate\Support\Facades\Auth;
+use Elasticsearch\ClientBuilder;
+
 class HomeController extends Controller
 {
     public function index(){

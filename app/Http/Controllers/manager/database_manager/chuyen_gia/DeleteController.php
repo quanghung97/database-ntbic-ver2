@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Redirect;
 use App\cong_trinh_nghien_cuu;
 use App\ket_qua_nghien_cuu;
 use File;
+use Elasticsearch\ClientBuilder;
+
 class DeleteController extends Controller
 {
     public function index($id, Request $request){
@@ -20,13 +22,25 @@ class DeleteController extends Controller
            
        }
    
-     
+     $id = $cg->id;
   $cg->save();
     	$ctr=cong_trinh_nghien_cuu::where('id_profile',$id);
     	$ctr->delete();
     	$kq=ket_qua_nghien_cuu::where('id_profile',$id);
     	$kq->delete();
     	$cg->delete();
+        //delete index elastic
+        $client = ClientBuilder::create()->build();
+
+        $params = [
+            'index' => 'ntbic_index',
+            'type' => 'chuyen_gia_khcn',
+            'id' => $id
+        ];
+
+        // Delete doc at /my_index/my_type/my_id
+        $client->delete($params);
+        
     	return Redirect::back()->with('status', 'Xóa thành công một chuyên gia!');
     }
 }

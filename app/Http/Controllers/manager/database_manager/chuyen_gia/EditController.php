@@ -9,6 +9,8 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\FormThemChuyenGiaRequest;
 use File;
+use Elasticsearch\ClientBuilder;
+
 class EditController extends Controller
 {
 	public function stripVN($str) {
@@ -72,6 +74,26 @@ class EditController extends Controller
    
      
   $chuyen_gia->save();
+        
+        
+        
+        
+        $id = $chuyen_gia->id;
+        //delete index elastic
+        $client = ClientBuilder::create()->build();
+
+        $params = [
+            'index' => 'ntbic_index',
+            'type' => 'chuyen_gia_khcn',
+            'id' => $id
+        ];
+
+        // Delete doc at /my_index/my_type/my_id
+        $client->delete($params);
+        //re add other index to elastic
+        $data = chuyen_gia_khcn::find($id);
+        $data->addToIndex();
+        
        return Redirect::back()->with('status','Sửa thành công chuyên gia!');
     }
 }

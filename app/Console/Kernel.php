@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+//        \App\Console\Commands\SyncELasticDB::class,
     ];
 
     /**
@@ -24,8 +24,11 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+//         $schedule->call(function () {
+//            App\chuyen_gia_khcn::reindex();
+//        })->everyMinute();
+//        $schedule->call('Full\Namespace\YourController@method')
+//                ->hourly();
     }
 
     /**

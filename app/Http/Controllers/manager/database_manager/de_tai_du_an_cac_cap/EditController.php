@@ -10,6 +10,7 @@ use App\de_tai_du_an_cac_cap;
 use Illuminate\Support\Facades\Input;
 use DB;
 use App\chuyen_nganh_khcn;
+use Elasticsearch\ClientBuilder;
 
 class EditController extends Controller
 {
@@ -60,8 +61,22 @@ class EditController extends Controller
         		'mota_quytrinh_chuyengiao' => $mota_quytrinh_chuyengiao,
         		'ket_qua_thuc_hien_ung_dung' => $ket_qua_thuc_hien_ung_dung,
         		]);
+            
+        //delete index elastic
+        $client = ClientBuilder::create()->build();
 
-        	return Redirect::to('quan-tri-vien/quan-ly-du-lieu/de-tai-du-an-cac-cap/sua/'.$id)->withInput()->with('status', 'Sửa thành công một đề tài dự án!');
+        $params = [
+            'index' => 'ntbic_index',
+            'type' => 'de_tai_du_an_cac_cap',
+            'id' => $id
+        ];
+
+        // Delete doc at /my_index/my_type/my_id
+        $client->delete($params);
+        //re add other index to elastic
+        $data = de_tai_du_an_cac_cap::find($id);
+        $data->addToIndex();
+        	 return Redirect::back()->with('status','Sửa thành công đề tài!');
         }
 	}
 }

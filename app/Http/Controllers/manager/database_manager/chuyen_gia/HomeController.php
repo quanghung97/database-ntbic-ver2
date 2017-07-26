@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Redirect;
 use App\chuyen_gia_khcn;
 use App\DatabasePermission;
 use Illuminate\Support\Facades\Auth;
+use Elasticsearch\ClientBuilder;
+
 class HomeController extends Controller
 {
     public function index()
@@ -22,6 +24,7 @@ class HomeController extends Controller
     	if($user->author == 'admin'){
     		$can_insert = $can_update = $can_delete = true;
     	}
+        //chuyen_gia_khcn::reindex();
     	return view('database_manager.chuyen_gia.index')->with([
 	    		'chuyen_gia'=>$cg,
 	    		'can_insert' => $can_insert,

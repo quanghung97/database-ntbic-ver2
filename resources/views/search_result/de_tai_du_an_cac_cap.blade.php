@@ -81,7 +81,76 @@
 					<th class="thoi_gian">Thời gian kết thúc</th>
 				</thead>
 				<tbody>
+@if($datas[0]['_source']['id'] != null)
+                @if($tim_theo == 1)
 					@foreach($datas as $key=>$item)
+						<tr>
+							<td>{!! ($datas->currentPage() - 1)*10 + $key +1 !!}</td>
+							<td><a href="{{ URL::asset('de-tai-du-an-cac-cap/'.$item['_source']['link']) }}" class="ten_de_tai">{!!$item['highlight']['ten_de_tai'][0]!!}</a></td>
+							<td>{{$item['_source']['linh_vuc']}}</td>
+							<td>{{$item['_source']['maso_kyhieu']}}</td>
+							<td>{{$item['_source']['chu_nhiem_detai']}}</td>
+							<td>{{$item['_source']['nam_bat_dau']}}-{{$item['_source']['nam_ket_thuc']}}</td>
+						</tr>
+					@endforeach
+				@elseif($tim_theo == 2)
+					@foreach($datas as $key=>$item)
+						<tr>
+							<td>{!! ($datas->currentPage() - 1)*10 + $key +1 !!}</td>
+							<td><a href="{{ URL::asset('de-tai-du-an-cac-cap/'.$item['_source']['link']) }}" class="ten_de_tai">{{$item['_source']['ten_de_tai']}}</a></td>
+							<td>{{$item['_source']['linh_vuc']}}</td>
+							<td>{{$item['_source']['maso_kyhieu']}}</td>
+							<td>{!!$item['highlight']['chu_nhiem_detai'][0]!!}</td>
+							<td>{{$item['_source']['nam_bat_dau']}}-{{$item['_source']['nam_ket_thuc']}}</td>
+						</tr>
+					@endforeach
+				@elseif($tim_theo == 3)
+					@foreach($datas as $key=>$item)
+						<tr>
+							<td>{!! ($datas->currentPage() - 1)*10 + $key +1 !!}</td>
+							<td><a href="{{ URL::asset('de-tai-du-an-cac-cap/'.$item['_source']['link']) }}" class="ten_de_tai">{{$item['_source']['ten_de_tai']}}</a></td>
+							<td>{{$item['_source']['linh_vuc']}}</td>
+							<td>{!!$item['highlight']['maso_kyhieu'][0]!!}</td>
+							<td>{{$item['_source']['chu_nhiem_detai']}}</td>
+							<td>{{$item['_source']['nam_bat_dau']}}-{{$item['_source']['nam_ket_thuc']}}</td>
+						</tr>
+					@endforeach
+				@elseif($tim_theo == 4)
+					@foreach($datas as $key=>$item)
+						<tr>
+							<td>{!! ($datas->currentPage() - 1)*10 + $key +1 !!}</td>
+							<td><a href="{{ URL::asset('de-tai-du-an-cac-cap/'.$item['_source']['link']) }}" class="ten_de_tai">{{$item['_source']['ten_de_tai']}}</a></td>
+							<td>{{$item['_source']['linh_vuc']}}</td>
+							<td>{{$item['_source']['maso_kyhieu']}}</td>
+							<td>{{$item['_source']['chu_nhiem_detai']}}</td>
+							<td>{{$item['_source']['nam_bat_dau']}}-{{$item['_source']['nam_ket_thuc']}}</td>
+						</tr>
+					@endforeach
+				@elseif($tim_theo == 5)
+					@foreach($datas as $key=>$item)
+						<tr>
+							<td>{!! ($datas->currentPage() - 1)*10 + $key +1 !!}</td>
+							<td><a href="{{ URL::asset('de-tai-du-an-cac-cap/'.$item['_source']['link']) }}" class="ten_de_tai">{{$item['_source']['ten_de_tai']}}</a></td>
+							<td>{{$item['_source']['linh_vuc']}}</td>
+							<td>{{$item['_source']['maso_kyhieu']}}</td>
+							<td>{{$item['_source']['chu_nhiem_detai']}}</td>
+							<td>{{$item['_source']['nam_bat_dau']}}-{{$item['_source']['nam_ket_thuc']}}</td>
+						</tr>
+					@endforeach
+				@elseif($tim_theo == 0)
+					@foreach($datas as $key=>$item)
+						<tr>
+							<td>{!! ($datas->currentPage() - 1)*10 + $key +1 !!}</td>
+							<td><a href="{{ URL::asset('de-tai-du-an-cac-cap/'.$item['_source']['link']) }}" class="ten_de_tai">{{$item['_source']['ten_de_tai']}}</a></td>
+							<td>{{$item['_source']['linh_vuc']}}</td>
+							<td>{{$item['_source']['maso_kyhieu']}}</td>
+							<td>{{$item['_source']['chu_nhiem_detai']}}</td>
+							<td>{{$item['_source']['nam_bat_dau']}}-{{$item['_source']['nam_ket_thuc']}}</td>
+						</tr>
+					@endforeach
+				@endif
+@else
+                    @foreach($datas as $key=>$item)
 						<tr>
 							<td>{!! ($datas->currentPage() - 1)*10 + $key +1 !!}</td>
 							<td><a href="{{ URL::asset('de-tai-du-an-cac-cap/'.$item->link) }}" class="ten_de_tai">{{$item->ten_de_tai}}</a></td>
@@ -91,6 +160,8 @@
 							<td>{{$item->nam_bat_dau}}-{{$item->nam_ket_thuc}}</td>
 						</tr>
 					@endforeach
+
+@endif					
 				</tbody>
 			</table>
 			<div>

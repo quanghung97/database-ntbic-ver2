@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
+
+use Elasticsearch\ClientBuilder;
 class NewController extends Controller
 {
 	public function stripVN($str) {
@@ -71,9 +73,26 @@ class NewController extends Controller
        		$chuyen_gia1->link_anh='/storage/app/public/media/profile_khcn/default.jpg';
        }
        $chuyen_gia1->save();
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+//sync with elasticDB(indexing) 
+       $add = chuyen_gia_khcn::find($id);
+        $add->addToIndex();
+        
+       
        return Redirect::back()->with('status', 'Thêm thành công một chuyên gia!');
     }
 
+
+    
     protected function ajax_new_record(Request $request)
     {
 
@@ -121,6 +140,11 @@ class NewController extends Controller
              $chuyen_gia1->linkid=$text;
              $chuyen_gia1->link_anh='/storage/app/public/media/profile_khcn/default.jpg';
              $chuyen_gia1->save();
+            
+            //sync elasticDB(indexing)
+            $add = chuyen_gia_khcn::find($chuyen_gia1->id);
+            $add->addToIndex();
+            
              // insert cong trinh nghien cuu va ket qua nghien cuu
              if(substr(trim($request->ket_qua_nghien_cuu),0,1)=='+'){
                 $ket_qua=explode("+", substr(trim($request->ket_qua_nghien_cuu),1));
@@ -144,6 +168,11 @@ class NewController extends Controller
                   'id_profile'=>$chuyen_gia->id,
                   'content'=>$ket_qua[$i],
                   ]);
+                    
+                    //ko lien quan toi muc search mat giao dien (cai nay thuoc tung ca nhan )
+                //sync elasticDB(indexing ket_qua_nghien_cuu)    
+//                 $add1 = ket_qua_nghien_cuu::find($chuyen_gia->id);
+//                $add1->addToIndex();
                 }
               }
               for($i=0;$i<$ct_size;$i++)
@@ -154,6 +183,7 @@ class NewController extends Controller
                   'id_profile'=>$chuyen_gia->id,
                   'content'=>$cong_trinh[$i],
                   ]);
+                //sync elasticDB(indexing cong_trinh_nghien_cuu)      
                 }
               }
               return json_encode(['errors'=>'']);
