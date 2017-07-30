@@ -11,6 +11,8 @@ use App\doanh_nghiep_khcn;
 use Carbon\Carbon;
 use Validator;
 use Illuminate\Support\Facades\Redirect;
+use Elasticsearch\ClientBuilder;
+
 class NewController extends Controller
 {
 	
@@ -55,7 +57,9 @@ class NewController extends Controller
      	$entry->cong_nghe_noi_bat = $request->cong_nghe_noi_bat;
      	$entry->su_dung_cong_nghe =$request->su_dung_cong_nghe;
      	$entry->save();
-
+        
+        $id = $entry->id;
+        
           $link = $this->text_to_link($entry->id.'-'.$entry->ten_doanh_nghiep);
           $entry->link = substr($link,0,45);
           $entry->save();
@@ -67,7 +71,14 @@ class NewController extends Controller
                $logo->move('storage/app/public/media/doanh-nghiep', $logo_name);
           } else $entry->logo = '/storage/app/public/media/doanh-nghiep/default.jpg';
           $entry->save();
-
+            
+        
+        
+        
+        //sync with elasticDB(indexing) 
+       $add = doanh_nghiep_khcn::find($id);
+        $add->addToIndex();
+        
           return Redirect::back()->with('status', 'Thêm thành công một doanh nghiệp!');
     }
 
@@ -159,7 +170,12 @@ class NewController extends Controller
             $entry->logo = 'storage/app/public/media/doanh-nghiep/default.jpg';
             $entry->link ='';
             $entry->save();
-
+            
+            //sync elastic
+            $id = $entry->id;
+            $add = doanh_nghiep_khcn::find($id);
+        $add->addToIndex();
+            
             $link = $this->text_to_link($entry->id.'-'.$entry->ten_doanh_nghiep);
             $entry->link = substr($link,0,45);
             $entry->save();

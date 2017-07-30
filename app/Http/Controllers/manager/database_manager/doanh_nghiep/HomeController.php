@@ -10,6 +10,7 @@ use App\linh_vuc_san_pham;
 use App\tinh_thanh_pho;
 use App\DatabasePermission;
 use Illuminate\Support\Facades\Auth;
+use Elasticsearch\ClientBuilder;
 
 class HomeController extends Controller
 {

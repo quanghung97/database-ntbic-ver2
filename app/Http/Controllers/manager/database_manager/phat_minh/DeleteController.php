@@ -10,6 +10,8 @@ use App\bang_phat_minh_sang_che;
 use Illuminate\Support\Facades\Input;
 use Laracasts\Flash\FlashServiceProvider;
 use File;
+use Elasticsearch\ClientBuilder;
+
 
 class DeleteController extends Controller
 {
@@ -26,6 +28,17 @@ class DeleteController extends Controller
         $phat_minh->save();
     	$rel=bang_phat_minh_sang_che::find($id);
     	$rel->delete();
+          //delete index elastic
+        $client = ClientBuilder::create()->build();
+
+        $params = [
+            'index' => 'ntbic_index',
+            'type' => 'bang_phat_minh_sang_che',
+            'id' => $id
+        ];
+
+        // Delete doc at /my_index/my_type/my_id
+        $client->delete($params);
     	return Redirect::back()->with('status', 'xóa thành công một phát minh!');
     }
 }

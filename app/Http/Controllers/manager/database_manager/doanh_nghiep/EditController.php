@@ -10,6 +10,8 @@ use App\tinh_thanh_pho;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Redirect;
 use File;
+use Elasticsearch\ClientBuilder;
+
 class EditController extends Controller
 {
     public function index($id) {
@@ -64,6 +66,25 @@ class EditController extends Controller
            $entry->logo = '/storage/app/public/media/doanh-nghiep/default.jpg';
            
        }
+        
+        $id = $entry->id;
+        //delete index elastic
+        $client = ClientBuilder::create()->build();
+
+        $params = [
+            'index' => 'ntbic_index',
+            'type' => 'doanh_nghiep_khcn',
+            'id' => $id
+        ];
+
+        // Delete doc at /my_index/my_type/my_id
+        $client->delete($params);
+        //re add other index to elastic
+        $data = doanh_nghiep_khcn::find($id);
+        $data->addToIndex();
+        
+        
+        
          $entry->save();
         return Redirect::back()->with('status', 'Sửa thành công một doanh nghiệp!');
     }

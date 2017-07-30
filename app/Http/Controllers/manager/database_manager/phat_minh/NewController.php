@@ -11,6 +11,8 @@ use App\loai_phat_minh_sang_che;
 use Carbon\Carbon;
 use DB;
 use Illuminate\Support\Facades\Redirect;
+use Elasticsearch\ClientBuilder;
+
 class NewController extends Controller
 {
     public function stripVN($str) {
@@ -67,6 +69,9 @@ class NewController extends Controller
        }
      
       $phat_minh1->save();
+         //sync with elasticDB(indexing) 
+       $add = bang_phat_minh_sang_che::find($id);
+        $add->addToIndex();
       return Redirect::back()->with('status', 'Thêm thành công chuyên gia!');
     }
      protected function ajax_new_record(Request $request)
@@ -78,20 +83,32 @@ class NewController extends Controller
         // $errors[] = Họ và tên không được rỗng !
         // return json_encode(['errors'=>'']) để trả về danh sách lỗi. trong code javascript đã có code để hiện
         $check = false;
-        if(bang_phat_minh_sang_che::insert([
-              'ten' => $request->ten,
-              'sobang_kyhieu' => $request->sobang_kyhieu,
-              'ngay_cong_bo' => $request->ngay_cong_bo,
-              'ngay_cap'=> $request->ngay_cap,
-              'chu_so_huu_chinh'=> $request->chu_so_huu_chinh,
-              'tac_gia' => $request->tac_gia,
-              'diem_noi_bat' => $request->diem_noi_bat,
-              'mota_sangche_phatminh_giaiphap' => $request->mota_sangche_phatminh_giaiphap,
-              'noidung_cothe_chuyengiao' => $request->noidung_cothe_chuyengiao,
-               'thitruong_ungdung' => $request->thitruong_ungdung,
-              'linh_vuc_khcn' => $request->linh_vuc_khcn,
-              'loai_phat_minh_sang_che' => $request->loai_phat_minh_sang_che,
-          ])){
+        $phat_minh=new bang_phat_minh_sang_che;
+       $phat_minh->ten=$request->ten;
+       $phat_minh->sobang_kyhieu=$request->sobang_kyhieu;
+       $phat_minh->ngay_cong_bo=$request->ngay_cong_bo;
+       $phat_minh->ngay_cap=$request->ngay_cap;
+       $phat_minh->chu_so_huu_chinh=$request->chu_so_huu_chinh;
+       $phat_minh->tac_gia=$request->tac_gia;
+       $phat_minh->diem_noi_bat=$request->diem_noi_bat;
+       $phat_minh->mota_sangche_phatminh_giaiphap=$request->mota_sangche_phatminh_giaiphap;
+       $phat_minh->noidung_cothe_chuyengiao=$request->noidung_cothe_chuyengiao;
+       $phat_minh->thitruong_ungdung=$request->thitruong_ungdung;
+        $phat_minh->linh_vuc_khcn=$request->linh_vuc_khcn;
+       $phat_minh->loai_phat_minh_sang_che=$request->loai_phat_minh_sang_che;
+       $phat_minh->save();
+       $id=$phat_minh->id;
+      
+     $ten=$phat_minh->ten;
+       $phat_minh1=bang_phat_minh_sang_che::find($id);
+       $text=$id.$this->stripVN($ten);
+       $text1=substr($text,0,45);
+       $phat_minh1->link=$text1;
+        $phat_minh->save();     
+         
+        if($phat_minh->save()){
+             $add = bang_phat_minh_sang_che::find($id);
+            $add->addToIndex();
               return json_encode(['errors'=>'']);
             //thêm chuyên gia thành công
         }

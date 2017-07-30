@@ -12,6 +12,7 @@ use DB;
 use App\linh_vuc_khcn;
 use App\loai_phat_minh_sang_che;
 use File;
+use Elasticsearch\ClientBuilder;
 
 class EditController extends Controller
 {
@@ -76,6 +77,23 @@ class EditController extends Controller
    
      
       $phat_minh->save();
+       
+       //delete index elastic
+        $client = ClientBuilder::create()->build();
+
+        $params = [
+            'index' => 'ntbic_index',
+            'type' => 'bang_phat_minh_sang_che',
+            'id' => $id
+        ];
+
+        // Delete doc at /my_index/my_type/my_id
+        $client->delete($params);
+        //re add other index to elastic
+        $data = bang_phat_minh_sang_che::find($id);
+        $data->addToIndex();
+       
+       
       return Redirect::back()->with('status', 'Sửa thành công chuyên gia!');
     }
 }
