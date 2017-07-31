@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use App\DatabasePermission;
 use Illuminate\Support\Facades\Auth;
+use Elasticsearch\ClientBuilder;
+
 class HomeController extends Controller
 {
     public function index()

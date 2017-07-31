@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
 use File;
+use Elasticsearch\ClientBuilder;
+
 class Helper{
      public static function format_message($message,$type)
     {
@@ -31,6 +33,19 @@ class DeleteController extends Controller
        }
          $entry->save();
         DB::table('san_pham')->where('id',$id)->delete();
+        
+        //delete index elastic
+        $client = ClientBuilder::create()->build();
+
+        $params = [
+            'index' => 'ntbic_index',
+            'type' => 'san_pham',
+            'id' => $id
+        ];
+
+        // Delete doc at /my_index/my_type/my_id
+        $client->delete($params);
+        
         return Redirect::back()->with('status', 'Xóa thành công một sản phẩm!');
     }
 }

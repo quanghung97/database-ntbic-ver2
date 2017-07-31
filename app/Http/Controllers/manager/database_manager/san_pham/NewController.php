@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Log;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
+use Elasticsearch\ClientBuilder;
+
 class Helper{
      public static function format_message($message,$type)
     {
@@ -42,7 +44,7 @@ class NewController extends Controller
         $link = $this->text_to_link($entry->id.'-'.$entry->ten_san_pham);
           $entry->link = substr($link,0,45);
           $entry->save();
-       
+       $id = $entry->id;
         if($request->hasFile('logo')) {
                $logo = $request->file('logo');
                $logo_name = $entry->link.'.'.$logo->getClientOriginalExtension();
@@ -50,6 +52,11 @@ class NewController extends Controller
                $logo->move('storage/app/public/media/spkhcn/', $logo_name);
           } else $entry->anh_san_pham = '/storage/app/public/media/spkhcn/default.jpg';
           $entry->save();
+        
+        //sync with elasticDB(indexing) 
+       $add = san_pham::find($id);
+        $add->addToIndex();
+        
         return Redirect::back()->with('status', 'Thêm thành công một sản phẩm!');
     }
  public function text_to_link($string){
@@ -142,8 +149,16 @@ class NewController extends Controller
         $entry->save();
         $link = $this->text_to_link($entry->id.'-'.$entry->ten_san_pham);
           $entry->link = substr($link,0,45);
+             $id = $entry->id;
           $entry->save();
         if($entry->save()) {
+            
+            //sync elastic
+           
+            $add = san_pham::find($id);
+        $add->addToIndex();
+
+            
             return json_encode(['errors'=>'']);
         }
         else

@@ -12,6 +12,8 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use File;
+use Elasticsearch\ClientBuilder;
+
 
 class Helper{
      public static function format_message($message,$type)
@@ -66,6 +68,26 @@ class EditController extends Controller
            $entry->anh_san_pham = '/storage/app/public/media/spkhcn/default.jpg';
            
        }
+        
+        
+         
+        //delete index elastic
+        $client = ClientBuilder::create()->build();
+
+        $params = [
+            'index' => 'ntbic_index',
+            'type' => 'san_pham',
+            'id' => $id
+        ];
+
+        // Delete doc at /my_index/my_type/my_id
+        $client->delete($params);
+        //re add other index to elastic
+        $data = san_pham::find($id);
+        $data->addToIndex();
+        
+        
+        
          $entry->save();
         return Redirect::back()->with('status', 'Sửa thành công một sản phẩm!');
     }

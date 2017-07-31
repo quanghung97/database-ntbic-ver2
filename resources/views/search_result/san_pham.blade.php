@@ -33,19 +33,13 @@
 							  	@if($tim_theo == '3')
 							  		<option value="3" selected="">Mô tả sản phẩm, ứng dụng</option>
 							  	@else
-							  		<option value="3">Hướng nghiên cứu</option>
+							  		<option value="3">Mô tả sản phẩm, ứng dụng</option>
 							  	@endif
 
 							  	@if($tim_theo == '4')
-							  		<option value="4" selected="">Giải quyết bài toán</option>
+							  		<option value="4" selected="">Đặc điểm nổi bật</option>
 							  	@else
-							  		<option value="4">Giải quyết bài toán</option>
-							  	@endif
-
-							  	@if($tim_theo == '5')
-							  		<option value="5" selected="">Thị trường ứng dụng</option>
-							  	@else
-							  		<option value="5">Thị trường ứng dụng</option>
+							  		<option value="4">Đặc điểm nổi bật</option>
 							  	@endif
 
 							</select>
@@ -82,10 +76,63 @@
 				<th class="anh">Hình ảnh</th>
 				<th class="name">Tên công nghệ, ứng dụng</th>
 				<th class="linh_vuc">Lĩnh vực KH&CN</th>
-				<th class="ung_dung">Khả năng ứng dụng</th>
+				<th class="ung_dung">Đặc điểm nổi bật</th>
 			</thead>
 			<tbody>
+@if($datas[0]['_source']['id'] != null)
+    @if($tim_theo == 1)
 				@foreach($datas as $key=>$sp)
+					<tr>
+						<td>{!! ($datas->currentPage() - 1)*10 + $key +1 !!}</td>
+						<td><img src="{{ URL::asset($sp['_source']['anh_san_pham']) }}" alt="ảnh" class="anh_san_pham"></td>
+						<td><a href="{{ URL::asset('san-pham/'.$sp['_source']['link']) }}" class="ten_san_pham">{!!$sp['highlight']['ten_san_pham'][0]!!}</a></td>
+						<td>{{$sp['_source']['linh_vuc']}}</td>
+						<td><div class="collapse-div">{{$sp['_source']['dac_diem_noi_bat']}}</div>
+					</tr>
+				@endforeach
+    @elseif($tim_theo == 2)	
+                @foreach($datas as $key=>$sp)
+					<tr>
+						<td>{!! ($datas->currentPage() - 1)*10 + $key +1 !!}</td>
+						<td><img src="{{ URL::asset($sp['_source']['anh_san_pham']) }}" alt="ảnh" class="anh_san_pham"></td>
+						<td><a href="{{ URL::asset('san-pham/'.$sp['_source']['link']) }}" class="ten_san_pham">{{$sp['_source']['ten_san_pham']}}</a></td>
+						<td>{{$sp['_source']['linh_vuc']}}</td>
+						<td><div class="collapse-div">{{$sp['_source']['dac_diem_noi_bat']}}</div>
+					</tr>
+				@endforeach
+    @elseif($tim_theo == 3)	
+                @foreach($datas as $key=>$sp)
+					<tr>
+						<td>{!! ($datas->currentPage() - 1)*10 + $key +1 !!}</td>
+						<td><img src="{{ URL::asset($sp['_source']['anh_san_pham']) }}" alt="ảnh" class="anh_san_pham"></td>
+						<td><a href="{{ URL::asset('san-pham/'.$sp['_source']['link']) }}" class="ten_san_pham">{{$sp['_source']['ten_san_pham']}}</a></td>
+						<td>{{$sp['_source']['linh_vuc']}}</td>
+						<td><div class="collapse-div">{{$sp['_source']['dac_diem_noi_bat']}}</div>
+					</tr>
+				@endforeach
+    @elseif($tim_theo == 4)	
+                @foreach($datas as $key=>$sp)
+					<tr>
+						<td>{!! ($datas->currentPage() - 1)*10 + $key +1 !!}</td>
+						<td><img src="{{ URL::asset($sp['_source']['anh_san_pham']) }}" alt="ảnh" class="anh_san_pham"></td>
+						<td><a href="{{ URL::asset('san-pham/'.$sp['_source']['link']) }}" class="ten_san_pham">{{$sp['_source']['ten_san_pham']}}</a></td>
+						<td>{{$sp['_source']['linh_vuc']}}</td>
+						<td><div class="collapse-div">{!!$sp['highlight']['dac_diem_noi_bat'][0]!!}</div>
+					</tr>
+				@endforeach
+    @elseif($tim_theo == 0)		
+               @foreach($datas as $key=>$sp)
+					<tr>
+						<td>{!! ($datas->currentPage() - 1)*10 + $key +1 !!}</td>
+						<td><img src="{{ URL::asset($sp['_source']['anh_san_pham']) }}" alt="ảnh" class="anh_san_pham"></td>
+						<td><a href="{{ URL::asset('san-pham/'.$sp['_source']['link']) }}" class="ten_san_pham">{{$sp['_source']['ten_san_pham']}}</a></td>
+						<td>{{$sp['_source']['linh_vuc']}}</td>
+						<td><div class="collapse-div">{{$sp['_source']['dac_diem_noi_bat']}}</div>
+					</tr>
+				@endforeach
+    @endif
+@else		
+                @foreach($datas as $key=>$sp)
 					<tr>
 						<td>{!! ($datas->currentPage() - 1)*10 + $key +1 !!}</td>
 						<td><img src="{{ URL::asset($sp->anh_san_pham) }}" alt="ảnh" class="anh_san_pham"></td>
@@ -94,6 +141,7 @@
 						<td><div class="collapse-div">{{$sp->dac_diem_noi_bat}}</div>
 					</tr>
 				@endforeach
+@endif
 
 			</tbody>
 		</table>
