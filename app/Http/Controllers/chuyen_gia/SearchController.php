@@ -879,9 +879,12 @@ class SearchController extends Controller
                    
                 } else if($tinh_thanh == null && $chuc_danh == null){
 		                $time_search += microtime(true);
+                
                         $result = chuyen_gia_khcn::paginate(10);
+                        //dd($result);
                         return view('search_result.chuyen_gia')
                         ->with([
+                            'data_mysql'=>true,
                             'hoc_vi'=>$hv,
                             'tinh_thanh'=>$tt,
                             'datas'=>$result,
@@ -905,11 +908,14 @@ class SearchController extends Controller
   
         
         $result = $results['hits']['hits'];
-        //dd($results);
+//        dd($result);
+        $result = json_decode(json_encode($result), FALSE);
+        //dd($result);
         $result = $this->paginate_customer($result,10);
-        
+        //dd($result);
 		return view('search_result.chuyen_gia')
 		->with([
+            'data_mysql'=>false,
 			'hoc_vi'=>$hv,
 			'tinh_thanh'=>$tt,
 			'datas'=>$result,

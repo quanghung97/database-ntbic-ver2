@@ -298,7 +298,7 @@ class SearchController extends Controller
                             ],
                             'highlight' => [
                                 'fields' => [
-                                    ['co_quan_chu_tri' => [
+                                    ['dac_diem_noi_bat' => [
                                         'force_source' => true
                                     ]]
                                   //  '*' => (Object)[],
@@ -393,6 +393,7 @@ class SearchController extends Controller
                 
                 return view('search_result.san_pham')
                     ->with([
+                        'data_mysql'=>true,
                         'linh_vuc'=>$lv,
                         'datas'=>$result,
                         'tim_theo' => $tim_theo,
@@ -414,10 +415,39 @@ class SearchController extends Controller
         
          $result = $results['hits']['hits'];
         //dd($results);
+         ///////////////////////////////////////////////////////////
+         $result = json_decode(json_encode($result), FALSE);
+        
+        $response_lv = linh_vuc_san_pham::complexSearch([
+            'index' => 'ntbic_index',
+            'type' => 'linh_vuc_san_pham',
+            'body' => [
+                'query' => [
+                    'match_all' => (Object)[],
+                ],
+                'size' => 1000
+            ]
+        ]);
+       // dd($result);
+        foreach($result as $key => $value){
+            foreach($response_lv as $key2 => $value2){
+                if($value2->id == $value->_source->linh_vuc){
+                    $value->_source->linh_vuc = $value2->linh_vuc;
+                    
+                }
+                
+            }
+             
+        }
+        //convert object to arr
+        //$result = json_decode(json_encode($result), true);
+        ///////////////////////////////////////////////////////////////
+        //dd($result);
         $result = $this->paginate_customer($result,10);
         
 		return view('search_result.san_pham')
 		->with([
+            'data_mysql'=>false,
 			'linh_vuc'=>$lv,
 			'datas'=>$result,
 			'tim_theo' => $tim_theo,

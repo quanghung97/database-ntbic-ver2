@@ -112,65 +112,65 @@
 				<th class="rank">Xếp hạng</th>
 			</thead>
 			<tbody>
-@if($datas[0]['_source']['id'] != null)
+@if($data_mysql == false)
     @if($tim_theo == 1)
 				@foreach($datas as $key=>$dn)
 					<tr>
 						<td>{!! ($datas->currentPage() - 1)*10 + $key +1 !!}</td>
-						<td><img src="{{ URL::asset($dn['_source']['logo']) }}" alt="logo" class="logo_doanh_nghiep"></td>
-						<td><a href="{{ URL::asset('doanh-nghiep/'.$dn['_source']['link']) }}" class="ten_doanh_nghiep">{!!$dn['highlight']['ten_doanh_nghiep'][0]!!}</a></td>
-						<td>{{$dn['_source']['linh_vuc']}}</td>
-						<td>{{$dn['_source']['dia_chi']}}</td>
-						<td>{{$dn['_source']['tinh_thanh_pho']}}</td>
-						<td>{{$dn['_source']['xep_hang_trinh_do_khcn']}}</td>
+						<td><img src="{{ URL::asset($dn->_source->logo ) }}" alt="logo" class="logo_doanh_nghiep"></td>
+						<td><a href="{{ URL::asset('doanh-nghiep/'.$dn->_source->link ) }}" class="ten_doanh_nghiep">{!!$dn->highlight->ten_doanh_nghiep[0]!!}</a></td>
+						<td>{{$dn->_source->linh_vuc }}</td>
+						<td>{{$dn->_source->dia_chi }}</td>
+						<td>{{$dn->_source->tinh_thanh_pho }}</td>
+						<td>{{$dn->_source->xep_hang_trinh_do_khcn }}</td>
 					</tr>
 				@endforeach
     @elseif($tim_theo == 2)
                 @foreach($datas as $key=>$dn)
 					<tr>
 						<td>{!! ($datas->currentPage() - 1)*10 + $key +1 !!}</td>
-						<td><img src="{{ URL::asset($dn['_source']['logo']) }}" alt="logo" class="logo_doanh_nghiep"></td>
-						<td><a href="{{ URL::asset('doanh-nghiep/'.$dn['_source']['link']) }}" class="ten_doanh_nghiep">{{$dn['_source']['ten_doanh_nghiep']}}</a></td>
-						<td>{{$dn['_source']['linh_vuc']}}</td>
-						<td>{{$dn['_source']['dia_chi']}}</td>
-						<td>{{$dn['_source']['tinh_thanh_pho']}}</td>
-						<td>{{$dn['_source']['xep_hang_trinh_do_khcn']}}</td>
+						<td><img src="{{ URL::asset($dn->_source->logo ) }}" alt="logo" class="logo_doanh_nghiep"></td>
+						<td><a href="{{ URL::asset('doanh-nghiep/'.$dn->_source->link ) }}" class="ten_doanh_nghiep">{{$dn->_source->ten_doanh_nghiep }}</a></td>
+						<td>{{$dn->_source->linh_vuc }}</td>
+						<td>{{$dn->_source->dia_chi }}</td>
+						<td>{{$dn->_source->tinh_thanh_pho }}</td>
+						<td>{{$dn->_source->xep_hang_trinh_do_khcn }}</td>
 					</tr>
 				@endforeach
     @elseif($tim_theo == 3)
                 @foreach($datas as $key=>$dn)
 					<tr>
 						<td>{!! ($datas->currentPage() - 1)*10 + $key +1 !!}</td>
-						<td><img src="{{ URL::asset($dn['_source']['logo']) }}" alt="logo" class="logo_doanh_nghiep"></td>
-						<td><a href="{{ URL::asset('doanh-nghiep/'.$dn['_source']['link']) }}" class="ten_doanh_nghiep">{{$dn['_source']['ten_doanh_nghiep']}}</a></td>
-						<td>{{$dn['_source']['linh_vuc']}}</td>
-						<td>{{$dn['_source']['dia_chi']}}</td>
-						<td>{{$dn['_source']['tinh_thanh_pho']}}</td>
-						<td>{{$dn['_source']['xep_hang_trinh_do_khcn']}}</td>
+						<td><img src="{{ URL::asset($dn->_source->logo ) }}" alt="logo" class="logo_doanh_nghiep"></td>
+						<td><a href="{{ URL::asset('doanh-nghiep/'.$dn->_source->link ) }}" class="ten_doanh_nghiep">{{$dn->_source->ten_doanh_nghiep }}</a></td>
+						<td>{{$dn->_source->linh_vuc }}</td>
+						<td>{{$dn->_source->dia_chi }}</td>
+						<td>{{$dn->_source->tinh_thanh_pho }}</td>
+						<td>{{$dn->_source->xep_hang_trinh_do_khcn }}</td>
 					</tr>
 				@endforeach
     @elseif($tim_theo == 4)
                 @foreach($datas as $key=>$dn)
 					<tr>
 						<td>{!! ($datas->currentPage() - 1)*10 + $key +1 !!}</td>
-						<td><img src="{{ URL::asset($dn['_source']['logo']) }}" alt="logo" class="logo_doanh_nghiep"></td>
-						<td><a href="{{ URL::asset('doanh-nghiep/'.$dn['_source']['link']) }}" class="ten_doanh_nghiep">{{$dn['_source']['ten_doanh_nghiep']}}</a></td>
-						<td>{{$dn['_source']['linh_vuc']}}</td>
-						<td>{{$dn['_source']['dia_chi']}}</td>
-						<td>{{$dn['_source']['tinh_thanh_pho']}}</td>
-						<td>{{$dn['_source']['xep_hang_trinh_do_khcn']}}</td>
+						<td><img src="{{ URL::asset($dn->_source->logo ) }}" alt="logo" class="logo_doanh_nghiep"></td>
+						<td><a href="{{ URL::asset('doanh-nghiep/'.$dn->_source->link ) }}" class="ten_doanh_nghiep">{{$dn->_source->ten_doanh_nghiep }}</a></td>
+						<td>{{$dn->_source->linh_vuc }}</td>
+						<td>{{$dn->_source->dia_chi }}</td>
+						<td>{{$dn->_source->tinh_thanh_pho }}</td>
+						<td>{{$dn->_source->xep_hang_trinh_do_khcn }}</td>
 					</tr>
 				@endforeach
     @else
                 @foreach($datas as $key=>$dn)
 					<tr>
 						<td>{!! ($datas->currentPage() - 1)*10 + $key +1 !!}</td>
-						<td><img src="{{ URL::asset($dn['_source']['logo']) }}" alt="logo" class="logo_doanh_nghiep"></td>
-						<td><a href="{{ URL::asset('doanh-nghiep/'.$dn['_source']['link']) }}" class="ten_doanh_nghiep">{{$dn['_source']['ten_doanh_nghiep']}}</a></td>
-						<td>{{$dn['_source']['linh_vuc']}}</td>
-						<td>{{$dn['_source']['dia_chi']}}</td>
-						<td>{{$dn['_source']['tinh_thanh_pho']}}</td>
-						<td>{{$dn['_source']['xep_hang_trinh_do_khcn']}}</td>
+						<td><img src="{{ URL::asset($dn->_source->logo ) }}" alt="logo" class="logo_doanh_nghiep"></td>
+						<td><a href="{{ URL::asset('doanh-nghiep/'.$dn->_source->link ) }}" class="ten_doanh_nghiep">{{$dn->_source->ten_doanh_nghiep }}</a></td>
+						<td>{{$dn->_source->linh_vuc }}</td>
+						<td>{{$dn->_source->dia_chi }}</td>
+						<td>{{$dn->_source->tinh_thanh_pho }}</td>
+						<td>{{$dn->_source->xep_hang_trinh_do_khcn }}</td>
 					</tr>
 				@endforeach
     @endif

@@ -828,6 +828,7 @@ class SearchController extends Controller
 
                         return view('search_result.doanh_nghiep')
                         ->with([
+                            'data_mysql'=>true,
                             'linh_vuc'=>$lv,
                             'tinh_thanh'=>$tinh_thanh,
                             'datas'=>$result,
@@ -921,7 +922,7 @@ class SearchController extends Controller
              
         }
         //convert object to arr
-        $result = json_decode(json_encode($result), true);
+        //$result = json_decode(json_encode($result), true);
        
         
         //////////////////////////////////////////////////////////////////////////////////
@@ -930,6 +931,7 @@ class SearchController extends Controller
         //dd($result);
 		return view('search_result.doanh_nghiep')
 		->with([
+            'data_mysql'=>false,
 			'linh_vuc'=>$lv,
 			'tinh_thanh'=>$tinh_thanh,
 			'datas'=>$result,

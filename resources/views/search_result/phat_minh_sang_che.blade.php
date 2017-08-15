@@ -83,49 +83,49 @@
 				<th class="date">Ngày công bố</th>
 			</thead>
 			<tbody>
-@if($datas[0]['_source']['id'] != null)
+@if($data_mysql == false)
     @if($tim_theo == 1)
 				@foreach($datas as $key=>$pm)
 					<tr>
 						<td>{!! ($datas->currentPage() - 1)*10 + $key +1 !!}</td>
-						<td><a href="{{ URL::asset('phat-minh/'.$pm['_source']['link']) }}" class="ten_bang_phat_minh">{!!$pm['highlight']['ten'][0]!!}</a></td>
-						<td>{{$pm['_source']['linh_vuc_khcn']}}</td>
-						<td>{{$pm['_source']['sobang_kyhieu']}}</td>
-						<td>{{$pm['_source']['tac_gia']}}</td>
-						<td>{{$pm['_source']['ngay_cong_bo']}}</td>
+						<td><a href="{{ URL::asset('phat-minh/'.$pm->_source->link ) }}" class="ten_bang_phat_minh">{!!$pm->highlight->ten[0]!!}</a></td>
+						<td>{{$pm->_source->linh_vuc_khcn }}</td>
+						<td>{{$pm->_source->sobang_kyhieu }}</td>
+						<td>{{$pm->_source->tac_gia }}</td>
+						<td>{{$pm->_source->ngay_cong_bo }}</td>
 					</tr>
 				@endforeach
     @elseif($tim_theo == 2)
                 @foreach($datas as $key=>$pm)
 					<tr>
 						<td>{!! ($datas->currentPage() - 1)*10 + $key +1 !!}</td>
-						<td><a href="{{ URL::asset('phat-minh/'.$pm['_source']['link']) }}" class="ten_bang_phat_minh">{{$pm['_source']['ten']}}</a></td>
-						<td>{{$pm['_source']['linh_vuc_khcn']}}</td>
-						<td>{{$pm['_source']['sobang_kyhieu']}}</td>
-						<td>{{$pm['_source']['tac_gia']}}</td>
-						<td>{{$pm['_source']['ngay_cong_bo']}}</td>
+						<td><a href="{{ URL::asset('phat-minh/'.$pm->_source->link ) }}" class="ten_bang_phat_minh">{{$pm->_source->ten }}</a></td>
+						<td>{{$pm->_source->linh_vuc_khcn }}</td>
+						<td>{{$pm->_source->sobang_kyhieu }}</td>
+						<td>{{$pm->_source->tac_gia }}</td>
+						<td>{{$pm->_source->ngay_cong_bo }}</td>
 					</tr>
 				@endforeach
     @elseif($tim_theo == 3)
                 @foreach($datas as $key=>$pm)
 					<tr>
 						<td>{!! ($datas->currentPage() - 1)*10 + $key +1 !!}</td>
-						<td><a href="{{ URL::asset('phat-minh/'.$pm['_source']['link']) }}" class="ten_bang_phat_minh">{{$pm['_source']['ten']}}</a></td>
-						<td>{{$pm['_source']['linh_vuc_khcn']}}</td>
-						<td>{{$pm['_source']['sobang_kyhieu']}}</td>
-						<td>{!!$pm['highlight']['tac_gia'][0]!!}</td>
-						<td>{{$pm['_source']['ngay_cong_bo']}}</td>
+						<td><a href="{{ URL::asset('phat-minh/'.$pm->_source->link ) }}" class="ten_bang_phat_minh">{{$pm->_source->ten }}</a></td>
+						<td>{{$pm->_source->linh_vuc_khcn }}</td>
+						<td>{{$pm->_source->sobang_kyhieu }}</td>
+						<td>{!!$pm->highlight->tac_gia[0]!!}</td>
+						<td>{{$pm->_source->ngay_cong_bo }}</td>
 					</tr>
 				@endforeach
     @else
                 @foreach($datas as $key=>$pm)
 					<tr>
 						<td>{!! ($datas->currentPage() - 1)*10 + $key +1 !!}</td>
-						<td><a href="{{ URL::asset('phat-minh/'.$pm['_source']['link']) }}" class="ten_bang_phat_minh">{{$pm['_source']['ten']}}</a></td>
-						<td>{{$pm['_source']['linh_vuc_khcn']}}</td>
-						<td>{{$pm['_source']['sobang_kyhieu']}}</td>
-						<td>{{$pm['_source']['tac_gia']}}</td>
-						<td>{{$pm['_source']['ngay_cong_bo']}}</td>
+						<td><a href="{{ URL::asset('phat-minh/'.$pm->_source->link ) }}" class="ten_bang_phat_minh">{{$pm->_source->ten }}</a></td>
+						<td>{{$pm->_source->linh_vuc_khcn }}</td>
+						<td>{{$pm->_source->sobang_kyhieu }}</td>
+						<td>{{$pm->_source->tac_gia }}</td>
+						<td>{{$pm->_source->ngay_cong_bo }}</td>
 					</tr>
 				@endforeach
     @endif

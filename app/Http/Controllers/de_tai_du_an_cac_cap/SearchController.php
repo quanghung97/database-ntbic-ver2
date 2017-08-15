@@ -450,6 +450,7 @@ class SearchController extends Controller
 
                 return view('search_result.de_tai_du_an_cac_cap')
                 ->with([
+                    'data_mysql'=>true,
                     'datas' => $result,
                     'chuyen_nganh_khcn'=>$cn_khcn,
                     'tim_theo' => $tim_theo,
@@ -488,10 +489,12 @@ class SearchController extends Controller
         
         $result = $results['hits']['hits'];
         //dd($results);
+        $result = json_decode(json_encode($result), FALSE);
         $result = $this->paginate_customer($result,10);
 
         return view('search_result.de_tai_du_an_cac_cap')
 		->with([
+            'data_mysql'=>false,
 			'datas' => $result,
 			'chuyen_nganh_khcn'=>$cn_khcn,
 			'tim_theo' => $tim_theo,

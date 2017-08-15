@@ -679,6 +679,7 @@ class SearchController extends Controller
                 
                     return view('search_result.phat_minh_sang_che')
                             ->with([
+                                 'data_mysql'=>true,
                                 'linh_vuc'=>$linh_vuc,
                                 'loai_phat_minh'=>$loai_phat_minh,
                                 'datas'=>$result,
@@ -725,11 +726,12 @@ class SearchController extends Controller
              
         }
         //convert object to arr
-        $result = json_decode(json_encode($result), true);
+        //$result = json_decode(json_encode($result), true);
         ///////////////////////////////////////////////////////////////
          $result = $this->paginate_customer($result,10);
 		return view('search_result.phat_minh_sang_che')
 		->with([
+            'data_mysql'=>false,
 			'linh_vuc'=>$linh_vuc,
 			'loai_phat_minh'=>$loai_phat_minh,
 			'datas'=>$result,
